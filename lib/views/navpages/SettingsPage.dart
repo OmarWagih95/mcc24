@@ -1,3 +1,5 @@
+import 'package:androidstudiommc/routing/routes.dart';
+import 'package:androidstudiommc/views/selectLanguage.dart';
 import 'package:androidstudiommc/widgets/SettingsListItem.dart';
 import 'package:flutter/material.dart';
 class SettingsPage extends StatelessWidget {
@@ -16,11 +18,16 @@ class SettingsPage extends StatelessWidget {
         ),
         body: SingleChildScrollView(child: Column(
           children: [
-              SettingsListItem(Icons.autorenew, 'تغيير اللغة'),
-            SettingsListItem(Icons.email, 'راسلناا'),
-            SettingsListItem(Icons.share, 'مشاركة التطبيق'),
-            SettingsListItem(Icons.info, 'من نحن'),
-            SettingsListItem(Icons.person, 'تسجيل مستخدم'),
+              SettingsListItem(Icons.autorenew, 'تغيير اللغة',(){  Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => chooseLanguages(false),
+                  ));
+
+              }),
+            SettingsListItem(Icons.email, 'راسلناا',(){}),
+            SettingsListItem(Icons.share, 'مشاركة التطبيق',(){}),
+            SettingsListItem(Icons.info, 'من نحن',(){}),
+            SettingsListItem(Icons.person, 'تسجيل مستخدم',(){}),
           ],
         )),
       ),

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class chooseLanguages extends StatefulWidget {
-  chooseLanguages({super.key});
+  bool onBoard;
+  chooseLanguages(this.onBoard);
 
   @override
   State<chooseLanguages> createState() => _chooseLanguagesState();
@@ -15,6 +16,7 @@ class _chooseLanguagesState extends State<chooseLanguages> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.onBoard);
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: SafeArea(
@@ -41,7 +43,8 @@ class _chooseLanguagesState extends State<chooseLanguages> {
                       minimumSize: MaterialStateProperty.all(Size(180, 40))),
                   onPressed: () {
                     BlocProvider.of<LanguagesCubit>(context).changeLanguages(false);
-                    Navigator.pushNamed(context, '${Routes.onboargingScreen}');
+                  widget.onBoard?  Navigator.pushNamed(context, '${Routes.onboargingScreen}'):
+                  Navigator.pop(context);
                   },
                   child: const Text(
                     'العربية',
@@ -52,7 +55,8 @@ class _chooseLanguagesState extends State<chooseLanguages> {
                     onPressed: () {
                       BlocProvider.of<LanguagesCubit>(context)
                           .changeLanguages(true);
-                      Navigator.pushNamed(context, Routes.onboargingScreen);
+                      widget.onBoard?  Navigator.pushNamed(context, '${Routes.onboargingScreen}'):
+                      Navigator.pop(context);
                     },
                     style: ButtonStyle(
                         minimumSize: MaterialStateProperty.all(Size(180, 40)),

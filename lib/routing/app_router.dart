@@ -4,6 +4,7 @@ import 'package:androidstudiommc/views/Service_detail_screen.dart';
 import 'package:androidstudiommc/views/categories_screan.dart';
 import 'package:androidstudiommc/views/categories_services_screans.dart';
 import 'package:androidstudiommc/views/navpages/HomePage.dart';
+import 'package:androidstudiommc/views/navpages/SettingsPage.dart';
 import 'package:androidstudiommc/views/navpages/main_page.dart';
 import 'package:androidstudiommc/views/selectLanguage.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class Approuter {
     switch (settings.name) {
       case Routes.selectLanguagePage:
         return MaterialPageRoute(
-          builder: (_) => chooseLanguages(),
+          builder: (_) => chooseLanguages(true),
         );
       case Routes.onboargingScreen:
         return MaterialPageRoute(
@@ -34,6 +35,10 @@ class Approuter {
       case Routes.ServiceDetailScreen:
         return MaterialPageRoute(
           builder: (_) => ServiceDetailScreen(),
+        );
+        case Routes.settingsPage:
+        return MaterialPageRoute(
+          builder: (_) => SettingsPage(),
         );
       // case Routes.CategoryserviceScreen:
       //   return MaterialPageRoute(
