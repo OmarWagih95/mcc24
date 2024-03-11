@@ -1,29 +1,63 @@
 import 'package:androidstudiommc/constants/colors.dart';
+import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
+import 'package:androidstudiommc/cubits/SearchCupit.dart';
+import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
+import 'package:androidstudiommc/generated/l10n.dart';
 import 'package:androidstudiommc/model/category.dart';
+import 'package:androidstudiommc/model/dummyData.dart';
+import 'package:androidstudiommc/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '/cubits/visibilityCubit.dart';
-import '/model/dummyData.dart';
+
+class categoriesScreen extends StatelessWidget {
+  List<Category> DUMMY_CATEGORIES = [];
+  categoriesScreen({super.key});
+  @override
+  Widget build(context) {
+    return BlocBuilder<SearchCubit, searchState>(builder: (context, state) {
+      if (state is searchinitialState) {
+        DUMMY_CATEGORIES = state.filteredData;
+      }
+      return Container(
+          margin: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.all(0),
+          height: 500,
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 3 / 2,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8),
+            itemBuilder: (context, index) => categoryItem(
+                DUMMY_CATEGORIES[index].title,
+                DUMMY_CATEGORIES[index].color,
+                DUMMY_CATEGORIES[index].id,
+                DUMMY_CATEGORIES[index].Logoimg!),
+            itemCount: DUMMY_CATEGORIES.length,
+          ));
+    });
+  }
+}
 
 class searchbar extends StatelessWidget {
-  void Function(String)? onChanged;
   final TextEditingController search_controller;
-  void Function(String)? onchanged;
 
   searchbar({
     super.key,
     required this.search_controller,
-    this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
+    List<Category> DUMMY_CATEGORIES;
+    DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: TextField(
-        onChanged: (value) => onChanged!(value),
+        onChanged: (query) => BlocProvider.of<SearchCubit>(context)
+            .filterList(query, DUMMY_CATEGORIES),
         textDirection: TextDirection.rtl,
-        textAlign: TextAlign.end,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(24),
@@ -33,12 +67,13 @@ class searchbar extends StatelessWidget {
                 borderSide: BorderSide(color: ColorsManager.starColor)),
             border: OutlineInputBorder(
                 borderSide: BorderSide(color: ColorsManager.mainColor)),
-            suffixIcon: IconButton(onPressed: null, icon: Icon(Icons.search)),
-            hintText: " ابحث عن خدمة او منتج ",
+            suffixIcon:
+                const IconButton(onPressed: null, icon: Icon(Icons.search)),
+            hintText: S.of(context).Search_for_service_or_product,
             hintStyle: TextStyle(
               color: Colors.grey.withOpacity(1),
             )),
-        style: TextStyle(),
+        style: const TextStyle(),
         controller: search_controller,
       ),
     );
@@ -62,9 +97,16 @@ class _leftappbarState extends State<leftappbar> {
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
-            icon: Icon(Icons.menu)),
-        IconButton(onPressed: null, icon: Icon(Icons.notifications)),
-        IconButton(onPressed: null, icon: Icon(Icons.search))
+            icon: const Icon(Icons.menu)),
+        IconButton(
+            onPressed: () =>
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(
+                  "ابو عطاااااا",
+                  style: TextStyle(fontSize: 32),
+                ))),
+            icon: Icon(Icons.notifications)),
+        const IconButton(onPressed: null, icon: Icon(Icons.search))
       ]),
     );
   }
@@ -80,8 +122,9 @@ class messageText extends StatelessWidget {
     return Visibility(
       visible: isVisible,
       child: Container(
-        margin: EdgeInsets.only(left: 12),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
+        decoration: const BoxDecoration(
             color: Color.fromARGB(255, 223, 223, 237),
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(24),
@@ -90,15 +133,15 @@ class messageText extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Text(
+              S.of(context).Text_us_for_any_help_or_question,
+              style: const TextStyle(),
+            ),
             IconButton(
                 onPressed: () {
                   BlocProvider.of<VisibilityCubit>(context).toggleVisibility();
                 },
-                icon: Icon(Icons.cancel)),
-            Text(
-              ' دردش معنا مباشرة لأي مساعدة او استفسار  ',
-              style: TextStyle(),
-            ),
+                icon: const Icon(Icons.cancel))
           ],
         ),
       ),
@@ -115,7 +158,7 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
@@ -128,15 +171,16 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home, color: Colors.white),
-            title: Text('Home', style: TextStyle(color: Colors.white)),
+            leading: const Icon(Icons.home, color: Colors.white),
+            title: const Text('Home', style: TextStyle(color: Colors.white)),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings, color: Colors.white),
-            title: Text('Settings', style: TextStyle(color: Colors.white)),
+            leading: const Icon(Icons.settings, color: Colors.white),
+            title:
+                const Text('Settings', style: TextStyle(color: Colors.white)),
             onTap: () {
               Navigator.pop(context);
             },
