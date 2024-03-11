@@ -30,8 +30,8 @@ class _mainpageState extends State<mainpage> {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.shifting,
-            selectedItemColor: AppColors.mainColor,
-            unselectedItemColor: AppColors.mainColor.withOpacity(.3),
+            selectedItemColor: ColorsManager.mainColor,
+            unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
             currentIndex: Currindx,
             onTap: (e) => ontap(e),
             items: [

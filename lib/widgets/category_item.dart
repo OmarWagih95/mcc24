@@ -32,7 +32,7 @@ class categoryItem extends StatelessWidget {
       child: Container(
         foregroundDecoration: BoxDecoration(),
         padding: EdgeInsets.all(
-            4), ////need to changed with better code for text size
+            2), ////need to changed with better code for text size
         decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [color.withOpacity(0.7), color],
@@ -40,7 +40,7 @@ class categoryItem extends StatelessWidget {
                 end: Alignment.bottomRight),
             borderRadius: BorderRadius.circular(15)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Image.asset(
               Logoimg,

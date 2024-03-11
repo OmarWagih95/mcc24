@@ -27,12 +27,12 @@ class searchbar extends StatelessWidget {
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(24),
-                borderSide: BorderSide(color: AppColors.mainColor)),
+                borderSide: BorderSide(color: ColorsManager.mainColor)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(24),
-                borderSide: BorderSide(color: AppColors.starColor)),
+                borderSide: BorderSide(color: ColorsManager.starColor)),
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.mainColor)),
+                borderSide: BorderSide(color: ColorsManager.mainColor)),
             suffixIcon: IconButton(onPressed: null, icon: Icon(Icons.search)),
             hintText: " ابحث عن خدمة او منتج ",
             hintStyle: TextStyle(
