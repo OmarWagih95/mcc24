@@ -6,7 +6,6 @@ import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
 import 'package:androidstudiommc/generated/l10n.dart';
 import 'package:androidstudiommc/model/category.dart';
 import 'package:androidstudiommc/model/dummyData.dart';
-import 'package:androidstudiommc/views/categories_screan.dart';
 import 'package:flutter/material.dart';
 import '/cubits/visibilityCubit.dart';
 import '/widgets/homePageHelperWidgets.dart';
