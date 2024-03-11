@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:androidstudiommc/views/loginScreen.dart';
 import 'package:androidstudiommc/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
@@ -17,7 +18,7 @@ class mainpage extends StatefulWidget {
 class _mainpageState extends State<mainpage> {
   ////////
   int Currindx = 0;
-  List pages = [HomePage(), BarItempage(), SettingsPage(), Mypage()];
+  List pages = [HomePage(), LoginScreen(), SettingsPage(), Mypage()];
   void Function(int)? ontap(indx) {
     setState(() {
       Currindx = indx;

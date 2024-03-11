@@ -16,13 +16,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool checkboxvalue = false;
-  void Function(bool?)? checkbox(bool x) {
-    setState(() {
-      checkboxvalue = x;
-    });
-  }
-
   bool isSecured = true;
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
@@ -74,13 +67,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       verticalSpace(16),
                       Row(children: [
-                        Checkbox(
-                            value: checkboxvalue,
-                            onChanged: (bool? x) {
-                              setState(() {
-                                checkboxvalue = x!;
-                              });
-                            }),
                         Text(S.of(context).Remember_me,
                             style: Textstyles.font14darkgraymedium),
                         horizontallSpace(70),
