@@ -1,14 +1,16 @@
 // ignore: camel_case_types
+import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
 import 'package:androidstudiommc/model/category.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '/widgets/category_item.dart';
 import '/model/dummyData.dart';
 
 class categoriesScreen extends StatelessWidget {
   categoriesScreen({super.key});
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
+    List<Category> DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     return Container(
         margin: const EdgeInsets.only(top: 10),
         padding: const EdgeInsets.all(0),

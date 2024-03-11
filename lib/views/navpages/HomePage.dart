@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names
 
+import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
+import 'package:androidstudiommc/cubits/SearchCupit.dart';
+import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
 import 'package:androidstudiommc/generated/l10n.dart';
 import 'package:androidstudiommc/model/category.dart';
 import 'package:androidstudiommc/model/dummyData.dart';
@@ -19,41 +22,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
-  List<Category> filteredData = [];
-  @override
-  void initState() {
-    filteredData.addAll(DUMMY_CATEGORIES);
-    super.initState();
-  }
-
-  void filterSearchResults(String query) {
-    List<Category> dummySearchList = [];
-    dummySearchList.addAll(DUMMY_CATEGORIES);
-    if (query.isNotEmpty) {
-      List<Category> dummyListData = [];
-      dummySearchList.forEach((item) {
-        if (item.title.toLowerCase().contains(query.toLowerCase())) {
-          dummyListData.add(item);
-        }
-      });
-      setState(() {
-        filteredData.clear();
-        filteredData.addAll(DUMMY_CATEGORIES);
-      });
-      return;
-    } else {
-      setState(() {
-        filteredData.clear();
-        filteredData.addAll(DUMMY_CATEGORIES);
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => VisibilityCubit(),
+    SearchCubitDUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LanguagesCubit>(
+          create: (BuildContext context) => LanguagesCubit(),
+        ),
+        BlocProvider<SearchCubit>(create: (BuildContext context) {
+          return SearchCubit(SearchCubitDUMMY_CATEGORIES);
+        }),
+        BlocProvider<VisibilityCubit>(
+          create: (BuildContext context) => VisibilityCubit(),
+        ),
+      ],
       child: Scaffold(
           drawer: Drawer(child: CustomDrawer()),
           body: SingleChildScrollView(
@@ -78,12 +64,17 @@ class _HomePageState extends State<HomePage> {
                       isVisible: state.isVisible,
                     );
                   }),
-                  searchbar(
-                    onChanged: filterSearchResults,
-                    search_controller: search_controller,
-                  ),
+                  BlocBuilder<SearchCubit, searchState>(
+                      builder: (context, state) {
+                    return searchbar(
+                      search_controller: search_controller,
+                    );
+                  }),
                   Align(
-                    alignment: Alignment.centerRight,
+                    alignment:
+                        BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
                     child: Text(
                       S.of(context).choose_maintenance_service,
                       style:
@@ -91,7 +82,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Align(
-                      alignment: Alignment.centerRight,
+                      alignment:
+                          BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
+                              ? Alignment.centerRight
+                              : Alignment.centerLeft,
                       child: Text(S
                           .of(context)
                           .then_get_best_prices_from_our_suppliers)),
