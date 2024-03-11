@@ -9,4 +9,5 @@ class Routes {
   static const String categoriesScreen = 'categoriesScreen';
   static const String CategoryserviceScreen = 'CategoryserviceScreen';
   static const String settingsPage = 'settingsPage';
+  static const String LoginScreen = 'LoginScreen';
 }
