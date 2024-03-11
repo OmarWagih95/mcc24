@@ -30,21 +30,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("continue"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("Describe your request"),
+        "Forgot_Password":
+            MessageLookupByLibrary.simpleMessage(" Forgot Password ?"),
         "General_contracting":
             MessageLookupByLibrary.simpleMessage("General contracting"),
         "General_interior_design_and_finishes":
             MessageLookupByLibrary.simpleMessage(
-                "General interior design and finishes"),
+                "General interior design \nand finishes"),
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage(
                 "General maintenance and renovation"),
+        "Login": MessageLookupByLibrary.simpleMessage("Login"),
+        "Remember_me": MessageLookupByLibrary.simpleMessage("Remember me"),
+        "Search_for_service_or_product": MessageLookupByLibrary.simpleMessage(
+            "Search for service or product"),
         "Select_the_best_offer_for_you": MessageLookupByLibrary.simpleMessage(
             "Select the best offer for you"),
+        "Text_us_for_any_help_or_question":
+            MessageLookupByLibrary.simpleMessage(
+                "Text us for any help or question"),
+        "We_are_excited_to_have_you_back": MessageLookupByLibrary.simpleMessage(
+            "We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in"),
+        "Welcome_Back": MessageLookupByLibrary.simpleMessage("Welcome Back"),
         "choose_maintenance_service":
             MessageLookupByLibrary.simpleMessage("choose maintenance service"),
+        "email": MessageLookupByLibrary.simpleMessage("email"),
+        "password": MessageLookupByLibrary.simpleMessage("password "),
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "then get best prices from our suppliers")
+                "then get best prices \nfrom our suppliers")
       };
 }

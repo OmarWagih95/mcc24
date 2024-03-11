@@ -110,6 +110,26 @@ class S {
     );
   }
 
+  /// `Search for service or product`
+  String get Search_for_service_or_product {
+    return Intl.message(
+      'Search for service or product',
+      name: 'Search_for_service_or_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Text us for any help or question`
+  String get Text_us_for_any_help_or_question {
+    return Intl.message(
+      'Text us for any help or question',
+      name: 'Text_us_for_any_help_or_question',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `General contracting`
   String get General_contracting {
     return Intl.message(
@@ -120,10 +140,10 @@ class S {
     );
   }
 
-  /// `General interior design and finishes`
+  /// `General interior design \nand finishes`
   String get General_interior_design_and_finishes {
     return Intl.message(
-      'General interior design and finishes',
+      'General interior design \nand finishes',
       name: 'General_interior_design_and_finishes',
       desc: '',
       args: [],
@@ -150,11 +170,81 @@ class S {
     );
   }
 
-  /// `then get best prices from our suppliers`
+  /// `then get best prices \nfrom our suppliers`
   String get then_get_best_prices_from_our_suppliers {
     return Intl.message(
-      'then get best prices from our suppliers',
+      'then get best prices \nfrom our suppliers',
       name: 'then_get_best_prices_from_our_suppliers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome Back`
+  String get Welcome_Back {
+    return Intl.message(
+      'Welcome Back',
+      name: 'Welcome_Back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We're excited to have you back, can't wait \nto see what you've been up to since you last \nlogged in`
+  String get We_are_excited_to_have_you_back {
+    return Intl.message(
+      'We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in',
+      name: 'We_are_excited_to_have_you_back',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `email`
+  String get email {
+    return Intl.message(
+      'email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `password `
+  String get password {
+    return Intl.message(
+      'password ',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember me`
+  String get Remember_me {
+    return Intl.message(
+      'Remember me',
+      name: 'Remember_me',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Forgot Password ?`
+  String get Forgot_Password {
+    return Intl.message(
+      ' Forgot Password ?',
+      name: 'Forgot_Password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get Login {
+    return Intl.message(
+      'Login',
+      name: 'Login',
       desc: '',
       args: [],
     );
