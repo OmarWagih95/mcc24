@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:androidstudiommc/views/loginScreen.dart';
-import 'package:androidstudiommc/views/navpages/SettingsPage.dart';
+import 'package:MCC/views/loginScreen.dart';
+import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '/views/navpages/BarItemPage.dart';

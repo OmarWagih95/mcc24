@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors, camel_case_types, unnecessary_import, prefer_const_constructors_in_immutables
 
-import 'package:androidstudiommc/views/Service_detail_screen.dart';
+import 'package:MCC/views/Service_detail_screen.dart';
 import '/views/Service_detail_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
-import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
-import 'package:androidstudiommc/model/category.dart';
+import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/model/category.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchCubit extends Cubit<searchState> {

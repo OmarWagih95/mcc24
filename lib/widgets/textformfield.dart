@@ -1,5 +1,5 @@
-import 'package:androidstudiommc/constants/colors.dart';
-import 'package:androidstudiommc/styles/Styles.dart';
+import 'package:MCC/constants/colors.dart';
+import 'package:MCC/styles/Styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,5 +1,5 @@
-import 'package:androidstudiommc/generated/l10n.dart';
-import 'package:androidstudiommc/model/category.dart';
+import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/model/category.dart';
 import 'package:flutter/material.dart';
 import 'Services.dart';
 

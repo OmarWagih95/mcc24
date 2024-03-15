@@ -1,6 +1,6 @@
-import 'package:androidstudiommc/routing/routes.dart';
-import 'package:androidstudiommc/views/selectLanguage.dart';
-import 'package:androidstudiommc/widgets/SettingsListItem.dart';
+import 'package:MCC/routing/routes.dart';
+import 'package:MCC/views/selectLanguage.dart';
+import 'package:MCC/widgets/SettingsListItem.dart';
 import 'package:flutter/material.dart';
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});

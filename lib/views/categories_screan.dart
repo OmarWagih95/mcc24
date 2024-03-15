@@ -1,6 +1,6 @@
 // ignore: camel_case_types
-import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
-import 'package:androidstudiommc/model/category.dart';
+import 'package:MCC/cubits/LanguagesCupit.dart';
+import 'package:MCC/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '/widgets/category_item.dart';

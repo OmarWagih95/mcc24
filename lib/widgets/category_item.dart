@@ -1,4 +1,4 @@
-import 'package:androidstudiommc/views/categories_services_screans.dart';
+import 'package:MCC/views/categories_services_screans.dart';
 import 'package:flutter/material.dart';
 
 class categoryItem extends StatelessWidget {

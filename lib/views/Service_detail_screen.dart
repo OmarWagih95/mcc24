@@ -1,5 +1,5 @@
-import 'package:androidstudiommc/model/Services.dart';
-import 'package:androidstudiommc/model/dummyData.dart';
+import 'package:MCC/model/Services.dart';
+import 'package:MCC/model/dummyData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubits/LanguagesCupit.dart';
