@@ -1,17 +1,8 @@
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
-  image_path: "img/mmcassits/kayaking.png"
+  image_path: "img/mmcassits/logo.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
-  web:
-    generate: false
-    image_path: "path/to/image.png"
-    background_color: "#hexcode"
-    theme_color: "#hexcode"
-  windows:
-    generate: false
-    image_path: "path/to/image.png"
-    icon_size: 48 # min:48, max:256, default: 48
-  macos:
-    generate: false
-    image_path: "path/to/image.png"
+  adaptive_icon_foreground: "img/adaptiveIconForeground.png"
+  adaptive_icon_background: "#ffffff"
+  
