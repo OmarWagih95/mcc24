@@ -1,10 +1,14 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names
 
+import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
+import 'package:androidstudiommc/cubits/SearchCupit.dart';
+import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
+import 'package:androidstudiommc/cubits/home_page_cubit.dart';
 import 'package:androidstudiommc/generated/l10n.dart';
 import 'package:androidstudiommc/model/category.dart';
 import 'package:androidstudiommc/model/dummyData.dart';
-import 'package:androidstudiommc/views/categories_screan.dart';
 import 'package:flutter/material.dart';
+import '../categories_screan.dart';
 import '/cubits/visibilityCubit.dart';
 import '/widgets/homePageHelperWidgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,85 +23,103 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final search_controller = TextEditingController();
-  List<Category> filteredData = [];
-  @override
-  void initState() {
-    filteredData.addAll(DUMMY_CATEGORIES);
-    super.initState();
-  }
 
-  void filterSearchResults(String query) {
-    List<Category> dummySearchList = [];
-    dummySearchList.addAll(DUMMY_CATEGORIES);
-    if (query.isNotEmpty) {
-      List<Category> dummyListData = [];
-      dummySearchList.forEach((item) {
-        if (item.title.toLowerCase().contains(query.toLowerCase())) {
-          dummyListData.add(item);
-        }
-      });
-      setState(() {
-        filteredData.clear();
-        filteredData.addAll(DUMMY_CATEGORIES);
-      });
-      return;
-    } else {
-      setState(() {
-        filteredData.clear();
-        filteredData.addAll(DUMMY_CATEGORIES);
-      });
-    }
-  }
+  var SearchCubitDUMMY_CATEGORIES;
+  final search_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => VisibilityCubit(),
+    //TODO hna mwdo3 lsearch
+    SearchCubitDUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
+    // SearchCubitDUMMY_CATEGORIES = context.read<HomePageCubit>().categoryDataList;
+
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LanguagesCubit>(
+          create: (BuildContext context) => LanguagesCubit(),
+        ),
+        BlocProvider<SearchCubit>(create: (BuildContext context) {
+          return SearchCubit(SearchCubitDUMMY_CATEGORIES);
+        }),
+        BlocProvider<VisibilityCubit>(
+          create: (BuildContext context) => VisibilityCubit(),
+
+        ),
+      ],
       child: Scaffold(
+
           drawer: Drawer(child: CustomDrawer()),
           body: SingleChildScrollView(
               child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      leftappbar(),
-                      Text(
-                        'MCC',
-                        style: TextStyle(fontSize: 24),
-                      )
-                    ],
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [BoxShadow(color: Colors.black54,blurRadius: 3,blurStyle: BlurStyle.outer,)]
                   ),
-                  BlocBuilder<VisibilityCubit, VisibilityState>(
-                      builder: (context, state) {
-                    return messageText(
-                      isVisible: state.isVisible,
-                    );
-                  }),
-                  searchbar(
-                    onChanged: filterSearchResults,
-                    search_controller: search_controller,
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      S.of(context).choose_maintenance_service,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 6),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        leftappbar(),
+                        Text(
+                          'MCC',
+                          style: TextStyle(fontSize: 24),
+                        )
+                      ],
                     ),
                   ),
-                  Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(S
-                          .of(context)
-                          .then_get_best_prices_from_our_suppliers)),
-                  categoriesScreen()
-                ],
-              ),
+                ),
+                Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10)
+                ,child: Column(
+                  children: [
+                    // BlocBuilder<VisibilityCubit, VisibilityState>(
+                    //   builder: (context, state) {
+                    //     return messageText(
+                    //       isVisible: state.isVisible,
+                    //     );
+                    //   }),
+                    BlocBuilder<SearchCubit, searchState>(
+                        builder: (context, state) {
+                          return searchbar(
+                            search_controller: search_controller,
+                          );
+                        }),
+                    Align(
+                      alignment:
+                      BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
+                      child: Text(
+                        S.of(context).choose_maintenance_service,
+                        style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                    Align(
+                        alignment:
+                        BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        child: Text(S
+                            .of(context)
+                            .then_get_best_prices_from_our_suppliers)),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        BlocProvider(
+                          create: (context) => HomePageCubit(),
+                          child: categoriesScreen(),
+                        ),
+                      ],
+                    )],
+                ),)
+
+              ],
             ),
           ))),
     );

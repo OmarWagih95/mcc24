@@ -5,9 +5,18 @@
   "Select_the_best_offer_for_you": "Select the best offer for you",
   "Complete_the_service_and_rate_the_service_provider": "Complete the service and raten\n the service provider",
   "Continue": "continue",
+  "Search_for_service_or_product": "Search for service or product",
+  "Text_us_for_any_help_or_question": "Text us for any help or question",
   "General_contracting": "General contracting",
-  "General_interior_design_and_finishes": "General interior design and finishes",
+  "General_interior_design_and_finishes": "General interior design \nand finishes",
   "General_maintenance_and_renovation": "General maintenance and renovation",
   "choose_maintenance_service": "choose maintenance service",
-  "then_get_best_prices_from_our_suppliers": "then get best prices from our suppliers"
+  "then_get_best_prices_from_our_suppliers": "then get best prices \nfrom our suppliers",
+  "Welcome_Back": "Welcome Back",
+  "We_are_excited_to_have_you_back": "We're excited to have you back, can't wait \nto see what you've been up to since you last \nlogged in",
+  "email": "email",
+  "password": "password ",
+  "Remember_me": "Remember me",
+  "Forgot_Password": " Forgot Password ?",
+  "Login": "Login"
 }

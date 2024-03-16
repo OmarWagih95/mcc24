@@ -43,6 +43,14 @@ dependencies:
   http: ^1.1.0
   flutter_native_splash: ^2.3.7
   firebase_core: ^2.27.0
+  flutter_screenutil: ^5.9.0
+  firebase_storage: ^11.6.9
+  cloud_firestore: ^4.15.8
+  firebase_auth: ^4.17.8
+  google_fonts: ^6.2.0
+  flutter_spinkit: ^5.2.0
+  fluttertoast: ^8.2.4
+
 
 dev_dependencies:
   flutter_test:

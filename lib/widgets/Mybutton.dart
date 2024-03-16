@@ -23,7 +23,7 @@ class Mybutton extends StatelessWidget {
           width: (!extended) ? 80 : 250,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            color: AppColors.mainColor,
+            color: ColorsManager.mainColor,
           ),
           child: Padding(
               padding: EdgeInsets.all(0),

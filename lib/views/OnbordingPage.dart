@@ -106,7 +106,7 @@ class _welcomState extends State<onboardingPage> {
                                     style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStatePropertyAll(
-                                                AppColors.mainColor)),
+                                                ColorsManager.mainColor)),
                                     onPressed: () {
                                       Navigator.pushNamed(
                                           context, '${Routes.mainPage}');

@@ -1,8 +1,11 @@
 import 'package:androidstudiommc/model/Services.dart';
 import 'package:androidstudiommc/model/dummyData.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../cubits/LanguagesCupit.dart';
 
 class ServiceDetailScreen extends StatelessWidget {
+  var DUMMY_CATEGORIES = [];
   static const routeName = '/meal-detail';
   Widget MyContainer(child) {
     return Container(
@@ -30,6 +33,7 @@ class ServiceDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     final routeArgs =
         ModalRoute.of(context)!.settings.arguments as Map<String, String>;
     final String MealId = routeArgs['id'] ?? '';

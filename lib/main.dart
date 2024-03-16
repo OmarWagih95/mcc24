@@ -7,15 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'firebase_options.dart';
 
-void main() async{
-    WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(BlocProvider(
     create: (context) => LanguagesCubit(),
@@ -33,23 +34,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LanguagesCubit, LanguagesState>(
         builder: (context, state) {
-      return MaterialApp(
-        locale: Locale(BlocProvider.of<LanguagesCubit>(context).lan),
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: S.delegate.supportedLocales,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-                iconTheme: IconThemeData(color: Colors.black),
-                elevation: 0,
-                backgroundColor: Colors.white)),
-        initialRoute: Routes.selectLanguagePage,
-        onGenerateRoute: approuter.generateRoute,
+      return ScreenUtilInit(
+        designSize: const Size(375, 812), // used for
+        minTextAdapt: true, // used for
+        child: MaterialApp(
+          locale: Locale(BlocProvider.of<LanguagesCubit>(context).lan),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+                  iconTheme: IconThemeData(color: Colors.black),
+                  elevation: 0,
+                  backgroundColor: Colors.white)),
+          initialRoute: Routes.selectLanguagePage,
+          onGenerateRoute: approuter.generateRoute,
+        ),
       );
     });
   }

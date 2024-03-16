@@ -17,12 +17,14 @@ class _chooseLanguagesState extends State<chooseLanguages> {
   @override
   Widget build(BuildContext context) {
     print(widget.onBoard);
-    return Scaffold(
-      backgroundColor: Colors.grey[50],
-      body: SafeArea(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey[50],
+        body: Padding(
+          padding: const EdgeInsets.all(20),
           child: SizedBox(
-        height: 120,
-        child: Column(
+                    height: 150,
+                    child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -32,7 +34,7 @@ class _chooseLanguagesState extends State<chooseLanguages> {
             ),
             Text(
               ' choose language of the interface',
-              style: TextStyle(),
+              style: TextStyle(fontSize: 18),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,8 +71,10 @@ class _chooseLanguagesState extends State<chooseLanguages> {
               ],
             )
           ],
+                    ),
+                  ),
         ),
-      )),
+      ),
     );
   }
 }

@@ -20,8 +20,8 @@ class Dots extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: (Pageindex == index)
-                          ? AppColors.mainColor
-                          : AppColors.mainColor.withOpacity(0.3)),
+                          ? ColorsManager.mainColor
+                          : ColorsManager.mainColor.withOpacity(0.3)),
                 )))
       ],
     );

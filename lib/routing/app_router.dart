@@ -3,6 +3,7 @@ import 'package:androidstudiommc/views/OnbordingPage.dart';
 import 'package:androidstudiommc/views/Service_detail_screen.dart';
 import 'package:androidstudiommc/views/categories_screan.dart';
 import 'package:androidstudiommc/views/categories_services_screans.dart';
+import 'package:androidstudiommc/views/loginScreen.dart';
 import 'package:androidstudiommc/views/navpages/HomePage.dart';
 import 'package:androidstudiommc/views/navpages/SettingsPage.dart';
 import 'package:androidstudiommc/views/navpages/main_page.dart';
@@ -36,9 +37,13 @@ class Approuter {
         return MaterialPageRoute(
           builder: (_) => ServiceDetailScreen(),
         );
-        case Routes.settingsPage:
+      case Routes.settingsPage:
         return MaterialPageRoute(
           builder: (_) => SettingsPage(),
+        );
+      case Routes.LoginScreen:
+        return MaterialPageRoute(
+          builder: (_) => LoginScreen(),
         );
       // case Routes.CategoryserviceScreen:
       //   return MaterialPageRoute(

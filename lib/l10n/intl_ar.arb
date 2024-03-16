@@ -5,9 +5,18 @@
   "Select_the_best_offer_for_you": "اختر العرض الأفضل بالنسبة لك",
   "Complete_the_service_and_rate_the_service_provider": "انهي الخدمة وقيم مزود الخدمة",
   "Continue": "استمرار",
+  "Search_for_service_or_product": "ابحث عن خدمة او منتج",
+  "Text_us_for_any_help_or_question": "دردش معنا مباشرة لأي مساعدة او استفسار",
   "General_contracting": "مقاولات عامة",
   "General_interior_design_and_finishes": "ديكورات وتشطيبات عامة",
   "General_maintenance_and_renovation": "صيانة عامة وتجديد",
   "choose_maintenance_service": "اختار خدمة الصيانة",
-  "then_get_best_prices_from_our_suppliers": "ثم احصل علي افضل عروض الأسعار من مزودينا"
+  "then_get_best_prices_from_our_suppliers": "ثم احصل علي افضل عروض الأسعار من مزودينا",
+  "Welcome_Back": "مرحبا بعودتك",
+  "We_are_excited_to_have_you_back": "متحمسين بعودتك لا يمكنا الانتظار لمعرفة اخر نشاطك منذ اخر تسجيل دخول لك",
+  "email": "الإيميل",
+  "password": "الباسورد ",
+  "Remember_me": " تذكرني",
+  "Forgot_Password": " هل نسيت الباسورد ؟",
+  "Login": "دخول"
 }
