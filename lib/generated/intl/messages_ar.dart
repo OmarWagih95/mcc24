@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
-        "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
+        "English": MessageLookupByLibrary.simpleMessage("English"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage(" هل نسيت الباسورد ؟"),
         "General_contracting":
@@ -42,18 +42,26 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ديكورات وتشطيبات عامة"),
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage("صيانة عامة وتجديد"),
+        "Language_Exchange":
+            MessageLookupByLibrary.simpleMessage(" تغيير اللغة"),
         "Login": MessageLookupByLibrary.simpleMessage("دخول"),
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),
         "Select_the_best_offer_for_you": MessageLookupByLibrary.simpleMessage(
             "اختر العرض الأفضل بالنسبة لك"),
+        "Settings": MessageLookupByLibrary.simpleMessage("الأعدادات"),
+        "Share_Application":
+            MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
+        "Sign_IN": MessageLookupByLibrary.simpleMessage("تسجيل المستخدم"),
+        "Text_Us": MessageLookupByLibrary.simpleMessage("راسلنا"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
                 "دردش معنا مباشرة لأي مساعدة او استفسار"),
         "We_are_excited_to_have_you_back": MessageLookupByLibrary.simpleMessage(
             "متحمسين بعودتك لا يمكنا الانتظار لمعرفة اخر نشاطك منذ اخر تسجيل دخول لك"),
         "Welcome_Back": MessageLookupByLibrary.simpleMessage("مرحبا بعودتك"),
+        "Who_Are": MessageLookupByLibrary.simpleMessage("من نحن"),
         "choose_maintenance_service":
             MessageLookupByLibrary.simpleMessage("اختار خدمة الصيانة"),
         "email": MessageLookupByLibrary.simpleMessage("الإيميل"),

@@ -16,7 +16,7 @@ class chooseLanguages extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey[50],
         body: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(20.sp),
           child: SizedBox(
             height: 150.h,
             child: Column(
@@ -25,7 +25,8 @@ class chooseLanguages extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).language,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
+                  style:
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 24.sp),
                 ),
                 Text(
                   S.of(context).Choose_Language_Of_The_Interface,
@@ -39,7 +40,7 @@ class chooseLanguages extends StatelessWidget {
                           backgroundColor:
                               MaterialStateProperty.all(Colors.white),
                           minimumSize:
-                              MaterialStateProperty.all(Size(180.w, 40.h))),
+                              MaterialStateProperty.all(Size(150.w, 40.h))),
                       onPressed: () {
                         BlocProvider.of<LanguagesCubit>(context)
                             .changeLanguages(false);
@@ -64,7 +65,7 @@ class chooseLanguages extends StatelessWidget {
                         },
                         style: ButtonStyle(
                             minimumSize:
-                                MaterialStateProperty.all(Size(180.w, 40.h)),
+                                MaterialStateProperty.all(Size(150.w, 40.h)),
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.white)),
                         child: Text(

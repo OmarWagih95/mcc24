@@ -280,6 +280,66 @@ class S {
     );
   }
 
+  /// `Settings`
+  String get Settings {
+    return Intl.message(
+      'Settings',
+      name: 'Settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language Exchange`
+  String get Language_Exchange {
+    return Intl.message(
+      'Language Exchange',
+      name: 'Language_Exchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Text Us`
+  String get Text_Us {
+    return Intl.message(
+      'Text Us',
+      name: 'Text_Us',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share Application`
+  String get Share_Application {
+    return Intl.message(
+      'Share Application',
+      name: 'Share_Application',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Who Are`
+  String get Who_Are {
+    return Intl.message(
+      'Who Are',
+      name: 'Who_Are',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get Sign_IN {
+    return Intl.message(
+      'Sign in',
+      name: 'Sign_IN',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `English`
   String get English {
     return Intl.message(

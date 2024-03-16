@@ -22,6 +22,11 @@
   "language": "Language",
   "Choose_Language_Of_The_Interface": "Choose Language Of The Interface",
   "Arabic": "Arabic",
+  "Settings": "Settings",
+  "Language_Exchange": "Language Exchange",
+  "Text_Us": "Text Us",
+  "Share_Application": "Share Application",
+  "Who_Are": "Who Are",
+  "Sign_IN": "Sign in",
   "English": "English"
-
-  }
+}

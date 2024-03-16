@@ -45,18 +45,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage(
                 "General maintenance and renovation"),
+        "Language_Exchange":
+            MessageLookupByLibrary.simpleMessage("Language Exchange"),
         "Login": MessageLookupByLibrary.simpleMessage("Login"),
         "Remember_me": MessageLookupByLibrary.simpleMessage("Remember me"),
         "Search_for_service_or_product": MessageLookupByLibrary.simpleMessage(
             "Search for service or product"),
         "Select_the_best_offer_for_you": MessageLookupByLibrary.simpleMessage(
             "Select the best offer for you"),
+        "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "Share_Application":
+            MessageLookupByLibrary.simpleMessage("Share Application"),
+        "Sign_IN": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "Text_Us": MessageLookupByLibrary.simpleMessage("Text Us"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
                 "Text us for any help or question"),
         "We_are_excited_to_have_you_back": MessageLookupByLibrary.simpleMessage(
             "We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in"),
         "Welcome_Back": MessageLookupByLibrary.simpleMessage("Welcome Back"),
+        "Who_Are": MessageLookupByLibrary.simpleMessage("Who Are"),
         "choose_maintenance_service":
             MessageLookupByLibrary.simpleMessage("choose maintenance service"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
