@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "Choose_Language_Of_The_Interface":
+            MessageLookupByLibrary.simpleMessage(
+                "Choose Language Of The Interface"),
         "Choose_your_service_easily":
             MessageLookupByLibrary.simpleMessage("Choose your service easily"),
         "Complete_the_service_and_rate_the_service_provider":
@@ -30,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("continue"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("Describe your request"),
+        "English": MessageLookupByLibrary.simpleMessage("English"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage(" Forgot Password ?"),
         "General_contracting":
@@ -55,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "choose_maintenance_service":
             MessageLookupByLibrary.simpleMessage("choose maintenance service"),
         "email": MessageLookupByLibrary.simpleMessage("email"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "password": MessageLookupByLibrary.simpleMessage("password "),
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "then_get_best_prices_from_our_suppliers":

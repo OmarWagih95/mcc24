@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "Choose_Language_Of_The_Interface":
+            MessageLookupByLibrary.simpleMessage("اختار لغة واجهة التطبيق "),
         "Choose_your_service_easily":
             MessageLookupByLibrary.simpleMessage("اختار الخدمة بسهولة"),
         "Complete_the_service_and_rate_the_service_provider":
@@ -30,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
+        "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage(" هل نسيت الباسورد ؟"),
         "General_contracting":
@@ -52,7 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Welcome_Back": MessageLookupByLibrary.simpleMessage("مرحبا بعودتك"),
         "choose_maintenance_service":
             MessageLookupByLibrary.simpleMessage("اختار خدمة الصيانة"),
-        "email": MessageLookupByLibrary.simpleMessage("الأيميل"),
+        "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "password": MessageLookupByLibrary.simpleMessage("الباسورد "),
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "then_get_best_prices_from_our_suppliers":
