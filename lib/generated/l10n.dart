@@ -170,10 +170,10 @@ class S {
     );
   }
 
-  /// `then get best prices \nfrom our suppliers`
+  /// `then get best prices from our suppliers`
   String get then_get_best_prices_from_our_suppliers {
     return Intl.message(
-      'then get best prices \nfrom our suppliers',
+      'then get best prices from our suppliers',
       name: 'then_get_best_prices_from_our_suppliers',
       desc: '',
       args: [],
