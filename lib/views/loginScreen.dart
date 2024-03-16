@@ -1,9 +1,9 @@
-import 'package:androidstudiommc/constants/colors.dart';
-import 'package:androidstudiommc/generated/l10n.dart';
-import 'package:androidstudiommc/helpers/spacing.dart';
-import 'package:androidstudiommc/routing/routes.dart';
-import 'package:androidstudiommc/styles/Styles.dart';
-import 'package:androidstudiommc/widgets/textformfield.dart';
+import 'package:MCC/constants/colors.dart';
+import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/helpers/spacing.dart';
+import 'package:MCC/routing/routes.dart';
+import 'package:MCC/styles/Styles.dart';
+import 'package:MCC/widgets/textformfield.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

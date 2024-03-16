@@ -1,13 +1,13 @@
-import 'package:androidstudiommc/routing/routes.dart';
-import 'package:androidstudiommc/views/OnbordingPage.dart';
-import 'package:androidstudiommc/views/Service_detail_screen.dart';
-import 'package:androidstudiommc/views/categories_screan.dart';
-import 'package:androidstudiommc/views/categories_services_screans.dart';
-import 'package:androidstudiommc/views/loginScreen.dart';
-import 'package:androidstudiommc/views/navpages/HomePage.dart';
-import 'package:androidstudiommc/views/navpages/SettingsPage.dart';
-import 'package:androidstudiommc/views/navpages/main_page.dart';
-import 'package:androidstudiommc/views/selectLanguage.dart';
+import 'package:MCC/routing/routes.dart';
+import 'package:MCC/views/OnbordingPage.dart';
+import 'package:MCC/views/Service_detail_screen.dart';
+import 'package:MCC/views/categories_screan.dart';
+import 'package:MCC/views/categories_services_screans.dart';
+import 'package:MCC/views/loginScreen.dart';
+import 'package:MCC/views/navpages/HomePage.dart';
+import 'package:MCC/views/navpages/SettingsPage.dart';
+import 'package:MCC/views/navpages/main_page.dart';
+import 'package:MCC/views/selectLanguage.dart';
 import 'package:flutter/material.dart';
 
 class Approuter {

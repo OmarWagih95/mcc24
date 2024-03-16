@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names
 
-import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
-import 'package:androidstudiommc/cubits/SearchCupit.dart';
-import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
-import 'package:androidstudiommc/cubits/home_page_cubit.dart';
-import 'package:androidstudiommc/generated/l10n.dart';
-import 'package:androidstudiommc/model/category.dart';
-import 'package:androidstudiommc/model/dummyData.dart';
+import 'package:MCC/cubits/LanguagesCupit.dart';
+import 'package:MCC/cubits/SearchCupit.dart';
+import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/model/category.dart';
+import 'package:MCC/model/dummyData.dart';
 import 'package:flutter/material.dart';
+import '../../cubits/home_page_cubit.dart';
 import '../categories_screan.dart';
 import '/cubits/visibilityCubit.dart';
 import '/widgets/homePageHelperWidgets.dart';

@@ -1,8 +1,8 @@
-import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
-import 'package:androidstudiommc/cubits/LanguagesCupitStates.dart';
-import 'package:androidstudiommc/generated/l10n.dart';
-import 'package:androidstudiommc/routing/app_router.dart';
-import 'package:androidstudiommc/routing/routes.dart';
+import 'package:MCC/cubits/LanguagesCupit.dart';
+import 'package:MCC/cubits/LanguagesCupitStates.dart';
+import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/routing/app_router.dart';
+import 'package:MCC/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

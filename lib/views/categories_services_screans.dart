@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:androidstudiommc/model/Services.dart';
-import 'package:androidstudiommc/widgets/Service_item.dart';
+import 'package:MCC/model/Services.dart';
+import 'package:MCC/widgets/Service_item.dart';
 import 'package:flutter/material.dart';
 
 class CategoryserviceScreen extends StatefulWidget {

@@ -1,11 +1,11 @@
 // ignore: camel_case_types
-import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
-import 'package:androidstudiommc/cubits/home_page_cubit.dart';
-import 'package:androidstudiommc/model/category.dart';
+
+import 'package:MCC/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../cubits/home_page_cubit.dart';
 import '/widgets/category_item.dart';
 import '/model/dummyData.dart';
 

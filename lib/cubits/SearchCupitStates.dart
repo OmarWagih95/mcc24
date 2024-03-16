@@ -1,6 +1,6 @@
 // ignore_for_file: camel_case_types
 
-import 'package:androidstudiommc/model/category.dart';
+import 'package:MCC/model/category.dart';
 
 abstract class searchState {}
 
