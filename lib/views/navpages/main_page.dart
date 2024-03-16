@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+
 import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../constants/colors.dart';
+import '../../cubits/home_page_cubit.dart';
 import '/views/navpages/BarItemPage.dart';
 import '/views/navpages/HomePage.dart';
 import '/views/navpages/Mypage.dart';
@@ -18,7 +21,10 @@ class mainpage extends StatefulWidget {
 class _mainpageState extends State<mainpage> {
   ////////
   int Currindx = 0;
-  List pages = [HomePage(), LoginScreen(), SettingsPage(), Mypage()];
+  List pages = [HomePage(), LoginScreen(), SettingsPage(), BlocProvider(
+  create: (context) => HomePageCubit(),
+  child: Mypage())];
+
   void Function(int)? ontap(indx) {
     setState(() {
       Currindx = indx;

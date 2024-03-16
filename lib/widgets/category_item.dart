@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class categoryItem extends StatelessWidget {
   final String id;
   final String title;
-  final String Logoimg;
+  final String logoImg;
   final Color color;
-  const categoryItem(this.title, this.color, this.id, this.Logoimg,
+  const categoryItem(this.title, this.color, this.id, this.logoImg,
       {super.key});
   void selectCategory(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
@@ -42,13 +42,16 @@ class categoryItem extends StatelessWidget {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.asset(
-              Logoimg,
+            Image.network(
+              logoImg,
               height: 80,
             ),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:12),
+              child: Text(
+                title,
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700,  ),
+              ),
             ),
           ],
         ),

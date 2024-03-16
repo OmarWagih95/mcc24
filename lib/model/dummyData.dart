@@ -9,37 +9,37 @@ List<Category> DUMMY_CATEGORIES_(BuildContext context) {
       id: '1',
       title: S.of(context).General_contracting,
       color: Color.fromARGB(255, 222, 206, 223),
-      Logoimg: "img/balloning.png",
+      LogoimgURL: "img/balloning.png",
     ),
     Category(
       id: '2',
       title: S.of(context).General_maintenance_and_renovation,
       color: Color.fromARGB(255, 232, 213, 211),
-      Logoimg: "img/hiking.png",
+      LogoimgURL: "img/hiking.png",
     ),
     Category(
       id: '3',
       title: S.of(context).General_interior_design_and_finishes,
       color: Color.fromARGB(255, 214, 207, 196),
-      Logoimg: "img/balloning.png",
+      LogoimgURL: "img/balloning.png",
     ),
     Category(
       id: '4',
       title: S.of(context).General_contracting,
       color: Color.fromARGB(255, 233, 207, 238),
-      Logoimg: "img/snorkling.png",
+      LogoimgURL: "img/snorkling.png",
     ),
     Category(
       id: '5',
       title: S.of(context).General_maintenance_and_renovation,
       color: Color.fromARGB(255, 212, 182, 179),
-      Logoimg: "img/hiking.png",
+      LogoimgURL: "img/hiking.png",
     ),
     Category(
       id: '6',
       title: S.of(context).General_interior_design_and_finishes,
       color: Color.fromARGB(255, 189, 186, 179),
-      Logoimg: "img/kayaking.png",
+      LogoimgURL: "img/kayaking.png",
     ),
   ];
 }
