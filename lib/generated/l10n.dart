@@ -349,6 +349,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Home`
+  String get Home {
+    return Intl.message(
+      'Home',
+      name: 'Home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Order`
+  String get My_Order {
+    return Intl.message(
+      'My Order',
+      name: 'My_Order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maintainance Packages`
+  String get Maintainance_Packages {
+    return Intl.message(
+      'Maintainance Packages',
+      name: 'Maintainance_Packages',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

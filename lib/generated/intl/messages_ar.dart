@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
-        "English": MessageLookupByLibrary.simpleMessage("English"),
+        "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage(" هل نسيت الباسورد ؟"),
         "General_contracting":
@@ -42,9 +42,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ديكورات وتشطيبات عامة"),
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage("صيانة عامة وتجديد"),
+        "Home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "Language_Exchange":
             MessageLookupByLibrary.simpleMessage(" تغيير اللغة"),
         "Login": MessageLookupByLibrary.simpleMessage("دخول"),
+        "Maintainance_Packages":
+            MessageLookupByLibrary.simpleMessage("باقات الصيانة"),
+        "My_Order": MessageLookupByLibrary.simpleMessage("طلبي"),
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),

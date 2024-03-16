@@ -45,9 +45,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage(
                 "General maintenance and renovation"),
+        "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "Language_Exchange":
             MessageLookupByLibrary.simpleMessage("Language Exchange"),
         "Login": MessageLookupByLibrary.simpleMessage("Login"),
+        "Maintainance_Packages":
+            MessageLookupByLibrary.simpleMessage("Maintainance Packages"),
+        "My_Order": MessageLookupByLibrary.simpleMessage("My Order"),
         "Remember_me": MessageLookupByLibrary.simpleMessage("Remember me"),
         "Search_for_service_or_product": MessageLookupByLibrary.simpleMessage(
             "Search for service or product"),

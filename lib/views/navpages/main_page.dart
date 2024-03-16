@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 
+import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
@@ -43,13 +44,13 @@ class _mainpageState extends State<mainpage> {
             onTap: (e) => ontap(e),
             items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.apps), label: 'الرئيسية'),
-              BottomNavigationBarItem(icon: Icon(Icons.person), label: 'طلبي'),
+                  icon: Icon(Icons.apps), label: S.of(context).Home),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: S.of(context).My_Order),
               BottomNavigationBarItem(
                   icon: Icon(Icons.settings),
-                  label: 'الأعدادات'),
+                  label: S.of(context).Settings),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_fix_normal), label: 'باقات الصيانة'),
+                  icon: Icon(Icons.auto_fix_normal), label: S.of(context).Maintainance_Packages),
             ]),
         body: pages[Currindx]);
   }

@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     return BlocBuilder<LanguagesCubit, LanguagesState>(
         builder: (context, state) {
       return ScreenUtilInit(
-        designSize: Size(380.w, 812.h), // used for
+        designSize: Size(380, 812), // used for
         minTextAdapt: true, // used for
         child: MaterialApp(
           locale: Locale(BlocProvider.of<LanguagesCubit>(context).lan),
