@@ -18,5 +18,10 @@
   "password": "password ",
   "Remember_me": "Remember me",
   "Forgot_Password": " Forgot Password ?",
-  "Login": "Login"
-}
+  "Login": "Login",
+  "language": "Language",
+  "Choose_Language_Of_The_Interface": "Choose Language Of The Interface",
+  "Arabic": "Arabic",
+  "English": "English"
+
+  }

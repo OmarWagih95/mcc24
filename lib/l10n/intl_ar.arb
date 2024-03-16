@@ -18,5 +18,9 @@
   "password": "الباسورد ",
   "Remember_me": " تذكرني",
   "Forgot_Password": " هل نسيت الباسورد ؟",
-  "Login": "دخول"
+  "Login": "دخول",
+  "language": "اللغة",
+  "Choose_Language_Of_The_Interface": "اختار لغة واجهة التطبيق ",
+  "Arabic": "العربية",
+  "English": "الأنجليزية"
 }

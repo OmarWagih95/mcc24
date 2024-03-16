@@ -2,6 +2,7 @@ import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class chooseLanguages extends StatefulWidget {
   bool onBoard;
@@ -23,7 +24,7 @@ class _chooseLanguagesState extends State<chooseLanguages> {
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: SizedBox(
-                    height: 150,
+                    height: 150.h,
                     child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +35,7 @@ class _chooseLanguagesState extends State<chooseLanguages> {
             ),
             Text(
               ' choose language of the interface',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18.sp),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,7 +43,7 @@ class _chooseLanguagesState extends State<chooseLanguages> {
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.white),
-                      minimumSize: MaterialStateProperty.all(Size(180, 40))),
+                      minimumSize: MaterialStateProperty.all(Size(180.w, 40.h))),
                   onPressed: () {
                     BlocProvider.of<LanguagesCubit>(context).changeLanguages(false);
                   widget.onBoard?  Navigator.pushNamed(context, '${Routes.onboargingScreen}'):
