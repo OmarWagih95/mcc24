@@ -8,19 +8,18 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+class signeupScreen extends StatefulWidget {
+  signeupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<signeupScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<signeupScreen> {
   bool isSecured = true;
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   final formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +65,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       verticalSpace(16),
+                      MyTextFormfield(
+                        hintText: S.of(context).Phone_number,
+                      ),
+                      verticalSpace(16),
+                      MyTextFormfield(
+                        hintText: S.of(context).Adress,
+                      ),
+                      verticalSpace(16),
                       Row(children: [
                         Text(S.of(context).Remember_me,
                             style: Textstyles.font14darkgraymedium),
@@ -85,27 +92,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             backgroundColor: MaterialStateProperty.all(
                                 ColorsManager.mainColor)),
                         child: Text(
-                          S.of(context).Login,
+                          S.of(context).Sign_Up,
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
                       verticalSpace(50),
-                      RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                              text: S.of(context).Dont_have_an_account_yet,
-                              style: Textstyles.font13blackregular),
-                          TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Navigator.of(context)
-                                      .pushNamed(Routes.signeupScreen);
-                                },
-                              text: S.of(context).Sign_Up,
-                              style: Textstyles.font13bluewbold),
-                        ]),
-                        textAlign: TextAlign.center,
-                      )
                     ],
                   ))
             ],

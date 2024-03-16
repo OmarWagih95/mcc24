@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "Choose_Language_Of_The_Interface":
             MessageLookupByLibrary.simpleMessage("اختار لغة واجهة التطبيق "),
@@ -33,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
+        "Dont_have_an_account_yet":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب بعد ؟ "),
         "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage(" هل نسيت الباسورد ؟"),
@@ -49,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Maintainance_Packages":
             MessageLookupByLibrary.simpleMessage("باقات الصيانة"),
         "My_Order": MessageLookupByLibrary.simpleMessage("طلبي"),
+        "Phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),
@@ -57,7 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Settings": MessageLookupByLibrary.simpleMessage("الأعدادات"),
         "Share_Application":
             MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
-        "Sign_IN": MessageLookupByLibrary.simpleMessage("تسجيل المستخدم"),
+        "Sign_IN": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "Sign_Up": MessageLookupByLibrary.simpleMessage("قم بأنشاء حساب "),
         "Text_Us": MessageLookupByLibrary.simpleMessage("راسلنا"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(

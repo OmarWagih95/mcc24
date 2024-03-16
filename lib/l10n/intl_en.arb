@@ -27,9 +27,13 @@
   "Text_Us": "Text Us",
   "Share_Application": "Share Application",
   "Who_Are": "Who Are",
-  "Sign_IN": "Sign in",
+  "Sign_IN": "Sign in ",
+  "Sign_Up": "Sign up ",
   "English": "English",
   "Home": "Home",
   "My_Order": "My Order",
-  "Maintainance_Packages": "Maintainance Packages"
+  "Maintainance_Packages": "Maintainance Packages",
+  "Phone_number": "Phone number",
+  "Adress": "Adress",
+  "Dont_have_an_account_yet": "Don't have an account yet ?"
 }

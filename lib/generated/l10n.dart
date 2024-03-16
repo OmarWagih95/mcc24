@@ -330,11 +330,21 @@ class S {
     );
   }
 
-  /// `Sign in`
+  /// `Sign in `
   String get Sign_IN {
     return Intl.message(
-      'Sign in',
+      'Sign in ',
       name: 'Sign_IN',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up `
+  String get Sign_Up {
+    return Intl.message(
+      'Sign up ',
+      name: 'Sign_Up',
       desc: '',
       args: [],
     );
@@ -375,6 +385,36 @@ class S {
     return Intl.message(
       'Maintainance Packages',
       name: 'Maintainance_Packages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number`
+  String get Phone_number {
+    return Intl.message(
+      'Phone number',
+      name: 'Phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Adress`
+  String get Adress {
+    return Intl.message(
+      'Adress',
+      name: 'Adress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account yet ?`
+  String get Dont_have_an_account_yet {
+    return Intl.message(
+      'Don\'t have an account yet ?',
+      name: 'Dont_have_an_account_yet',
       desc: '',
       args: [],
     );

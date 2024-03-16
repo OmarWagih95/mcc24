@@ -27,9 +27,13 @@
   "Text_Us": "راسلنا",
   "Share_Application": "مشاركة التطبيق",
   "Who_Are": "من نحن",
-  "Sign_IN": "تسجيل المستخدم",
+  "Sign_IN": "تسجيل الدخول",
+  "Sign_Up": "قم بأنشاء حساب ",
   "English": "الأنجليزية",
   "Home": "الرئيسية",
   "My_Order": "طلبي",
-  "Maintainance_Packages": "باقات الصيانة"
+  "Maintainance_Packages": "باقات الصيانة",
+  "Phone_number": "رقم الهاتف",
+  "Adress": "العنوان",
+  "Dont_have_an_account_yet": "ليس لديك حساب بعد ؟ "  
 }
