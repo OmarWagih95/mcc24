@@ -23,7 +23,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
 
@@ -31,10 +30,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //TODO hna mwdo3 lsearch
     SearchCubitDUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
-    // SearchCubitDUMMY_CATEGORIES = context.read<HomePageCubit>().categoryDataList;
+    // SearchCubitDUMMY_CATEGORIES =
+    //     context.read<HomePageCubit>().categoryDataList;
 
     return MultiBlocProvider(
       providers: [
+        BlocProvider<HomePageCubit>(
+          create: (BuildContext context) => HomePageCubit(),
+        ),
         BlocProvider<LanguagesCubit>(
           create: (BuildContext context) => LanguagesCubit(),
         ),
@@ -43,11 +46,9 @@ class _HomePageState extends State<HomePage> {
         }),
         BlocProvider<VisibilityCubit>(
           create: (BuildContext context) => VisibilityCubit(),
-
         ),
       ],
       child: Scaffold(
-
           drawer: Drawer(child: CustomDrawer()),
           body: SingleChildScrollView(
               child: SafeArea(
@@ -55,11 +56,16 @@ class _HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [BoxShadow(color: Colors.black54,blurRadius: 3,blurStyle: BlurStyle.outer,)]
-                  ),
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                      color: Colors.black54,
+                      blurRadius: 3,
+                      blurStyle: BlurStyle.outer,
+                    )
+                  ]),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 6),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -73,52 +79,54 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10)
-                ,child: Column(
-                  children: [
-                    // BlocBuilder<VisibilityCubit, VisibilityState>(
-                    //   builder: (context, state) {
-                    //     return messageText(
-                    //       isVisible: state.isVisible,
-                    //     );
-                    //   }),
-                    BlocBuilder<SearchCubit, searchState>(
-                        builder: (context, state) {
-                          return searchbar(
-                            search_controller: search_controller,
-                          );
-                        }),
-                    Align(
-                      alignment:
-                      BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
-                          ? Alignment.centerRight
-                          : Alignment.centerLeft,
-                      child: Text(
-                        S.of(context).choose_maintenance_service,
-                        style:
-                        TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                    Align(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Column(
+                    children: [
+                      // BlocBuilder<VisibilityCubit, VisibilityState>(
+                      //   builder: (context, state) {
+                      //     return messageText(
+                      //       isVisible: state.isVisible,
+                      //     );
+                      //   }),
+                      BlocBuilder<SearchCubit, searchState>(
+                          builder: (context, state) {
+                        return searchbar(
+                          search_controller: search_controller,
+                        );
+                      }),
+                      Align(
                         alignment:
-                        BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
-                            ? Alignment.centerRight
-                            : Alignment.centerLeft,
-                        child: Text(S
-                            .of(context)
-                            .then_get_best_prices_from_our_suppliers)),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        BlocProvider(
-                          create: (context) => HomePageCubit(),
-                          child: categoriesScreen(),
+                            BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
+                                ? Alignment.centerRight
+                                : Alignment.centerLeft,
+                        child: Text(
+                          S.of(context).choose_maintenance_service,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700),
                         ),
-                      ],
-                    )],
-                ),)
-
+                      ),
+                      Align(
+                          alignment:
+                              BlocProvider.of<LanguagesCubit>(context).lan ==
+                                      'ar'
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
+                          child: Text(S
+                              .of(context)
+                              .then_get_best_prices_from_our_suppliers)),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          BlocProvider(
+                            create: (context) => HomePageCubit(),
+                            child: categoriesScreen(),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
           ))),
