@@ -1,12 +1,3 @@
-// import 'package:androidstudiommc/constants/colors.dart';
-// import 'package:androidstudiommc/cubits/LanguagesCupit.dart';
-// import 'package:androidstudiommc/cubits/SearchCupit.dart';
-// import 'package:androidstudiommc/cubits/SearchCupitStates.dart';
-// import 'package:androidstudiommc/cubits/home_page_cubit.dart';
-// import 'package:androidstudiommc/generated/l10n.dart';
-// import 'package:androidstudiommc/model/category.dart';
-// import 'package:androidstudiommc/model/dummyData.dart';
-// import 'package:androidstudiommc/widgets/category_item.dart';
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
@@ -18,43 +9,6 @@ import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '/cubits/visibilityCubit.dart';
-
-// class categoriesScreen extends StatelessWidget {
-//   List<Category> DUMMY_CATEGORIES = [];
-//   categoriesScreen({super.key});
-//   @override
-//   Widget build(context) {
-//     return BlocBuilder<SearchCubit, searchState>(builder: (context, state) {
-//       if (state is searchinitialState) {
-//         DUMMY_CATEGORIES = state.filteredData;
-//       }
-//       return BlocConsumer<HomePageCubit, HomePageState>(
-//   listener: (context, state) {
-//     // TODO: implement listener
-//   },
-//   builder: (context, state) {
-//     return Container(
-//           margin: const EdgeInsets.only(top: 10),
-//           padding: const EdgeInsets.all(0),
-//           height: 500,
-//           child: GridView.builder(
-//             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-//                 crossAxisCount: 2,
-//                 childAspectRatio: 3 / 2,
-//                 crossAxisSpacing: 8,
-//                 mainAxisSpacing: 8),
-//             itemBuilder: (context, index) => categoryItem(
-//                 DUMMY_CATEGORIES[index].title,
-//                 DUMMY_CATEGORIES[index].color,
-//                 DUMMY_CATEGORIES[index].id,
-//                 DUMMY_CATEGORIES[index].LogoimgURL!),
-//             itemCount: DUMMY_CATEGORIES.length,
-//           ));
-//   },
-// );
-//     });
-//   }
-// }
 
 class searchbar extends StatelessWidget {
   final TextEditingController search_controller;
@@ -107,7 +61,6 @@ class _leftappbarState extends State<leftappbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         IconButton(
             onPressed: () {
@@ -118,7 +71,7 @@ class _leftappbarState extends State<leftappbar> {
             onPressed: () =>
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(
-                  "ابو عطاااااا",
+                  "لايوجد اشعارات الان ",
                   style: TextStyle(fontSize: 32),
                 ))),
             icon: Icon(Icons.notifications)),

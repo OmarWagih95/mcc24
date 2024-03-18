@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/services/Network_data_services.dart';
 import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +21,10 @@ class mainpage extends StatefulWidget {
 
 class _mainpageState extends State<mainpage> {
   ////////
+  var Externaldata_ = Externaldata();
+
   int Currindx = 0;
-  List pages = [
-    BlocProvider(create: (context) => HomePageCubit(), child: HomePage()),
-    LoginScreen(),
-    SettingsPage(),
-    Mypage()
-  ];
+  List pages = [HomePage(), LoginScreen(), SettingsPage(), Mypage()];
 
   void Function(int)? ontap(indx) {
     setState(() {

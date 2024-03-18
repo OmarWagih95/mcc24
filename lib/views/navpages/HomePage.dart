@@ -6,6 +6,7 @@ import 'package:MCC/cubits/SearchCupitStates.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
+import 'package:MCC/services/Network_data_services.dart';
 import 'package:flutter/material.dart';
 import '../../cubits/home_page_cubit.dart';
 import '../categories_screan.dart';
@@ -15,6 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits/visibilityCubitStates.dart';
 
 class HomePage extends StatefulWidget {
+  
   HomePage({
     super.key,
   });
@@ -23,6 +25,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var Externaldata_ = Externaldata();
   var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
 
@@ -35,10 +38,7 @@ class _HomePageState extends State<HomePage> {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider<HomePageCubit>(
-          create: (BuildContext context) => HomePageCubit(),
-        ),
-        BlocProvider<LanguagesCubit>(
+              BlocProvider<LanguagesCubit>(
           create: (BuildContext context) => LanguagesCubit(),
         ),
         BlocProvider<SearchCubit>(create: (BuildContext context) {
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           BlocProvider(
-                            create: (context) => HomePageCubit(),
+                            create: (context) => HomePageCubit(Externaldata_),
                             child: categoriesScreen(),
                           ),
                         ],
