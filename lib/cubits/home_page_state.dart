@@ -7,7 +7,7 @@ class HomePageInitial extends HomePageState {
 }
 
 class HomePageGetDataSuccessed extends HomePageState {
-  final Future<List<CategoryyModel>?> categories;
+  final List<CategoryyModel> categories;
   HomePageGetDataSuccessed({
     required this.categories,
   });

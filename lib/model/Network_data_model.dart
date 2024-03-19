@@ -19,7 +19,7 @@ class CategoryyModel {
   });
 
   factory CategoryyModel.fromFirebase(
-      QueryDocumentSnapshot data, Future<String?> categorisImg) {
+      QueryDocumentSnapshot data, String?categorisImg) {
     return CategoryyModel(
         id: data.id,
         AR: data['AR'],
