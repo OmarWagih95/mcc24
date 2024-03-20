@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           BlocProvider(
-                            create: (context) => HomePageCubit(Externaldata_),
+                            create: (context) => HomePageCubit(),
                             child: categoriesScreen(),
                           ),
                         ],
