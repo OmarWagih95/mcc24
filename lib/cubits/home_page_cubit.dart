@@ -1,9 +1,8 @@
 import 'package:MCC/model/network/categoriesNetwork.dart';
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../model/category.dart';
 
@@ -11,8 +10,8 @@ part 'home_page_state.dart';
 
 class HomePageCubit extends Cubit<HomePageState> {
   HomePageCubit() : super(HomePageInitial());
-  final CollectionReference _categories =FirebaseFirestore.instance.collection('categories');
-  Reference get firebaseStorage => FirebaseStorage.instance.ref();
+  // final CollectionReference _categories =FirebaseFirestore.instance.collection('categories');
+  // Reference get firebaseStorage => FirebaseStorage.instance.ref();
   List<Categoryy> categoryDataList=[];
   getCategoriesData()async{
       emit(HomePageGetDataLoading());
