@@ -7,11 +7,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../model/category.dart';
 
 class categoryItem extends StatelessWidget {
-
   final Categoryy categoryy;
   final Color color;
 
-  categoryItem(this.categoryy, this.color,);
+  categoryItem(
+    this.categoryy,
+    this.color,
+  );
 
   // categoryItem(this.title, this.color, this.id, this.logoImg,)
   // void selectCategory(BuildContext context) {
@@ -36,13 +38,14 @@ class categoryItem extends StatelessWidget {
       onTap: () {
         print('clicked');
         try {
-          Navigator.push(context, MaterialPageRoute(builder: (context) =>
-              BlocProvider(
-                create: (context) => ServicesCubit(),
-                child: ServicesScreen(categoryy),
-              )));
-        }
-        catch (e) {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => BlocProvider(
+                        create: (context) => ServicesCubit(),
+                        child: ServicesScreen(categoryy),
+                      )));
+        } catch (e) {
           print(e);
         }
       },
@@ -51,7 +54,6 @@ class categoryItem extends StatelessWidget {
         padding: EdgeInsets.all(
             2), ////need to changed with better code for text size
         decoration: BoxDecoration(
-
             gradient: LinearGradient(
                 colors: [color.withOpacity(0.7), color],
                 begin: Alignment.topLeft,
@@ -65,12 +67,22 @@ class categoryItem extends StatelessWidget {
               height: 80,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Text(
-                categoryy.EN['categoryName'],
-                style: const TextStyle(
-                  fontSize: 14, fontWeight: FontWeight.w700,),
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Localizations.localeOf(context).languageCode=='en'
+                  ? Text(
+                      categoryy.EN['categoryName'],
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    )
+                  : Text(
+                      categoryy.AR['categoryName'],
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
             ),
           ],
         ),
