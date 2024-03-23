@@ -1,5 +1,8 @@
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/model/category.dart';
+import 'package:MCC/model/service.dart';
+import 'package:MCC/views/Service_detail_screen.dart';
+import 'package:MCC/views/serviceDetailsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,7 +40,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                 Text(widget.categoryy.AR['categoryName'],textDirection: TextDirection.rtl,style: TextStyle(fontSize:25.w,fontWeight: FontWeight.bold ),)
               ],),
               SizedBox(height: 30.h,),
-              
+
               BlocConsumer<ServicesCubit, ServicesState>(
   listener: (context, state) {
     // TODO: implement listener
@@ -51,6 +54,18 @@ class _ServicesScreenState extends State<ServicesScreen> {
                 child: ListView.builder(
                 itemCount: context.read<ServicesCubit>().servicesDataList.length
                 ,itemBuilder: (context, index) => GestureDetector(
+                  onTap: (){
+                    print('clicked');
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                        ServiceDetailsScreen(
+                            context.read<ServicesCubit>().servicesDataList[index]
+                        //     Service(context.read<ServicesCubit>().servicesDataList[index].id,
+                        //   context.read<ServicesCubit>().servicesDataList[index].AR,
+                        //   context.read<ServicesCubit>().servicesDataList[index].EN,
+                        //   context.read<ServicesCubit>().servicesDataList[index].logoImgURL,
+                        // )
+                        )));
+                  },
                   child: Container(
                     width: 50,
                     height: 60,

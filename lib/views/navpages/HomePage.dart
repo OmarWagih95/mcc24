@@ -3,6 +3,7 @@
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
@@ -46,6 +47,8 @@ class _HomePageState extends State<HomePage> {
         }),
         BlocProvider<VisibilityCubit>(
           create: (BuildContext context) => VisibilityCubit(),
+        ),  BlocProvider<ServicesCubit>(
+          create: (BuildContext context) => ServicesCubit(),
         ),
       ],
       child: Scaffold(

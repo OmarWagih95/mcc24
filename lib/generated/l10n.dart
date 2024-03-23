@@ -183,8 +183,8 @@ class S {
   /// `Welcome Back`
   String get Welcome_Back {
     return Intl.message(
-      'Welcome Back',
-      name: 'Welcome_Back',
+      'Welcome',
+      name: 'Welcome',
       desc: '',
       args: [],
     );
