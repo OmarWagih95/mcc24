@@ -34,10 +34,10 @@ class Approuter {
         return MaterialPageRoute(
           builder: (_) => categoriesScreen(),
         );
-      case Routes.ServiceDetailScreen:
-        return MaterialPageRoute(
-          builder: (_) => ServiceDetailScreen(),
-        );
+      // case Routes.ServiceDetailScreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => ServiceDetailScreen(),
+      //   );
       case Routes.settingsPage:
         return MaterialPageRoute(
           builder: (_) => SettingsPage(),

@@ -9,7 +9,7 @@ import '../model/service.dart';
 part 'services_state.dart';
 
 class ServicesCubit extends Cubit<ServicesState> {
-  ServicesCubit() : super(ServicesInitial());
+  ServicesCubit() : super(ServicesPageLoading());
   final CollectionReference _services =FirebaseFirestore.instance.collection('services');
   Reference get firebaseStorage => FirebaseStorage.instance.ref();
   List<Service> servicesDataList=[];
@@ -17,7 +17,8 @@ class ServicesCubit extends Cubit<ServicesState> {
     emit(ServicesPageLoading());
     try{
       servicesDataList=await  ServicesNetwork().getServicesData(categoryID, servicesDataList);
-      emit(ServicesPageSuccess());
+      print(servicesDataList.length );
+      emit(ServicesPageSuccess(servicesDataList));
     }
     catch(e){
       emit(ServicesPagaeFailure(e.toString()));

@@ -42,7 +42,7 @@ class categoryItem extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => BlocProvider(
-                        create: (context) => ServicesCubit(),
+                        create: (context) => ServicesCubit()..getServicesData(categoryy.id),
                         child: ServicesScreen(categoryy),
                       )));
         } catch (e) {

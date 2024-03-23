@@ -22,7 +22,7 @@ class ServicesNetwork{
 
       }
       print('hna flcubit');
-      print('${servicesDataList.length} +here');
+      print('${servicesDataList.length} here');
         return servicesDataList;
 
 

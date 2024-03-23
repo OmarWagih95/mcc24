@@ -20,13 +20,14 @@ class _ServicesScreenState extends State<ServicesScreen> {
   void initState() {
     // TODO: implement initState
 
-    getServicesData_()async{
-      context.read<ServicesCubit>().getServicesData(widget.categoryy.id);
-    }
-    getServicesData_();
+    // getServicesData_()async{
+    //   context.read<ServicesCubit>().getServicesData(widget.categoryy.id);
+    // }
+    // getServicesData_();
   }
   @override
   Widget build(BuildContext context) {
+    ServicesCubit servicesCubit =context.read<ServicesCubit>();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -48,17 +49,16 @@ class _ServicesScreenState extends State<ServicesScreen> {
   builder: (context, state) {
     return
 
-      state is ServicesPageLoading? SpinKitCircle(
-        color: Colors.black45,
-      ) :Container(
-                child: ListView.builder(
-                itemCount: context.read<ServicesCubit>().servicesDataList.length
+      state is ServicesPageSuccess? Container(
+                child:
+                ListView.builder(
+                itemCount: servicesCubit.servicesDataList.length
                 ,itemBuilder: (context, index) => GestureDetector(
                   onTap: (){
                     print('clicked');
                     Navigator.push(context, MaterialPageRoute(builder: (context) =>
                         ServiceDetailsScreen(
-                            context.read<ServicesCubit>().servicesDataList[index]
+                            state.servicesDataList[index]
                         //     Service(context.read<ServicesCubit>().servicesDataList[index].id,
                         //   context.read<ServicesCubit>().servicesDataList[index].AR,
                         //   context.read<ServicesCubit>().servicesDataList[index].EN,
@@ -82,7 +82,9 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   ),
                 )
                   ),
-              height: 600.w,);
+              height: 600.w,):SpinKitCircle(
+        color: Colors.black45,
+      ) ;
   },
 )
             ],
