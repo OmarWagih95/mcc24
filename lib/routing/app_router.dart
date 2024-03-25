@@ -1,3 +1,6 @@
+import 'package:MCC/cubits/home_page_cubit.dart';
+import 'package:MCC/model/network/categoriesNetwork.dart';
+import 'package:MCC/model/network/repository.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/OnbordingPage.dart';
 import 'package:MCC/views/Service_detail_screen.dart';
@@ -10,8 +13,18 @@ import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/views/selectLanguage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Approuter {
+  late CategorisRepository categorisRepository;
+  late HomePageCubit homePageCubit;
+
+  Approuter() {
+    categorisRepository =
+        CategorisRepository(categoriesNetwork: CategoriesNetwork());
+    homePageCubit = HomePageCubit(categorisRepository);
+  }
+
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.selectLanguagePage:
@@ -24,7 +37,10 @@ class Approuter {
         );
       case Routes.homePage:
         return MaterialPageRoute(
-          builder: (_) => HomePage(),
+          builder: (_) => BlocProvider(
+            create: (context) => HomePageCubit(categorisRepository)..getCategoriesData(),
+            child: HomePage(),
+          ),
         );
       case Routes.mainPage:
         return MaterialPageRoute(
@@ -45,7 +61,8 @@ class Approuter {
       case Routes.LoginScreen:
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
-        ); case Routes.signeupScreen:
+        );
+      case Routes.signeupScreen:
         return MaterialPageRoute(
           builder: (_) => signeupScreen(),
         );

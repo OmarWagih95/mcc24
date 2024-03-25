@@ -1,4 +1,5 @@
 import 'package:MCC/model/network/categoriesNetwork.dart';
+import 'package:MCC/model/network/repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -9,22 +10,19 @@ import '../model/category.dart';
 part 'home_page_state.dart';
 
 class HomePageCubit extends Cubit<HomePageState> {
-  HomePageCubit() : super(HomePageInitial());
-  // final CollectionReference _categories =FirebaseFirestore.instance.collection('categories');
-  // Reference get firebaseStorage => FirebaseStorage.instance.ref();
-  List<Categoryy> categoryDataList=[];
-  getCategoriesData()async{
-      emit(HomePageGetDataLoading());
-      try{
-    categoryDataList=await CategoriesNetwork().getCategoriesData(categoryDataList);
-    emit(HomePageGetDataSuccessed());
-      }
-      catch(e){
-        emit(HomePageGetDataFailure(e.toString()));
-      }
-
+  HomePageCubit(this.categorisRepository) : super(HomePageInitial());
+  final CategorisRepository categorisRepository;
+  List<Categoryy> categoryDataList = [];
+  Future<List<Categoryy>> getCategoriesData() async {
+    emit(HomePageGetDataLoading());
+    try {
+      categoryDataList = await categorisRepository.getCategoriesData();
+      emit(HomePageGetDataSuccessed(categoryDataList));
+    } catch (e) {
+      emit(HomePageGetDataFailure(e.toString()));
     }
-
+    return categoryDataList;
+  }
 
   //  getCategoriesData ()async{
   //   emit(HomePageGetDataLoading());

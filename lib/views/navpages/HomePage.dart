@@ -7,6 +7,9 @@ import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
+import 'package:MCC/model/network/categoriesNetwork.dart';
+import 'package:MCC/model/network/repository.dart';
+import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/services/Network_data_services.dart';
 import 'package:flutter/material.dart';
 import '../../cubits/home_page_cubit.dart';
@@ -17,7 +20,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits/visibilityCubitStates.dart';
 
 class HomePage extends StatefulWidget {
-  
   HomePage({
     super.key,
   });
@@ -39,17 +41,19 @@ class _HomePageState extends State<HomePage> {
 
     return MultiBlocProvider(
       providers: [
-              BlocProvider<LanguagesCubit>(
-          create: (BuildContext context) => LanguagesCubit(),
-        ),
         BlocProvider<SearchCubit>(create: (BuildContext context) {
           return SearchCubit(SearchCubitDUMMY_CATEGORIES);
         }),
         BlocProvider<VisibilityCubit>(
           create: (BuildContext context) => VisibilityCubit(),
-        ),  BlocProvider<ServicesCubit>(
+        ),
+        BlocProvider<ServicesCubit>(
           create: (BuildContext context) => ServicesCubit(),
         ),
+        // BlocProvider(
+        //   create: (context) => HomePageCubit(Approuter().categorisRepository),
+        //   child: categoriesScreen(),
+        // ),
       ],
       child: Scaffold(
           drawer: Drawer(child: CustomDrawer()),
@@ -121,10 +125,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          BlocProvider(
-                            create: (context) => HomePageCubit(),
-                            child: categoriesScreen(),
-                          ),
+                          categoriesScreen(),
                         ],
                       )
                     ],
