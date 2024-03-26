@@ -1,11 +1,14 @@
 import 'package:MCC/constants/colors.dart';
+import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/spacing.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/styles/Styles.dart';
-import 'package:MCC/widgets/textformfield.dart';
+import 'package:MCC/views/signeupScreen.dart';
+import 'package:MCC/widgets/MyTextFormField.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -99,7 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
                                   Navigator.of(context)
-                                      .pushNamed(Routes.signeupScreen);
+                                      .push(MaterialPageRoute(builder: (context) => BlocProvider(create: (context) =>AuthCubit(),
+                                      child: SigneUpScreen(),),));
                                 },
                               text: S.of(context).Sign_Up,
                               style: Textstyles.font13bluewbold),

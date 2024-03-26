@@ -9,7 +9,9 @@ class MyTextFormfield extends StatelessWidget {
   final Widget? prifixicon;
   final bool isSecured;
   final String hintText;
-  const MyTextFormfield({
+  String? Function(String?)? validation;
+   MyTextFormfield({
+    this.validation,
     super.key,
     this.isSecured = false,
     this.controller,
@@ -20,6 +22,7 @@ class MyTextFormfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validation,
       controller: controller,
       decoration: InputDecoration(
           filled: true,

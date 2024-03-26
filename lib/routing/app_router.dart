@@ -47,7 +47,7 @@ class Approuter {
           builder: (_) => LoginScreen(),
         ); case Routes.signeupScreen:
         return MaterialPageRoute(
-          builder: (_) => signeupScreen(),
+          builder: (_) => SigneUpScreen(),
         );
       // case Routes.CategoryserviceScreen:
       //   return MaterialPageRoute(

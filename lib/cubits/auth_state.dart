@@ -1,0 +1,23 @@
+part of 'auth_cubit.dart';
+
+@immutable
+abstract class AuthState {}
+
+class AuthInitial extends AuthState {}
+class AuthCubitLoading extends AuthState{}
+class AuthCubitSucces extends AuthState{}
+class AuthCubitFailure extends AuthState{
+  String errorMessage;
+  AuthCubitFailure(this.errorMessage);
+
+}
+class AuthIsSecuredState extends AuthState{}
+class AuthCubitVerificationLoading extends AuthState{
+  String email;
+  String userName;
+  String phoneNumber;
+  String Address;
+  AuthCubitVerificationLoading(this.email,this.userName,this.phoneNumber,this.Address);
+}
+class AuthCubitVerificationSuccess extends AuthState{}
+class AuthCubitVerificationfailure extends AuthState{}

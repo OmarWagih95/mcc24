@@ -1,5 +1,6 @@
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/LanguagesCupitStates.dart';
+import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/routing/app_router.dart';
@@ -22,8 +23,11 @@ void main() async {
     create: (context) => LanguagesCubit(),
     child: BlocProvider(
       create: (context) => ServicesCubit(),
-      child: MyApp(
-        approuter: Approuter(),
+      child: BlocProvider(
+        create: (context) => AuthCubit(),
+        child: MyApp(
+          approuter: Approuter(),
+        ),
       ),
     ),
   ));
