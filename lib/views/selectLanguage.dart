@@ -43,7 +43,7 @@ class chooseLanguages extends StatelessWidget {
                               MaterialStateProperty.all(Size(150.w, 40.h))),
                       onPressed: () {
                         BlocProvider.of<LanguagesCubit>(context)
-                            .changeLanguages(false);
+                            .changeLanguages('ar');
                         onBoard
                             ? Navigator.pushNamed(
                                 context, Routes.onboargingScreen)
@@ -57,7 +57,7 @@ class chooseLanguages extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           BlocProvider.of<LanguagesCubit>(context)
-                              .changeLanguages(true);
+                              .changeLanguages('en');
                           onBoard
                               ? Navigator.pushNamed(
                                   context, Routes.onboargingScreen)

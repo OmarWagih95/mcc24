@@ -5,7 +5,7 @@ import 'package:MCC/model/category.dart';
 abstract class searchState {}
 
 class searchinitialState extends searchState {
-  List<Category> filteredData;
+  List<Categoryy> filteredData;
 
   searchinitialState(this.filteredData);
 }

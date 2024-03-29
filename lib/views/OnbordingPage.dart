@@ -141,7 +141,7 @@ class onbordingInputButton extends StatelessWidget {
         ),
         Icon(
           color: Colors.white,
-          BlocProvider.of<LanguagesCubit>(context).lan == "en"
+         Localizations.localeOf(context).languageCode == "en"
               ? Icons.arrow_right_rounded
               : Icons.arrow_left_rounded,
           size: 35,
