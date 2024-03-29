@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/services/Network_data_services.dart';
 import 'package:MCC/views/loginScreen.dart';
@@ -24,7 +25,10 @@ class _mainpageState extends State<mainpage> {
   var Externaldata_ = Externaldata();
 
   int Currindx = 0;
-  List pages = [HomePage(), LoginScreen(), SettingsPage(), Mypage()];
+  List pages = [HomePage(), BlocProvider(
+  create: (context) => LoginCubit(),
+  child: LoginScreen(),
+), SettingsPage(), Mypage()];
 
   void Function(int)? ontap(indx) {
     setState(() {

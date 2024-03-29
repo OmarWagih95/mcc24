@@ -98,6 +98,18 @@ catch(e){
   print(e);
 }
   }
+  signOut()async{
+    emit(AuthCubitSignOutLoading());
+    try{
+      await FirebaseUserServices().signOut();
+      emit(AuthCubitSignOutSuccess());
+    }
+    catch(e){
+      emit(AuthCubitSignOutFailure(e.toString()));
+      //hna whnaak
+
+    }
+  }
 
 }
 

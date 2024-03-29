@@ -71,5 +71,12 @@ return false;
       'address': address!
     }).then((value) => print('success'));
   }
+  Future login(String email,String password)async{
+    await _auth.signInWithEmailAndPassword(email: email, password: password);
+  }
+
+  Future signOut()async{
+    _auth.signOut();
+  }
 
 }

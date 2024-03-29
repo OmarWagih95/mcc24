@@ -2,12 +2,15 @@ import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../views/loginScreen.dart';
 import '/cubits/visibilityCubit.dart';
 
 class searchbar extends StatelessWidget {
@@ -122,14 +125,22 @@ class messageText extends StatelessWidget {
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    AuthCubit authCubit =context.read<AuthCubit>();
+    return BlocConsumer<AuthCubit, AuthState>(
+  listener: (context, state) {
+    if(state is AuthCubitSignOutSuccess){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+    }
+  },
+  builder: (context, state) {
     return Container(
-      color: Colors.blue,
+      color: ColorsManager.mainColor,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
+           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color:ColorsManager.mainColor,
             ),
             child: Text(
               'Custom Drawer Header',
@@ -154,9 +165,19 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.logout, color: Colors.white),
+            title:
+                const Text('Sign out', style: TextStyle(color: Colors.white)),
+            onTap: () {
+              authCubit.signOut();
+            },
+          ),
           // Add more ListTiles for additional menu items
         ],
       ),
     );
+  },
+);
   }
 }
