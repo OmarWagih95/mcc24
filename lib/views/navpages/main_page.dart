@@ -2,6 +2,7 @@
 
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/services/Network_data_services.dart';
+import 'package:MCC/views/detailPage.dart';
 import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _mainpageState extends State<mainpage> {
     ),
     LoginScreen(),
     SettingsPage(),
-    Mypage()
+    detailPage()
   ];
 
   void Function(int)? ontap(indx) {
