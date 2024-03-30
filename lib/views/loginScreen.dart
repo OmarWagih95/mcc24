@@ -6,6 +6,7 @@ import 'package:MCC/helpers/spacing.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/styles/Styles.dart';
 import 'package:MCC/views/navpages/HomePage.dart';
+import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/views/signeupScreen.dart';
 import 'package:MCC/widgets/MyTextFormField.dart';
 import 'package:flutter/gestures.dart';
@@ -36,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
         if(state is LoginSuccessState){
           Fluttertoast.showToast(msg: 'you have been logged in successfully');
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(),));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => mainpage(),));
         }
   },
   builder: (context, state) {
