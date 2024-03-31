@@ -17,7 +17,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits/visibilityCubitStates.dart';
 
 class HomePage extends StatefulWidget {
-  
   HomePage({
     super.key,
   });
@@ -26,28 +25,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var Externaldata_ = Externaldata();
   var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    //TODO hna mwdo3 lsearch
-    SearchCubitDUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
-    // SearchCubitDUMMY_CATEGORIES =
-    //     context.read<HomePageCubit>().categoryDataList;
-
+    SearchCubitDUMMY_CATEGORIES =
+        context.read<HomePageCubit>().categoryDataList;
     return MultiBlocProvider(
       providers: [
-              BlocProvider<LanguagesCubit>(
-          create: (BuildContext context) => LanguagesCubit(),
-        ),
         BlocProvider<SearchCubit>(create: (BuildContext context) {
-          return SearchCubit(SearchCubitDUMMY_CATEGORIES);
+          return SearchCubit(SearchCubitDUMMY_CATEGORIES,context);
         }),
         BlocProvider<VisibilityCubit>(
           create: (BuildContext context) => VisibilityCubit(),
-        ),  BlocProvider<ServicesCubit>(
+        ),
+        BlocProvider<ServicesCubit>(
           create: (BuildContext context) => ServicesCubit(),
         ),
       ],
@@ -94,12 +87,13 @@ class _HomePageState extends State<HomePage> {
                       BlocBuilder<SearchCubit, searchState>(
                           builder: (context, state) {
                         return searchbar(
+                          DUMMY_CATEGORIES: SearchCubitDUMMY_CATEGORIES,
                           search_controller: search_controller,
                         );
                       }),
                       Align(
                         alignment:
-                            BlocProvider.of<LanguagesCubit>(context).lan == 'ar'
+                            Localizations.localeOf(context).languageCode == 'ar'
                                 ? Alignment.centerRight
                                 : Alignment.centerLeft,
                         child: Text(
@@ -110,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Align(
                           alignment:
-                              BlocProvider.of<LanguagesCubit>(context).lan ==
+                              Localizations.localeOf(context).languageCode ==
                                       'ar'
                                   ? Alignment.centerRight
                                   : Alignment.centerLeft,
@@ -121,10 +115,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          BlocProvider(
-                            create: (context) => HomePageCubit(),
-                            child: categoriesScreen(),
-                          ),
+                          categoriesScreen(),
                         ],
                       )
                     ],

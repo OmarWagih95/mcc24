@@ -25,10 +25,19 @@ class _mainpageState extends State<mainpage> {
   var Externaldata_ = Externaldata();
 
   int Currindx = 0;
-  List pages = [HomePage(), BlocProvider(
-  create: (context) => LoginCubit(),
-  child: LoginScreen(),
-), SettingsPage(), Mypage()];
+//   List pages = [HomePage(), BlocProvider(
+//   create: (context) => LoginCubit(),
+//   child: LoginScreen(),
+// ), SettingsPage(), Mypage()];
+  List pages = [
+    BlocProvider<HomePageCubit>(
+      create: (context) => HomePageCubit()..getCategoriesData(),
+      child: HomePage(),
+    ),
+    LoginScreen(),
+    SettingsPage(),
+    Mypage()
+  ];
 
   void Function(int)? ontap(indx) {
     setState(() {

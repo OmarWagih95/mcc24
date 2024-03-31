@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:MCC/bloc/blocobserver.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/LanguagesCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
@@ -19,9 +22,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = MyBlocObserver();
 
   runApp(BlocProvider(
-    create: (context) => LanguagesCubit(),
+    create: (context) => LanguagesCubit()..changeLanguages('en'),
     child: BlocProvider(
       create: (context) => ServicesCubit(),
       child: BlocProvider(
@@ -46,30 +50,33 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LanguagesCubit, LanguagesState>(
         builder: (context, state) {
-          return ScreenUtilInit(
-            designSize: Size(380, 812), // used for
-            minTextAdapt: true, // used for
-            child: MaterialApp(
-              locale: Locale(BlocProvider
-                  .of<LanguagesCubit>(context)
-                  .lan),
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: S.delegate.supportedLocales,
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                  appBarTheme: const AppBarTheme(
-                      iconTheme: IconThemeData(color: Colors.black),
-                      elevation: 0,
-                      backgroundColor: Colors.white)),
-              initialRoute: Routes.selectLanguagePage,
-              onGenerateRoute: approuter.generateRoute,
-            ),
-          );
-        });
+      if (state is LanguagesSuccessState) {
+        log(state.language);
+        return ScreenUtilInit(
+          designSize: Size(380, 812), // used for
+          minTextAdapt: true, // used for
+          child: MaterialApp(
+            locale: Locale('${state.language}'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+                appBarTheme: const AppBarTheme(
+                    iconTheme: IconThemeData(color: Colors.black),
+                    elevation: 0,
+                    backgroundColor: Colors.white)),
+            initialRoute: Routes.selectLanguagePage,
+            onGenerateRoute: approuter.generateRoute,
+          ),
+        );
+      } else {
+        return Container();
+      }
+    });
   }
 }
