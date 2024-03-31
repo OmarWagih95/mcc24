@@ -3,16 +3,16 @@
 import 'package:equatable/equatable.dart';
 
 abstract class LanguagesState {
-  @override
-  // TODO: implement props
-  List<Object?> get props => [];
+
 }
 
 class LanguagesinitialState extends LanguagesState {
 
-  LanguagesinitialState();
 }
 
-class LanguagesLoadingState extends LanguagesState {}
+class LanguagesSuccessState extends LanguagesState {
+  final String language;
 
-class LanguagesSuccessState extends LanguagesState {}
+  LanguagesSuccessState(this.language);
+
+}

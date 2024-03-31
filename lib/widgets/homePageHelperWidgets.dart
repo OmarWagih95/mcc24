@@ -14,17 +14,18 @@ import '../views/loginScreen.dart';
 import '/cubits/visibilityCubit.dart';
 
 class searchbar extends StatelessWidget {
+  final List<Categoryy> DUMMY_CATEGORIES;
+
   final TextEditingController search_controller;
 
   searchbar({
     super.key,
     required this.search_controller,
+    required this.DUMMY_CATEGORIES,
   });
 
   @override
   Widget build(BuildContext context) {
-    List<Category> DUMMY_CATEGORIES;
-    DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       // child: TextField(
@@ -71,12 +72,19 @@ class _leftappbarState extends State<leftappbar> {
             },
             icon: const Icon(Icons.menu)),
         IconButton(
-            onPressed: () =>
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(
-                  "لايوجد اشعارات الان ",
-                  style: TextStyle(fontSize: 32),
-                ))),
+            onPressed: () {
+              // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              //     content: Text(
+              //   "لايوجد اشعارات الان ",
+              //   style: TextStyle(fontSize: 32),
+              // ))
+              // );
+              BlocProvider.of<LanguagesCubit>(context).changeLanguages(
+                  ((Localizations.localeOf(context).languageCode) == 'en')
+                      ? 'ar'
+                      : 'en');
+              // log(state.language);
+            },
             icon: Icon(Icons.notifications)),
         const IconButton(onPressed: null, icon: Icon(Icons.search))
       ]),
