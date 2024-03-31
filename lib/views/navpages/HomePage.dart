@@ -4,9 +4,11 @@ import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
 import 'package:MCC/cubits/services_cubit.dart';
+import 'package:MCC/cubits/user_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
+import 'package:MCC/model/userModel.dart';
 import 'package:MCC/services/Network_data_services.dart';
 import 'package:flutter/material.dart';
 import '../../cubits/home_page_cubit.dart';
@@ -32,6 +34,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     SearchCubitDUMMY_CATEGORIES =
         context.read<HomePageCubit>().categoryDataList;
+    UserModel user = context.read<UserCubit>().userModel;
+    user.phoneNumber='01114369970';
+    print (user.phoneNumber);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider<SearchCubit>(create: (BuildContext context) {

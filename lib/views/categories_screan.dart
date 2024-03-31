@@ -2,6 +2,7 @@
 
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/cubits/user_cubit.dart';
 import 'package:MCC/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,6 +25,7 @@ class _categoriesScreenState extends State<categoriesScreen> {
 
   @override
   Widget build(context) {
+    print(context.read<UserCubit>().userModel.phoneNumber);
     List<Category> DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     return BlocConsumer<HomePageCubit, HomePageState>(
       listener: (context, state) {
