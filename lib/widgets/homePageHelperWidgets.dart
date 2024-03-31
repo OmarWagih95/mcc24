@@ -2,12 +2,15 @@ import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../views/loginScreen.dart';
 import '/cubits/visibilityCubit.dart';
 
 class searchbar extends StatelessWidget {
@@ -24,28 +27,28 @@ class searchbar extends StatelessWidget {
     DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: TextField(
-        onChanged: (query) => BlocProvider.of<SearchCubit>(context)
-            .filterList(query, DUMMY_CATEGORIES),
-        textDirection: TextDirection.rtl,
-        decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(24),
-                borderSide: BorderSide(color: ColorsManager.mainColor)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(24),
-                borderSide: BorderSide(color: ColorsManager.starColor)),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorsManager.mainColor)),
-            suffixIcon:
-                const IconButton(onPressed: null, icon: Icon(Icons.search)),
-            hintText: S.of(context).Search_for_service_or_product,
-            hintStyle: TextStyle(
-              color: Colors.grey.withOpacity(1),
-            )),
-        style: const TextStyle(),
-        controller: search_controller,
-      ),
+      // child: TextField(
+      //   onChanged: (query) => BlocProvider.of<SearchCubit>(context)
+      //       .filterList(query, DUMMY_CATEGORIES),
+      //   textDirection: TextDirection.rtl,
+      //   decoration: InputDecoration(
+      //       enabledBorder: OutlineInputBorder(
+      //           borderRadius: BorderRadius.circular(24),
+      //           borderSide: BorderSide(color: ColorsManager.mainColor)),
+      //       focusedBorder: OutlineInputBorder(
+      //           borderRadius: BorderRadius.circular(24),
+      //           borderSide: BorderSide(color: ColorsManager.starColor)),
+      //       border: OutlineInputBorder(
+      //           borderSide: BorderSide(color: ColorsManager.mainColor)),
+      //       suffixIcon:
+      //           const IconButton(onPressed: null, icon: Icon(Icons.search)),
+      //       hintText: S.of(context).Search_for_service_or_product,
+      //       hintStyle: TextStyle(
+      //         color: Colors.grey.withOpacity(1),
+      //       )),
+      //   style: const TextStyle(),
+      //   controller: search_controller,
+      // ),
     );
   }
 }
@@ -122,14 +125,22 @@ class messageText extends StatelessWidget {
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    AuthCubit authCubit =context.read<AuthCubit>();
+    return BlocConsumer<AuthCubit, AuthState>(
+  listener: (context, state) {
+    if(state is AuthCubitSignOutSuccess){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+    }
+  },
+  builder: (context, state) {
     return Container(
-      color: Colors.blue,
+      color: ColorsManager.mainColor,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
+           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color:ColorsManager.mainColor,
             ),
             child: Text(
               'Custom Drawer Header',
@@ -154,9 +165,19 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.logout, color: Colors.white),
+            title:
+                const Text('Sign out', style: TextStyle(color: Colors.white)),
+            onTap: () {
+              authCubit.signOut();
+            },
+          ),
           // Add more ListTiles for additional menu items
         ],
       ),
     );
+  },
+);
   }
 }

@@ -21,3 +21,9 @@ class AuthCubitVerificationLoading extends AuthState{
 }
 class AuthCubitVerificationSuccess extends AuthState{}
 class AuthCubitVerificationfailure extends AuthState{}
+class AuthCubitSignOutLoading extends AuthState{}
+class AuthCubitSignOutSuccess extends AuthState{}
+class AuthCubitSignOutFailure extends AuthState{
+  String? errorMessage;
+  AuthCubitSignOutFailure(this.errorMessage);
+}
