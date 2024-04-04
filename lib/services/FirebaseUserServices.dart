@@ -1,3 +1,4 @@
+import 'package:MCC/model/userModel.dart';
 import 'package:MCC/views/verificationScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -77,6 +78,14 @@ return false;
 
   Future signOut()async{
     _auth.signOut();
+  }
+
+  Future<userModel>getUserData()async{
+    String? userID= await _auth.currentUser!.uid;
+    var userData = await FirebaseFirestore.instance.collection('users').doc(userID).get();
+    userModel user=userModel(userID,userData['email'],userData['userName'],userData['phoneNumber'],userData['address']);
+    print('test ${user.userName}');
+    return user;
   }
 
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../model/service.dart';
+import '../widgets/OrderingServiceDialog.dart';
 class ServiceDetailsScreen extends StatelessWidget {
   Service service;
 ServiceDetailsScreen(this.service);
@@ -56,6 +57,7 @@ OurProvidingListItem(Icons.verified, 'ضمان إسترداد الأموال'),
               ],),
             ),),
             MyButton(text: 'طلب خدمة', onClick: (){
+              showDialog(context: context, builder: (context) =>OrderingServiceDialog(service));
               print('clicked');
             }, textColor: Colors.white, buttonColor: Colors.teal)],)]
           ),

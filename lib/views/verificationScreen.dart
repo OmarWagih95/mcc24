@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/views/navpages/HomePage.dart';
+import 'package:MCC/views/navpages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +41,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
     listener: (context, state) {
 
       if (state is AuthCubitVerificationSuccess){
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(),));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => mainpage(),));
       }
     },
     builder: (context, state) {

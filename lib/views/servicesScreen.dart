@@ -1,3 +1,5 @@
+import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/service.dart';
@@ -7,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../cubits/login_cubit.dart';
 class ServicesScreen extends StatefulWidget {
 Categoryy categoryy;
 ServicesScreen(this.categoryy);
@@ -27,6 +31,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    // print('why ${BlocProvider.of<AuthCubit>(context).user!.phoneNumber}');
+
     ServicesCubit servicesCubit =context.read<ServicesCubit>();
     return Scaffold(
       backgroundColor: Colors.white,
@@ -57,14 +63,17 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   onTap: (){
                     print('clicked');
                     Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                        ServiceDetailsScreen(
+                        BlocProvider(
+  create: (context) => OrderCubit(),
+  child: ServiceDetailsScreen(
                             state.servicesDataList[index]
                         //     Service(context.read<ServicesCubit>().servicesDataList[index].id,
                         //   context.read<ServicesCubit>().servicesDataList[index].AR,
                         //   context.read<ServicesCubit>().servicesDataList[index].EN,
                         //   context.read<ServicesCubit>().servicesDataList[index].logoImgURL,
                         // )
-                        )));
+                        ),
+)));
                   },
                   child: Container(
                     width: 50,

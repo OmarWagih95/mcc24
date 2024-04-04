@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:MCC/model/userModel.dart';
 import 'package:MCC/services/FirebaseUserServices.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,6 +14,7 @@ final CollectionReference usersCollection = FirebaseFirestore.instance.collectio
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
+  userModel? user;
   String? userID;
   String? userName;
   String? email;
@@ -110,6 +112,12 @@ catch(e){
 
     }
   }
+
+  Future <userModel?> getUserData()async{
+    userModel? user =await FirebaseUserServices().getUserData();
+    return user;
+  }
+
 
 }
 

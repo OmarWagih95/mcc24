@@ -11,7 +11,7 @@ class CategoriesNetwork {
 
   Future<List<Categoryy>> getCategoriesData(categoryDataList) async {
         List<QueryDocumentSnapshot> categoryDataQueryList = [];
-      categoryDataList.clear();
+      // categoryDataList.clear();
       QuerySnapshot querySnapshot = await _categories.get();
       categoryDataQueryList.addAll(querySnapshot.docs);
       for (int i = 0; i < categoryDataQueryList.length; i++) {

@@ -3,6 +3,7 @@
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
@@ -24,7 +25,14 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+
+
+  }
   var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
 

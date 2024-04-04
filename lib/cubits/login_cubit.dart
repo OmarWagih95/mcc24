@@ -1,3 +1,4 @@
+import 'package:MCC/model/userModel.dart';
 import 'package:MCC/services/FirebaseUserServices.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,6 +9,7 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
+   String? userID;
   String? email;
   String? passWord;
   GlobalKey <FormState> formKey=GlobalKey();
@@ -36,6 +38,5 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginFailureState(e.toString()));
     }
   }
-
 }
 

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/services/Network_data_services.dart';
@@ -21,6 +22,15 @@ class mainpage extends StatefulWidget {
 }
 
 class _mainpageState extends State<mainpage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    getUserDate()async{
+      BlocProvider.of<AuthCubit>(context).user= await BlocProvider.of<AuthCubit>(context).getUserData();
+
+    }
+    getUserDate();
+  }
   ////////
   var Externaldata_ = Externaldata();
 

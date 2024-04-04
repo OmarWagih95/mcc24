@@ -2,6 +2,7 @@
 
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
+import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +21,8 @@ class categoriesScreen extends StatefulWidget {
 
 class _categoriesScreenState extends State<categoriesScreen> {
   @override
-  void initState() {}
+  void initState() {
+  }
 
   @override
   Widget build(context) {
