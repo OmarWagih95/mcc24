@@ -11,6 +11,12 @@ class OrderServices {
       'active':true
     });
   }
+ Future <List<QueryDocumentSnapshot>> getOrdersByID(String userID)async{
+    List<QueryDocumentSnapshot> OrdersQueryDocsList = [];
+    QuerySnapshot querySnapshot=await ordersCollection.where('userID',isEqualTo: userID).get();
+    OrdersQueryDocsList.addAll(querySnapshot.docs);
+    return OrdersQueryDocsList;
+  }
 
 
 }

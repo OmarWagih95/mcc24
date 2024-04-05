@@ -11,17 +11,29 @@ class OrderCubit extends Cubit<OrderState> {
   String phoneNumber='';
   String address='';
   bool active =true;
+  List? ordersQueryDocsList ;
   GlobalKey <FormState> orderFormKey=GlobalKey();
 
   OrderCubit() : super(OrderInitial());
   addOrder(String userID,String serviceID)async{
-    emit(OrderLoading());
+    emit(AddingOrderLoadingState());
     try{
       await OrderServices().addOrder(userID, serviceID, description, phoneNumber, address);
-      emit(OrderSuccess());
+      emit(AddingOrderSuccessState());
     }
         catch(e){
-      emit(OrderFailure());
+      emit(AddingOrderFailureState());
         }
+  }
+  GetMyOrders(String userID)async{
+    emit(GettingMyOrdersLoadingState());
+    try{
+
+    ordersQueryDocsList=await OrderServices().getOrdersByID(userID);
+      emit(GettingMyOrdersSuccessState());
+    }
+    catch(e){
+      emit(GettingMyOrdersFailureState());
+    }
   }
 }

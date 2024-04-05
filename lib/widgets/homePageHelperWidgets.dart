@@ -4,12 +4,14 @@ import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../views/MyOrdersScreen.dart';
 import '../views/loginScreen.dart';
 import '/cubits/visibilityCubit.dart';
 
@@ -133,6 +135,7 @@ class messageText extends StatelessWidget {
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     AuthCubit authCubit =context.read<AuthCubit>();
     return BlocConsumer<AuthCubit, AuthState>(
   listener: (context, state) {
@@ -171,6 +174,17 @@ class CustomDrawer extends StatelessWidget {
                 const Text('Settings', style: TextStyle(color: Colors.white)),
             onTap: () {
               Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_home_work, color: Colors.white),
+            title:
+                const Text('My Orders', style: TextStyle(color: Colors.white)),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BlocProvider(
+  create: (context) => OrderCubit()..GetMyOrders(BlocProvider.of<AuthCubit>(context).user!.userID!),
+  child: MyOrdersScreen(),
+)));
             },
           ),
           ListTile(

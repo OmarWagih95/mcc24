@@ -16,7 +16,7 @@ OrderingServiceDialog(this.service);
   Widget build(BuildContext context) {
     return BlocConsumer<OrderCubit, OrderState>(
   listener: (context, state) {
-if(state is OrderSuccess){
+if(state is AddingOrderSuccessState){
   Fluttertoast.showToast(msg: 'تم طلب الخدمة بنجاح');
   Navigator.pop(context);
 }
@@ -29,7 +29,7 @@ if(state is OrderSuccess){
       surfaceTintColor: Colors.transparent,
 
 insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
-      child: state is OrderLoading ?
+      child: state is AddingOrderLoadingState ?
         Container(
       width: 600.w,
       height: 600.h
