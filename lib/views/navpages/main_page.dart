@@ -7,6 +7,7 @@ import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../constants/colors.dart';
 import '../../cubits/home_page_cubit.dart';
 import '/views/navpages/BarItemPage.dart';
@@ -14,7 +15,9 @@ import '/views/navpages/HomePage.dart';
 import '/views/navpages/Mypage.dart';
 
 class mainpage extends StatefulWidget {
-  const mainpage({super.key});
+  final StatefulNavigationShell navigationShel;
+
+  mainpage({super.key, required this.navigationShel});
 
   @override
   State<mainpage> createState() => _mainpageState();
@@ -22,8 +25,7 @@ class mainpage extends StatefulWidget {
 
 class _mainpageState extends State<mainpage> {
   ////////
-  var Externaldata_ = Externaldata();
-
+  // var Externaldata_ = Externaldata();
   int Currindx = 0;
   List pages = [
     BlocProvider<HomePageCubit>(
@@ -34,6 +36,10 @@ class _mainpageState extends State<mainpage> {
     SettingsPage(),
     detailPage()
   ];
+  void _gotobranch(int index) {
+    widget.navigationShel.goBranch(index,
+        initialLocation: index == widget.navigationShel.currentIndex);
+  }
 
   void Function(int)? ontap(indx) {
     setState(() {
@@ -50,8 +56,13 @@ class _mainpageState extends State<mainpage> {
             selectedItemColor: ColorsManager.mainColor,
             unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
             currentIndex: Currindx,
-            onTap: (e) => ontap(e),
-            items: [
+            onTap: (e) {
+              setState(() {
+                Currindx = e;
+              });
+              _gotobranch(Currindx);
+            },
+            items: [  
               BottomNavigationBarItem(
                   icon: Icon(Icons.apps), label: S.of(context).Home),
               BottomNavigationBarItem(
@@ -62,7 +73,7 @@ class _mainpageState extends State<mainpage> {
                   icon: Icon(Icons.auto_fix_normal),
                   label: S.of(context).Maintainance_Packages),
             ]),
-        body: pages[Currindx]);
+        body: widget.navigationShel);
   }
 }
 

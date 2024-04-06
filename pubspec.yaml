@@ -52,6 +52,12 @@ dependencies:
   fluttertoast: ^8.2.4
   flutter_launcher_icons: ^0.13.1
   webview_flutter: ^4.7.0
+  provider: ^6.1.2
+  go_router: ^13.2.2
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.5
+  font_awesome_flutter: ^10.7.0
+  liquid_pull_to_refresh: ^3.0.1
 
 
 dev_dependencies:

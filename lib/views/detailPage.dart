@@ -1,22 +1,121 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 class detailPage extends StatefulWidget {
-  const detailPage({super.key});
+  detailPage({
+    Key? key,
+  }) : super(key: key);
+
+  String title = 'the title';
 
   @override
-  State<detailPage> createState() => _detailPageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _detailPageState extends State<detailPage> {
-  var controller = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..loadRequest(Uri.parse('https://wa.me/01118529272?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20'));
+class _MyHomePageState extends State<detailPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<LiquidPullToRefreshState> _refreshIndicatorKey =
+      GlobalKey<LiquidPullToRefreshState>();
+
+  static int refreshNum = 10; // number that changes when refreshed
+  Stream<int> counterStream =
+      Stream<int>.periodic(const Duration(seconds: 1), (x) => refreshNum);
+
+  ScrollController? _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  static final List<String> _items = <String>[
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N'
+  ];
+
+  Future<void> _handleRefresh() {
+    final Completer<void> completer = Completer<void>();
+    Timer(const Duration(seconds: 1), () {
+      completer.complete();
+    });
+    setState(() {
+      refreshNum = Random().nextInt(100);
+    });
+    return completer.future.then<void>((_) {
+      ScaffoldMessenger.of(_scaffoldKey.currentState!.context).showSnackBar(
+        SnackBar(
+          content: const Text('Refresh complete'),
+          action: SnackBarAction(
+            label: 'RETRY',
+            onPressed: () {
+              _refreshIndicatorKey.currentState!.show();
+            },
+          ),
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: WebViewWidget(
-        controller: controller,
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        title: Stack(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment(-1.0, 0.0),
+              child: Icon(Icons.reorder),
+            ),
+            Align(
+              alignment: const Alignment(-0.3, 0.0),
+              child: Text(widget.title!),
+            ),
+          ],
+        ),
+      ),
+      body: LiquidPullToRefresh(
+        springAnimationDurationInMilliseconds: 300,
+        animSpeedFactor: 1.5,
+        key: _refreshIndicatorKey,
+        onRefresh: _handleRefresh,
+        showChildOpacityTransition: false,
+        child: StreamBuilder<int>(
+          stream: counterStream,
+          builder: (context, snapshot) {
+            return ListView.builder(
+              padding: kMaterialListPadding,
+              itemCount: _items.length,
+              controller: _scrollController,
+              itemBuilder: (BuildContext context, int index) {
+                final String item = _items[index];
+                return ListTile(
+                  isThreeLine: true,
+                  leading: CircleAvatar(child: Text(item)),
+                  title: Text('This item represents $item.'),
+                  subtitle: Text(
+                      'Even more additional list item information appears on line three. ${snapshot.data}'),
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

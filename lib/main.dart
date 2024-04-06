@@ -8,6 +8,7 @@ import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/routing/app_router.dart';
+import 'package:MCC/routing/appnavigation.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +34,7 @@ void main() async {
         child: BlocProvider(
           create: (context) => AuthCubit(),
           child: MyApp(
-            approuter: Approuter(),
+            // approuter: Approuter(),
           ),
         ),
       ),
@@ -42,9 +43,11 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final Approuter approuter;
+  // final Approuter approuter;
 
-  MyApp({Key? key, required this.approuter}) : super(key: key);
+  MyApp({Key? key, 
+  // required this.approuter
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +58,7 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: Size(380, 812), // used for
           minTextAdapt: true, // used for
-          child: MaterialApp(
+          child: MaterialApp.router(
             locale: Locale('${state.language}'),
             localizationsDelegates: const [
               S.delegate,
@@ -70,8 +73,9 @@ class MyApp extends StatelessWidget {
                     iconTheme: IconThemeData(color: Colors.black),
                     elevation: 0,
                     backgroundColor: Colors.white)),
-            initialRoute: Routes.selectLanguagePage,
-            onGenerateRoute: approuter.generateRoute,
+            routerConfig: AppNavigation.router,
+            // initialRoute: Routes.selectLanguagePage,
+            // onGenerateRoute: approuter.generateRoute,
           ),
         );
       } else {
