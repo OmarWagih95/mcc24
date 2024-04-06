@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         leftappbar(),
                         Text(
-                          'MCC',
+                          ' ',
                           style: TextStyle(fontSize: 24),
                         )
                       ],

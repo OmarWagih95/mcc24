@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:MCC/bloc/observer/navigation_bloc/base_bloc.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/services/Network_data_services.dart';
 import 'package:MCC/views/detailPage.dart';
@@ -14,10 +15,12 @@ import '/views/navpages/BarItemPage.dart';
 import '/views/navpages/HomePage.dart';
 import '/views/navpages/Mypage.dart';
 
-class mainpage extends StatefulWidget {
-  final StatefulNavigationShell navigationShel;
+int currentPage = 0;
 
-  mainpage({super.key, required this.navigationShel});
+class mainpage extends StatefulWidget {
+  mainpage({
+    super.key,
+  });
 
   @override
   State<mainpage> createState() => _mainpageState();
@@ -36,44 +39,39 @@ class _mainpageState extends State<mainpage> {
     SettingsPage(),
     detailPage()
   ];
-  void _gotobranch(int index) {
-    widget.navigationShel.goBranch(index,
-        initialLocation: index == widget.navigationShel.currentIndex);
-  }
-
-  void Function(int)? ontap(indx) {
-    setState(() {
-      Currindx = indx;
-    });
-    return null;
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.shifting,
-            selectedItemColor: ColorsManager.mainColor,
-            unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
-            currentIndex: Currindx,
-            onTap: (e) {
-              setState(() {
-                Currindx = e;
-              });
-              _gotobranch(Currindx);
-            },
-            items: [  
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.apps), label: S.of(context).Home),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: S.of(context).My_Order),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: S.of(context).Settings),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_fix_normal),
-                  label: S.of(context).Maintainance_Packages),
-            ]),
-        body: widget.navigationShel);
+    return BlocConsumer<LandingpageBloc, landingPageState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        return Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+                type: BottomNavigationBarType.shifting,
+                selectedItemColor: ColorsManager.mainColor,
+                unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
+                currentIndex: state.tabIndex,
+                onTap: (e) {
+                  BlocProvider.of<LandingpageBloc>(context)
+                      .add(tabindexevent(tabindex: e));
+                },
+                items: [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.apps), label: S.of(context).Home),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.person), label: S.of(context).My_Order),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.settings),
+                      label: S.of(context).Settings),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.auto_fix_normal),
+                      label: S.of(context).Maintainance_Packages),
+                ]),
+            body: pages[state.tabIndex]);
+      },
+    );
   }
 }
 

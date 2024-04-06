@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:MCC/bloc/blocobserver.dart';
+import 'package:MCC/bloc/observer/blocobserver.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/LanguagesCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
@@ -34,7 +34,7 @@ void main() async {
         child: BlocProvider(
           create: (context) => AuthCubit(),
           child: MyApp(
-            // approuter: Approuter(),
+            approuter: Approuter(),
           ),
         ),
       ),
@@ -43,10 +43,10 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  // final Approuter approuter;
+  final Approuter approuter;
 
   MyApp({Key? key, 
-  // required this.approuter
+  required this.approuter
   }) : super(key: key);
 
   @override
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: Size(380, 812), // used for
           minTextAdapt: true, // used for
-          child: MaterialApp.router(
+          child: MaterialApp(
             locale: Locale('${state.language}'),
             localizationsDelegates: const [
               S.delegate,
@@ -73,9 +73,9 @@ class MyApp extends StatelessWidget {
                     iconTheme: IconThemeData(color: Colors.black),
                     elevation: 0,
                     backgroundColor: Colors.white)),
-            routerConfig: AppNavigation.router,
-            // initialRoute: Routes.selectLanguagePage,
-            // onGenerateRoute: approuter.generateRoute,
+            // routerConfig: AppNavigation.router,
+            initialRoute: Routes.selectLanguagePage,
+            onGenerateRoute: approuter.generateRoute,
           ),
         );
       } else {
