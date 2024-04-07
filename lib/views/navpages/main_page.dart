@@ -25,11 +25,7 @@ class _mainpageState extends State<mainpage> {
   @override
   void initState() {
     // TODO: implement initState
-    getUserDate()async{
-      BlocProvider.of<AuthCubit>(context).user= await BlocProvider.of<AuthCubit>(context).getUserData();
 
-    }
-    getUserDate();
   }
   ////////
   var Externaldata_ = Externaldata();
@@ -41,7 +37,8 @@ class _mainpageState extends State<mainpage> {
 // ), SettingsPage(), Mypage()];
   List pages = [
     BlocProvider<HomePageCubit>(
-      create: (context) => HomePageCubit()..getCategoriesData(),
+      create: (context) => HomePageCubit(),
+      // create: (context) => HomePageCubit()..getCategoriesData(),
       child: HomePage(),
     ),
     LoginScreen(),

@@ -115,6 +115,7 @@ catch(e){
 
   Future <userModel?> getUserData()async{
     userModel? user =await FirebaseUserServices().getUserData();
+    print('${user.userID} fe alfunction tmaam' );
     return user;
   }
 

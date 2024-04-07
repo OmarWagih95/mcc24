@@ -8,8 +8,10 @@ import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
+import 'package:MCC/model/userModel.dart';
 import 'package:MCC/services/Network_data_services.dart';
 import 'package:flutter/material.dart';
+import '../../cubits/auth_cubit.dart';
 import '../../cubits/home_page_cubit.dart';
 import '../categories_screan.dart';
 import '/cubits/visibilityCubit.dart';
@@ -29,8 +31,30 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
+    late userModel? user = BlocProvider.of<AuthCubit>(context).user;
     // TODO: implement initState
+    // print(BlocProvider.of<AuthCubit>(context).user!.userID!);
+    getUserDate()async{
+      print('hna1');
+      try{
 
+      user= await BlocProvider.of<AuthCubit>(context).getUserData();
+      print('${ user!.userID!} test main user');
+      }
+      catch(e){
+        print(e);
+      }
+
+    }
+    try {
+
+      getUserDate();
+      print('userData tmaaam');
+    }
+    catch(e){
+      print(e);
+    }
+    BlocProvider.of<HomePageCubit>(context).getCategoriesData();
 
   }
   var SearchCubitDUMMY_CATEGORIES;

@@ -8,6 +8,8 @@ import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
+import 'package:MCC/model/userModel.dart';
+import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -140,7 +142,8 @@ class CustomDrawer extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
   listener: (context, state) {
     if(state is AuthCubitSignOutSuccess){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+      BlocProvider.of<AuthCubit>(context).user = null;
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => mainpage(),));
     }
   },
   builder: (context, state) {
@@ -181,6 +184,7 @@ class CustomDrawer extends StatelessWidget {
             title:
                 const Text('My Orders', style: TextStyle(color: Colors.white)),
             onTap: () {
+              print('${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
               Navigator.push(context, MaterialPageRoute(builder: (context) => BlocProvider(
   create: (context) => OrderCubit()..GetMyOrders(BlocProvider.of<AuthCubit>(context).user!.userID!),
   child: MyOrdersScreen(),

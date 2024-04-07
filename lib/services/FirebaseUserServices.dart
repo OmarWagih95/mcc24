@@ -74,16 +74,23 @@ return false;
   }
   Future login(String email,String password)async{
     await _auth.signInWithEmailAndPassword(email: email, password: password);
+    var test = await _auth.currentUser!.uid;
+    print('user ${test}');
   }
 
   Future signOut()async{
-    _auth.signOut();
+   await _auth.signOut();
+
   }
 
   Future<userModel>getUserData()async{
+    // await _auth.userChanges();
+    // await _auth.currentUser!.reload();
     String? userID= await _auth.currentUser!.uid;
+    print('${userID} currentUser');
     var userData = await FirebaseFirestore.instance.collection('users').doc(userID).get();
-    userModel user=userModel(userID,userData['email'],userData['userName'],userData['phoneNumber'],userData['address']);
+    print('${userID} get user ahu');
+    userModel user=await userModel(userID,userData['email'],userData['userName'],userData['phoneNumber'],userData['address']);
     print('test ${user.userName}');
     return user;
   }
