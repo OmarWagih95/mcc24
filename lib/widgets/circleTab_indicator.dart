@@ -25,3 +25,17 @@ class boxPainter extends BoxPainter {
     canvas.drawCircle(offset + circleOffset, radius, paint);
   }
 }
+
+void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+  final Rect rect = Offset(
+        offset.dx,
+        configuration.size!.height - 2, // Adjust indicator height
+      ) &
+      Size(configuration.size!.width, 2); // Set indicator width and height
+
+  final Paint paint = Paint()
+    ..color = Colors.yellow // Set indicator color
+    ..style = PaintingStyle.fill;
+
+  canvas.drawRect(rect, paint); // Draw the rectangular indicator
+}

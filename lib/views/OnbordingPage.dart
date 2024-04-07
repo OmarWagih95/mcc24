@@ -1,11 +1,21 @@
+import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '/widgets/Dots.dart';
 import '/widgets/mytext.dart';
+
+void setOnboardingFinished() async {
+  IsOnboardingFinished = true;
+  await CashHelper.setData(
+    key: 'IsOnboardingFinished',
+    value: IsOnboardingFinished,
+  );
+}
 
 class onboardingPage extends StatefulWidget {
   onboardingPage({super.key});
@@ -108,6 +118,7 @@ class _welcomState extends State<onboardingPage> {
                                             MaterialStatePropertyAll(
                                                 ColorsManager.mainColor)),
                                     onPressed: () {
+                                      setOnboardingFinished();
                                       Navigator.pushNamed(
                                           context, '${Routes.mainPage}');
                                     },
@@ -141,7 +152,7 @@ class onbordingInputButton extends StatelessWidget {
         ),
         Icon(
           color: Colors.white,
-         Localizations.localeOf(context).languageCode == "en"
+          Localizations.localeOf(context).languageCode == "en"
               ? Icons.arrow_right_rounded
               : Icons.arrow_left_rounded,
           size: 35,
