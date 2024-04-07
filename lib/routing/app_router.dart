@@ -28,7 +28,7 @@ class Approuter {
         );
       case Routes.mainPage:
         return MaterialPageRoute(
-          builder: (_) => const mainpage(),
+          builder: (_) =>  mainpage(),
         );
       case Routes.categoriesScreen:
         return MaterialPageRoute(
