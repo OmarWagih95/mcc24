@@ -120,7 +120,7 @@ class _welcomState extends State<onboardingPage> {
                                     onPressed: () {
                                       setOnboardingFinished();
                                       Navigator.pushNamed(
-                                          context, '${Routes.mainPage}');
+                                          context, Routes.mainPage);
                                     },
                                     child: onbordingInputButton()),
                               )

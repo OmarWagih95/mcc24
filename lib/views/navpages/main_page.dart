@@ -48,7 +48,6 @@ class _mainpageState extends State<mainpage> {
   List pages = [
     BlocProvider<HomePageCubit>(
       create: (context) => HomePageCubit(),
-      // create: (context) => HomePageCubit()..getCategoriesData(),
       child: HomePage(),
     ),
     LoginScreen(),
@@ -57,7 +56,7 @@ class _mainpageState extends State<mainpage> {
   ];
   List pages2 = [
     BlocProvider<HomePageCubit>(
-      create: (context) => HomePageCubit()..getCategoriesData(),
+      create: (context) => HomePageCubit(),
       child: HomePage(),
     ),
     Mypage(),

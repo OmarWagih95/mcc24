@@ -1,3 +1,4 @@
+import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
@@ -6,6 +7,7 @@ import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/model/userModel.dart';
@@ -137,73 +139,89 @@ class messageText extends StatelessWidget {
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    AuthCubit authCubit =context.read<AuthCubit>();
+    AuthCubit authCubit = context.read<AuthCubit>();
     return BlocConsumer<AuthCubit, AuthState>(
-  listener: (context, state) {
-    if(state is AuthCubitSignOutSuccess){
-      BlocProvider.of<AuthCubit>(context).user = null;
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => mainpage(),));
-    }
-  },
-  builder: (context, state) {
-    return Container(
-      color: ColorsManager.mainColor,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-           DrawerHeader(
-            decoration: BoxDecoration(
-              color:ColorsManager.mainColor,
-            ),
-            child: Text(
-              'Custom Drawer Header',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
+      listener: (context, state) {
+        if (state is AuthCubitSignOutSuccess) {
+          BlocProvider.of<AuthCubit>(context).user = null;
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => mainpage(),
+              ));
+        }
+      },
+      builder: (context, state) {
+        return Container(
+          color: ColorsManager.mainColor,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: ColorsManager.mainColor,
+                ),
+                child: Text(
+                  'Custom Drawer Header',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
               ),
-            ),
+              ListTile(
+                leading: const Icon(Icons.home, color: Colors.white),
+                title:
+                    const Text('Home', style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings, color: Colors.white),
+                title: const Text('Settings',
+                    style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.add_home_work, color: Colors.white),
+                title: const Text('My Orders',
+                    style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  print(
+                      '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => BlocProvider(
+                                create: (context) => OrderCubit()
+                                  ..GetMyOrders(
+                                      BlocProvider.of<AuthCubit>(context)
+                                          .user!
+                                          .userID!),
+                                child: MyOrdersScreen(),
+                              )));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.logout, color: Colors.white),
+                title: const Text('Sign out',
+                    style: TextStyle(color: Colors.white)),
+                onTap: () async {
+                  authCubit.signOut();
+                  await CashHelper.setData(
+                    key: 'Islogin',
+                    value: false,
+                  );
+                },
+              ),
+              // Add more ListTiles for additional menu items
+            ],
           ),
-          ListTile(
-            leading: const Icon(Icons.home, color: Colors.white),
-            title: const Text('Home', style: TextStyle(color: Colors.white)),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.settings, color: Colors.white),
-            title:
-                const Text('Settings', style: TextStyle(color: Colors.white)),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.add_home_work, color: Colors.white),
-            title:
-                const Text('My Orders', style: TextStyle(color: Colors.white)),
-            onTap: () {
-              print('${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
-              Navigator.push(context, MaterialPageRoute(builder: (context) => BlocProvider(
-  create: (context) => OrderCubit()..GetMyOrders(BlocProvider.of<AuthCubit>(context).user!.userID!),
-  child: MyOrdersScreen(),
-)));
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.logout, color: Colors.white),
-            title:
-                const Text('Sign out', style: TextStyle(color: Colors.white)),
-            onTap: () {
-              authCubit.signOut();
-            },
-          ),
-          // Add more ListTiles for additional menu items
-        ],
-      ),
+        );
+      },
     );
-  },
-);
   }
 }
