@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     catch(e){
       print(e);
     }
-    // BlocProvider.of<HomePageCubit>(context).getCategoriesData();
+    BlocProvider.of<HomePageCubit>(context).getCategoriesData();
 
   }
   var SearchCubitDUMMY_CATEGORIES;
