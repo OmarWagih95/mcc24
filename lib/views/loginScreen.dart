@@ -25,6 +25,7 @@ class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+GlobalKey<NavigatorState> LoginScreenNavigatorKey = GlobalKey<NavigatorState>();
 
 class _LoginScreenState extends State<LoginScreen> {
   // final emailcontroller = TextEditingController();

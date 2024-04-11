@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+GlobalKey<NavigatorState> bakaatSeyanaaNavigatorKey = GlobalKey<NavigatorState>();
+
 class bakaatSeyanaa extends StatelessWidget {
   const bakaatSeyanaa({super.key});
 

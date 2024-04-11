@@ -5,6 +5,7 @@ import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/LanguagesCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
@@ -14,6 +15,7 @@ import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/theme/dark_theme.dart';
 import 'package:MCC/theme/themeData.dart';
+import 'package:MCC/views/navpages/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -33,8 +35,16 @@ void main() async {
   IsOnboardingFinished =
       CashHelper.getBool(key: 'IsOnboardingFinished') ?? false;
 
-  runApp(BlocProvider(
-    create: (context) => LanguagesCubit()..changeLanguages('en'),
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => LanguagesCubit()..changeLanguages('en'),
+      ),
+          BlocProvider<HomePageCubit>(
+        create: (context) => HomePageCubit(),
+        child: HomePage(),
+      )
+    ],
     child: BlocProvider(
       create: (context) => ServicesCubit(),
       child: BlocProvider(

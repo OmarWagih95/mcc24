@@ -9,6 +9,7 @@ import 'package:MCC/services/Network_data_services.dart';
 import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../constants/colors.dart';
 import '../../cubits/home_page_cubit.dart';
@@ -38,27 +39,44 @@ class _mainpageState extends State<mainpage> {
     getUserDate();
   }
 
-  ////////
+  Future<bool> _systemBackButtonPressed() async {
+    if (_navigatorKeys[Currindx].currentState?.canPop() == true) {
+      _navigatorKeys[Currindx]
+          .currentState
+          ?.pop(_navigatorKeys[Currindx].currentContext);
+      return false;
+    } else {
+      SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
+      return true; // Indicate that the back action is handled
+    }
+  }
 
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
+    HomePageNavigatorKey,
+    LoginScreenNavigatorKey,
+    MypageNavigatorKey,
+    SettingsPageNavigatorKey,
+    bakaatSeyanaaNavigatorKey,
+  ];
   int Currindx = 0;
-//   List pages = [HomePage(), BlocProvider(
-//   create: (context) => LoginCubit(),
-//   child: LoginScreen(),
-// ), SettingsPage(), Mypage()];
-  List pages = [
-    BlocProvider<HomePageCubit>(
-      create: (context) => HomePageCubit(),
-      child: HomePage(),
-    ),
+
+  List<Widget> pages = [
+    // BlocProvider<HomePageCubit>(
+    //   create: (context) => HomePageCubit(),
+    //   child: HomePage(),
+    // )
+    HomePage(),
     LoginScreen(),
     SettingsPage(),
     bakaatSeyanaa()
   ];
-  List pages2 = [
-    BlocProvider<HomePageCubit>(
-      create: (context) => HomePageCubit(),
-      child: HomePage(),
-    ),
+
+  List<Widget> pages2 = [
+    // BlocProvider<HomePageCubit>(
+    //   create: (context) => HomePageCubit(),
+    //   child: HomePage(),
+    // ),
+    HomePage(),
     Mypage(),
     SettingsPage(),
     bakaatSeyanaa()
@@ -74,24 +92,81 @@ class _mainpageState extends State<mainpage> {
   @override
   Widget build(BuildContext context) {
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
-    return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.shifting,
-            selectedItemColor: ColorsManager.mainColor,
-            unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
-            currentIndex: Currindx,
-            onTap: (e) => ontap(e),
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.apps), label: S.of(context).Home),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: S.of(context).My_Order),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: S.of(context).Settings),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_fix_normal),
-                  label: S.of(context).Maintainance_Packages),
-            ]),
-        body: (Islogin == false) ? pages[Currindx] : pages2[Currindx]);
+    return WillPopScope(
+      onWillPop: _systemBackButtonPressed,
+      child: Scaffold(
+        bottomNavigationBar: NavigationBar(animationDuration: Duration(milliseconds: 400),
+          onDestinationSelected: (int index) {
+            setState(() {
+              Currindx = index;
+            });
+          },
+          selectedIndex: Currindx,
+
+          destinations: [
+            NavigationDestination(
+              selectedIcon: Icon(
+                Icons.apps,
+                color: ColorsManager.mainColor,
+              ),
+              icon: Icon(
+                Icons.apps,
+                color: ColorsManager.mainColor.withOpacity(.3),
+              ),
+              label: S.of(context).Home,
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(
+                Icons.person,
+                color: ColorsManager.mainColor,
+              ),
+              icon: Icon(Icons.person,
+                  color: ColorsManager.mainColor.withOpacity(.3)),
+              label: S.of(context).My_Order,
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(
+                Icons.settings,
+                color: ColorsManager.mainColor,
+              ),
+              icon: Icon(Icons.settings,
+                  color: ColorsManager.mainColor.withOpacity(.3)),
+              label: S.of(context).Settings,
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(
+                Icons.auto_fix_normal,
+                color: ColorsManager.mainColor,
+              ),
+              icon: Icon(Icons.auto_fix_normal,
+                  color: ColorsManager.mainColor.withOpacity(.3)),
+              label: S.of(context).Maintainance_Packages,
+            ),
+          ],
+
+          // type: BottomNavigationBarType.shifting,
+          // selectedItemColor: ColorsManager.mainColor,
+          // unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
+          // currentIndex: Currindx,
+          // onTap: (e) => ontap(e),
+          // items: [
+          //   BottomNavigationBarItem(
+          //       icon: Icon(Icons.apps), label: S.of(context).Home),
+          //   BottomNavigationBarItem(
+          //       icon: Icon(Icons.person), label: S.of(context).My_Order),
+          //   BottomNavigationBarItem(
+          //       icon: Icon(Icons.settings), label: S.of(context).Settings),
+          //   BottomNavigationBarItem(
+          //       icon: Icon(Icons.auto_fix_normal),
+          //       label: S.of(context).Maintainance_Packages),
+          // ]
+        ),
+        body: SafeArea(
+          top: false,
+          child: IndexedStack(
+              index: Currindx, children: (Islogin == false) ? pages : pages2),
+        ),
+      ),
+    );
   }
 }
