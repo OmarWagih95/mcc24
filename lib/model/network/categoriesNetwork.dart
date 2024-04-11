@@ -11,9 +11,10 @@ class CategoriesNetwork {
 
   Future<List<Categoryy>> getCategoriesData(categoryDataList) async {
         List<QueryDocumentSnapshot> categoryDataQueryList = [];
-      // categoryDataList.clear();
+      categoryDataList.clear();
       QuerySnapshot querySnapshot = await _categories.get();
       categoryDataQueryList.addAll(querySnapshot.docs);
+      print(categoryDataQueryList.length);
       for (int i = 0; i < categoryDataQueryList.length; i++) {
         var URL = await getCategorisImg(categoryDataQueryList[i]['logoIMG']);
         print(URL);

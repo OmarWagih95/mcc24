@@ -16,6 +16,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   getCategoriesData()async{
       emit(HomePageGetDataLoading());
       try{
+        categoryDataList.clear();
     categoryDataList=await CategoriesNetwork().getCategoriesData(categoryDataList);
     emit(HomePageGetDataSuccessed());
       }
