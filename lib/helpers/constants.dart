@@ -1,2 +1,3 @@
-bool IsOnboardingFinished=false;
-bool Islogin=false;
+bool IsOnboardingFinished = false;
+late bool Islogin ;
+int currentThemeType = 0;

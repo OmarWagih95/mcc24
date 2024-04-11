@@ -2,7 +2,6 @@ import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
-import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/helpers/spacing.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/styles/Styles.dart';
@@ -126,10 +125,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     if (loginCubit.formKey.currentState!
                                         .validate()) {
                                       loginCubit.login();
-                                      Islogin = true;
                                       await CashHelper.setData(
                                         key: 'Islogin',
-                                        value: Islogin,
+                                        value: true,
                                       );
                                     }
                                   },

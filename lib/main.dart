@@ -12,6 +12,8 @@ import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
+import 'package:MCC/theme/dark_theme.dart';
+import 'package:MCC/theme/themeData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -75,11 +77,9 @@ class MyApp extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-                appBarTheme: const AppBarTheme(
-                    iconTheme: IconThemeData(color: Colors.black),
-                    elevation: 0,
-                    backgroundColor: Colors.white)),
+            // theme: getLightMode(),
+            // darkTheme: getDarkTheme(),
+            themeMode: ThemeMode.dark,
             initialRoute: (!IsOnboardingFinished)
                 ? Routes.selectLanguagePage
                 : Routes.mainPage,
