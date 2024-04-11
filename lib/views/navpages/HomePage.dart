@@ -26,6 +26,7 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
+GlobalKey<NavigatorState> HomePageNavigatorKey = GlobalKey<NavigatorState>();
 
 
 class _HomePageState extends State<HomePage> {
