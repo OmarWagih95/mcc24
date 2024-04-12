@@ -1,5 +1,6 @@
 // ignore: camel_case_types
 
+import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
 import 'package:MCC/cubits/login_cubit.dart';
@@ -68,7 +69,8 @@ class _categoriesScreenState extends State<categoriesScreen> {
                           itemBuilder: (context, index) {
                             return categoryItem(
                               state.filteredData[index],
-                              DUMMY_CATEGORIES[index].color,
+                              // DUMMY_CATEGORIES[index].color,
+                              ColorsManager.Color30Light
                             );
                           },
                           itemCount: state.filteredData

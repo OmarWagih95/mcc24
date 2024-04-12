@@ -76,7 +76,8 @@ class _leftappbarState extends State<leftappbar> {
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
-            icon: const Icon(Icons.menu)),
+            icon: const Icon(Icons.menu ,color:ColorsManager.Color10Light
+                ,)),
         IconButton(
             onPressed: () {
               // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -91,8 +92,8 @@ class _leftappbarState extends State<leftappbar> {
                       : 'en');
               // log(state.language);
             },
-            icon: Icon(Icons.notifications)),
-        const IconButton(onPressed: null, icon: Icon(Icons.search))
+            icon: Icon(Icons.notifications,color: ColorsManager.Color10Light)),
+        const IconButton(onPressed: null, icon: Icon(Icons.search,color: ColorsManager.Color10Light,))
       ]),
     );
   }

@@ -4,6 +4,7 @@ import 'package:MCC/widgets/OurPropertiesListItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../constants/colors.dart';
 import '../model/service.dart';
 import '../widgets/OrderingServiceDialog.dart';
 class ServiceDetailsScreen extends StatelessWidget {
@@ -16,11 +17,12 @@ ServiceDetailsScreen(this.service);
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorsManager.Color60Light,
         body: SingleChildScrollView(
           child: Stack(
             children: [Column(
               children: [Container(
-                color: Colors.teal,
+                color: ColorsManager.Color60Light,
                 height: 320.h,
                 width: double.infinity,
                 child: Image.network(service.logoImgURL,fit:BoxFit.fitHeight),
@@ -30,8 +32,7 @@ ServiceDetailsScreen(this.service);
               width: double.infinity,
             // height: 450.h,
             decoration: BoxDecoration(
-            color: Colors.white
-            ,borderRadius: BorderRadius.only(topRight: Radius.circular(25),topLeft: Radius.circular(25))),
+                color: ColorsManager.Color60Light            ,borderRadius: BorderRadius.only(topRight: Radius.circular(25),topLeft: Radius.circular(25))),
             child: Padding(
               padding:  EdgeInsets.all(15.h),
               child: Column(crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,7 +60,7 @@ OurProvidingListItem(Icons.verified, 'ضمان إسترداد الأموال'),
             MyButton(text: 'طلب خدمة', onClick: (){
               showDialog(context: context, builder: (context) =>OrderingServiceDialog(service));
               print('clicked');
-            }, textColor: Colors.white, buttonColor: Colors.teal)],)]
+            }, textColor: Colors.white, buttonColor: ColorsManager.Color10Light)],)]
           ),
         ),
       ),

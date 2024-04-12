@@ -42,7 +42,9 @@ class _ServicesScreenState extends State<ServicesScreen> {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(boxShadow: [
+
+              decoration: BoxDecoration(
+            boxShadow: [
                 BoxShadow(
                   color: Colors.black54,
                   blurRadius: 3,
@@ -73,7 +75,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   Row(
                 mainAxisAlignment: MainAxisAlignment.center
                 ,children: [
-                    Text(widget.categoryy.AR['categoryName'],textDirection: TextDirection.rtl,style: TextStyle(fontSize:25.w,fontWeight: FontWeight.bold ,decoration:TextDecoration.underline,color: ColorsManager.Color30Light),)
+                    Text(widget.categoryy.AR['categoryName'],textDirection: TextDirection.rtl,style: TextStyle(fontSize:25.w,fontWeight: FontWeight.bold ,decoration:TextDecoration.underline),)
                   ],),
                   SizedBox(height: 30.h,),
 
@@ -106,12 +108,14 @@ class _ServicesScreenState extends State<ServicesScreen> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-
+                            color: ColorsManager.Color30Light,
                           boxShadow: [BoxShadow( color: Colors.grey.shade600,
                               spreadRadius: 1,
                               blurRadius: 15,
                           blurStyle: BlurStyle.outer,
-                          offset:Offset(0, -5))]
+                          // offset:Offset(0, -5)
+                          )
+                          ]
                           // color: ColorsManager.,
                             // gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomLeft,colors: [Colors.black12,Colors.purple.shade200]),
                             ,borderRadius: BorderRadius.circular(10.h)),
@@ -126,7 +130,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                               Icon(Icons.arrow_circle_left,color: ColorsManager.Color10Light,size: 40.h,)
                               ,Text(
                               context.read<ServicesCubit>().servicesDataList[index].AR['serviceName'],textDirection: TextDirection.rtl,
-                              style: TextStyle(fontSize: 25.w,color: ColorsManager.Color30Light),) ,
+                              style: TextStyle(fontSize: 25.w,),) ,
                             ],
                           ),
                         ),

@@ -60,18 +60,18 @@ return false;
     // userInfo(userID);
 
   }
- Future userInfo (String email,String userName,String phoneNumber, String address )async{
-    print('asht8lttttttt');
-    print(email);print(userName);print(phoneNumber);print(address);
-    print(userID);
-    print('here');
-    await usersCollection.doc('1').set({
-      'email': email!,
-      'userName': userName!,
-      'phoneNumber': phoneNumber!,
-      'address': address!
-    }).then((value) => print('success'));
-  }
+ // Future userInfo (String email,String userName,String phoneNumber, String address )async{
+ //    print('asht8lttttttt');
+ //    print(email);print(userName);print(phoneNumber);print(address);
+ //    print(userID);
+ //    print('here');
+ //    await usersCollection.doc('1').set({
+ //      'email': email!,
+ //      'userName': userName!,
+ //      'phoneNumber': phoneNumber!,
+ //      'address': address!
+ //    }).then((value) => print('success'));
+ //  }
   Future login(String email,String password)async{
     await _auth.signInWithEmailAndPassword(email: email, password: password);
     var test = await _auth.currentUser!.uid;

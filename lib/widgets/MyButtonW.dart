@@ -19,7 +19,7 @@ MyButton({required this.text,required this.onClick,required this.textColor,requi
         //
         // ),
         child: Container(
-          decoration: BoxDecoration(color: Colors.teal,borderRadius: BorderRadius.all(Radius.circular(10))),
+          decoration: BoxDecoration(color: buttonColor,borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Padding(
             padding:  EdgeInsets.all(10),
             child: Row(

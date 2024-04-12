@@ -31,7 +31,7 @@ class LoginCubit extends Cubit<LoginState> {
     try{
       print(email);
       print(passWord);
-    FirebaseUserServices().login(email!, passWord!);
+   await FirebaseUserServices().login(email!, passWord!);
     emit(LoginSuccessState());
     }
     catch(e){

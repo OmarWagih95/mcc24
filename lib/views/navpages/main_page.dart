@@ -107,46 +107,46 @@ class _mainpageState extends State<mainpage> {
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.apps,
-                color: ColorsManager.mainColor,
+                color: ColorsManager.Color10Light,
               ),
               icon: Icon(
                 Icons.apps,
-                color: ColorsManager.mainColor.withOpacity(.3),
+                color: ColorsManager.Color10Light.withOpacity(.3),
               ),
               label: S.of(context).Home,
             ),
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.person,
-                color: ColorsManager.mainColor,
+                color: ColorsManager.Color10Light,
               ),
               icon: Icon(Icons.person,
-                  color: ColorsManager.mainColor.withOpacity(.3)),
+                  color: ColorsManager.Color10Light.withOpacity(.3)),
               label: S.of(context).My_Order,
             ),
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.settings,
-                color: ColorsManager.mainColor,
+                color: ColorsManager.Color10Light,
               ),
               icon: Icon(Icons.settings,
-                  color: ColorsManager.mainColor.withOpacity(.3)),
+                  color: ColorsManager.Color10Light.withOpacity(.3)),
               label: S.of(context).Settings,
             ),
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.auto_fix_normal,
-                color: ColorsManager.mainColor,
+                color: ColorsManager.Color10Light,
               ),
               icon: Icon(Icons.auto_fix_normal,
-                  color: ColorsManager.mainColor.withOpacity(.3)),
+                  color: ColorsManager.Color10Light.withOpacity(.3)),
               label: S.of(context).Maintainance_Packages,
             ),
           ],
 
           // type: BottomNavigationBarType.shifting,
-          // selectedItemColor: ColorsManager.mainColor,
-          // unselectedItemColor: ColorsManager.mainColor.withOpacity(.3),
+          // selectedItemColor: ColorsManager.Color10Light,
+          // unselectedItemColor: ColorsManager.Color10Light.withOpacity(.3),
           // currentIndex: Currindx,
           // onTap: (e) => ontap(e),
           // items: [
