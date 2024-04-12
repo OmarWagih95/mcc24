@@ -91,8 +91,10 @@ class MyApp extends StatelessWidget {
             // darkTheme: getDarkTheme(),
             themeMode: ThemeMode.dark,
             initialRoute: (!IsOnboardingFinished)
-                ? Routes.selectLanguagePage
+                ?
+                 Routes.selectLanguagePage
                 : Routes.mainPage,
+                // : Routes.testpackages,
             onGenerateRoute: approuter.generateRoute,
           ),
         );

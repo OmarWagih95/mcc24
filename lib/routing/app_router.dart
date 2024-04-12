@@ -1,4 +1,5 @@
 import 'package:MCC/routing/routes.dart';
+import 'package:MCC/testpackages.dart';
 import 'package:MCC/views/OnbordingPage.dart';
 import 'package:MCC/views/Service_detail_screen.dart';
 import 'package:MCC/views/categories_screan.dart';
@@ -48,7 +49,11 @@ class Approuter {
         ); case Routes.signeupScreen:
         return MaterialPageRoute(
           builder: (_) => SigneUpScreen(),
+        );case Routes.testpackages:
+        return MaterialPageRoute(
+          builder: (_) => testpackages(),
         );
+        
       // case Routes.CategoryserviceScreen:
       //   return MaterialPageRoute(
       //     builder: (_) => CategoryserviceScreen(
