@@ -95,71 +95,60 @@ class _mainpageState extends State<mainpage> {
     return WillPopScope(
       onWillPop: _systemBackButtonPressed,
       child: Scaffold(
-        bottomNavigationBar: NavigationBar(animationDuration: Duration(milliseconds: 400),
+        bottomNavigationBar: NavigationBar(
+          animationDuration: Duration(milliseconds: 400),
           onDestinationSelected: (int index) {
             setState(() {
               Currindx = index;
             });
           },
           selectedIndex: Currindx,
-
           destinations: [
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.apps,
-                color: ColorsManager.Color10Light,
+                // color: ColorsManager.Color10Light,
               ),
               icon: Icon(
                 Icons.apps,
-                color: ColorsManager.Color10Light.withOpacity(.3),
+                // color: ColorsManager.Color10Light.withOpacity(.3),
               ),
               label: S.of(context).Home,
             ),
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.person,
-                color: ColorsManager.Color10Light,
+                // color: ColorsManager.Color10Light,
               ),
-              icon: Icon(Icons.person,
-                  color: ColorsManager.Color10Light.withOpacity(.3)),
+              icon: Icon(
+                Icons.person,
+                // color: ColorsManager.Color10Light.withOpacity(.3)
+              ),
               label: S.of(context).My_Order,
             ),
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.settings,
-                color: ColorsManager.Color10Light,
+                // color: ColorsManager.Color10Light,
               ),
-              icon: Icon(Icons.settings,
-                  color: ColorsManager.Color10Light.withOpacity(.3)),
+              icon: Icon(
+                Icons.settings,
+                // color: ColorsManager.Color10Light.withOpacity(.3)
+              ),
               label: S.of(context).Settings,
             ),
             NavigationDestination(
               selectedIcon: Icon(
                 Icons.auto_fix_normal,
-                color: ColorsManager.Color10Light,
+                // color: ColorsManager.Color10Light,
               ),
-              icon: Icon(Icons.auto_fix_normal,
-                  color: ColorsManager.Color10Light.withOpacity(.3)),
+              icon: Icon(
+                Icons.auto_fix_normal,
+                // color: ColorsManager.Color10Light.withOpacity(.3)
+              ),
               label: S.of(context).Maintainance_Packages,
             ),
           ],
-
-          // type: BottomNavigationBarType.shifting,
-          // selectedItemColor: ColorsManager.Color10Light,
-          // unselectedItemColor: ColorsManager.Color10Light.withOpacity(.3),
-          // currentIndex: Currindx,
-          // onTap: (e) => ontap(e),
-          // items: [
-          //   BottomNavigationBarItem(
-          //       icon: Icon(Icons.apps), label: S.of(context).Home),
-          //   BottomNavigationBarItem(
-          //       icon: Icon(Icons.person), label: S.of(context).My_Order),
-          //   BottomNavigationBarItem(
-          //       icon: Icon(Icons.settings), label: S.of(context).Settings),
-          //   BottomNavigationBarItem(
-          //       icon: Icon(Icons.auto_fix_normal),
-          //       label: S.of(context).Maintainance_Packages),
-          // ]
         ),
         body: SafeArea(
           top: false,

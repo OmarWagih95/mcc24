@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
@@ -5,6 +7,7 @@ import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/darkModeCubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
@@ -13,8 +16,11 @@ import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/model/userModel.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/widgets/category_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../views/MyOrdersScreen.dart';
 import '../views/loginScreen.dart';
 import '/cubits/visibilityCubit.dart';
@@ -39,21 +45,18 @@ class searchbar extends StatelessWidget {
             .filterList(query, DUMMY_CATEGORIES),
         textDirection: TextDirection.rtl,
         decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(24),
-                borderSide: BorderSide(color: ColorsManager.mainColor)),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(24),
-                borderSide: BorderSide(color: ColorsManager.starColor)),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: ColorsManager.mainColor)),
-            suffixIcon:
-                const IconButton(onPressed: null, icon: Icon(Icons.search)),
-            hintText: S.of(context).Search_for_service_or_product,
-            hintStyle: TextStyle(
-              color: Colors.grey.withOpacity(1),
-            )),
-        style: const TextStyle(),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(24),
+              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(24),
+              borderSide: BorderSide(color: Theme.of(context).shadowColor)),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+          suffixIcon:
+              const IconButton(onPressed: null, icon: Icon(Icons.search)),
+          hintText: S.of(context).Search_for_service_or_product,
+        ),
         controller: search_controller,
       ),
     );
@@ -76,24 +79,25 @@ class _leftappbarState extends State<leftappbar> {
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },
-            icon: const Icon(Icons.menu ,color:ColorsManager.Color10Light
-                ,)),
+            icon: const Icon(
+              Icons.menu,
+              color: ColorsManager.Color10Light,
+            )),
         IconButton(
             onPressed: () {
-              // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              //     content: Text(
-              //   "لايوجد اشعارات الان ",
-              //   style: TextStyle(fontSize: 32),
-              // ))
-              // );
-              BlocProvider.of<LanguagesCubit>(context).changeLanguages(
-                  ((Localizations.localeOf(context).languageCode) == 'en')
-                      ? 'ar'
-                      : 'en');
-              // log(state.language);
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(
+                "لايوجد اشعارات الان ",
+                style: TextStyle(fontSize: 32),
+              )));
             },
-            icon: Icon(Icons.notifications,color: ColorsManager.Color10Light)),
-        const IconButton(onPressed: null, icon: Icon(Icons.search,color: ColorsManager.Color10Light,))
+            icon: Icon(Icons.notifications, color: ColorsManager.Color10Light)),
+        IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.search,
+              color: ColorsManager.Color10Light,
+            ))
       ]),
     );
   }
@@ -153,73 +157,130 @@ class CustomDrawer extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return Container(
-          color: ColorsManager.mainColor,
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: ColorsManager.mainColor,
-                ),
-                child: Text(
-                  'Custom Drawer Header',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+        return Drawer(
+          // backgroundColor: Theme.of(context).splashColor,
+          child: Container(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  padding: EdgeInsets.zero,
+                  decoration: BoxDecoration(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.zero,
+                        child: Image.asset(
+                          'img/mmcassits/logo_12.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Memar',
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            Text(
+                              'Corner',
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            Text(
+                              'Construction',
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title:
-                    const Text('Home', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.settings, color: Colors.white),
-                title: const Text('Settings',
-                    style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.add_home_work, color: Colors.white),
-                title: const Text('My Orders',
-                    style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  print(
-                      '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => BlocProvider(
-                                create: (context) => OrderCubit()
-                                  ..GetMyOrders(
-                                      BlocProvider.of<AuthCubit>(context)
-                                          .user!
-                                          .userID!),
-                                child: MyOrdersScreen(),
-                              )));
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.logout, color: Colors.white),
-                title: const Text('Sign out',
-                    style: TextStyle(color: Colors.white)),
-                onTap: () async {
-                  authCubit.signOut();
-                  await CashHelper.setData(
-                    key: 'Islogin',
-                    value: false,
-                  );
-                },
-              ),
-              // Add more ListTiles for additional menu items
-            ],
+                ListTile(
+                  leading: const Icon(
+                    Icons.home,
+                  ),
+                  title: Text(S.of(context).Home, style: TextStyle()),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.settings,
+                  ),
+                  title: Text(S.of(context).Settings, style: TextStyle()),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.add_home_work,
+                  ),
+                  title: Text(S.of(context).My_Order, style: TextStyle()),
+                  onTap: () {
+                    print(
+                        '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BlocProvider(
+                                  create: (context) => OrderCubit()
+                                    ..GetMyOrders(
+                                        BlocProvider.of<AuthCubit>(context)
+                                            .user!
+                                            .userID!),
+                                  child: MyOrdersScreen(),
+                                )));
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.logout,
+                  ),
+                  title: Text(S.of(context).Sign_IN, style: TextStyle()),
+                  onTap: () async {
+                    authCubit.signOut();
+                    await CashHelper.setData(
+                      key: 'Islogin',
+                      value: false,
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.light_mode),
+                  title: Text("S.of(context).Lang_change", style: TextStyle()),
+                  onTap: () async {
+                    final mode =
+                        BlocProvider.of<Dark_lightModeCubit>(context).mode;
+                    log(' from onPressed1 mode is $mode');
+                    BlocProvider.of<Dark_lightModeCubit>(context)
+                        .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.change_circle),
+                  title: Text('S.of(context).Brightness_change',
+                      style: TextStyle()),
+                  onTap: () async {
+                    BlocProvider.of<LanguagesCubit>(context).changeLanguages(
+                        ((Localizations.localeOf(context).languageCode) == 'en')
+                            ? 'ar'
+                            : 'en');
+                  },
+                ),
+              ],
+            ),
           ),
         );
       },

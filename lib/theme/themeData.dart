@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 ThemeData getDarkMode() {
   return ThemeData(
+    brightness: Brightness.dark,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: FxColors.primary,
+      backgroundColor: FxColors.primary_Dark,
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -15,7 +16,7 @@ ThemeData getDarkMode() {
 
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: FxColors.secondary,
+      fillColor: FxColors.secondary_Dark,
       prefixStyle: const TextStyle(
         color: Colors.white,
       ),
@@ -24,14 +25,14 @@ ThemeData getDarkMode() {
     ),
 
     progressIndicatorTheme: ProgressIndicatorThemeData(
-      color: FxColors.primary,
+      color: FxColors.primary_Dark,
     ),
 
     //
-    scaffoldBackgroundColor: const Color(0xff1e1e1e), //customScaffoldColor,
-    splashColor: const Color(0xff252525), //customBackGroundBody
-    primaryColor: const Color(0xff2f2f2f), //custom main
-    shadowColor: FxColors.secondary,
+    scaffoldBackgroundColor: FxColors.background_Dark, //customScaffoldColor,
+    splashColor: FxColors.primarySecondary_Dark, //customBackGroundBody
+    primaryColor: FxColors.primary_Dark, //custom main
+    shadowColor: FxColors.secondary_Dark,
 
     //
     textTheme: const TextTheme(
@@ -101,8 +102,9 @@ ThemeData getDarkMode() {
 
 ThemeData getLightMode() {
   return ThemeData(
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
+    brightness: Brightness.light,
+    appBarTheme: AppBarTheme(
+      backgroundColor: FxColors.background,
       elevation: 0,
     ),
     iconTheme: const IconThemeData(
@@ -110,19 +112,18 @@ ThemeData getLightMode() {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: FxColors.secondary,
+      fillColor: FxColors.primarySecondary,
       prefixStyle: const TextStyle(
         color: Colors.white,
       ),
-      prefixIconColor: Colors.black,
-      iconColor: Colors.black,
+      prefixIconColor: FxColors.primary,
+      iconColor: FxColors.primary,
     ),
-    fontFamily: 'ios-1',
+    // fontFamily: 'ios-1',
 
-    scaffoldBackgroundColor:
-        const Color.fromARGB(255, 89, 88, 88), //customScaffoldColor,
-    splashColor: Colors.white, //customBackGroundBody
-    primaryColor: const Color.fromARGB(255, 206, 205, 205), //custom main
+    scaffoldBackgroundColor: FxColors.background, //customScaffoldColor,
+    splashColor: FxColors.primarySecondary, //customBackGroundBody
+    primaryColor: FxColors.primary, //custom main
     shadowColor: FxColors.secondary,
     //
 
@@ -206,12 +207,16 @@ TextStyle titleLarge(context) {
 }
 
 class FxColors {
-  //custom
-
-  static Color background = const Color(0xff1e1e1e);
-  static Color secondary = const Color(0xff353535);
-  static Color third = const Color(0xff2c2c2c);
-  //
-  static Color primary = const Color(0xff42796c);
-  static Color primarySecondary = const Color(0xff364945);
+  static Color background = const Color(0xFFF6F5F2);
+  static Color secondary = const Color(0xFFC58940);
+  static Color primary = const Color(0xFFe7bb4e);
+  static Color primarySecondary = const Color(0xFFFAEAB1);
+  /////////////////////
+  static Color background_Dark =
+      Color.fromARGB(255, 123, 123, 123).withOpacity(0.2);
+  static Color secondary_Dark =
+      Color.fromARGB(255, 105, 105, 105).withOpacity(0.2);
+  static Color primary_Dark = Color.fromARGB(255, 88, 88, 88).withOpacity(0.2);
+  static Color primarySecondary_Dark =
+      Color.fromARGB(255, 58, 61, 62).withOpacity(0.2);
 }

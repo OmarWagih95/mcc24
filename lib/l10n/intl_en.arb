@@ -35,5 +35,8 @@
   "Maintainance_Packages": "Maintainance Packages",
   "Phone_number": "Phone number",
   "Adress": "Adress",
-  "Dont_have_an_account_yet": "Don't have an account yet ?"
+  "Dont_have_an_account_yet": "Don't have an account yet ?",
+  "Sign_out": "Sign out",
+  "Lang_change": "Lang change",
+  "Brightness_change": "Brightness change"
 }

@@ -5,6 +5,7 @@ import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/LanguagesCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/darkModeCubit.dart';
 import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
@@ -40,7 +41,10 @@ void main() async {
       BlocProvider(
         create: (context) => LanguagesCubit()..changeLanguages('en'),
       ),
-          BlocProvider<HomePageCubit>(
+      BlocProvider(
+        create: (context) => Dark_lightModeCubit()..darkAndlightMode('light'),
+      ),
+      BlocProvider<HomePageCubit>(
         create: (context) => HomePageCubit(),
         child: HomePage(),
       )
@@ -74,27 +78,30 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
       if (state is LanguagesSuccessState) {
         log(state.language);
-        return ScreenUtilInit(
-          designSize: Size(380, 812), // used for
-          minTextAdapt: true, // used for
-          child: MaterialApp(
-            locale: Locale('${state.language}'),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            debugShowCheckedModeBanner: false,
-            // theme: getLightMode(),
-            // darkTheme: getDarkTheme(),
-            themeMode: ThemeMode.dark,
-            initialRoute: (!IsOnboardingFinished)
-                ? Routes.selectLanguagePage
-                : Routes.mainPage,
-            onGenerateRoute: approuter.generateRoute,
-          ),
+        return BlocBuilder<Dark_lightModeCubit, Dark_lightModeState>(
+          builder: (context, mode) {
+            return ScreenUtilInit(
+              designSize: Size(380, 812), // used for
+              minTextAdapt: true, // used for
+              child: MaterialApp(
+                locale: Locale(state.language),
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                debugShowCheckedModeBanner: false,
+                theme:
+                    (mode is LightModeState) ? getLightMode() : getDarkMode(),
+                initialRoute: (!IsOnboardingFinished)
+                    ? Routes.selectLanguagePage
+                    : Routes.mainPage,
+                onGenerateRoute: approuter.generateRoute,
+              ),
+            );
+          },
         );
       } else {
         return Container();

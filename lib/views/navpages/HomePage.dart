@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ],
       child: Scaffold(
-          drawer: Drawer(child: CustomDrawer()),
+          drawer: CustomDrawer(),
           body: SingleChildScrollView(
               child: SafeArea(
             child: Column(

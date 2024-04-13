@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SettingsListItem extends StatelessWidget {
   final IconData? iconData;
   final String title;
-  final void Function()? onTap;
+  final void Function() onTap;
   final bool links;
   SettingsListItem(this.iconData, this.title, this.onTap,
       {super.key, this.links = false});
@@ -12,14 +12,13 @@ class SettingsListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        onTap;
+        onTap();
       },
       child: Column(
         children: [
           Container(
             decoration: (links == false)
-                ? const BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.black54)))
+                ? const BoxDecoration(border: Border(bottom: BorderSide()))
                 : null,
             child: Padding(
               padding: (links == false)
@@ -30,7 +29,6 @@ class SettingsListItem extends StatelessWidget {
                   (iconData != null)
                       ? Icon(
                           iconData,
-                          color: Colors.black45,
                         )
                       : SizedBox(),
                   const SizedBox(
@@ -38,7 +36,9 @@ class SettingsListItem extends StatelessWidget {
                   ),
                   Text(
                     title,
-                    style: TextStyle(fontSize: 20, color: Colors.black87),
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   )
                 ],
               ),
