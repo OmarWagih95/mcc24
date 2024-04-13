@@ -79,6 +79,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "ثم احصل علي افضل عروض الأسعار من مزودينا")
+                "ثم احصل علي افضل عروض الأسعار من مزودينا"),
+        "My_Order": MessageLookupByLibrary.simpleMessage("طلبي"),
+        "Maintainance_Packages":
+            MessageLookupByLibrary.simpleMessage(" باقات الصيانة"),
+        "Phone_number": MessageLookupByLibrary.simpleMessage(" رقم الهاتف"),
+        "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "Dont_have_an_account_yet":
+            MessageLookupByLibrary.simpleMessage("هل لديك حساب بعد ؟"),
+        "Sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج "),
+        "Brightness_change":
+            MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي "),
+        "No_Maintainance_offers_now":
+            MessageLookupByLibrary.simpleMessage("لاتوجد باقات صيانة حاليا"),
+        "No_notifications_now":
+            MessageLookupByLibrary.simpleMessage("لايوجد اشعارات الان "),
+        "expert_technicians":
+            MessageLookupByLibrary.simpleMessage("فنيون خبراء"),
+        "service_guarantee":
+            MessageLookupByLibrary.simpleMessage("ضمان الخدمة "),
+        "customer_satisfaction":
+            MessageLookupByLibrary.simpleMessage(" رضا وسعادة العملاء"),
+        "best_prices": MessageLookupByLibrary.simpleMessage("افضل الاسعار "),
+        "money_back_guarantee":
+            MessageLookupByLibrary.simpleMessage("ضمان استرداد الأموال"),
+        "service_request": MessageLookupByLibrary.simpleMessage(" طلب الخدمة"),
+        "service_request_success":
+            MessageLookupByLibrary.simpleMessage("تم طلب الخدمة بنجاح  "),
+        "service_confirmation":
+            MessageLookupByLibrary.simpleMessage("تأكيد طلب الخدمة "),
+        "service_description": MessageLookupByLibrary.simpleMessage("الخدمة "),
+        "detailed_description_prompt":
+            MessageLookupByLibrary.simpleMessage("من فضلك اكتب شرحاً مفصلاً"),
+        "contact_number_prompt":
+            MessageLookupByLibrary.simpleMessage("أضف رقماً للتواصل (اختياري)"),
+        "address_description_prompt": MessageLookupByLibrary.simpleMessage(
+            "شرح تفصيلي للعنوان (اختياري)"),
+        "confirmation": MessageLookupByLibrary.simpleMessage("تأكيد"),
       };
 }

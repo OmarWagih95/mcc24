@@ -259,7 +259,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.light_mode),
-                  title: Text("S.of(context).Lang_change", style: TextStyle()),
+                  title: Text(S.of(context).Language_Exchange, style: TextStyle()),
                   onTap: () async {
                     final mode =
                         BlocProvider.of<Dark_lightModeCubit>(context).mode;
@@ -270,7 +270,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.change_circle),
-                  title: Text('S.of(context).Brightness_change',
+                  title: Text(S.of(context).Brightness_change,
                       style: TextStyle()),
                   onTap: () async {
                     BlocProvider.of<LanguagesCubit>(context).changeLanguages(

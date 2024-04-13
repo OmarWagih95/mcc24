@@ -82,6 +82,44 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "then get best prices from our suppliers")
+                "then get best prices from our suppliers"),
+        "My_Order": MessageLookupByLibrary.simpleMessage("My Order"),
+        "Maintainance_Packages":
+            MessageLookupByLibrary.simpleMessage("Maintenance Packages"),
+        "Phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "Adress": MessageLookupByLibrary.simpleMessage("Address"),
+        "Dont_have_an_account_yet":
+            MessageLookupByLibrary.simpleMessage("Don't have an account yet"),
+        "Sign_out": MessageLookupByLibrary.simpleMessage("Sign out"),
+        "Brightness_change":
+            MessageLookupByLibrary.simpleMessage("Brightness Change"),
+        "No_Maintainance_offers_now":
+            MessageLookupByLibrary.simpleMessage("No Maintenance Offers Now"),
+        "No_notifications_now":
+            MessageLookupByLibrary.simpleMessage("No Notifications Now"),
+        "expert_technicians":
+            MessageLookupByLibrary.simpleMessage("Expert Technicians"),
+        "service_guarantee":
+            MessageLookupByLibrary.simpleMessage("Service Guarantee"),
+        "customer_satisfaction":
+            MessageLookupByLibrary.simpleMessage("Customer Satisfaction"),
+        "best_prices": MessageLookupByLibrary.simpleMessage("Best Prices"),
+        "money_back_guarantee":
+            MessageLookupByLibrary.simpleMessage("Money-Back Guarantee"),
+        "service_request":
+            MessageLookupByLibrary.simpleMessage("Service Request"),
+        "service_request_success":
+            MessageLookupByLibrary.simpleMessage("Service Request Successful"),
+        "service_confirmation":
+            MessageLookupByLibrary.simpleMessage("Service Confirmation"),
+        "service_description":
+            MessageLookupByLibrary.simpleMessage("Service Description"),
+        "detailed_description_prompt": MessageLookupByLibrary.simpleMessage(
+            "Please provide a detailed description"),
+        "contact_number_prompt": MessageLookupByLibrary.simpleMessage(
+            "Add a contact number (optional)"),
+        "address_description_prompt": MessageLookupByLibrary.simpleMessage(
+            "Detailed address description (optional)"),
+        "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
       };
 }

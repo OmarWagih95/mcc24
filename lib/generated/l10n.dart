@@ -194,7 +194,7 @@ class S {
   String get We_are_excited_to_have_you_back {
     return Intl.message(
       // 'We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in',
-     'Register now and enjoy our immediate services',
+      'Register now and enjoy our immediate services',
       name: 'Register now and enjoy our immediate services',
       desc: '',
       args: [],
@@ -416,6 +416,159 @@ class S {
     return Intl.message(
       'Don\'t have an account yet ?',
       name: 'Dont_have_an_account_yet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Sign_out {
+    return Intl.message(
+      'Sign out',
+      name: 'Sign_out',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Brightness_change {
+    return Intl.message(
+      'Brightness Change',
+      name: 'Brightness_change',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get No_Maintainance_offers_now {
+    return Intl.message(
+      'No Maintenance Offers Now',
+      name: 'No_Maintainance_offers_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get No_notifications_now {
+    return Intl.message(
+      'No Notifications Now',
+      name: 'No_notifications_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get expert_technicians {
+    return Intl.message(
+      'Expert Technicians',
+      name: 'expert_technicians',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get service_guarantee {
+    return Intl.message(
+      'Service Guarantee',
+      name: 'service_guarantee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get customer_satisfaction {
+    return Intl.message(
+      'Customer Satisfaction',
+      name: 'customer_satisfaction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get best_prices {
+    return Intl.message(
+      'Best Prices',
+      name: 'best_prices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get money_back_guarantee {
+    return Intl.message(
+      'Money-Back Guarantee',
+      name: 'money_back_guarantee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get service_request {
+    return Intl.message(
+      'Service Request',
+      name: 'service_request',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get service_request_success {
+    return Intl.message(
+      'Service Request Successful',
+      name: 'service_request_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get service_confirmation {
+    return Intl.message(
+      'Service Confirmation',
+      name: 'service_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get service_description {
+    return Intl.message(
+      'Service Description',
+      name: 'service_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get detailed_description_prompt {
+    return Intl.message(
+      'Please provide a detailed description',
+      name: 'detailed_description_prompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get contact_number_prompt {
+    return Intl.message(
+      'Add a contact number (optional)',
+      name: 'contact_number_prompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get address_description_prompt {
+    return Intl.message(
+      'Detailed address description (optional)',
+      name: 'address_description_prompt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get confirmation {
+    return Intl.message(
+      'Confirmation',
+      name: 'confirmation',
       desc: '',
       args: [],
     );
