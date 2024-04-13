@@ -10,7 +10,6 @@ import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
-import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
