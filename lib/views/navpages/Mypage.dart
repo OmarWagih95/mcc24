@@ -7,7 +7,8 @@ class Mypage extends StatefulWidget {
   @override
   State<Mypage> createState() => _MypageState();
 }
-GlobalKey<NavigatorState>MypageNavigatorKey = GlobalKey<NavigatorState>();
+
+GlobalKey<NavigatorState> MypageNavigatorKey = GlobalKey<NavigatorState>();
 
 class _MypageState extends State<Mypage> {
   @override

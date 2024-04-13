@@ -38,5 +38,20 @@
   "Dont_have_an_account_yet": "Don't have an account yet ?",
   "Sign_out": "Sign out",
   "Lang_change": "Lang change",
-  "Brightness_change": "Brightness change"
+  "Brightness_change": "Brightness change",
+  "No_Maintainance_offers_now": "No Maintainance offers now",
+  "No_notifications_now": "No notifications now",
+  "expert_technicians": "Expert Technicians",
+  "service_guarantee": "Service Guarantee",
+  "customer_satisfaction": "Customer Satisfaction and Happiness",
+  "best_prices": "Best Prices",
+  "money_back_guarantee": "Money-Back Guarantee",
+  "service_request": "Service Request",
+  "service_request_success": "Service requested successfully",
+  "service_confirmation": "Service request confirmation",
+  "service_description": "Service",
+  "detailed_description_prompt": "Please provide a detailed description",
+  "contact_number_prompt": "Add a contact number (optional)",
+  "address_description_prompt": "Detailed address description (optional)",
+  "confirmation": "Confirm"
 }
