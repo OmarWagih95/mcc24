@@ -12,16 +12,16 @@ class LightModeState extends Dark_lightModeState {}
 
 class Dark_lightModeCubit extends Cubit<Dark_lightModeState> {
   Dark_lightModeCubit() : super(initialtModeState());
-  String mode = 'light';
+  String mode = '';
   void darkAndlightMode(String onpressMode) {
     if (onpressMode == 'light') {
-      emit(LightModeState());
       log('light from cubit');
       mode = 'light';
+      emit(LightModeState());
     } else {
-      emit(DarkModeState());
       log('dark from cubit');
       mode = 'dark';
+      emit(DarkModeState());
     }
   }
 }

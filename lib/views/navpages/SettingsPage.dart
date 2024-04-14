@@ -51,7 +51,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Padding(
+        leading: Padding(
           padding: EdgeInsets.all(8.0),
           child: Row(
             children: [
@@ -65,14 +65,16 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Text(
               S.of(context).Settings,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                // color: Colors.black54
-              ),
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 30,
+                  color: (BlocProvider.of<Dark_lightModeCubit>(context).mode ==
+                          'light')
+                      ? Colors.black.withOpacity(0.7)
+                      : Colors.white),
             ),
           )
         ],

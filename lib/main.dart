@@ -14,8 +14,7 @@ import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
-import 'package:MCC/theme/dark_theme.dart';
-import 'package:MCC/theme/themeData.dart';
+import 'package:MCC/theme/appThemes.dart';
 import 'package:MCC/views/navpages/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -94,7 +93,7 @@ class MyApp extends StatelessWidget {
                 supportedLocales: S.delegate.supportedLocales,
                 debugShowCheckedModeBanner: false,
                 theme:
-                    (mode is LightModeState) ? getLightMode() : getDarkMode(),
+                    (mode is LightModeState) ? getlightTheme() : getDarkTheme(),
                 initialRoute: (!IsOnboardingFinished)
                     ? Routes.selectLanguagePage
                     : Routes.mainPage,
