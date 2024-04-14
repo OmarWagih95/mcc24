@@ -71,10 +71,7 @@ class _SettingsPageState extends State<SettingsPage> {
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 30,
-                  color: (BlocProvider.of<Dark_lightModeCubit>(context).mode ==
-                          'light')
-                      ? Colors.black.withOpacity(0.7)
-                      : Colors.white),
+                  color: Colors.black.withOpacity(0.7)),
             ),
           )
         ],
