@@ -4,7 +4,6 @@ import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/service.dart';
-import 'package:MCC/views/Service_detail_screen.dart';
 import 'package:MCC/views/serviceDetailsScreen.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +47,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                   color: Colors.black54,
                   blurRadius: 3,
                   blurStyle: BlurStyle.outer,
-                )
+                ),
               ]),
               child: Padding(
                 padding:
@@ -79,7 +78,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                             fontSize: 25.w,
                             fontWeight: FontWeight.bold,
                             decoration: TextDecoration.underline),
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -92,81 +91,70 @@ class _ServicesScreenState extends State<ServicesScreen> {
                     builder: (context, state) {
                       return state is ServicesPageSuccess
                           ? Container(
+                              height: 600.h,
                               child: ListView.builder(
-                                  itemCount:
-                                      servicesCubit.servicesDataList.length,
-                                  itemBuilder: (context, index) =>
-                                      GestureDetector(
-                                        onTap: () {
-                                          print('clicked');
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      BlocProvider(
-                                                        create: (context) =>
-                                                            OrderCubit(),
-                                                        child: ServiceDetailsScreen(
-                                                            state.servicesDataList[
-                                                                index]
-                                                            //     Service(context.read<ServicesCubit>().servicesDataList[index].id,
-                                                            //   context.read<ServicesCubit>().servicesDataList[index].AR,
-                                                            //   context.read<ServicesCubit>().servicesDataList[index].EN,
-                                                            //   context.read<ServicesCubit>().servicesDataList[index].logoImgURL,
-                                                            // )
-                                                            ),
-                                                      )));
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              color: ColorsManager.Color30Light,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Colors.grey.shade600,
-                                                  spreadRadius: 1,
-                                                  blurRadius: 15,
-                                                  blurStyle: BlurStyle.outer,
-                                                  // offset:Offset(0, -5)
-                                                )
-                                              ]
-                                              // color: ColorsManager.,
-                                              // gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomLeft,colors: [Colors.black12,Colors.purple.shade200]),
-                                              ,
-                                              borderRadius:
-                                                  BorderRadius.circular(10.h)),
-                                          width: double.infinity,
-                                          height: 70.h,
-                                          child: Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 15),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Icon(
-                                                  Icons.arrow_circle_left,
-                                                  color: ColorsManager
-                                                      .Color10Light,
-                                                  size: 40.h,
-                                                ),
-                                                Text(
-                                                  context
-                                                      .read<ServicesCubit>()
-                                                      .servicesDataList[index]
-                                                      .AR['serviceName'],
-                                                  textDirection:
-                                                      TextDirection.rtl,
-                                                  style: TextStyle(
-                                                    fontSize: 25.w,
-                                                  ),
-                                                ),
-                                              ],
+                                itemCount:
+                                    servicesCubit.servicesDataList.length,
+                                itemBuilder: (context, index) =>
+                                    GestureDetector(
+                                  onTap: () {
+                                    print('clicked');
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ServiceDetailsScreen(
+                                                state.servicesDataList[index]),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: ColorsManager.Color30Light,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.shade600,
+                                          spreadRadius: 1,
+                                          blurRadius: 15,
+                                          blurStyle: BlurStyle.outer,
+                                          // offset:Offset(0, -5)
+                                        ),
+                                      ]
+                                      // color: ColorsManager.,
+                                      // gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomLeft,colors: [Colors.black12,Colors.purple.shade200]),
+                                      ,
+                                      borderRadius: BorderRadius.circular(10.h),
+                                    ),
+                                    width: double.infinity,
+                                    height: 70.h,
+                                    child: Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 15),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Icon(
+                                            Icons.arrow_circle_left,
+                                            color: ColorsManager.Color10Light,
+                                            size: 40.h,
+                                          ),
+                                          Text(
+                                            context
+                                                .read<ServicesCubit>()
+                                                .servicesDataList[index]
+                                                .AR['serviceName'],
+                                            textDirection: TextDirection.rtl,
+                                            style: TextStyle(
+                                              fontSize: 25.w,
                                             ),
                                           ),
-                                        ),
-                                      )),
-                              height: 600.h,
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             )
                           : SpinKitCircle(
                               color: Colors.black45,

@@ -1,6 +1,5 @@
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/OnbordingPage.dart';
-import 'package:MCC/views/Service_detail_screen.dart';
 import 'package:MCC/views/categories_screan.dart';
 import 'package:MCC/views/categories_services_screans.dart';
 import 'package:MCC/views/signeupScreen.dart';
