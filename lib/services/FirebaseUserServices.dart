@@ -41,7 +41,6 @@ class FirebaseUserServices {
 
   Future<bool> checkAccountIsVerified() async {
     await FirebaseAuth.instance.currentUser!.reload();
-
     var user = await _auth.currentUser;
     print(user);
     var isVerified = user!.emailVerified;
@@ -52,6 +51,8 @@ class FirebaseUserServices {
     } else {
       return false;
     }
+    // ممكن لاين واحد
+    // return _auth.currentUser!.emailVerified;
   }
 
   Future sendVerificationEmail() async {
@@ -63,7 +64,7 @@ class FirebaseUserServices {
   Future login(String email, String password) async {
     await _auth.signInWithEmailAndPassword(email: email, password: password);
     var test = await _auth.currentUser!.uid;
-    print('user ${test}');
+    print('user $test');
   }
 
   Future signOut() async {
@@ -71,13 +72,13 @@ class FirebaseUserServices {
   }
 
   Future<userModel> getUserData() async {
-    String? userID = await _auth.currentUser!.uid;
-    print('${userID} currentUser');
+    String? userID = _auth.currentUser!.uid;
+    print('$userID currentUser');
     var userData =
         await FirebaseFirestore.instance.collection('users').doc(userID).get();
-    print('${userID} get user ahu');
-    userModel user = await userModel(userID, userData['email'],
-        userData['userName'], userData['phoneNumber'], userData['address']);
+    print('$userID get user ahu');
+    userModel user = userModel(userID, userData['email'], userData['userName'],
+        userData['phoneNumber'], userData['address']);
     print('test ${user.userName}');
     return user;
   }
