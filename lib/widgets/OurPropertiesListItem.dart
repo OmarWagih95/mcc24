@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class OurProvidingListItem extends StatelessWidget {
-IconData iconData;
-String title;
-OurProvidingListItem(this.iconData,this.title);
+  IconData iconData;
+  String title;
+  OurProvidingListItem(this.iconData, this.title);
   @override
   Widget build(BuildContext context) {
-    return                 Container(
+    return Container(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(
@@ -26,6 +27,5 @@ OurProvidingListItem(this.iconData,this.title);
         ),
       ),
     );
-
   }
 }
