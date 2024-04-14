@@ -54,5 +54,6 @@
   "detailed_description_prompt": "من فضلك اكتب شرحاً مفصلاً",
   "contact_number_prompt": "أضف رقماً للتواصل (اختياري)",
   "address_description_prompt": "شرح تفصيلي للعنوان (اختياري)",
-  "confirmation": "تأكيد"
+  "confirmation": "تأكيد",
+  "hi": "hi"
 }

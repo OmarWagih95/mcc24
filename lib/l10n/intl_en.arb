@@ -52,5 +52,7 @@
   "detailed_description_prompt": "Please provide a detailed description",
   "contact_number_prompt": "Add a contact number (optional)",
   "address_description_prompt": "Detailed address description (optional)",
-  "confirmation": "Confirm"
+  "confirmation": "Confirm",
+  "hi": "hi"
+
 }
