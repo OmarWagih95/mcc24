@@ -38,7 +38,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
 
     ServicesCubit servicesCubit = context.read<ServicesCubit>();
     return Scaffold(
-      backgroundColor: ColorsManager.Color60Light,
+      // backgroundColor: ColorsManager.Color60Light,
       body: SafeArea(
         child: Column(
           children: [
