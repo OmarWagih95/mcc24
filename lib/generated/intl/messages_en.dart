@@ -53,7 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Language Exchange"),
         "Login": MessageLookupByLibrary.simpleMessage("Login"),
         "Maintainance_Packages":
-            MessageLookupByLibrary.simpleMessage("Maintainance Packages"),
+            MessageLookupByLibrary.simpleMessage("offers"),
         "My_Order": MessageLookupByLibrary.simpleMessage("My Order"),
         "Phone_number": MessageLookupByLibrary.simpleMessage("Phone number"),
         "Remember_me": MessageLookupByLibrary.simpleMessage("Remember me"),

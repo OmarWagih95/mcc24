@@ -61,26 +61,13 @@ class _mainpageState extends State<mainpage> {
   int Currindx = 0;
 
   List<Widget> pages = [
-    // BlocProvider<HomePageCubit>(
-    //   create: (context) => HomePageCubit(),
-    //   child: HomePage(),
-    // )
     HomePage(),
     LoginScreen(),
     SettingsPage(),
     bakaatSeyanaa()
   ];
 
-  List<Widget> pages2 = [
-    // BlocProvider<HomePageCubit>(
-    //   create: (context) => HomePageCubit(),
-    //   child: HomePage(),
-    // ),
-    HomePage(),
-    Mypage(),
-    SettingsPage(),
-    bakaatSeyanaa()
-  ];
+  List<Widget> pages2 = [HomePage(), Mypage(), SettingsPage(), bakaatSeyanaa()];
 
   void Function(int)? ontap(indx) {
     setState(() {
@@ -96,7 +83,7 @@ class _mainpageState extends State<mainpage> {
       onWillPop: _systemBackButtonPressed,
       child: Scaffold(
         bottomNavigationBar: NavigationBar(
-          animationDuration: Duration(milliseconds: 400),
+          animationDuration: Duration(milliseconds: 1000),
           onDestinationSelected: (int index) {
             setState(() {
               Currindx = index;
@@ -105,46 +92,54 @@ class _mainpageState extends State<mainpage> {
           selectedIndex: Currindx,
           destinations: [
             NavigationDestination(
-              selectedIcon: Icon(
-                Icons.apps,
-                // color: ColorsManager.Color10Light,
+              selectedIcon: Card(
+                elevation: 4,
+                child: Icon(
+                  size: 40,
+                  Icons.apps,
+                ),
               ),
               icon: Icon(
                 Icons.apps,
-                // color: ColorsManager.Color10Light.withOpacity(.3),
               ),
               label: S.of(context).Home,
             ),
             NavigationDestination(
-              selectedIcon: Icon(
-                Icons.person,
-                // color: ColorsManager.Color10Light,
+              selectedIcon: Card(
+                elevation: 4,
+                child: Icon(
+                  size: 40,
+                  Icons.person,
+                ),
               ),
               icon: Icon(
                 Icons.person,
-                // color: ColorsManager.Color10Light.withOpacity(.3)
               ),
               label: S.of(context).My_Order,
             ),
             NavigationDestination(
-              selectedIcon: Icon(
-                Icons.settings,
-                // color: ColorsManager.Color10Light,
+              selectedIcon: Card(
+                elevation: 4,
+                child: Icon(
+                  size: 40,
+                  Icons.settings,
+                ),
               ),
               icon: Icon(
                 Icons.settings,
-                // color: ColorsManager.Color10Light.withOpacity(.3)
               ),
               label: S.of(context).Settings,
             ),
             NavigationDestination(
-              selectedIcon: Icon(
-                Icons.auto_fix_normal,
-                // color: ColorsManager.Color10Light,
+              selectedIcon: Card(
+                elevation: 4,
+                child: Icon(
+                  size: 40,
+                  Icons.auto_fix_normal,
+                ),
               ),
               icon: Icon(
                 Icons.auto_fix_normal,
-                // color: ColorsManager.Color10Light.withOpacity(.3)
               ),
               label: S.of(context).Maintainance_Packages,
             ),
@@ -159,3 +154,4 @@ class _mainpageState extends State<mainpage> {
     );
   }
 }
+
