@@ -118,5 +118,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "address_description_prompt": MessageLookupByLibrary.simpleMessage(
             "Detailed address description (optional)"),
         "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
+        "Contact_Information":
+            MessageLookupByLibrary.simpleMessage("Contact Information"),
+        "Contact_Number":
+            MessageLookupByLibrary.simpleMessage("Contact Number:"),
+        "What_We_Offer_You":
+            MessageLookupByLibrary.simpleMessage("What We Offer You:"),
+        "Finished": MessageLookupByLibrary.simpleMessage("Finished"),
+        "Active": MessageLookupByLibrary.simpleMessage("Active"),
+        "Please_write_the_description": MessageLookupByLibrary.simpleMessage(
+            "Please write the description.")
       };
 }
