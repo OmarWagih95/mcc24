@@ -384,7 +384,7 @@ class S {
   /// `Maintainance Packages`
   String get Maintainance_Packages {
     return Intl.message(
-      'Maintainance Packages',
+      'Offers',
       name: 'Maintainance_Packages',
       desc: '',
       args: [],

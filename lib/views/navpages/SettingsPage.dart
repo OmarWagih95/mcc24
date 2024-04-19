@@ -58,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Icon(
                 Icons.notifications,
                 size: 25,
-                // color: Colors.black54,
+                color: Colors.black54,
               ),
             ],
           ),
@@ -92,7 +92,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 Icons.share, S.of(context).Share_Application, () {}),
             SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
             SettingsListItem(Icons.person, S.of(context).Sign_IN, () {}),
-            SettingsListItem(Icons.light_mode, "تفعيل الوضع الليلي", () {
+            SettingsListItem(Icons.light_mode, S.of(context).Brightness_change,
+                () {
               final mode = BlocProvider.of<Dark_lightModeCubit>(context).mode;
               log(' from onPressed1 mode is $mode');
               BlocProvider.of<Dark_lightModeCubit>(context)
@@ -112,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   //     border:
                   //         Border(bottom: BorderSide(color: Colors.black54))),
                   child: Card(
-                    // color: ColorsManager.mainColor.withOpacity(0.2),
+                    elevation: .5,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [

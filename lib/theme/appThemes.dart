@@ -6,6 +6,15 @@ import '../constants/colors.dart';
 enum ToolAppThemeType { light, dark }
 
 ThemeData getDarkTheme() => ThemeData(
+    cardTheme: CardTheme(color: FxColors.primarySecondary_Dark),
+    navigationBarTheme: NavigationBarThemeData(
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      indicatorColor: Colors.transparent,
+      backgroundColor: FxColors.background_Dark,
+      iconTheme: null,
+      surfaceTintColor: Colors.transparent,
+      labelTextStyle: MaterialStateProperty.all(TextStyle()),
+    ),
 
     ///Colors
     scaffoldBackgroundColor: FxColors.background_Dark, //customScaffoldColor,
@@ -14,7 +23,6 @@ ThemeData getDarkTheme() => ThemeData(
     primaryColorLight: FxColors.secondary_Dark,
     hoverColor: FxColors.primary,
     cardColor: FxColors.secondary,
-
     shadowColor: FxColors.secondary_Dark,
     brightness: Brightness.dark,
 
@@ -27,7 +35,6 @@ ThemeData getDarkTheme() => ThemeData(
     useMaterial3: true,
     drawerTheme: DrawerThemeData(
       backgroundColor: FxColors.secondary_Dark,
-
     ),
 
     ///AppBarTheme
@@ -301,6 +308,16 @@ ThemeData getDarkTheme() => ThemeData(
       type: BottomNavigationBarType.shifting,
     ));
 ThemeData getlightTheme() => ThemeData(
+    cardTheme: CardTheme(color: Colors.white),
+    navigationBarTheme: NavigationBarThemeData(
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      indicatorColor: Colors.transparent,
+      backgroundColor: FxColors.background,
+      iconTheme: null,
+      surfaceTintColor: Colors.transparent,
+      labelTextStyle:
+          MaterialStateProperty.all(TextStyle(fontWeight: FontWeight.w600)),
+    ),
 
     ///Colors
     //
@@ -310,7 +327,6 @@ ThemeData getlightTheme() => ThemeData(
     primaryColorLight: FxColors.secondary,
     shadowColor: FxColors.secondary,
     brightness: Brightness.light,
-
 
     ///dividerTheme
     // dividerColor: Colors.grey.withOpacity(0.5),
@@ -322,7 +338,6 @@ ThemeData getlightTheme() => ThemeData(
     drawerTheme: DrawerThemeData(
       backgroundColor: FxColors.secondary,
     ),
-
 
     ///AppBarTheme
     appBarTheme: AppBarTheme(
@@ -380,12 +395,11 @@ ThemeData getlightTheme() => ThemeData(
     ///Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: Colors.white
-      ,errorStyle: const TextStyle(
+      fillColor: Colors.white,
+      errorStyle: const TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.red,
       ),
-
 
       labelStyle: const TextStyle(
         color: Colors.black,
@@ -571,9 +585,7 @@ ThemeData getlightTheme() => ThemeData(
         color: Colors.white,
         // overflow: TextOverflow.ellipsis,
       ),
-      titleLarge:
-
-      TextStyle(
+      titleLarge: TextStyle(
         color: Colors.black,
         fontSize: 25,
         fontFamily: 'ios-2',
@@ -600,4 +612,3 @@ ThemeData getlightTheme() => ThemeData(
       showUnselectedLabels: null,
       type: BottomNavigationBarType.shifting,
     ));
-

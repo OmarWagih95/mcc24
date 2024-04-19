@@ -52,8 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Language_Exchange":
             MessageLookupByLibrary.simpleMessage("Language Exchange"),
         "Login": MessageLookupByLibrary.simpleMessage("Login"),
-        "Maintainance_Packages":
-            MessageLookupByLibrary.simpleMessage("Maintainance Packages"),
+        "Maintainance_Packages": MessageLookupByLibrary.simpleMessage("Offers"),
         "My_Order": MessageLookupByLibrary.simpleMessage("My Order"),
         "Phone_number": MessageLookupByLibrary.simpleMessage("Phone number"),
         "Remember_me": MessageLookupByLibrary.simpleMessage("Remember me"),
@@ -84,8 +83,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "then get best prices from our suppliers"),
         "My_Order": MessageLookupByLibrary.simpleMessage("My Order"),
-        "Maintainance_Packages":
-            MessageLookupByLibrary.simpleMessage("Maintenance Packages"),
         "Phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "Adress": MessageLookupByLibrary.simpleMessage("Address"),
         "Dont_have_an_account_yet":
