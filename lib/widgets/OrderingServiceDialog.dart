@@ -62,6 +62,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                       ],
                     ),
                   ),
+
                   Container(
 
                     width: double.infinity,
@@ -97,6 +98,12 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                     ),
                   ),
                   SizedBox(height: 15.h,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(':العنوان'),
+                    ],
+                  ),
                   Container(
 
                     width: double.infinity,
@@ -105,14 +112,19 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                         if (value!.isNotEmpty){
                           orderCubit.phoneNumber=value;
                         }
+                        else if (value.isEmpty){
+                          orderCubit.phoneNumber=BlocProvider.of<AuthCubit>(context).user!.phoneNumber!;
+
+                        }
                       },
                       // minLines: 4
                       // ,maxLines:
                       decoration: InputDecoration(
+
                       fillColor: ColorsManager.lighterGray,
                         filled: true,
 
-                      hintText: 'أضف رقما للتواصل (إختياري)',
+                      hintText: BlocProvider.of<AuthCubit>(context).user!.phoneNumber!,
                         hintTextDirection: TextDirection.rtl,
                         contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),
@@ -129,6 +141,12 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                     ),
                   ),
                   SizedBox(height: 15.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(':رقم للتواصل'),
+                    ],
+                  ),
                   Container(
 
                     width: double.infinity,
@@ -137,6 +155,9 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                         if (value!.isNotEmpty){
                           orderCubit.address=value;
                         }
+                        else if(value.isEmpty){
+                          orderCubit.address=BlocProvider.of<AuthCubit>(context).user!.address!;
+                        }
                       },
                       minLines: 3
                       ,maxLines:5,
@@ -144,7 +165,8 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                       fillColor: ColorsManager.lighterGray,
                         filled: true,
 
-                      hintText: 'شرح تفصيلي للعنوان (إختياري)',
+
+                      hintText: BlocProvider.of<AuthCubit>(context).user!.address!,
                         hintTextDirection: TextDirection.rtl,
                         contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),

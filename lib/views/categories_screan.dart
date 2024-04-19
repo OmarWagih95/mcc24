@@ -63,14 +63,14 @@ class _categoriesScreenState extends State<categoriesScreen> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
-                                  childAspectRatio: 3 / 2,
-                                  crossAxisSpacing: 8,
-                                  mainAxisSpacing: 8),
+                                  childAspectRatio: 2.8 / 2,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 10),
                           itemBuilder: (context, index) {
                             return categoryItem(
                               state.filteredData[index],
                               // DUMMY_CATEGORIES[index].color,
-                              ColorsManager.Color30Light
+                              Theme.of(context).primaryColorLight
                             );
                           },
                           itemCount: state.filteredData

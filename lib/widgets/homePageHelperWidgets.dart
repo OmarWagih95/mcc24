@@ -41,11 +41,14 @@ class searchbar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextField(
+
         onChanged: (query) => BlocProvider.of<SearchCubit>(context)
             .filterList(query, DUMMY_CATEGORIES),
         textDirection: TextDirection.rtl,
-        decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
+
+          decoration: InputDecoration(
+            enabled: true
+          ,enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(24),
               borderSide: BorderSide(color: Theme.of(context).primaryColor)),
           focusedBorder: OutlineInputBorder(
@@ -167,7 +170,7 @@ class CustomDrawer extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         padding: EdgeInsets.zero,
@@ -176,32 +179,34 @@ class CustomDrawer extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Memar',
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                              ),
-                            ),
-                            Text(
-                              'Corner',
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                              ),
-                            ),
-                            Text(
-                              'Construction',
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Expanded(
+                      //   child: Container(
+                      //     padding: EdgeInsets.all(8),
+                      //     child: Column(
+                      //       mainAxisAlignment: MainAxisAlignment.center,
+                      //       // children: [
+                      //       //   Text(
+                      //       //     'Memar',
+                      //       //     style: TextStyle(
+                      //       //       fontSize: 20.sp,
+                      //       //     ),
+                      //       //   ),
+                      //       //   Text(
+                      //       //     'Corner',
+                      //       //     style: TextStyle(
+                      //       //       fontSize: 20.sp,
+                      //       //     ),
+                      //       //   ),
+                      //       //   Text(
+                      //       //     'Construction',
+                      //       //     style: TextStyle(
+                      //       //       fontSize: 20.sp,
+                      //       //     ),
+                      //       //   ),
+                      //       // ],
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

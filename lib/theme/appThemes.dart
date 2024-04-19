@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../constants/colors.dart';
 
 enum ToolAppThemeType { light, dark }
 
@@ -8,6 +11,10 @@ ThemeData getDarkTheme() => ThemeData(
     scaffoldBackgroundColor: FxColors.background_Dark, //customScaffoldColor,
     splashColor: FxColors.primarySecondary_Dark, //customBackGroundBody
     primaryColor: FxColors.primary_Dark, //custom main
+    primaryColorLight: FxColors.secondary_Dark,
+    hoverColor: FxColors.primary,
+    cardColor: FxColors.secondary,
+
     shadowColor: FxColors.secondary_Dark,
     brightness: Brightness.dark,
 
@@ -19,7 +26,8 @@ ThemeData getDarkTheme() => ThemeData(
     ),
     useMaterial3: true,
     drawerTheme: DrawerThemeData(
-      backgroundColor: FxColors.secondary,
+      backgroundColor: FxColors.secondary_Dark,
+
     ),
 
     ///AppBarTheme
@@ -252,8 +260,9 @@ ThemeData getDarkTheme() => ThemeData(
         overflow: TextOverflow.ellipsis,
       ),
       titleSmall: TextStyle(
-        color: Colors.white,
-        fontSize: 16,
+        color: Colors.white60,
+        fontWeight: FontWeight.bold,
+        fontSize: 14,
         fontFamily: 'ios-1',
         // overflow: TextOverflow.ellipsis,
       ),
@@ -265,7 +274,7 @@ ThemeData getDarkTheme() => ThemeData(
         // overflow: TextOverflow.ellipsis,
       ),
       titleLarge: TextStyle(
-        color: Colors.white,
+        color: FxColors.primary,
         fontSize: 25,
         fontFamily: 'ios-2',
         fontWeight: FontWeight.bold,
@@ -298,19 +307,22 @@ ThemeData getlightTheme() => ThemeData(
     scaffoldBackgroundColor: FxColors.background, //customScaffoldColor,
     splashColor: FxColors.primarySecondary, //customBackGroundBody
     primaryColor: FxColors.primary, //custom main
+    primaryColorLight: FxColors.secondary,
     shadowColor: FxColors.secondary,
     brightness: Brightness.light,
 
+
     ///dividerTheme
-    dividerColor: Colors.grey.withOpacity(0.5),
-    dividerTheme: DividerThemeData(
-      thickness: 1,
-      color: Colors.grey.withOpacity(0.5),
-    ),
+    // dividerColor: Colors.grey.withOpacity(0.5),
+    // dividerTheme: DividerThemeData(
+    //   thickness: 1,
+    //   color: Colors.grey.withOpacity(0.5),
+    // ),
     useMaterial3: true,
     drawerTheme: DrawerThemeData(
       backgroundColor: FxColors.secondary,
     ),
+
 
     ///AppBarTheme
     appBarTheme: AppBarTheme(
@@ -335,7 +347,7 @@ ThemeData getlightTheme() => ThemeData(
 
     ///iconTheme
     iconTheme: IconThemeData(
-      color: FxColors.secondary,
+      color: FxColors.primary_Dark,
       size: 30,
     ),
 
@@ -360,34 +372,37 @@ ThemeData getlightTheme() => ThemeData(
         fontWeight: FontWeight.bold,
         fontSize: 18,
       ),
-      unselectedLabelColor: Colors.grey,
+      unselectedLabelColor: FxColors.primary,
       indicator: const UnderlineTabIndicator(),
       indicatorSize: TabBarIndicatorSize.tab,
     ),
 
     ///Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
-      errorStyle: const TextStyle(
+      filled: true,
+      fillColor: Colors.white
+      ,errorStyle: const TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.red,
       ),
 
+
       labelStyle: const TextStyle(
-        color: Colors.grey,
+        color: Colors.black,
         fontWeight: FontWeight.bold,
       ),
 
       suffixStyle: const TextStyle(
-        color: Colors.grey,
+        color: Colors.black,
       ),
       prefixStyle: const TextStyle(
-        color: Colors.grey,
+        color: Colors.black,
       ),
       // fillColor: DarkColors.lapel,
       hintStyle: const TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w300,
-        color: Colors.grey,
+        color: Colors.black,
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
@@ -537,14 +552,15 @@ ThemeData getlightTheme() => ThemeData(
         overflow: TextOverflow.ellipsis,
       ),
       headlineLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 18,
         fontFamily: 'ios-3',
         overflow: TextOverflow.ellipsis,
       ),
       titleSmall: TextStyle(
-        color: Colors.white,
-        fontSize: 16,
+        color: Colors.black,
+        fontSize: 14,
+        fontWeight: FontWeight.bold,
         fontFamily: 'ios-1',
         // overflow: TextOverflow.ellipsis,
       ),
@@ -555,8 +571,10 @@ ThemeData getlightTheme() => ThemeData(
         color: Colors.white,
         // overflow: TextOverflow.ellipsis,
       ),
-      titleLarge: TextStyle(
-        color: Colors.white,
+      titleLarge:
+
+      TextStyle(
+        color: Colors.black,
         fontSize: 25,
         fontFamily: 'ios-2',
         fontWeight: FontWeight.bold,
@@ -565,35 +583,21 @@ ThemeData getlightTheme() => ThemeData(
     ),
     //bottomNavigationBarTheme
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: FxColors.primarySecondary_Dark,
+      backgroundColor: FxColors.primary,
       elevation: 0,
-      selectedIconTheme: IconThemeData(color: FxColors.primarySecondary_Dark),
-      unselectedIconTheme: IconThemeData(color: FxColors.secondary_Dark),
+      selectedIconTheme: IconThemeData(color: FxColors.primary),
+      unselectedIconTheme: IconThemeData(color: FxColors.primary),
       unselectedItemColor: FxColors.primarySecondary_Dark,
       selectedLabelStyle: TextStyle(
         backgroundColor: FxColors.primary_Dark,
-        color: FxColors.secondary,
+        color: FxColors.primary,
       ),
       unselectedLabelStyle: TextStyle(
-        backgroundColor: FxColors.primary_Dark,
-        color: FxColors.secondary_Dark,
+        backgroundColor: FxColors.primary,
+        color: FxColors.primary,
       ),
       showSelectedLabels: null,
       showUnselectedLabels: null,
       type: BottomNavigationBarType.shifting,
     ));
 
-class FxColors {
-  static Color background = const Color(0xFFF6F5F2);
-  static Color secondary = const Color(0xFFC58940);
-  static Color primary = const Color(0xFFe7bb4e);
-  static Color primarySecondary = const Color(0xFFFAEAB1);
-  /////////////////////
-  static Color background_Dark =
-      Color.fromARGB(255, 123, 123, 123).withOpacity(0.2);
-  static Color secondary_Dark =
-      Color.fromARGB(255, 105, 105, 105).withOpacity(0.2);
-  static Color primary_Dark = Color.fromARGB(255, 88, 88, 88).withOpacity(0.2);
-  static Color primarySecondary_Dark =
-      Color.fromARGB(255, 58, 61, 62).withOpacity(0.2);
-}
