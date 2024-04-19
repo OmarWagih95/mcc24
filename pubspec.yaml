@@ -57,6 +57,7 @@ dependencies:
   intl:
   intl_utils:
   build_runner: ^2.4.9
+  easy_localization: ^3.0.5
 
 
 dev_dependencies:

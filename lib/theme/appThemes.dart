@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 enum ToolAppThemeType { light, dark }
 
 ThemeData getDarkTheme() => ThemeData(
+      cardTheme: CardTheme(color: FxColors.primarySecondary_Dark),
+
       ///Colors
       scaffoldBackgroundColor: FxColors.background_Dark, //customScaffoldColor,
       splashColor: FxColors.primarySecondary_Dark, //customBackGroundBody
@@ -302,6 +304,7 @@ ThemeData getDarkTheme() => ThemeData(
 ThemeData getlightTheme() => ThemeData(
       ///Colors
       //
+      cardTheme: CardTheme(color: FxColors.primarySecondary),
       scaffoldBackgroundColor: FxColors.background, //customScaffoldColor,
       splashColor: FxColors.primarySecondary, //customBackGroundBody
       primaryColor: FxColors.primary, //custom main
@@ -595,7 +598,8 @@ ThemeData getlightTheme() => ThemeData(
         backgroundColor: FxColors.background,
         iconTheme: null,
         surfaceTintColor: Colors.transparent,
-        labelTextStyle: MaterialStateProperty.all(TextStyle()),
+        labelTextStyle:
+            MaterialStateProperty.all(TextStyle(fontWeight: FontWeight.w600)),
       ),
     );
 
