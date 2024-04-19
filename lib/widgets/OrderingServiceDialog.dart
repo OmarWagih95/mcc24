@@ -1,5 +1,6 @@
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
+import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/MyButtonW.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +18,14 @@ OrderingServiceDialog(this.service);
     return BlocConsumer<OrderCubit, OrderState>(
   listener: (context, state) {
 if(state is AddingOrderSuccessState){
-  Fluttertoast.showToast(msg: 'تم طلب الخدمة بنجاح');
+  Fluttertoast.showToast(msg: S.of(context).service_request_success);
   Navigator.pop(context);
 }
+
+
+
+
+
 
   },
   builder: (context, state) {
@@ -44,7 +50,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center
-            ,children: [Text('تأكيد طلب الخدمة',style: TextStyle(fontSize: 20.w,fontWeight: FontWeight.bold,decoration: TextDecoration.underline),),
+            ,children: [Text(S.of(context).service_confirmation,style: TextStyle(fontSize: 20.w,fontWeight: FontWeight.bold,decoration: TextDecoration.underline),),
           Expanded(
             child: Form(
             key: orderCubit.orderFormKey
@@ -58,7 +64,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                     Text(service.AR['serviceName'],style: TextStyle(fontSize: 16.w,fontWeight: FontWeight.bold),)
-                  ,Text(' :الخدمة',style: TextStyle(fontSize: 16.w,fontWeight: FontWeight.bold),),
+                  ,Text('${S.of(context).service_description} :',style: TextStyle(fontSize: 16.w,fontWeight: FontWeight.bold),),
                       ],
                     ),
                   ),
@@ -81,7 +87,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                       fillColor: ColorsManager.lighterGray,
                         filled: true,
 
-                      hintText: 'من فضلك أكتب شرحا مفصلا',
+                      hintText: 'detailed_description_prompt',
                         hintTextDirection: TextDirection.rtl,
                         contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),
@@ -125,6 +131,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
                         filled: true,
 
                       hintText: BlocProvider.of<AuthCubit>(context).user!.phoneNumber!,
+                      // hintText:S.of(context).contact_number_prompt,
                         hintTextDirection: TextDirection.rtl,
                         contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),
@@ -167,6 +174,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
 
 
                       hintText: BlocProvider.of<AuthCubit>(context).user!.address!,
+                      // hintText: S.of(context).address_description_prompt,
                         hintTextDirection: TextDirection.rtl,
                         contentPadding:
                         EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),
@@ -187,7 +195,7 @@ insetPadding: EdgeInsets.symmetric(horizontal: 10.w),
               ),
             )),
           )
-          ,MyButton(text: 'تأكيد', onClick: (){
+          ,MyButton(text: S.of(context).confirmation, onClick: (){
 
     if(orderCubit.orderFormKey.currentState!.validate()){
     orderCubit.addOrder(BlocProvider.of<AuthCubit>(context).user!.userID!,service.id);
