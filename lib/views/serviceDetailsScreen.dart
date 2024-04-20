@@ -1,10 +1,13 @@
+import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/routing/routes.dart';
 import 'package:MCC/widgets/MyButtonW.dart';
 import 'package:MCC/widgets/Mybutton.dart';
 import 'package:MCC/widgets/OurPropertiesListItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/colors.dart';
@@ -113,11 +116,43 @@ class ServiceDetailsScreen extends StatelessWidget {
                   child: MyButton(
                       text: S.of(context).service_request,
                       onClick: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) =>
-                                OrderingServiceDialog(service));
-                        print('clicked');
+                        if (BlocProvider.of<AuthCubit>(context).user != null) {
+                          showDialog(
+                              context: context,
+                              builder: (context) =>
+                                  OrderingServiceDialog(service));
+                          print('clicked');
+                        } else {
+                          ScaffoldMessenger.of(context)
+                              // هغير اللغة هنا
+                              .showSnackBar(SnackBar(
+                                  duration: Duration(seconds: 5),
+                                  backgroundColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  content: Column(
+                                    children: [
+                                      Text(
+                                        'يجب تسجيل الدخول اولا لطلب الخدمة ',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displaySmall,
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pushReplacementNamed(
+                                                  Routes.LoginScreen);
+                                        },
+                                        child: Text(
+                                          ' اضغط هنا لتسجيل الدخول  ',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displaySmall,
+                                        ),
+                                      ),
+                                    ],
+                                  )));
+                        }
                       },
                       textColor: Colors.white,
                       buttonColor: Theme.of(context).shadowColor),

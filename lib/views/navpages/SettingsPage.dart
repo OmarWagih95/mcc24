@@ -50,48 +50,39 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(
-                Icons.notifications,
-                size: 25,
-                color: Colors.black54,
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              S.of(context).Settings,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 30,
-                  color: Colors.black.withOpacity(0.7)),
-            ),
-          )
-        ],
-      ),
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
+              child: Align(
+                alignment: AlignmentDirectional.topStart,
+                child: Text(
+                  S.of(context).Settings,
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium!
+                      .copyWith(overflow: TextOverflow.visible),
+                ),
+              ),
+            ),
             SettingsListItem(Icons.autorenew, S.of(context).Language_Exchange,
                 () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => chooseLanguages(false),
-              ));
+              BlocProvider.of<LanguagesCubit>(context).changeLanguages(
+                  ((Localizations.localeOf(context).languageCode) == 'en')
+                      ? 'ar'
+                      : 'en');
             }),
             SettingsListItem(
                 Icons.share, S.of(context).Share_Application, () {}),
             SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
-            SettingsListItem(Icons.person, S.of(context).Sign_IN, () {}),
+            SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
+              Navigator.of(context).pushNamed(Routes.LoginScreen);
+            }),
             SettingsListItem(Icons.light_mode, S.of(context).Brightness_change,
                 () {
               final mode = BlocProvider.of<Dark_lightModeCubit>(context).mode;

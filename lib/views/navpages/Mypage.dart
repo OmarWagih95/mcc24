@@ -3,7 +3,9 @@ import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -98,16 +100,41 @@ class finishedOreders extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Column(
               children: [
-                Text(' adress is ${FinishedOrders[index]['address']}'),
-                SizedBox(height: 20),
-                Text(' des is ${FinishedOrders[index]['description']}'),
-                SizedBox(height: 20),
-                Text('userID is ${FinishedOrders[index]['userID']}'),
-                SizedBox(height: 20),
-                Text('serviceID is ${FinishedOrders[index]['serviceID']}'),
-                SizedBox(height: 20),
-                Text('active is ${FinishedOrders[index]['active']}'),
-                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 5.w),
+                    Text('adress is'),
+                    Spacer(),
+                    Text(
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
+                    SizedBox(width: 5.w),
+                  ],
+                ),
+                SizedBox(height: 10.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 5.w),
+                    Text('des is '),
+                    Spacer(),
+                    Text(
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),
+                    SizedBox(width: 5.w),
+                  ],
+                ),
+                SizedBox(height: 10.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 5.w),
+                    Text('serviceID is'),
+                    Spacer(),
+                    Text(
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['serviceID']}'),
+                    SizedBox(width: 5.w),
+                  ],
+                ),
               ],
             );
           },
@@ -156,21 +183,41 @@ class activeOrders extends StatelessWidget {
                           child: Card(
                             child: Column(
                               children: [
-                                Text(
-                                    ' adress is ${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
-                                SizedBox(height: 20),
-                                Text(
-                                    ' des is ${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),
-                                SizedBox(height: 20),
-                                Text(
-                                    'userID is ${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['userID']}'),
-                                SizedBox(height: 20),
-                                Text(
-                                    'serviceID is ${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['serviceID']}'),
-                                SizedBox(height: 20),
-                                Text(
-                                    'active is ${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['active']}'),
-                                SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SizedBox(width: 5.w),
+                                    Text('adress is'),
+                                    Spacer(),
+                                    Text(
+                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
+                                    SizedBox(width: 5.w),
+                                  ],
+                                ),
+                                SizedBox(height: 10.h),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SizedBox(width: 5.w),
+                                    Text('des is '),
+                                    Spacer(),
+                                    Text(
+                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),
+                                    SizedBox(width: 5.w),
+                                  ],
+                                ),
+                                SizedBox(height: 10.h),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SizedBox(width: 5.w),
+                                    Text('serviceID is'),
+                                    Spacer(),
+                                    Text(
+                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['serviceID']}'),
+                                    SizedBox(width: 5.w),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
