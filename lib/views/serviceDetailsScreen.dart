@@ -21,13 +21,12 @@ class ServiceDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: ColorsManager.Color60Light,
+        backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Stack(children: [
             Column(
               children: [
                 Container(
-                  // color: ColorsManager.Color60Light,
                   height: 320.h,
                   width: double.infinity,
                   child:
@@ -39,7 +38,7 @@ class ServiceDetailsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 290.h,
+                  height: 280.h,
                 ),
                 Stack(
                   children: [
@@ -48,22 +47,12 @@ class ServiceDetailsScreen extends StatelessWidget {
                           topLeft: Radius.circular(25),
                           topRight: Radius.circular(25)),
                       child: Container(
-                        width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(15.h),
-                        ),
-                      ),
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25)),
-                      child: Container(
-                        ////////////////////////  color /////////////////////////////
-                        color: Theme.of(context).primaryColor.withOpacity(.3),
+                            ////////////////////////  color /////////////////////////////
+                            color: Theme.of(context).scaffoldBackgroundColor,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(25),
+                                topRight: Radius.circular(25))),
                         width: double.infinity,
                         child: Padding(
                           padding: EdgeInsets.all(15.h),
@@ -91,10 +80,9 @@ class ServiceDetailsScreen extends StatelessWidget {
                                 ),
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    'S.of(context).What_We_Offer_You',
+                                    S.of(context).What_We_Offer_You,
                                     style: TextStyle(
                                         fontSize: 20.w,
                                         fontWeight: FontWeight.w600),
@@ -121,7 +109,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                 ),
                 Container(
                   ////////////////////////  color /////////////////////////////
-                  color: Theme.of(context).primaryColor.withOpacity(.3),
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   child: MyButton(
                       text: S.of(context).service_request,
                       onClick: () {
@@ -132,7 +120,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                         print('clicked');
                       },
                       textColor: Colors.white,
-                      buttonColor: ColorsManager.Color10Light),
+                      buttonColor: Theme.of(context).shadowColor),
                 )
               ],
             )

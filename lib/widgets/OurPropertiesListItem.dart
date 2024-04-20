@@ -14,14 +14,16 @@ class OurProvidingListItem extends StatelessWidget {
           children: [
             Icon(
               iconData,
-              color: Colors.black45,
+              // color: Colors.black45,
             ),
             SizedBox(
-              width: 10,
+              width: 10.w,
             ),
             Text(
               title,
-              style: TextStyle(fontSize: 15.w, color: Colors.black87),
+              style: TextStyle(
+                fontSize: 15.w,
+              ),
             )
           ],
         ),

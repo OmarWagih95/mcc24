@@ -1,6 +1,7 @@
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
+import 'package:MCC/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -37,14 +38,14 @@ class _MypageState extends State<Mypage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Padding(
+          title: Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              'طلباتي',
-              style: TextStyle(fontSize: 20),
+              S.of(context).My_Order,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          // centerTitle: true,
+          centerTitle: true,
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(40),
             child: Container(
@@ -52,20 +53,20 @@ class _MypageState extends State<Mypage> {
               margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
-                color: ColorsManager.mainColor.withOpacity(0.4),
+                color: Theme.of(context).primaryColor.withOpacity(0.4),
               ),
               child: TabBar(
                 indicatorSize: TabBarIndicatorSize.tab,
                 dividerColor: Colors.transparent,
                 indicator: BoxDecoration(
-                  color: ColorsManager.mainColor,
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.black54,
-                tabs: const [
-                  TabItem(title: 'نشط'),
-                  TabItem(title: 'منتهي'),
+                tabs: [
+                  TabItem(title: S.of(context).Active),
+                  TabItem(title: S.of(context).Finished),
                 ],
               ),
             ),
@@ -140,7 +141,7 @@ class activeOrders extends StatelessWidget {
             body: state is GettingMyOrdersLoadingState
                 ? Container(
                     child: SpinKitCircle(
-                      color: Colors.black45,
+                      color: Theme.of(context).shadowColor,
                     ),
                   )
                 : Container(

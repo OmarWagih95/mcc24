@@ -38,7 +38,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
 
     ServicesCubit servicesCubit = context.read<ServicesCubit>();
     return Scaffold(
-      // backgroundColor: ColorsManager.Color60Light,
+      drawer: CustomDrawer(),
       body: SafeArea(
         child: Column(
           children: [
@@ -92,6 +92,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                     builder: (context, state) {
                       return state is ServicesPageSuccess
                           ? Container(
+                              height: 600.h,
                               child: ListView.builder(
                                   itemCount:
                                       servicesCubit.servicesDataList.length,
@@ -119,7 +120,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              color: ColorsManager.Color30Light,
+                                              color: Theme.of(context)
+                                                  .primaryColor,
                                               boxShadow: [
                                                 BoxShadow(
                                                   color: Colors.grey.shade600,
@@ -144,29 +146,26 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Icon(
-                                                  Icons.arrow_circle_left,
-                                                  color: ColorsManager
-                                                      .Color10Light,
-                                                  size: 40.h,
-                                                ),
                                                 Text(
                                                   context
                                                       .read<ServicesCubit>()
                                                       .servicesDataList[index]
                                                       .AR['serviceName'],
-                                                  textDirection:
-                                                      TextDirection.rtl,
                                                   style: TextStyle(
                                                     fontSize: 25.w,
                                                   ),
+                                                ),
+                                                Icon(
+                                                  Icons.arrow_circle_left,
+                                                  color: Theme.of(context)
+                                                      .shadowColor,
+                                                  size: 40.h,
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
                                       )),
-                              height: 600.h,
                             )
                           : SpinKitCircle(
                               color: Colors.black45,

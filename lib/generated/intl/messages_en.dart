@@ -127,6 +127,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "Finished": MessageLookupByLibrary.simpleMessage("Finished"),
         "Active": MessageLookupByLibrary.simpleMessage("Active"),
         "Please_write_the_description": MessageLookupByLibrary.simpleMessage(
-            "Please write the description.")
+            "Please write the description."),
       };
 }
