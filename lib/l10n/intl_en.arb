@@ -53,5 +53,11 @@
   "detailed_description_prompt": "Please provide a detailed description",
   "contact_number_prompt": "Add a contact number (optional)",
   "address_description_prompt": "Detailed address description (optional)",
-  "confirmation": "Confirm"
+  "confirmation": "Confirm",
+  "Contact_Information": "Contact Information",
+  "Contact_Number":"Contact_Number",
+  "What_We_Offer_You": "What We Offer You",
+  "Finished": "Finished",
+  "Active": "Active",
+  "Please_write_the_description": "Please write the description"
 }

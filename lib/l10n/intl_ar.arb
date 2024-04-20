@@ -31,8 +31,6 @@
   "Sign_Up": "قم بأنشاء حساب ",
   "English": "الأنجليزية",
   "Home": "الرئيسية",
-
-  
   "My_Order": "طلبي",
   "Maintainance_Packages": "باقات الصيانة",
   "Phone_number": "رقم الهاتف",
@@ -54,5 +52,11 @@
   "detailed_description_prompt": "من فضلك اكتب شرحاً مفصلاً",
   "contact_number_prompt": "أضف رقماً للتواصل (اختياري)",
   "address_description_prompt": "شرح تفصيلي للعنوان (اختياري)",
-  "confirmation": "تأكيد"
+  "confirmation": "تأكيد",
+  "Contact_Information": "معلومات الاتصال",
+  "Contact_Number": "رقم الاتصال:",
+  "What_We_Offer_You": "ما نقدمه لكم:",
+  "Finished": "منتهي",
+  "Active": "نشط",
+  "Please_write_the_description": "يرجى كتابة الوصف."
 }

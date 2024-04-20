@@ -94,7 +94,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Text(
-                                    ' :  ما نقدمه لكم ',
+                                    'S.of(context).What_We_Offer_You',
                                     style: TextStyle(
                                         fontSize: 20.w,
                                         fontWeight: FontWeight.w600),
