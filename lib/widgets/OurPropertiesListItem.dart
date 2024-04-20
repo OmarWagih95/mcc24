@@ -9,19 +9,21 @@ class OurProvidingListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Row(
           children: [
             Icon(
               iconData,
-              color: Colors.black45,
+              // color: Colors.black45,
             ),
             SizedBox(
-              width: 10,
+              width: 10.w,
             ),
             Text(
               title,
-              style: TextStyle(fontSize: 15.w, color: Colors.black87),
+              style: TextStyle(
+                fontSize: 15.w,
+              ),
             )
           ],
         ),

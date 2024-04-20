@@ -384,7 +384,7 @@ class S {
   /// `Maintainance Packages`
   String get Maintainance_Packages {
     return Intl.message(
-      'Maintainance Packages',
+      'Offers',
       name: 'Maintainance_Packages',
       desc: '',
       args: [],
@@ -569,6 +569,60 @@ class S {
     return Intl.message(
       'Confirmation',
       name: 'confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Contact_Information {
+    return Intl.message(
+      'Contact Information',
+      name: 'Contact_Information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Contact_Number {
+    return Intl.message(
+      'Contact Number',
+      name: 'Contact_Number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get What_We_Offer_You {
+    return Intl.message(
+      'What We Offer You',
+      name: 'What_We_Offer_You',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Finished {
+    return Intl.message(
+      'Finished',
+      name: 'Finished',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Active {
+    return Intl.message(
+      'Active',
+      name: 'Active',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Please_write_the_description {
+    return Intl.message(
+      'Please write the description',
+      name: 'Please_write_the_description',
       desc: '',
       args: [],
     );

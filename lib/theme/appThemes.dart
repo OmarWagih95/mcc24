@@ -6,6 +6,15 @@ import '../constants/colors.dart';
 enum ToolAppThemeType { light, dark }
 
 ThemeData getDarkTheme() => ThemeData(
+    cardTheme: CardTheme(color: FxColors.primarySecondary_Dark),
+    navigationBarTheme: NavigationBarThemeData(
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      indicatorColor: Colors.transparent,
+      backgroundColor: FxColors.background_Dark,
+      iconTheme: null,
+      surfaceTintColor: Colors.transparent,
+      labelTextStyle: MaterialStateProperty.all(TextStyle()),
+    ),
 
     ///Colors
     scaffoldBackgroundColor: FxColors.background_Dark, //customScaffoldColor,
@@ -17,6 +26,8 @@ ThemeData getDarkTheme() => ThemeData(
     hintColor: FxColors.secondary,
 
     shadowColor: FxColors.secondary_Dark,
+    // shadowColor: FxColors.background_Dark,
+// >>>>>>> 319de33d07262740f3c6abf6d2fb633ab120ec79
     brightness: Brightness.dark,
 
     ///dividerTheme
@@ -27,8 +38,8 @@ ThemeData getDarkTheme() => ThemeData(
     ),
     useMaterial3: true,
     drawerTheme: DrawerThemeData(
+      width: 250,
       backgroundColor: FxColors.secondary_Dark,
-
     ),
 
     ///AppBarTheme
@@ -211,6 +222,7 @@ ThemeData getDarkTheme() => ThemeData(
     ),
     //dialog Theme
     dialogTheme: DialogTheme(
+      surfaceTintColor: const Color(0xff1F222A),
       backgroundColor: const Color(0xff1F222A),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -275,7 +287,7 @@ ThemeData getDarkTheme() => ThemeData(
         // overflow: TextOverflow.ellipsis,
       ),
       titleLarge: TextStyle(
-        color: FxColors.primary,
+        color: Colors.white,
         fontSize: 25,
         fontFamily: 'ios-2',
         fontWeight: FontWeight.bold,
@@ -302,16 +314,25 @@ ThemeData getDarkTheme() => ThemeData(
       type: BottomNavigationBarType.shifting,
     ));
 ThemeData getlightTheme() => ThemeData(
+    cardTheme: CardTheme(color: Colors.white),
+    navigationBarTheme: NavigationBarThemeData(
+      labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+      indicatorColor: Colors.transparent,
+      backgroundColor: FxColors.primary,
+      iconTheme: null,
+      surfaceTintColor: Colors.transparent,
+      labelTextStyle:
+          MaterialStateProperty.all(TextStyle(fontWeight: FontWeight.w600)),
+    ),
 
     ///Colors
     //
     scaffoldBackgroundColor: FxColors.background, //customScaffoldColor,
-    splashColor: FxColors.primarySecondary, //customBackGroundBody
     primaryColor: FxColors.primary, //custom main
-    primaryColorLight: FxColors.secondary,
+    primaryColorLight: FxColors.primary.withOpacity(0.3),
     shadowColor: FxColors.secondary,
     brightness: Brightness.light,
-
+    splashColor: Colors.transparent, //customBackGroundBody
 
     ///dividerTheme
     // dividerColor: Colors.grey.withOpacity(0.5),
@@ -321,9 +342,9 @@ ThemeData getlightTheme() => ThemeData(
     // ),
     useMaterial3: true,
     drawerTheme: DrawerThemeData(
-      backgroundColor: FxColors.secondary,
+      width: 250,
+      backgroundColor: Colors.white,
     ),
-
 
     ///AppBarTheme
     appBarTheme: AppBarTheme(
@@ -348,7 +369,7 @@ ThemeData getlightTheme() => ThemeData(
 
     ///iconTheme
     iconTheme: IconThemeData(
-      color: FxColors.primary_Dark,
+      color: Colors.black,
       size: 30,
     ),
 
@@ -381,12 +402,11 @@ ThemeData getlightTheme() => ThemeData(
     ///Input Decoration Theme
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: Colors.white
-      ,errorStyle: const TextStyle(
+      fillColor: Colors.white,
+      errorStyle: const TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.red,
       ),
-
 
       labelStyle: const TextStyle(
         color: Colors.black,
@@ -509,7 +529,8 @@ ThemeData getlightTheme() => ThemeData(
     ),
     //dialog Theme
     dialogTheme: DialogTheme(
-      backgroundColor: const Color(0xff1F222A),
+      surfaceTintColor: Colors.white,
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
@@ -518,35 +539,35 @@ ThemeData getlightTheme() => ThemeData(
         ProgressIndicatorThemeData(circularTrackColor: FxColors.primary),
     textTheme: const TextTheme(
       displaySmall: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 20,
         fontFamily: 'ios-1',
         fontWeight: FontWeight.w500,
         overflow: TextOverflow.ellipsis,
       ),
       displayMedium: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 25,
         fontFamily: 'ios-1',
         fontWeight: FontWeight.w500,
         overflow: TextOverflow.ellipsis,
       ),
       displayLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 30,
         fontFamily: 'ios-1',
         fontWeight: FontWeight.w600,
         overflow: TextOverflow.ellipsis,
       ),
       headlineSmall: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 13,
         fontFamily: 'ios-1',
         fontWeight: FontWeight.w400,
         overflow: TextOverflow.ellipsis,
       ),
       headlineMedium: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 15,
         fontFamily: 'ios-1',
         fontWeight: FontWeight.w400,
@@ -569,12 +590,10 @@ ThemeData getlightTheme() => ThemeData(
         fontSize: 22,
         fontFamily: 'ios-1',
         fontWeight: FontWeight.w500,
-        color: Colors.white,
+        color: Colors.black,
         // overflow: TextOverflow.ellipsis,
       ),
-      titleLarge:
-
-      TextStyle(
+      titleLarge: TextStyle(
         color: Colors.black,
         fontSize: 25,
         fontFamily: 'ios-2',
@@ -601,4 +620,3 @@ ThemeData getlightTheme() => ThemeData(
       showUnselectedLabels: null,
       type: BottomNavigationBarType.shifting,
     ));
-

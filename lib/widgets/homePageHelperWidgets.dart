@@ -41,15 +41,17 @@ class searchbar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextField(
-
         onChanged: (query) => BlocProvider.of<SearchCubit>(context)
             .filterList(query, DUMMY_CATEGORIES),
         textDirection: TextDirection.rtl,
 
-          decoration: InputDecoration(
-            hintStyle: TextStyle(color: Theme.of(context).hintColor,fontSize: 14.w),
-            enabled: true
-          ,enabledBorder: OutlineInputBorder(
+          // decoration: InputDecoration(
+          //   hintStyle: TextStyle(color: Theme.of(context).hintColor,fontSize: 14.w),
+          //   enabled: true
+          // ,enabledBorder: OutlineInputBorder(
+        decoration: InputDecoration(
+          enabled: true,
+          enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(24),
               borderSide: BorderSide(color: Theme.of(context).primaryColor)),
           focusedBorder: OutlineInputBorder(
@@ -85,7 +87,7 @@ class _leftappbarState extends State<leftappbar> {
             },
             icon: const Icon(
               Icons.menu,
-              color: ColorsManager.Color10Light,
+              // color: ColorsManager.Color10Light,
             )),
         IconButton(
             onPressed: () {
@@ -95,13 +97,11 @@ class _leftappbarState extends State<leftappbar> {
                 style: TextStyle(fontSize: 32),
               )));
             },
-            icon: Icon(Icons.notifications, color: ColorsManager.Color10Light)),
-        IconButton(
-            onPressed: () {},
             icon: Icon(
-              Icons.search,
-              color: ColorsManager.Color10Light,
-            ))
+              Icons.notifications,
+              color: Theme.of(context).iconTheme.color,
+              // color: ColorsManager.Color10Light
+            )),
       ]),
     );
   }
@@ -162,7 +162,6 @@ class CustomDrawer extends StatelessWidget {
       },
       builder: (context, state) {
         return Drawer(
-          // backgroundColor: Theme.of(context).splashColor,
           child: Container(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -180,34 +179,6 @@ class CustomDrawer extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      // Expanded(
-                      //   child: Container(
-                      //     padding: EdgeInsets.all(8),
-                      //     child: Column(
-                      //       mainAxisAlignment: MainAxisAlignment.center,
-                      //       // children: [
-                      //       //   Text(
-                      //       //     'Memar',
-                      //       //     style: TextStyle(
-                      //       //       fontSize: 20.sp,
-                      //       //     ),
-                      //       //   ),
-                      //       //   Text(
-                      //       //     'Corner',
-                      //       //     style: TextStyle(
-                      //       //       fontSize: 20.sp,
-                      //       //     ),
-                      //       //   ),
-                      //       //   Text(
-                      //       //     'Construction',
-                      //       //     style: TextStyle(
-                      //       //       fontSize: 20.sp,
-                      //       //     ),
-                      //       //   ),
-                      //       // ],
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
@@ -265,7 +236,8 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.light_mode),
-                  title: Text(S.of(context).Brightness_change, style: TextStyle()),
+                  title:
+                      Text(S.of(context).Brightness_change, style: TextStyle()),
                   onTap: () async {
                     final mode =
                         BlocProvider.of<Dark_lightModeCubit>(context).mode;
@@ -276,8 +248,8 @@ class CustomDrawer extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.change_circle),
-                  title: Text(S.of(context).Language_Exchange,
-                      style: TextStyle()),
+                  title:
+                      Text(S.of(context).Language_Exchange, style: TextStyle()),
                   onTap: () async {
                     BlocProvider.of<LanguagesCubit>(context).changeLanguages(
                         ((Localizations.localeOf(context).languageCode) == 'en')

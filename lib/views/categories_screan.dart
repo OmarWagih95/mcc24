@@ -22,8 +22,7 @@ class categoriesScreen extends StatefulWidget {
 
 class _categoriesScreenState extends State<categoriesScreen> {
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(context) {
@@ -67,11 +66,8 @@ class _categoriesScreenState extends State<categoriesScreen> {
                                   crossAxisSpacing: 10,
                                   mainAxisSpacing: 10),
                           itemBuilder: (context, index) {
-                            return categoryItem(
-                              state.filteredData[index],
-                              // DUMMY_CATEGORIES[index].color,
-                              Theme.of(context).primaryColorLight
-                            );
+                            return categoryItem(state.filteredData[index],
+                                Theme.of(context).primaryColorLight);
                           },
                           itemCount: state.filteredData
                               .length, // itemCount: BlocProvider.of<HomePageCubit>(context).categoryDataList.length,

@@ -44,7 +44,8 @@ class categoryItem extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => BlocProvider(
-                        create: (context) => ServicesCubit()..getServicesData(categoryy.id),
+                        create: (context) =>
+                            ServicesCubit()..getServicesData(categoryy.id),
                         child: ServicesScreen(categoryy),
                       )));
         } catch (e) {
@@ -56,8 +57,8 @@ class categoryItem extends StatelessWidget {
         padding: EdgeInsets.all(
             2), ////need to changed with better code for text size
         decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).primaryColor,width: 2),
-          color: color,
+            border: Border.all(color: Theme.of(context).primaryColor, width: 2),
+            color: color,
             // gradient: LinearGradient(
             //     colors: [color.withOpacity(0.7), color],
             //     begin: Alignment.topLeft,
@@ -74,18 +75,17 @@ class categoryItem extends StatelessWidget {
             Flexible(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 12),
-                child: Localizations.localeOf(context).languageCode=='en'
-                    ? Text(
-                        categoryy.EN['categoryName'],
-                        style: Theme.of(context).textTheme!.titleSmall!.merge(GoogleFonts.aBeeZee()))
-                    : Text(
-                        categoryy.AR['categoryName'],
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
+                child: Localizations.localeOf(context).languageCode == 'en'
+                    ? Text(categoryy.EN['categoryName'],
+                        style: Theme.of(context)
+                            .textTheme!
+                            .titleSmall!
+                            .merge(GoogleFonts.aBeeZee()))
+                    : Text(categoryy.AR['categoryName'],
+                        style: Theme.of(context)
+                            .textTheme!
+                            .titleSmall!
+                            .merge(GoogleFonts.aBeeZee())),
               ),
             ),
           ],

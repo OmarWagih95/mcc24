@@ -25,12 +25,10 @@ class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
+
 GlobalKey<NavigatorState> LoginScreenNavigatorKey = GlobalKey<NavigatorState>();
 
 class _LoginScreenState extends State<LoginScreen> {
-  // final emailcontroller = TextEditingController();
-  // final passwordcontroller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     LoginCubit loginCubit = context.read<LoginCubit>();
@@ -41,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
         if (state is LoginSuccessState) {
           Fluttertoast.showToast(msg: 'you have been logged in successfully');
-          // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage(),));
+// لسا هغير اللغة
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
@@ -54,127 +52,141 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          body: SingleChildScrollView(
-              child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 15.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(S.of(context).Welcome_Back,
-                      style: Textstyles.font24bluewbold),
-                  verticalSpace(8),
-                  Text(
-                    S.of(context).We_are_excited_to_have_you_back,
-                    style: Textstyles.font14grayregular,
-                  ),
-                  verticalSpace(32),
-                  Form(
-                      key: loginCubit.formKey,
-                      child: Column(
-                        children: [
-                          MyTextFormfield(
-                            hintText: S.of(context).email,
-                            validation: (value) {
-                              if (value!.isEmpty ||
-                                  !loginCubit.regExp.hasMatch(value)) {
-                                return 'please write your email in a good way';
-                              } else {
-                                loginCubit.email = value;
-                              }
-                            },
-                            // controller: emailcontroller,
-                          ),
-                          verticalSpace(16),
-                          MyTextFormfield(
-                            hintText: S.of(context).password,
-                            validation: (value) {
-                              if (value!.isEmpty || value.length < 8) {
-                                return 'password must be 8 char at least';
-                              } else {
-                                loginCubit.passWord = value;
-                              }
-                            },
-                            isSecured: loginCubit.isSecured,
-                            suffexicon: GestureDetector(
-                              onTap: () {
-                                loginCubit
-                                    .changeIsSecured(!loginCubit.isSecured);
+          body: Center(
+            child: SingleChildScrollView(
+                child: SafeArea(
+              child: Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 15.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(S.of(context).Welcome_Back,
+                        style: Theme.of(context).textTheme.displayLarge!),
+                    verticalSpace(8),
+                    Text(
+                      S.of(context).We_are_excited_to_have_you_back,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    verticalSpace(32),
+                    Form(
+                        key: loginCubit.formKey,
+                        child: Column(
+                          children: [
+                            MyTextFormfield(
+                              hintText: S.of(context).email,
+                              validation: (value) {
+                                if (value!.isEmpty ||
+                                    !loginCubit.regExp.hasMatch(value)) {
+                                  return 'please write your email in a good way';
+                                  //لسا هغير اللغة هنا
+                                } else {
+                                  loginCubit.email = value;
+                                }
                               },
-                              child: Icon(
-                                  loginCubit.isSecured
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
-                                  size: 24),
                             ),
-                          ),
-                          verticalSpace(16),
-                          Row(children: [
-                            Text(S.of(context).Remember_me,
-                                style: Textstyles.font14darkgraymedium),
-                            horizontallSpace(70),
-                            Text(S.of(context).Forgot_Password,
-                                style: Textstyles.font14blueregular),
-                          ]),
-                          verticalSpace(20),
-                          state is LoginLoadingState
-                              ? SpinKitCircle(
-                                  color: Colors.black54,
-                                )
-                              : TextButton(
-                                  onPressed: () async {
-                                    if (loginCubit.formKey.currentState!
-                                        .validate()) {
-                                      loginCubit.login();
-                                      await CashHelper.setData(
-                                        key: 'Islogin',
-                                        value: true,
-                                      );
-                                    }
-                                  },
-                                  style: ButtonStyle(
-                                      minimumSize: MaterialStateProperty.all(
-                                          const Size(double.infinity, 50)),
-                                      shape: MaterialStateProperty.all(
-                                          RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(16))),
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              ColorsManager.mainColor)),
-                                  child: Text(
-                                    S.of(context).Login,
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                          verticalSpace(50.h),
-                          RichText(
-                            text: TextSpan(children: [
-                              TextSpan(
-                                  text: S.of(context).Dont_have_an_account_yet,
-                                  style: Textstyles.font13blackregular),
-                              TextSpan(
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) => BlocProvider(
-                                          create: (context) => AuthCubit(),
-                                          child: SigneUpScreen(),
-                                        ),
-                                      ));
-                                    },
-                                  text: S.of(context).Sign_Up,
-                                  style: Textstyles.font13bluewbold),
+                            verticalSpace(16),
+                            MyTextFormfield(
+                              hintText: S.of(context).password,
+                              validation: (value) {
+                                if (value!.isEmpty || value.length < 8) {
+                                  return 'password must be 8 char at least';
+                                  //لسا هغير اللغة هنا
+                                } else {
+                                  loginCubit.passWord = value;
+                                }
+                              },
+                              isSecured: loginCubit.isSecured,
+                              suffexicon: GestureDetector(
+                                onTap: () {
+                                  loginCubit
+                                      .changeIsSecured(!loginCubit.isSecured);
+                                },
+                                child: Icon(
+                                    loginCubit.isSecured
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                    size: 24),
+                              ),
+                            ),
+                            verticalSpace(16),
+                            Row(children: [
+                              Text(S.of(context).Remember_me,
+                                  style:
+                                      Theme.of(context).textTheme.bodyMedium),
+                              horizontallSpace(70),
+                              Text(S.of(context).Forgot_Password,
+                                  style:
+                                      Theme.of(context).textTheme.bodyMedium),
                             ]),
-                            textAlign: TextAlign.center,
-                          )
-                        ],
-                      ))
-                ],
+                            verticalSpace(20),
+                            state is LoginLoadingState
+                                ? SpinKitCircle(
+                                    color: Colors.black54,
+                                  )
+                                : TextButton(
+                                    onPressed: () async {
+                                      if (loginCubit.formKey.currentState!
+                                          .validate()) {
+                                        loginCubit.login();
+                                        await CashHelper.setData(
+                                          key: 'Islogin',
+                                          value: true,
+                                        );
+                                      }
+                                    },
+                                    style: ButtonStyle(
+                                        minimumSize: MaterialStateProperty.all(
+                                            const Size(double.infinity, 50)),
+                                        shape: MaterialStateProperty.all(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(16))),
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Theme.of(context)
+                                                    .primaryColor)),
+                                    child: Text(S.of(context).Login,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displaySmall),
+                                  ),
+                            verticalSpace(50.h),
+                            RichText(
+                              text: TextSpan(children: [
+                                TextSpan(
+                                    text:
+                                        S.of(context).Dont_have_an_account_yet,
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall!),
+                                TextSpan(
+                                  text: '   ',
+                                ),
+                                TextSpan(
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                          builder: (context) => BlocProvider(
+                                            create: (context) => AuthCubit(),
+                                            child: SigneUpScreen(),
+                                          ),
+                                        ));
+                                      },
+                                    text: S.of(context).Sign_Up,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!),
+                              ]),
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ))
+                  ],
+                ),
               ),
-            ),
-          )),
+            )),
+          ),
         );
       },
     );

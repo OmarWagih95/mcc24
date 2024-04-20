@@ -116,5 +116,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "address_description_prompt": MessageLookupByLibrary.simpleMessage(
             "شرح تفصيلي للعنوان (اختياري)"),
         "confirmation": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "Contact_Information":
+            MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
+        "Contact_Number": MessageLookupByLibrary.simpleMessage("رقم الاتصال:"),
+        "What_We_Offer_You":
+            MessageLookupByLibrary.simpleMessage("ما نقدمه لكم:"),
+        "Finished": MessageLookupByLibrary.simpleMessage("منتهي"),
+        "Active": MessageLookupByLibrary.simpleMessage("نشط"),
+        "Please_write_the_description":
+            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف.")
       };
 }

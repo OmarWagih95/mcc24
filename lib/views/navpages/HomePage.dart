@@ -30,8 +30,8 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
-GlobalKey<NavigatorState> HomePageNavigatorKey = GlobalKey<NavigatorState>();
 
+GlobalKey<NavigatorState> HomePageNavigatorKey = GlobalKey<NavigatorState>();
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -39,29 +39,25 @@ class _HomePageState extends State<HomePage> {
     late userModel? user = BlocProvider.of<AuthCubit>(context).user;
     // TODO: implement initState
     // print(BlocProvider.of<AuthCubit>(context).user!.userID!);
-    getUserDate()async{
+    getUserDate() async {
       print('hna1');
-      try{
-
-      user= await BlocProvider.of<AuthCubit>(context).getUserData();
-      print('${ user!.userID!} test main user');
-      }
-      catch(e){
+      try {
+        user = await BlocProvider.of<AuthCubit>(context).getUserData();
+        print('${user!.userID!} test main user');
+      } catch (e) {
         print(e);
       }
-
     }
-    try {
 
+    try {
       getUserDate();
       print('userData tmaaam');
-    }
-    catch(e){
+    } catch (e) {
       print(e);
     }
     BlocProvider.of<HomePageCubit>(context).getCategoriesData();
-
   }
+
   var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
 
@@ -72,7 +68,7 @@ class _HomePageState extends State<HomePage> {
     return MultiBlocProvider(
       providers: [
         BlocProvider<SearchCubit>(create: (BuildContext context) {
-          return SearchCubit(SearchCubitDUMMY_CATEGORIES,context);
+          return SearchCubit(SearchCubitDUMMY_CATEGORIES, context);
         }),
         BlocProvider<VisibilityCubit>(
           create: (BuildContext context) => VisibilityCubit(),
@@ -88,70 +84,59 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                // Container(
-                //   decoration: BoxDecoration(boxShadow: [
-                //     BoxShadow(
-                //       color: Colors.black54,
-                //       blurRadius: 3,
-                //       blurStyle: BlurStyle.outer,
-                //     )
-                //   ]),
-                //   child: Padding(
-                //     padding:
-                //         const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         leftappbar(),
-                //         // Text(
-                //         //   'MCC',
-                //         //   style: TextStyle(fontSize: 24),
-                //         // )
-                //       ],
-                //     ),
-                //   ),
-                // ),
                 Column(
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius:BorderRadius.only(bottomLeft: Radius.circular(25.h),bottomRight: Radius.circular(25.h))
-                      ),
-                    // height: 160.h,
-                      width: double.infinity
-                      ,
-                    child:
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                      child: Column(
-
-                        children: [     Container(
-                            width: double.infinity,
-                            child: LeftAppBarUpdate()
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(25.h),
+                              bottomRight: Radius.circular(25.h))),
+                      // height: 160.h,
+                      width: double.infinity,
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        child: Column(
+                          children: [
+                            Container(
+                                width: double.infinity,
+                                child: LeftAppBarUpdate()),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Text('Dedicated to perfection,',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .merge(
+                                      GoogleFonts.aBeeZee(
+                                          // ,fontSize: 20.h
+                                          ),
+                                    )),
+                            Text(
+                              'every single time',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge!
+                                  .merge(GoogleFonts.aBeeZee()),
+                              // GoogleFonts.aboreto(
+                              //     color:,
+                              //     fontWeight: FontWeight.bold
+                              //     ,fontSize: 20.h
+                              // ),
+                            ),
+                            BlocBuilder<SearchCubit, searchState>(
+                                builder: (context, state) {
+                              return searchbar(
+                                DUMMY_CATEGORIES: SearchCubitDUMMY_CATEGORIES,
+                                search_controller: search_controller,
+                              );
+                            }),
+                          ],
                         ),
-                          SizedBox(height: 10.h,),
-                          Text('Dedicated to perfection,',style: Theme.of(context).textTheme.titleLarge!.merge(GoogleFonts.aBeeZee(
-                              // ,fontSize: 20.h
-                          ),)),
-                          Text('every single time',
-                            style: Theme.of(context).textTheme.titleLarge!.merge(GoogleFonts.aBeeZee()),
-                          // GoogleFonts.aboreto(
-                          //     color:,
-                          //     fontWeight: FontWeight.bold
-                          //     ,fontSize: 20.h
-                          // ),
-                          ),
-                          BlocBuilder<SearchCubit, searchState>(
-                              builder: (context, state) {
-                                return searchbar(
-                                  DUMMY_CATEGORIES: SearchCubitDUMMY_CATEGORIES,
-                                  search_controller: search_controller,
-                                );
-                              }),],
                       ),
                     ),
-                        ),
 
                     // BlocBuilder<VisibilityCubit, VisibilityState>(
                     //   builder: (context, state) {
@@ -159,42 +144,46 @@ class _HomePageState extends State<HomePage> {
                     //       isVisible: state.isVisible,
                     //     );
                     //   }),
-Padding(
-  padding:  EdgeInsets.symmetric(horizontal: 15.h,vertical: 10.h),
-  child: Column(
-    children: [    Align(
-      alignment:
-      Localizations.localeOf(context).languageCode == 'ar'
-          ? Alignment.centerRight
-          : Alignment.centerLeft,
-      child: Text(
-        S.of(context).choose_maintenance_service,
-        style: Theme.of(context).textTheme.titleLarge!.merge(GoogleFonts.aBeeZee(
-          fontSize: 17.h
-        ))
-        // TextStyle(
-        //     fontSize: 20, fontWeight: FontWeight.w700,color: ColorsManager.Color60Light),
-      ),
-    ),
-      // Align(
-      //     alignment:
-      //     Localizations.localeOf(context).languageCode ==
-      //         'ar'
-      //         ? Alignment.centerRight
-      //         : Alignment.centerLeft,
-      //     child: Text(S
-      //         .of(context)
-      //         .then_get_best_prices_from_our_suppliers)),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          categoriesScreen(),
-        ],
-      )],
-  ),
-)
-
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 15.h, vertical: 10.h),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment:
+                                Localizations.localeOf(context).languageCode ==
+                                        'ar'
+                                    ? Alignment.centerRight
+                                    : Alignment.centerLeft,
+                            child: Text(
+                                S.of(context).choose_maintenance_service,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge!
+                                    .merge(GoogleFonts.aBeeZee(fontSize: 17.h))
+                                // TextStyle(
+                                //     fontSize: 20, fontWeight: FontWeight.w700,color: ColorsManager.Color60Light),
+                                ),
+                          ),
+                          // Align(
+                          //     alignment:
+                          //     Localizations.localeOf(context).languageCode ==
+                          //         'ar'
+                          //         ? Alignment.centerRight
+                          //         : Alignment.centerLeft,
+                          //     child: Text(S
+                          //         .of(context)
+                          //         .then_get_best_prices_from_our_suppliers)),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              categoriesScreen(),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 )
               ],
