@@ -14,6 +14,7 @@ ThemeData getDarkTheme() => ThemeData(
     primaryColorLight: FxColors.secondary_Dark,
     hoverColor: FxColors.primary,
     cardColor: FxColors.secondary,
+    hintColor: FxColors.secondary,
 
     shadowColor: FxColors.secondary_Dark,
     brightness: Brightness.dark,
@@ -39,7 +40,7 @@ ThemeData getDarkTheme() => ThemeData(
       color: FxColors.primarySecondary_Dark,
       scrolledUnderElevation: 0,
       iconTheme: IconThemeData(
-        color: Colors.white,
+        color: FxColors.secondary_Dark,
         size: 24,
       ),
       titleTextStyle: TextStyle(

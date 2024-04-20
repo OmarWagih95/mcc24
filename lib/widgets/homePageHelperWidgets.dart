@@ -47,6 +47,7 @@ class searchbar extends StatelessWidget {
         textDirection: TextDirection.rtl,
 
           decoration: InputDecoration(
+            hintStyle: TextStyle(color: Theme.of(context).hintColor,fontSize: 14.w),
             enabled: true
           ,enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(24),
