@@ -8,7 +8,9 @@ import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/selectLanguage.dart';
 import 'package:MCC/widgets/SettingsListItem.dart';
+import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,102 +52,109 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
-              child: Align(
-                alignment: AlignmentDirectional.topStart,
-                child: Text(
-                  S.of(context).Settings,
-                  style: Theme.of(context)
-                      .textTheme
-                      .displayMedium!
-                      .copyWith(overflow: TextOverflow.visible),
-                ),
-              ),
-            ),
-            SettingsListItem(Icons.autorenew, S.of(context).Language_Exchange,
-                () {
-              BlocProvider.of<LanguagesCubit>(context).changeLanguages(
-                  ((Localizations.localeOf(context).languageCode) == 'en')
-                      ? 'ar'
-                      : 'en');
-            }),
-            SettingsListItem(
-                Icons.share, S.of(context).Share_Application, () {}),
-            SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
-            SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
-              Navigator.of(context).pushNamed(Routes.LoginScreen);
-            }),
-            SettingsListItem(Icons.light_mode, S.of(context).Brightness_change,
-                () {
-              final mode = BlocProvider.of<Dark_lightModeCubit>(context).mode;
-              log(' from onPressed1 mode is $mode');
-              BlocProvider.of<Dark_lightModeCubit>(context)
-                  .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
-            }),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      drawer: CustomDrawer(),
+      body: Column(
+        children: [
+          SafeArea(child: leftappbar()),
+          SingleChildScrollView(
+              child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SettingsListItem(
-                  null,
-                  S.of(context).Text_Us,
-                  () {},
-                  links: true,
-                ),
-                Container(
-                  // decoration: BoxDecoration(
-                  //     border:
-                  //         Border(bottom: BorderSide(color: Colors.black54))),
-                  child: Card(
-                    elevation: .5,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        buildsocialButton(
-                          color: Colors.blueAccent.shade400,
-                          onclick: () async {
-                            setState(() async {
-                              _launched = share(SocialMedia.facebook);
-                            });
-                          },
-                          icon: FontAwesomeIcons.facebook,
-                        ),
-                        buildsocialButton(
-                          color: Colors.red,
-                          onclick: () => share(SocialMedia.youtube),
-                          icon: FontAwesomeIcons.youtube,
-                        ),
-                        buildsocialButton(
-                          color: Colors.white,
-                          onclick: () => share(SocialMedia.instgram),
-                          icon: FontAwesomeIcons.instagram,
-                        ),
-                        buildsocialButton(
-                          color: Colors.green,
-                          onclick: () => share(SocialMedia.whatsapp),
-                          icon: FontAwesomeIcons.whatsapp,
-                        ),
-                        buildsocialButton(
-                          color: Colors.blueGrey,
-                          onclick: () => share(SocialMedia.email),
-                          icon: Icons.email,
-                        )
-                      ],
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 15.h),
+                  child: Align(
+                    alignment: AlignmentDirectional.topStart,
+                    child: Text(
+                      S.of(context).Settings,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium!
+                          .copyWith(overflow: TextOverflow.visible),
                     ),
                   ),
                 ),
+                SettingsListItem(
+                    Icons.autorenew, S.of(context).Language_Exchange, () {
+                  BlocProvider.of<LanguagesCubit>(context).changeLanguages(
+                      ((Localizations.localeOf(context).languageCode) == 'en')
+                          ? 'ar'
+                          : 'en');
+                }),
+                SettingsListItem(
+                    Icons.share, S.of(context).Share_Application, () {}),
+                SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
+                SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
+                  Navigator.of(context).pushNamed(Routes.LoginScreen);
+                }),
+                SettingsListItem(
+                    Icons.light_mode, S.of(context).Brightness_change, () {
+                  final mode =
+                      BlocProvider.of<Dark_lightModeCubit>(context).mode;
+                  log(' from onPressed1 mode is $mode');
+                  BlocProvider.of<Dark_lightModeCubit>(context)
+                      .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
+                }),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SettingsListItem(
+                      null,
+                      S.of(context).Text_Us,
+                      () {},
+                      links: true,
+                    ),
+                    Container(
+                      // decoration: BoxDecoration(
+                      //     border:
+                      //         Border(bottom: BorderSide(color: Colors.black54))),
+                      child: Card(
+                        elevation: .5,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            buildsocialButton(
+                              color: Colors.blueAccent.shade400,
+                              onclick: () async {
+                                setState(() async {
+                                  _launched = share(SocialMedia.facebook);
+                                });
+                              },
+                              icon: FontAwesomeIcons.facebook,
+                            ),
+                            buildsocialButton(
+                              color: Colors.red,
+                              onclick: () => share(SocialMedia.youtube),
+                              icon: FontAwesomeIcons.youtube,
+                            ),
+                            buildsocialButton(
+                              color: Colors.white,
+                              onclick: () => share(SocialMedia.instgram),
+                              icon: FontAwesomeIcons.instagram,
+                            ),
+                            buildsocialButton(
+                              color: Colors.green,
+                              onclick: () => share(SocialMedia.whatsapp),
+                              icon: FontAwesomeIcons.whatsapp,
+                            ),
+                            buildsocialButton(
+                              color: Colors.blueGrey,
+                              onclick: () => share(SocialMedia.email),
+                              icon: Icons.email,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ],
-        ),
-      )),
+          )),
+        ],
+      ),
     );
   }
 }

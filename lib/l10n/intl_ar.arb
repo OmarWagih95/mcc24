@@ -60,5 +60,6 @@
   "Active": "نشط",
   "Please_write_the_description": "يرجى كتابة الوصف.",
   "Click_here_to_log_in": "اضغط هنا لتسجيل الدخول",
-  "log_in_first_to_request_the_service": "يجب تسجيل الدخول اولا لطلب الخدمة"
+  "log_in_first_to_request_the_service": "يجب تسجيل الدخول اولا لطلب الخدمة",
+  "No_offers_now": "لاتوجد باقات صيانة الأن"
 }

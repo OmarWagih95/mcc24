@@ -89,7 +89,7 @@ class _leftappbarState extends State<leftappbar> {
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text(
-                "لايوجد اشعارات الان ",
+                S.of(context).No_notifications_now,
                 style: TextStyle(fontSize: 32),
               )));
             },

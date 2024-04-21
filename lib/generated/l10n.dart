@@ -647,6 +647,15 @@ String get log_in_first_to_request_the_service {
   );
 }
 
+String get No_offers_now {
+  return Intl.message(
+    'No offers now',
+    name: 'No_offers_now',
+    desc: '',
+    args: [],
+  );
+}
+
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 

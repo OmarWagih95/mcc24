@@ -133,5 +133,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "log_in_first_to_request_the_service":
             MessageLookupByLibrary.simpleMessage(
                 "log in first to request the service."),
+        "No_offers_now": MessageLookupByLibrary.simpleMessage("No offers now"),
       };
 }

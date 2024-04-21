@@ -1,4 +1,3 @@
-
 {
   "skip": "skip",
   "Choose_your_service_easily": "Choose your service easily",
@@ -55,11 +54,12 @@
   "address_description_prompt": "Detailed address description (optional)",
   "confirmation": "Confirm",
   "Contact_Information": "Contact Information",
-  "Contact_Number":"Contact_Number",
+  "Contact_Number": "Contact_Number",
   "What_We_Offer_You": "What We Offer You",
   "Finished": "Finished",
   "Active": "Active",
   "Please_write_the_description": "Please write the description",
   "Click_here_to_log_in": "Click here to log in",
-  "log_in_first_to_request_the_service": "log in first to request the service"
+  "log_in_first_to_request_the_service": "log in first to request the service",
+  "No_offers_now": "No offers now"
 }

@@ -2,6 +2,7 @@ import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,6 +40,7 @@ class _MypageState extends State<Mypage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        drawer: CustomDrawer(),
         appBar: AppBar(
           title: Padding(
             padding: EdgeInsets.all(8.0),
