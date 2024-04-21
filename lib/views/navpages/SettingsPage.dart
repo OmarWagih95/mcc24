@@ -58,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           SafeArea(
               child: customAppbar(
-            title: S.of(context).service_request,
+            title: S.of(context).Settings,
           )),
           SingleChildScrollView(
               child: Padding(
