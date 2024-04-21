@@ -9,8 +9,8 @@ ThemeData getDarkTheme() => ThemeData(
     cardTheme: CardTheme(color: FxColors.primarySecondary_Dark),
     navigationBarTheme: NavigationBarThemeData(
       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-      indicatorColor: Colors.transparent,
-      backgroundColor: FxColors.background_Dark,
+      indicatorColor: FxColors.primary,
+      backgroundColor: FxColors.secondary_Dark,
       iconTheme: null,
       surfaceTintColor: Colors.transparent,
       labelTextStyle: MaterialStateProperty.all(TextStyle()),
@@ -317,8 +317,8 @@ ThemeData getlightTheme() => ThemeData(
     cardTheme: CardTheme(color: Colors.white),
     navigationBarTheme: NavigationBarThemeData(
       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-      indicatorColor: Colors.transparent,
-      backgroundColor: FxColors.primary,
+      indicatorColor: FxColors.primary,
+      backgroundColor: Colors.black12,
       iconTheme: null,
       surfaceTintColor: Colors.transparent,
       labelTextStyle:

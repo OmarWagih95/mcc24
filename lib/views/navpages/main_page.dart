@@ -96,6 +96,7 @@ class _mainpageState extends State<mainpage> {
       onWillPop: _systemBackButtonPressed,
       child: Scaffold(
         bottomNavigationBar: NavigationBar(
+          indicatorShape: StadiumBorder(),
           animationDuration: Duration(milliseconds: 1000),
           onDestinationSelected: (int index) {
             setState(() {

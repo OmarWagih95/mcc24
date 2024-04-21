@@ -374,8 +374,8 @@ class S {
   /// `My Order`
   String get My_Order {
     return Intl.message(
-      'My Order',
-      name: 'My_Order',
+      'My Orders',
+      name: 'My_Orders',
       desc: '',
       args: [],
     );

@@ -25,7 +25,7 @@ abstract class ColorsManager {
 class FxColors {
   static Color background = Colors.white;
   static const Color secondary = ColorsManager.Color10Light;
-  static Color primary = Color(0xFFFFca0A).withOpacity(0.5);
+  static Color primary = Color(0xFFFFca0A);
   static Color primarySecondary = ColorsManager.Color10Light.withOpacity(0.6);
   static Color textLightColor = Colors.black;
   static Color textDarkColor = Colors.white;
