@@ -65,43 +65,43 @@ class searchbar extends StatelessWidget {
   }
 }
 
-class leftappbar extends StatefulWidget {
-  leftappbar({super.key});
+// class leftappbar extends StatefulWidget {
+//   leftappbar({super.key});
 
-  @override
-  State<leftappbar> createState() => _leftappbarState();
-}
+//   @override
+//   State<leftappbar> createState() => _leftappbarState();
+// }
 
-class _leftappbarState extends State<leftappbar> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: const Icon(
-              Icons.menu,
-              // color: ColorsManager.Color10Light,
-            )),
-        IconButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(
-                S.of(context).No_notifications_now,
-                style: TextStyle(fontSize: 32),
-              )));
-            },
-            icon: Icon(
-              Icons.notifications,
-              color: Theme.of(context).iconTheme.color,
-              // color: ColorsManager.Color10Light
-            )),
-      ]),
-    );
-  }
-}
+// class _leftappbarState extends State<leftappbar> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+//         IconButton(
+//             onPressed: () {
+//               Scaffold.of(context).openDrawer();
+//             },
+//             icon: const Icon(
+//               Icons.menu,
+//               // color: ColorsManager.Color10Light,
+//             )),
+//         IconButton(
+//             onPressed: () {
+//               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//                   content: Text(
+//                 S.of(context).No_notifications_now,
+//                 style: TextStyle(fontSize: 32),
+//               )));
+//             },
+//             icon: Icon(
+//               Icons.notifications,
+//               color: Theme.of(context).iconTheme.color,
+//               // color: ColorsManager.Color10Light
+//             )),
+//       ]),
+//     );
+//   }
+// }
 
 class messageText extends StatelessWidget {
   bool isVisible;

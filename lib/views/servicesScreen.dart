@@ -2,10 +2,12 @@ import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
+import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/service.dart';
 import 'package:MCC/views/Service_detail_screen.dart';
 import 'package:MCC/views/serviceDetailsScreen.dart';
+import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,28 +44,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  color: Colors.black54,
-                  blurRadius: 3,
-                  blurStyle: BlurStyle.outer,
-                )
-              ]),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    leftappbar(),
-                    Text(
-                      'MCC',
-                      style: TextStyle(fontSize: 24),
-                    )
-                  ],
-                ),
-              ),
+            customAppbar(
+              title: S.of(context).service_request,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10),
@@ -110,8 +92,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                         create: (context) =>
                                                             OrderCubit(),
                                                         child: ServiceDetailsScreen(
-                                                            state.servicesDataList[
-                                                                index]
+                                                            state.servicesDataList[index]
                                                             //     Service(context.read<ServicesCubit>().servicesDataList[index].id,
                                                             //   context.read<ServicesCubit>().servicesDataList[index].AR,
                                                             //   context.read<ServicesCubit>().servicesDataList[index].EN,
@@ -149,10 +130,20 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                       .spaceBetween,
                                               children: [
                                                 Text(
-                                                  context
-                                                      .read<ServicesCubit>()
-                                                      .servicesDataList[index]
-                                                      .AR['serviceName'],
+                                                  (Localizations.localeOf(
+                                                                  context)
+                                                              .languageCode ==
+                                                          'ar')
+                                                      ? context
+                                                          .read<ServicesCubit>()
+                                                          .servicesDataList[
+                                                              index]
+                                                          .AR['serviceName']
+                                                      : context
+                                                          .read<ServicesCubit>()
+                                                          .servicesDataList[
+                                                              index]
+                                                          .EN['serviceName'],
                                                   style: TextStyle(
                                                     fontSize: 25.w,
                                                   ),

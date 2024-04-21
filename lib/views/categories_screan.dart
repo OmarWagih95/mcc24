@@ -13,6 +13,8 @@ import '../cubits/home_page_cubit.dart';
 import '/widgets/category_item.dart';
 import '/model/dummyData.dart';
 
+var categoryDataList_ = [];
+
 class categoriesScreen extends StatefulWidget {
   categoriesScreen({super.key});
 
@@ -52,7 +54,7 @@ class _categoriesScreenState extends State<categoriesScreen> {
             : BlocBuilder<SearchCubit, searchState>(
                 builder: (context, state) {
                   if (state is searchinitialState) {
-                    var categoryDataList_ =
+                    categoryDataList_ =
                         (context).read<HomePageCubit>().categoryDataList;
                     return Container(
                         margin: const EdgeInsets.only(top: 10),

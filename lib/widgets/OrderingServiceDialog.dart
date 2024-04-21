@@ -21,6 +21,7 @@ class OrderingServiceDialog extends StatelessWidget {
         if (state is AddingOrderSuccessState) {
           Fluttertoast.showToast(msg: S.of(context).service_request_success);
           Navigator.pop(context);
+          
         }
       },
       builder: (context, state) {

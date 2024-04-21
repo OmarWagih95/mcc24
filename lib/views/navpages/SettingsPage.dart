@@ -8,6 +8,7 @@ import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/selectLanguage.dart';
 import 'package:MCC/widgets/SettingsListItem.dart';
+import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -55,7 +56,10 @@ class _SettingsPageState extends State<SettingsPage> {
       drawer: CustomDrawer(),
       body: Column(
         children: [
-          SafeArea(child: leftappbar()),
+          SafeArea(
+              child: customAppbar(
+            title: S.of(context).service_request,
+          )),
           SingleChildScrollView(
               child: Padding(
             padding: const EdgeInsets.all(8.0),

@@ -4,6 +4,8 @@ import 'package:MCC/routing/routes.dart';
 import 'package:MCC/widgets/MyButtonW.dart';
 import 'package:MCC/widgets/Mybutton.dart';
 import 'package:MCC/widgets/OurPropertiesListItem.dart';
+import 'package:MCC/widgets/customAppbar.dart';
+import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,6 +23,7 @@ class ServiceDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Stack(children: [
@@ -141,7 +144,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                                   content: Column(
                                     children: [
                                       Text(
-                                        'S.of(context).Click_here_to_log_in',
+                                        S.of(context).Click_here_to_log_in,
                                         style: Theme.of(context)
                                             .textTheme
                                             .displaySmall,
@@ -153,7 +156,9 @@ class ServiceDetailsScreen extends StatelessWidget {
                                                   Routes.LoginScreen);
                                         },
                                         child: Text(
-                                           'S.of(context).log_in_first_to_request_the_service',
+                                          S
+                                              .of(context)
+                                              .log_in_first_to_request_the_service,
                                           style: Theme.of(context)
                                               .textTheme
                                               .displaySmall,
@@ -167,7 +172,8 @@ class ServiceDetailsScreen extends StatelessWidget {
                       buttonColor: Theme.of(context).shadowColor),
                 )
               ],
-            )
+            ),
+            customAppbar(title: S.of(context).service_request),
           ]),
         ),
       ),
