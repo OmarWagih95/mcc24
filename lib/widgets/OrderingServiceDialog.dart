@@ -72,7 +72,11 @@ class OrderingServiceDialog extends StatelessWidget {
                                             MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            service.AR['serviceName'],
+                                            (Localizations.localeOf(context)
+                                                        .languageCode ==
+                                                    'ar')
+                                                ? service.AR['serviceName']
+                                                : service.EN['serviceName'],
                                             style: TextStyle(
                                                 fontSize: 16.w,
                                                 fontWeight: FontWeight.bold),

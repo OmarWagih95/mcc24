@@ -14,6 +14,7 @@ import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/model/userModel.dart';
+import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -140,7 +141,12 @@ class messageText extends StatelessWidget {
 }
 
 ////////////////////////
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     AuthCubit authCubit = context.read<AuthCubit>();
@@ -192,7 +198,8 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   title: Text(S.of(context).Settings, style: TextStyle()),
                   onTap: () {
-                    Navigator.pop(context);
+                    Currindx = 2;
+                    changeremoteindex();
                   },
                 ),
                 ListTile(
@@ -201,19 +208,21 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   title: Text(S.of(context).My_Order, style: TextStyle()),
                   onTap: () {
-                    print(
-                        '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BlocProvider(
-                                  create: (context) => OrderCubit()
-                                    ..GetMyOrders(
-                                        BlocProvider.of<AuthCubit>(context)
-                                            .user!
-                                            .userID!),
-                                  child: MyOrdersScreen(),
-                                )));
+                    Currindx = 1;
+                    changeremoteindex();
+                    // print(
+                    //     '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => BlocProvider(
+                    //               create: (context) => OrderCubit()
+                    //                 ..GetMyOrders(
+                    //                     BlocProvider.of<AuthCubit>(context)
+                    //                         .user!
+                    //                         .userID!),
+                    //               child: MyOrdersScreen(),
+                    //             )));
                   },
                 ),
                 ListTile(

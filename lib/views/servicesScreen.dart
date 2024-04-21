@@ -73,7 +73,9 @@ class _ServicesScreenState extends State<ServicesScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        widget.categoryy.AR['categoryName'],
+                        (Localizations.localeOf(context).languageCode == 'ar')
+                            ? widget.categoryy.AR['categoryName']
+                            : widget.categoryy.EN['categoryName'],
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
                             fontSize: 25.w,
