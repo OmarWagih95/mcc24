@@ -26,7 +26,8 @@ class MyButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: buttonColor,
-            borderRadius: BorderRadius.all(
+            border: Border.all(color: Theme.of(context).hoverColor,width: 2)
+            ,borderRadius: BorderRadius.all(
               Radius.circular(10),
             ),
           ),
@@ -37,7 +38,10 @@ class MyButton extends StatelessWidget {
               children: [
                 Text(
                   text,
-                  style: TextStyle(fontSize: 18, color: textColor),
+                  // style: TextStyle(fontSize: 18, color: textColor)
+                style: Theme.of(context)
+                .textTheme
+                .titleLarge!.merge(TextStyle(fontSize: 18)),
                 ),
               ],
             ),

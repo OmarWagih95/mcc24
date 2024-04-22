@@ -294,8 +294,8 @@ class S {
   /// `Language Exchange`
   String get Language_Exchange {
     return Intl.message(
-      'Language Exchange',
-      name: 'Language_Exchange',
+      'Change language',
+      name: 'Change language',
       desc: '',
       args: [],
     );
@@ -304,8 +304,8 @@ class S {
   /// `Text Us`
   String get Text_Us {
     return Intl.message(
-      'Text Us',
-      name: 'Text_Us',
+      'Contact Us',
+      name: 'Contact',
       desc: '',
       args: [],
     );
@@ -314,8 +314,8 @@ class S {
   /// `Share Application`
   String get Share_Application {
     return Intl.message(
-      'Share Application',
-      name: 'Share_Application',
+      'Share',
+      name: 'Share',
       desc: '',
       args: [],
     );
@@ -324,8 +324,8 @@ class S {
   /// `Who Are`
   String get Who_Are {
     return Intl.message(
-      'Who Are',
-      name: 'Who_Are',
+      'About',
+      name: 'About',
       desc: '',
       args: [],
     );
@@ -504,8 +504,8 @@ class S {
 
   String get service_request {
     return Intl.message(
-      'Service Request',
-      name: 'service_request',
+      'Request service',
+      name: 'Request service',
       desc: '',
       args: [],
     );
@@ -594,8 +594,8 @@ class S {
 
   String get What_We_Offer_You {
     return Intl.message(
-      'What We Offer You',
-      name: 'What_We_Offer_You',
+      'What we offer for you',
+      name: 'What_we_offer_for_you',
       desc: '',
       args: [],
     );

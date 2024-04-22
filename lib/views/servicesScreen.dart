@@ -13,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../cubits/login_cubit.dart';
+import '../widgets/leftappbarUpdate.dart';
 
 class ServicesScreen extends StatefulWidget {
   Categoryy categoryy;
@@ -43,7 +44,10 @@ class _ServicesScreenState extends State<ServicesScreen> {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(boxShadow: [
+              width: double.infinity,
+              decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor
+              ,boxShadow: [
                 BoxShadow(
                   color: Colors.black54,
                   blurRadius: 3,
@@ -53,16 +57,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    leftappbar(),
-                    Text(
-                      'MCC',
-                      style: TextStyle(fontSize: 24),
-                    )
-                  ],
-                ),
+                child: LeftAppBarUpdate(),
               ),
             ),
             Padding(
@@ -120,20 +115,21 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
+                                            border: Border.all(color: Theme.of(context).primaryColor),
                                               color: Theme.of(context)
-                                                  .primaryColor,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  color: Colors.grey.shade600,
-                                                  spreadRadius: 1,
-                                                  blurRadius: 15,
-                                                  blurStyle: BlurStyle.outer,
-                                                  // offset:Offset(0, -5)
-                                                )
-                                              ]
+                                                  .primaryColorLight,
+                                              // boxShadow: [
+                                              //   // BoxShadow(
+                                              //   //   color: Colors.grey.shade400,
+                                              //   //   spreadRadius: 1,
+                                              //   //   blurRadius: 15,
+                                              //   //   blurStyle: BlurStyle.outer,
+                                              //   //   // offset:Offset(0, -5)
+                                              //   // )
+                                              // ]
                                               // color: ColorsManager.,
                                               // gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomLeft,colors: [Colors.black12,Colors.purple.shade200]),
-                                              ,
+                                              // ,
                                               borderRadius:
                                                   BorderRadius.circular(10.h)),
                                           width: double.infinity,
@@ -158,7 +154,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                 Icon(
                                                   Icons.arrow_circle_left,
                                                   color: Theme.of(context)
-                                                      .shadowColor,
+                                                      .hoverColor,
                                                   size: 40.h,
                                                 ),
                                               ],

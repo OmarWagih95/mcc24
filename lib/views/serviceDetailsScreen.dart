@@ -154,8 +154,12 @@ class ServiceDetailsScreen extends StatelessWidget {
                                   )));
                         }
                       },
-                      textColor: Colors.white,
-                      buttonColor: Theme.of(context).shadowColor),
+                      // textColor: Theme.of(context).focusColor,
+                      // textColor: Colors.black,
+                      // buttonColor: FxColors.primary),
+                    textColor: Theme.of(context).hintColor,
+                      buttonColor: Theme.of(context).primaryColor),
+                      // buttonColor: Theme.of(context).primaryColor),
                 )
               ],
             )

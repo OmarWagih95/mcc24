@@ -104,7 +104,7 @@ class finishedOreders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 5.w),
-                    Text('adress is'),
+                    Text('adress:'),
                     Spacer(),
                     Text(
                         '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
@@ -116,7 +116,7 @@ class finishedOreders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 5.w),
-                    Text('des is '),
+                    Text('description'),
                     Spacer(),
                     Text(
                         '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),
@@ -187,7 +187,7 @@ class activeOrders extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(width: 5.w),
-                                    Text('adress is'),
+                                    Text('adress :'),
                                     Spacer(),
                                     Text(
                                         '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
@@ -199,7 +199,7 @@ class activeOrders extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(width: 5.w),
-                                    Text('des is '),
+                                    Text('description'),
                                     Spacer(),
                                     Text(
                                         '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),

@@ -26,6 +26,7 @@ ThemeData getDarkTheme() => ThemeData(
     hintColor: FxColors.secondary,
 
     shadowColor: FxColors.secondary_Dark,
+    focusColor: FxColors.primary,
     // shadowColor: FxColors.background_Dark,
 // >>>>>>> 319de33d07262740f3c6abf6d2fb633ab120ec79
     brightness: Brightness.dark,
@@ -287,7 +288,7 @@ ThemeData getDarkTheme() => ThemeData(
         // overflow: TextOverflow.ellipsis,
       ),
       titleLarge: TextStyle(
-        color: Colors.white,
+        color: FxColors.primary,
         fontSize: 25,
         fontFamily: 'ios-2',
         fontWeight: FontWeight.bold,
@@ -333,6 +334,9 @@ ThemeData getlightTheme() => ThemeData(
     shadowColor: FxColors.secondary,
     brightness: Brightness.light,
     splashColor: Colors.transparent, //customBackGroundBody
+    focusColor: Colors.black,
+    hoverColor: FxColors.primary,
+
 
     ///dividerTheme
     // dividerColor: Colors.grey.withOpacity(0.5),

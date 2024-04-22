@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       body: SingleChildScrollView(
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding:  EdgeInsets.all(15.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -90,14 +90,24 @@ class _SettingsPageState extends State<SettingsPage> {
               BlocProvider.of<Dark_lightModeCubit>(context)
                   .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
             }),
+            SizedBox(height: 30.h,),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SettingsListItem(
-                  null,
-                  S.of(context).Text_Us,
-                  () {},
-                  links: true,
+                Row(
+              mainAxisAlignment: MainAxisAlignment.center
+              ,children: [
+                  Text(S.of(context).Text_Us,style: TextStyle(fontSize: 18.w),)
+                ],)
+                ,
+                // SettingsListItem(
+                //   null,
+                //   S.of(context).Text_Us,
+                //   () {},
+                //   links: true,
+                // ),
+                SizedBox(
+                  height: 10,
                 ),
                 Container(
                   // decoration: BoxDecoration(

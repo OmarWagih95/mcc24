@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsListItem extends StatelessWidget {
   final IconData? iconData;
@@ -37,7 +38,7 @@ class SettingsListItem extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18.w,
                     ),
                   )
                 ],
