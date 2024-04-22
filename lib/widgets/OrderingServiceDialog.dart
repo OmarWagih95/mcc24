@@ -141,16 +141,16 @@ class OrderingServiceDialog extends StatelessWidget {
                                         initialValue:
                                             BlocProvider.of<AuthCubit>(context)
                                                 .user!
-                                                .phoneNumber!,
+                                                .address!,
                                         validator: (value) {
                                           if (value!.isNotEmpty) {
-                                            orderCubit.phoneNumber = value;
+                                            orderCubit.address = value;
                                           } else if (value.isEmpty) {
-                                            orderCubit.phoneNumber =
+                                            orderCubit.address =
                                                 BlocProvider.of<AuthCubit>(
                                                         context)
                                                     .user!
-                                                    .phoneNumber!;
+                                                    .address!;
                                           }
                                         },
                                         // minLines: 3,
@@ -195,16 +195,16 @@ class OrderingServiceDialog extends StatelessWidget {
                                         initialValue:
                                             BlocProvider.of<AuthCubit>(context)
                                                 .user!
-                                                .address!,
+                                                .phoneNumber!,
                                         validator: (value) {
                                           if (value!.isNotEmpty) {
-                                            orderCubit.address = value;
+                                            orderCubit.phoneNumber = value;
                                           } else if (value.isEmpty) {
                                             orderCubit.address =
                                                 BlocProvider.of<AuthCubit>(
                                                         context)
                                                     .user!
-                                                    .address!;
+                                                    .phoneNumber!;
                                           }
                                         },
                                         minLines: 1,
@@ -254,8 +254,8 @@ class OrderingServiceDialog extends StatelessWidget {
                                 print('tmaaaaam');
                               }
                             },
-                            textColor: Colors.white,
-                            buttonColor: Theme.of(context).shadowColor)
+                            textColor: Theme.of(context).hintColor,
+                            buttonColor: Theme.of(context).primaryColor)
                       ],
                     ),
                   ),

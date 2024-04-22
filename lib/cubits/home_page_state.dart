@@ -10,4 +10,6 @@ class HomePageGetDataFailure extends HomePageState {
   String errorMsg;
   HomePageGetDataFailure(this.errorMsg);
 }
+class changingSwitchState extends HomePageState {}
+
 

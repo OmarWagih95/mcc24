@@ -432,8 +432,8 @@ class S {
 
   String get Brightness_change {
     return Intl.message(
-      'Brightness Change',
-      name: 'Brightness_change',
+      'Dark mode',
+      name: 'Dark mode',
       desc: '',
       args: [],
     );
@@ -567,8 +567,8 @@ class S {
 
   String get confirmation {
     return Intl.message(
-      'Confirmation',
-      name: 'confirmation',
+      'Confirm',
+      name: 'confirm',
       desc: '',
       args: [],
     );

@@ -25,9 +25,14 @@ class HomePageCubit extends Cubit<HomePageState> {
       }
 
     }
+  bool darkMode=false;
+changeSwitch(bool x){
+  darkMode=x;
+  emit(changingSwitchState());
+}
 
 
-  //  getCategoriesData ()async{
+//  getCategoriesData ()async{
   //   emit(HomePageGetDataLoading());
   //   try{
   //     List<QueryDocumentSnapshot> categoryDataQueryList =[];

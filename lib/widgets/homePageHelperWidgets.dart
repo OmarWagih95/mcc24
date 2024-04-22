@@ -8,6 +8,7 @@ import 'package:MCC/cubits/SearchCupitStates.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/darkModeCubit.dart';
+import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
@@ -234,18 +235,21 @@ class CustomDrawer extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
-                  leading: const Icon(Icons.light_mode),
-                  title:
-                      Text(S.of(context).Brightness_change, style: TextStyle()),
-                  onTap: () async {
-                    final mode =
-                        BlocProvider.of<Dark_lightModeCubit>(context).mode;
-                    log(' from onPressed1 mode is $mode');
-                    BlocProvider.of<Dark_lightModeCubit>(context)
-                        .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
-                  },
-                ),
+                // ListTile(
+                //
+                //   leading: Switch(value: false, onChanged: (value){
+                //     print('changed');
+                //   }),
+                //   title:
+                //       Text(S.of(context).Brightness_change, style: TextStyle()),
+                //   onTap: () async {
+                //     final mode =
+                //         BlocProvider.of<Dark_lightModeCubit>(context).mode;
+                //     log(' from onPressed1 mode is $mode');
+                //     BlocProvider.of<Dark_lightModeCubit>(context)
+                //         .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
+                //   },
+                // ),
                 ListTile(
                   leading: const Icon(Icons.change_circle),
                   title:
@@ -257,6 +261,25 @@ class CustomDrawer extends StatelessWidget {
                             : 'en');
                   },
                 ),
+                BlocBuilder<HomePageCubit, HomePageState>(
+                  builder: (context, state) {
+                    return SwitchListTile(value: BlocProvider.of<HomePageCubit>(context).darkMode, onChanged: (value){
+                      BlocProvider.of<HomePageCubit>(context).changeSwitch(value);
+                      final mode =
+                          BlocProvider.of<Dark_lightModeCubit>(context).mode;
+                      log(' from onPressed1 mode is $mode');
+                      BlocProvider.of<Dark_lightModeCubit>(context)
+                          .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
+                    },
+                      title:   Text(S.of(context).Brightness_change, style: TextStyle()),
+                      activeColor: Theme.of(context).primaryColor,
+                      hoverColor:Theme.of(context).primaryColor ,
+                      inactiveThumbColor: Colors.black,
+                      inactiveTrackColor: Colors.black12,
+                    );
+                  },
+                ),
+
               ],
             ),
           ),
