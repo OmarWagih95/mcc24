@@ -80,18 +80,20 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? 'ar'
                       : 'en');
             }),
-            SettingsListItem(
-                Icons.share, S.of(context).Share_Application, ()async {
-                  final result = await Share.shareXFiles([XFile('img/1024.png')], text: 'Great picture');
-
-                }),
+            SettingsListItem(Icons.share, S.of(context).Share_Application,
+                () async {
+              Share.share('check out our website soon at https://example.com',
+                  subject: 'welcome to MCC ');
+            }),
             SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
             SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
               // here condition if login or not
-              (Islogin==true)
+              (Islogin == true)
                   ? {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).You_are_already_logged_in),))
-                  }
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(S.of(context).You_are_already_logged_in),
+                      ))
+                    }
                   : Navigator.of(context).pushNamed(Routes.LoginScreen);
             }),
             SettingsListItem(Icons.light_mode, S.of(context).Brightness_change,
