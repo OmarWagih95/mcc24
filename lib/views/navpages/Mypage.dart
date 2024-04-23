@@ -167,6 +167,7 @@ class finishedOreders extends StatelessWidget {
 String showServiceName(String id, BuildContext context) {
   String temp = '';
   BlocProvider.of<ServicesCubit>(context).servicesDataList.forEach((element) {
+    print('${element.id} && ${id}');
     if (element.id == id &&
         (Localizations.localeOf(context).languageCode == 'en')) {
       temp = element.EN['categoryName'];
