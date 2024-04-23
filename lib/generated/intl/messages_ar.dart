@@ -22,21 +22,30 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Active": MessageLookupByLibrary.simpleMessage("نشط"),
         "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "Brightness_change":
+            MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي"),
         "Choose_Language_Of_The_Interface":
             MessageLookupByLibrary.simpleMessage("اختار لغة واجهة التطبيق "),
         "Choose_your_service_easily":
             MessageLookupByLibrary.simpleMessage("اختار الخدمة بسهولة"),
+        "Click_here_to_log_in":
+            MessageLookupByLibrary.simpleMessage("اضغط هنا لتسجيل الدخول"),
         "Complete_the_service_and_rate_the_service_provider":
             MessageLookupByLibrary.simpleMessage(
                 "انهي الخدمة وقيم مزود الخدمة"),
+        "Contact_Information":
+            MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
+        "Contact_Number": MessageLookupByLibrary.simpleMessage("رقم الاتصال:"),
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
             MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
         "Dont_have_an_account_yet":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب بعد ؟ "),
         "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
+        "Finished": MessageLookupByLibrary.simpleMessage("منتهي"),
         "Forgot_Password":
             MessageLookupByLibrary.simpleMessage(" هل نسيت الباسورد ؟"),
         "General_contracting":
@@ -52,7 +61,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "Maintainance_Packages":
             MessageLookupByLibrary.simpleMessage("باقات الصيانة"),
         "My_Order": MessageLookupByLibrary.simpleMessage("طلبي"),
+        "No_Maintainance_offers_now":
+            MessageLookupByLibrary.simpleMessage("لاتوجد باقات صيانة حاليا"),
+        "No_notifications_now":
+            MessageLookupByLibrary.simpleMessage("لايوجد اشعارات الأن"),
+        "No_offers_now":
+            MessageLookupByLibrary.simpleMessage("لاتوجد باقات صيانة الأن"),
         "Phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "Please_write_the_description":
+            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف."),
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),
@@ -63,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
         "Sign_IN": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "Sign_Up": MessageLookupByLibrary.simpleMessage("قم بأنشاء حساب "),
+        "Sign_out": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
         "Text_Us": MessageLookupByLibrary.simpleMessage("راسلنا"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
@@ -70,67 +88,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "We_are_excited_to_have_you_back": MessageLookupByLibrary.simpleMessage(
             "متحمسين بعودتك لا يمكنا الانتظار لمعرفة اخر نشاطك منذ اخر تسجيل دخول لك"),
         "Welcome_Back": MessageLookupByLibrary.simpleMessage("مرحبا بعودتك"),
-        "Who_Are": MessageLookupByLibrary.simpleMessage("من نحن"),
-        "choose_maintenance_service":
-            MessageLookupByLibrary.simpleMessage("اختار خدمة الصيانة"),
-        "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
-        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
-        "password": MessageLookupByLibrary.simpleMessage("الباسورد "),
-        "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
-        "then_get_best_prices_from_our_suppliers":
-            MessageLookupByLibrary.simpleMessage(
-                "ثم احصل علي افضل عروض الأسعار من مزودينا"),
-        "My_Order": MessageLookupByLibrary.simpleMessage("طلبي"),
-        "Maintainance_Packages":
-            MessageLookupByLibrary.simpleMessage(" باقات الصيانة"),
-        "Phone_number": MessageLookupByLibrary.simpleMessage(" رقم الهاتف"),
-        "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
-        "Dont_have_an_account_yet":
-            MessageLookupByLibrary.simpleMessage("هل لديك حساب بعد ؟"),
-        "Sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج "),
-        "Brightness_change":
-            MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي "),
-        "No_Maintainance_offers_now":
-            MessageLookupByLibrary.simpleMessage("لاتوجد باقات صيانة حاليا"),
-        "No_notifications_now":
-            MessageLookupByLibrary.simpleMessage("لايوجد اشعارات الان "),
-        "expert_technicians":
-            MessageLookupByLibrary.simpleMessage("فنيون خبراء"),
-        "service_guarantee":
-            MessageLookupByLibrary.simpleMessage("ضمان الخدمة "),
-        "customer_satisfaction":
-            MessageLookupByLibrary.simpleMessage(" رضا وسعادة العملاء"),
-        "best_prices": MessageLookupByLibrary.simpleMessage("افضل الاسعار "),
-        "money_back_guarantee":
-            MessageLookupByLibrary.simpleMessage("ضمان استرداد الأموال"),
-        "service_request": MessageLookupByLibrary.simpleMessage(" طلب الخدمة"),
-        "service_request_success":
-            MessageLookupByLibrary.simpleMessage("تم طلب الخدمة بنجاح  "),
-        "service_confirmation":
-            MessageLookupByLibrary.simpleMessage("تأكيد طلب الخدمة "),
-        "service_description": MessageLookupByLibrary.simpleMessage("الخدمة "),
-        "detailed_description_prompt":
-            MessageLookupByLibrary.simpleMessage("من فضلك اكتب شرحاً مفصلاً"),
-        "contact_number_prompt":
-            MessageLookupByLibrary.simpleMessage("أضف رقماً للتواصل (اختياري)"),
-        "address_description_prompt": MessageLookupByLibrary.simpleMessage(
-            "شرح تفصيلي للعنوان (اختياري)"),
-        "confirmation": MessageLookupByLibrary.simpleMessage("تأكيد"),
-        "Contact_Information":
-            MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
-        "Contact_Number": MessageLookupByLibrary.simpleMessage("رقم الاتصال:"),
         "What_We_Offer_You":
             MessageLookupByLibrary.simpleMessage("ما نقدمه لكم:"),
-        "Finished": MessageLookupByLibrary.simpleMessage("منتهي"),
-        "Active": MessageLookupByLibrary.simpleMessage("نشط"),
-        "Please_write_the_description":
-            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف."),
-        "Click_here_to_log_in":
-            MessageLookupByLibrary.simpleMessage("اضغط هنا لتسجيل الدخول"),
+        "Who_Are": MessageLookupByLibrary.simpleMessage("من نحن"),
+        "address_description_prompt": MessageLookupByLibrary.simpleMessage(
+            "شرح تفصيلي للعنوان (اختياري)"),
+        "best_prices": MessageLookupByLibrary.simpleMessage("أفضل الأسعار"),
+        "choose_maintenance_service":
+            MessageLookupByLibrary.simpleMessage("اختار خدمة الصيانة"),
+        "confirmation": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "contact_number_prompt":
+            MessageLookupByLibrary.simpleMessage("أضف رقماً للتواصل (اختياري)"),
+        "customer_satisfaction":
+            MessageLookupByLibrary.simpleMessage("رضاء وسعادة العملاء"),
+        "detailed_description_prompt":
+            MessageLookupByLibrary.simpleMessage("من فضلك اكتب شرحاً مفصلاً"),
+        "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
+        "expert_technicians":
+            MessageLookupByLibrary.simpleMessage("فنيون خبراء"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "log_in_first_to_request_the_service":
             MessageLookupByLibrary.simpleMessage(
                 "يجب تسجيل الدخول اولا لطلب الخدمة"),
-        "No_offers_now":
-            MessageLookupByLibrary.simpleMessage("لايوجد عروض الأن "),
+        "money_back_guarantee":
+            MessageLookupByLibrary.simpleMessage("ضمان استرداد الأموال"),
+        "password": MessageLookupByLibrary.simpleMessage("الباسورد "),
+        "service_confirmation":
+            MessageLookupByLibrary.simpleMessage("تأكيد طلب الخدمة"),
+        "service_description": MessageLookupByLibrary.simpleMessage("الخدمة"),
+        "service_guarantee":
+            MessageLookupByLibrary.simpleMessage("ضمان الخدمة"),
+        "service_request": MessageLookupByLibrary.simpleMessage("طلب الخدمة"),
+        "service_request_success":
+            MessageLookupByLibrary.simpleMessage("تم طلب الخدمة بنجاح"),
+        "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+        "then_get_best_prices_from_our_suppliers":
+            MessageLookupByLibrary.simpleMessage(
+                "ثم احصل علي افضل عروض الأسعار من مزودينا")
       };
 }

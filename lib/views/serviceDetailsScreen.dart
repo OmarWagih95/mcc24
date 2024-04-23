@@ -7,6 +7,7 @@ import 'package:MCC/widgets/OurPropertiesListItem.dart';
 import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/colors.dart';
@@ -47,15 +48,15 @@ class ServiceDetailsScreen extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25)),
+                          topLeft: Radius.circular(25.r),
+                          topRight: Radius.circular(25.r)),
                       child: Container(
                         decoration: BoxDecoration(
                             ////////////////////////  color /////////////////////////////
                             color: Theme.of(context).scaffoldBackgroundColor,
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(25),
-                                topRight: Radius.circular(25))),
+                                topLeft: Radius.circular(25.r),
+                                topRight: Radius.circular(25.r))),
                         width: double.infinity,
                         child: Padding(
                           padding: EdgeInsets.all(15.h),
@@ -68,29 +69,29 @@ class ServiceDetailsScreen extends StatelessWidget {
                                     ? service.AR['serviceName']
                                     : service.EN['serviceName'],
                                 style: TextStyle(
-                                    fontSize: 25.w,
+                                    fontSize: 25.sp,
                                     fontWeight: FontWeight.bold),
                                 overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(vertical: 10.h),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  // mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Wrap(children: [
-                                      Text(
+                                    Expanded(
+                                      child: Text(
                                           (Localizations.localeOf(context)
                                                       .languageCode ==
                                                   'ar')
                                               ? service.AR['serviceDesc']
                                               : service.EN['serviceDesc'],
                                           style: TextStyle(
-                                              fontSize: 14.w,
-                                              fontWeight: FontWeight.w600),
-                                          // softWrap: true,
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.w500),
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 3),
-                                    ])
+                                    )
                                   ],
                                 ),
                               ),
@@ -99,7 +100,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                                   Text(
                                     S.of(context).What_We_Offer_You,
                                     style: TextStyle(
-                                        fontSize: 20.w,
+                                        fontSize: 20.sp,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ],
@@ -171,9 +172,9 @@ class ServiceDetailsScreen extends StatelessWidget {
                       // textColor: Theme.of(context).focusColor,
                       // textColor: Colors.black,
                       // buttonColor: FxColors.primary),
-                    textColor: Theme.of(context).hintColor,
+                      textColor: Theme.of(context).hintColor,
                       buttonColor: Theme.of(context).primaryColor),
-                      // buttonColor: Theme.of(context).primaryColor),
+                  // buttonColor: Theme.of(context).primaryColor),
                 )
               ],
             ),

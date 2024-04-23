@@ -91,7 +91,7 @@ class _mainpageState extends State<mainpage> {
   Widget build(BuildContext context) {
     changeremoteindex = changeremoteindexhelper;
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
-    return WillPopScope(
+    return WillPopScope (
       onWillPop: _systemBackButtonPressed,
       child: Scaffold(
         bottomNavigationBar: NavigationBar(

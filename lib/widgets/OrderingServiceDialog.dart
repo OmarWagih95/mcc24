@@ -3,6 +3,7 @@ import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/MyButtonW.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -21,7 +22,6 @@ class OrderingServiceDialog extends StatelessWidget {
         if (state is AddingOrderSuccessState) {
           Fluttertoast.showToast(msg: S.of(context).service_request_success);
           Navigator.pop(context);
-          
         }
       },
       builder: (context, state) {
@@ -68,19 +68,31 @@ class OrderingServiceDialog extends StatelessWidget {
                                     Padding(
                                       padding:
                                           EdgeInsets.symmetric(vertical: 10.h),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                      child: Column(
+                                        // mainAxisAlignment:
+                                        // MainAxisAlignment.end,
                                         children: [
-                                          Text(
-                                            (Localizations.localeOf(context)
-                                                        .languageCode ==
-                                                    'ar')
-                                                ? service.AR['serviceName']
-                                                : service.EN['serviceName'],
-                                            style: TextStyle(
-                                                fontSize: 16.w,
-                                                fontWeight: FontWeight.bold),
+                                          Card(
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            elevation: 2,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8,
+                                                      vertical: 5),
+                                              child: Text(
+                                                (Localizations.localeOf(context)
+                                                            .languageCode ==
+                                                        'ar')
+                                                    ? service.AR['serviceName']
+                                                    : service.EN['serviceName'],
+                                                style: TextStyle(
+                                                    fontSize: 16.w,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            ),
                                           ),
                                           Text(
                                             '${S.of(context).Please_write_the_description} :',
@@ -106,29 +118,23 @@ class OrderingServiceDialog extends StatelessWidget {
                                         minLines: 4,
                                         maxLines: 6,
                                         decoration: InputDecoration(
-                                          fillColor: ColorsManager.lighterGray,
-                                          filled: true,
-                                          hintText: S
-                                              .of(context)
-                                              .detailed_description_prompt,
-                                          // hintTextDirection: TextDirection.rtl,
-                                          contentPadding: EdgeInsets.symmetric(
-                                              horizontal: 20.h, vertical: 18.h),
-                                          enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              borderSide: BorderSide(
-                                                  color:
-                                                      ColorsManager.lightGray,
-                                                  width: 1.3)),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            borderSide: BorderSide(
-                                                color: ColorsManager.mainBlue,
-                                                width: 1.3),
-                                          ),
-                                        ),
+                                            fillColor:
+                                                ColorsManager.lighterGray,
+                                            filled: true,
+                                            hintText: S
+                                                .of(context)
+                                                .detailed_description_prompt,
+                                            // hintTextDirection: TextDirection.rtl,
+                                            contentPadding:
+                                                EdgeInsets.symmetric(
+                                                    horizontal: 20.h,
+                                                    vertical: 18.h),
+                                            enabledBorder: Theme.of(context)
+                                                .inputDecorationTheme
+                                                .enabledBorder,
+                                            focusedBorder: Theme.of(context)
+                                                .inputDecorationTheme
+                                                .focusedBorder,),
                                       ),
                                     ),
                                     SizedBox(
@@ -171,20 +177,12 @@ class OrderingServiceDialog extends StatelessWidget {
                                           // hintTextDirection: TextDirection.rtl,
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 20.h, vertical: 18.h),
-                                          enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              borderSide: BorderSide(
-                                                  color:
-                                                      ColorsManager.lightGray,
-                                                  width: 1.3)),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            borderSide: BorderSide(
-                                                color: ColorsManager.mainBlue,
-                                                width: 1.3),
-                                          ),
+                                          enabledBorder: Theme.of(context)
+                                                .inputDecorationTheme
+                                                .enabledBorder,
+                                            focusedBorder: Theme.of(context)
+                                                .inputDecorationTheme
+                                                .focusedBorder,
                                         ),
                                       ),
                                     ),
@@ -225,20 +223,12 @@ class OrderingServiceDialog extends StatelessWidget {
                                           // hintTextDirection: TextDirection.rtl,
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 20.h, vertical: 18.h),
-                                          enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              borderSide: BorderSide(
-                                                  color:
-                                                      ColorsManager.lightGray,
-                                                  width: 1.3)),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            borderSide: BorderSide(
-                                                color: ColorsManager.mainBlue,
-                                                width: 1.3),
-                                          ),
+                                        enabledBorder: Theme.of(context)
+                                                .inputDecorationTheme
+                                                .enabledBorder,
+                                            focusedBorder: Theme.of(context)
+                                                .inputDecorationTheme
+                                                .focusedBorder,
                                         ),
                                       ),
                                     ),

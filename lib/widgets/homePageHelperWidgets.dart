@@ -16,6 +16,7 @@ import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/model/userModel.dart';
 import 'package:MCC/routing/routes.dart';
+import 'package:MCC/views/navpages/HomePage.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,26 +44,27 @@ class searchbar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: TextField(
+        style: Theme.of(context).textTheme.displaySmall,
         onChanged: (query) => BlocProvider.of<SearchCubit>(context)
             .filterList(query, DUMMY_CATEGORIES),
         textDirection: TextDirection.rtl,
 
-          // decoration: InputDecoration(
-          //   hintStyle: TextStyle(color: Theme.of(context).hintColor,fontSize: 14.w),
-          //   enabled: true
-          // ,enabledBorder: OutlineInputBorder(
+        // decoration: InputDecoration(
+        //   hintStyle: TextStyle(color: Theme.of(context).hintColor,fontSize: 14.w),
+        //   enabled: true
+        // ,enabledBorder: OutlineInputBorder(
         decoration: InputDecoration(
+          hintStyle: Theme.of(context).textTheme.bodyLarge,
           enabled: true,
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(24),
-              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(24),
-              borderSide: BorderSide(color: Theme.of(context).shadowColor)),
+          enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+          focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
           border: OutlineInputBorder(
               borderSide: BorderSide(color: Theme.of(context).primaryColor)),
-          suffixIcon:
-              const IconButton(onPressed: null, icon: Icon(Icons.search)),
+          suffixIcon: IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.search,
+              )),
           hintText: S.of(context).Search_for_service_or_product,
         ),
         controller: search_controller,
@@ -195,7 +197,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   ),
                   title: Text(S.of(context).Home, style: TextStyle()),
                   onTap: () {
-                    Navigator.pop(context);
+                    if (ModalRoute.of(context)!.settings.name ==
+                        Routes.mainPage) {
+                      Navigator.pop(context);
+                    } else {
+                      Navigator.of(context)
+                          .pushReplacementNamed(Routes.mainPage);
+                    }
                   },
                 ),
                 ListTile(
@@ -272,23 +280,27 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 BlocBuilder<HomePageCubit, HomePageState>(
                   builder: (context, state) {
-                    return SwitchListTile(value: BlocProvider.of<HomePageCubit>(context).darkMode, onChanged: (value){
-                      BlocProvider.of<HomePageCubit>(context).changeSwitch(value);
-                      final mode =
-                          BlocProvider.of<Dark_lightModeCubit>(context).mode;
-                      log(' from onPressed1 mode is $mode');
-                      BlocProvider.of<Dark_lightModeCubit>(context)
-                          .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
-                    },
-                      title:   Text(S.of(context).Brightness_change, style: TextStyle()),
+                    return SwitchListTile(
+                      value: BlocProvider.of<HomePageCubit>(context).darkMode,
+                      onChanged: (value) {
+                        BlocProvider.of<HomePageCubit>(context)
+                            .changeSwitch(value);
+                        final mode =
+                            BlocProvider.of<Dark_lightModeCubit>(context).mode;
+                        log(' from onPressed1 mode is $mode');
+                        BlocProvider.of<Dark_lightModeCubit>(context)
+                            .darkAndlightMode(
+                                mode == 'light' ? 'dark' : 'light');
+                      },
+                      title: Text(S.of(context).Brightness_change,
+                          style: TextStyle()),
                       activeColor: Theme.of(context).primaryColor,
-                      hoverColor:Theme.of(context).primaryColor ,
+                      hoverColor: Theme.of(context).primaryColor,
                       inactiveThumbColor: Colors.black,
                       inactiveTrackColor: Colors.black12,
                     );
                   },
                 ),
-
               ],
             ),
           ),
