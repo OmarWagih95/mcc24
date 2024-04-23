@@ -682,6 +682,13 @@ class S {
       desc: '',
       args: [],
     );
+  }String get You_are_already_logged_in {
+    return Intl.message(
+      'You \'re already logged in',
+      name: 'You_are_already_logged_in',
+      desc: '',
+      args: [],
+    );
   }
 }
 

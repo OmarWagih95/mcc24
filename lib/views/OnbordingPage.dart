@@ -6,6 +6,7 @@ import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/widgets/Dots.dart';
 import '/widgets/mytext.dart';
 
@@ -30,10 +31,10 @@ class _welcomState extends State<onboardingPage> {
 
   PageController pageController = PageController();
   List Images = [
-    '1.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
   ];
 
   @override
@@ -47,7 +48,7 @@ class _welcomState extends State<onboardingPage> {
     var Skip = S.of(context).skip;
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top: 15),
+        padding: EdgeInsets.only(top: 5.h),
         child: PageView.builder(
             controller: pageController,
             itemCount: 4,
@@ -56,15 +57,16 @@ class _welcomState extends State<onboardingPage> {
               indx = counter;
               return SafeArea(
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
                   width: double.infinity,
                   height: double.maxFinite,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.cover,
+                          scale: 1.5,
+                          fit: BoxFit.contain,
                           image: AssetImage(img + Images[indx]))),
                   child: Container(
-                    // width: 200,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -83,10 +85,11 @@ class _welcomState extends State<onboardingPage> {
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 8.w, vertical: 8.h),
                                             child: Text(
                                               S.of(context).skip,
-                                              style: TextStyle(fontSize: 16),
+                                              style: TextStyle(fontSize: 16.sp),
                                             ),
                                           ),
                                         ),
@@ -103,20 +106,21 @@ class _welcomState extends State<onboardingPage> {
                             Text(
                               Texts[indx],
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                                  fontSize: 18.sp, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
                         indx == 3
                             ? Container(
-                                width: 405,
-                                height: 40,
+                                width: 405.w,
+                                height: 40.h,
                                 // padding: EdgeInsets.all(5),
                                 child: ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStatePropertyAll(
-                                                ColorsManager.mainColor)),
+                                                Theme.of(context)
+                                                    .primaryColor)),
                                     onPressed: () {
                                       setOnboardingFinished();
                                       Navigator.pushNamed(
@@ -144,18 +148,21 @@ class onbordingInputButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      child: Row(children: [
+        SizedBox(
+          width: 10.w,
+        ),
         mytext(
           S.of(context).Continue,
-          color: Colors.white,
-          size: 20,
+          size: 20.sp,
         ),
+        Spacer(),
         Icon(
-          color: Colors.white,
+          color: Colors.black,
           Localizations.localeOf(context).languageCode == "en"
               ? Icons.arrow_right_rounded
               : Icons.arrow_left_rounded,
-          size: 35,
+          size: 35.r,
         ),
       ]),
     );

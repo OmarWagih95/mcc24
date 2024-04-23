@@ -5,13 +5,16 @@ import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/darkModeCubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/routing/routes.dart';
+import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/views/selectLanguage.dart';
 import 'package:MCC/widgets/SettingsListItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum SocialMedia { snapShat, instgram, whatsapp, email }
@@ -33,10 +36,11 @@ class _SettingsPageState extends State<SettingsPage> {
     // final text = 'watch this awesome video about our services';
     // final uRlshare = Uri.encodeComponent('www.youtube.com');
     final urls = {
-      SocialMedia.snapShat: 'https://www.snapchat.com/',
+      SocialMedia.snapShat: 'https://snapchat.com/t/MZTopzJP',
       SocialMedia.email: 'https://mail.google.com/mail',
-      SocialMedia.instgram: 'https://www.instagram.com',
-      SocialMedia.whatsapp: 'https://wa.me/0111111111',
+      SocialMedia.instgram:
+          'https://www.instagram.com/memar_corner_mcc?igsh=bGp2Z3g0YWk0NWRv&utm_source=qr',
+      SocialMedia.whatsapp: 'https://wa.me/+97455678226',
     };
     final url = Uri.parse('${urls[SocialMediaPlatform]}');
     log('url is $url');
@@ -77,10 +81,18 @@ class _SettingsPageState extends State<SettingsPage> {
                       : 'en');
             }),
             SettingsListItem(
-                Icons.share, S.of(context).Share_Application, () {}),
+                Icons.share, S.of(context).Share_Application, ()async {
+                  final result = await Share.shareXFiles([XFile('img/1024.png')], text: 'Great picture');
+
+                }),
             SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
             SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
-              Navigator.of(context).pushNamed(Routes.LoginScreen);
+              // here condition if login or not
+              (Islogin==true)
+                  ? {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.of(context).You_are_already_logged_in),))
+                  }
+                  : Navigator.of(context).pushNamed(Routes.LoginScreen);
             }),
             SettingsListItem(Icons.light_mode, S.of(context).Brightness_change,
                 () {
