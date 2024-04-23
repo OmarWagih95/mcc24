@@ -24,7 +24,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 GlobalKey<NavigatorState> SettingsPageNavigatorKey =
-    GlobalKey<NavigatorState>();
+GlobalKey<NavigatorState>();
 
 class _SettingsPageState extends State<SettingsPage> {
   Future<void>? _launched;
@@ -50,110 +50,112 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(
-                Icons.notifications,
-                size: 25,
-                // color: Colors.black54,
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              S.of(context).Settings,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 30,
-                  color: Colors.black.withOpacity(0.7)),
-            ),
-          )
-        ],
-      ),
       body: SingleChildScrollView(
           child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            SettingsListItem(Icons.autorenew, S.of(context).Language_Exchange,
-                () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => chooseLanguages(false),
-              ));
-            }),
-            SettingsListItem(
-                Icons.share, S.of(context).Share_Application, () {}),
-            SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
-            SettingsListItem(Icons.person, S.of(context).Sign_IN, () {}),
-            SettingsListItem(Icons.light_mode, "تفعيل الوضع الليلي", () {
-              final mode = BlocProvider.of<Dark_lightModeCubit>(context).mode;
-              log(' from onPressed1 mode is $mode');
-              BlocProvider.of<Dark_lightModeCubit>(context)
-                  .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
-            }),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding:  EdgeInsets.all(15.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SettingsListItem(
-                  null,
-                  S.of(context).Text_Us,
-                  () {},
-                  links: true,
-                ),
-                Container(
-                  // decoration: BoxDecoration(
-                  //     border:
-                  //         Border(bottom: BorderSide(color: Colors.black54))),
-                  child: Card(
-                    // color: ColorsManager.mainColor.withOpacity(0.2),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        buildsocialButton(
-                          color: Colors.blueAccent.shade400,
-                          onclick: () async {
-                            setState(() async {
-                              _launched = share(SocialMedia.facebook);
-                            });
-                          },
-                          icon: FontAwesomeIcons.facebook,
-                        ),
-                        buildsocialButton(
-                          color: Colors.red,
-                          onclick: () => share(SocialMedia.youtube),
-                          icon: FontAwesomeIcons.youtube,
-                        ),
-                        buildsocialButton(
-                          color: Colors.white,
-                          onclick: () => share(SocialMedia.instgram),
-                          icon: FontAwesomeIcons.instagram,
-                        ),
-                        buildsocialButton(
-                          color: Colors.green,
-                          onclick: () => share(SocialMedia.whatsapp),
-                          icon: FontAwesomeIcons.whatsapp,
-                        ),
-                        buildsocialButton(
-                          color: Colors.blueGrey,
-                          onclick: () => share(SocialMedia.email),
-                          icon: Icons.email,
-                        )
-                      ],
+                Padding(
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
+                  child: Align(
+                    alignment: AlignmentDirectional.topStart,
+                    child: Text(
+                      S.of(context).Settings,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium!
+                          .copyWith(overflow: TextOverflow.visible),
                     ),
                   ),
                 ),
+                SettingsListItem(Icons.autorenew, S.of(context).Language_Exchange,
+                        () {
+                      BlocProvider.of<LanguagesCubit>(context).changeLanguages(
+                          ((Localizations.localeOf(context).languageCode) == 'en')
+                              ? 'ar'
+                              : 'en');
+                    }),
+                SettingsListItem(
+                    Icons.share, S.of(context).Share_Application, () {}),
+                SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
+                SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
+                  Navigator.of(context).pushNamed(Routes.LoginScreen);
+                }),
+                SettingsListItem(Icons.light_mode, S.of(context).Brightness_change,
+                        () {
+                      final mode = BlocProvider.of<Dark_lightModeCubit>(context).mode;
+                      log(' from onPressed1 mode is $mode');
+                      BlocProvider.of<Dark_lightModeCubit>(context)
+                          .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
+                    }),
+                SizedBox(height: 30.h,),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center
+                      ,children: [
+                      Text(S.of(context).Text_Us,style: TextStyle(fontSize: 18.w),)
+                    ],)
+                    ,
+                    // SettingsListItem(
+                    //   null,
+                    //   S.of(context).Text_Us,
+                    //   () {},
+                    //   links: true,
+                    // ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      // decoration: BoxDecoration(
+                      //     border:
+                      //         Border(bottom: BorderSide(color: Colors.black54))),
+                      child: Card(
+                        elevation: .5,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            buildsocialButton(
+                              color: Colors.blueAccent.shade400,
+                              onclick: () async {
+                                setState(() async {
+                                  _launched = share(SocialMedia.facebook);
+                                });
+                              },
+                              icon: FontAwesomeIcons.facebook,
+                            ),
+                            buildsocialButton(
+                              color: Colors.red,
+                              onclick: () => share(SocialMedia.youtube),
+                              icon: FontAwesomeIcons.youtube,
+                            ),
+                            buildsocialButton(
+                              color: Colors.white,
+                              onclick: () => share(SocialMedia.instgram),
+                              icon: FontAwesomeIcons.instagram,
+                            ),
+                            buildsocialButton(
+                              color: Colors.green,
+                              onclick: () => share(SocialMedia.whatsapp),
+                              icon: FontAwesomeIcons.whatsapp,
+                            ),
+                            buildsocialButton(
+                              color: Colors.blueGrey,
+                              onclick: () => share(SocialMedia.email),
+                              icon: Icons.email,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ],
-        ),
-      )),
+          )),
     );
   }
 }
@@ -166,22 +168,22 @@ Widget buildsocialButton(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
           gradient: (icon == FontAwesomeIcons.instagram)
               ? const LinearGradient(
-                  stops: null,
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [
-                      Color(0xFFf9ce34),
-                      Color(0xFFee2a7b),
-                      Color(0xFF6228d7)
-                    ])
+              stops: null,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: [
+                Color(0xFFf9ce34),
+                Color(0xFFee2a7b),
+                Color(0xFF6228d7)
+              ])
               : LinearGradient(
-                  stops: null,
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [
-                      Colors.white.withOpacity(.5),
-                      Colors.white,
-                    ])),
+              stops: null,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: [
+                Colors.white.withOpacity(.5),
+                Colors.white,
+              ])),
       width: 48,
       height: 48,
       child: Center(
