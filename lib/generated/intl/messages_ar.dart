@@ -124,6 +124,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "Finished": MessageLookupByLibrary.simpleMessage("منتهي"),
         "Active": MessageLookupByLibrary.simpleMessage("نشط"),
         "Please_write_the_description":
-            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف.")
+            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف."),
+        "Click_here_to_log_in":
+            MessageLookupByLibrary.simpleMessage("اضغط هنا لتسجيل الدخول"),
+        "log_in_first_to_request_the_service":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب تسجيل الدخول اولا لطلب الخدمة"),
+        "No_offers_now":
+            MessageLookupByLibrary.simpleMessage("لايوجد عروض الأن "),
       };
 }

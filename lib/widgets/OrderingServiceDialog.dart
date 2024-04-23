@@ -21,6 +21,7 @@ class OrderingServiceDialog extends StatelessWidget {
         if (state is AddingOrderSuccessState) {
           Fluttertoast.showToast(msg: S.of(context).service_request_success);
           Navigator.pop(context);
+          
         }
       },
       builder: (context, state) {
@@ -72,7 +73,11 @@ class OrderingServiceDialog extends StatelessWidget {
                                             MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            service.AR['serviceName'],
+                                            (Localizations.localeOf(context)
+                                                        .languageCode ==
+                                                    'ar')
+                                                ? service.AR['serviceName']
+                                                : service.EN['serviceName'],
                                             style: TextStyle(
                                                 fontSize: 16.w,
                                                 fontWeight: FontWeight.bold),

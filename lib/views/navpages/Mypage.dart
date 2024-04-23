@@ -1,7 +1,12 @@
+import 'dart:developer';
+
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
+import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
+import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +35,13 @@ class _MypageState extends State<Mypage> {
     }
 
     getFinishedOrders();
+///////////////////////////////
+    void getServices() async {
+      await BlocProvider.of<ServicesCubit>(context).getServicesData;
+    }
+
+    getServices();
+///////////////////////////
     BlocProvider.of<OrderCubit>(context)
         .GetMyOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
   }
@@ -39,6 +51,7 @@ class _MypageState extends State<Mypage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        drawer: CustomDrawer(),
         appBar: AppBar(
           title: Padding(
             padding: EdgeInsets.all(8.0),
@@ -98,6 +111,12 @@ class finishedOreders extends StatelessWidget {
         child: ListView.builder(
           itemCount: FinishedOrders.length,
           itemBuilder: (BuildContext context, int index) {
+            /////////////////////new/////////
+            String ServiceName = showServiceName(
+                BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]
+                    ['serviceID'],
+                context);
+            log(ServiceName);
             return Column(
               children: [
                 Row(
@@ -128,10 +147,9 @@ class finishedOreders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 5.w),
-                    Text('serviceID is'),
+                    Text('ServiceName is'),
                     Spacer(),
-                    Text(
-                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['serviceID']}'),
+                    Text(ServiceName),
                     SizedBox(width: 5.w),
                   ],
                 ),
@@ -142,6 +160,25 @@ class finishedOreders extends StatelessWidget {
       ),
     );
   }
+}
+
+/////////////////////new/////////
+// الدالة الي هترجع اسم الخدمة
+String showServiceName(String id, BuildContext context) {
+  String temp = '';
+  BlocProvider.of<ServicesCubit>(context).servicesDataList.forEach((element) {
+    print('${element.id} && ${id}');
+    if (element.id == id &&
+        (Localizations.localeOf(context).languageCode == 'en')) {
+      temp = element.EN['categoryName'];
+    } else {
+      temp = element.AR['categoryName'];
+    }
+  });
+
+  log('service name is  ' + temp);
+
+  return temp;
 }
 
 class activeOrders extends StatelessWidget {
@@ -178,6 +215,11 @@ class activeOrders extends StatelessWidget {
                               .length -
                           1,
                       itemBuilder: (BuildContext context, int index) {
+                        ///////////new////////////////
+                        String ServiceName = showServiceName(
+                            BlocProvider.of<OrderCubit>(context)
+                                .ordersQueryDocsList![index]['serviceID'],
+                            context);
                         return Container(
                           padding: EdgeInsets.all(10),
                           child: Card(
@@ -211,10 +253,9 @@ class activeOrders extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(width: 5.w),
-                                    Text('serviceID is'),
+                                    Text('ServiceName is'),
                                     Spacer(),
-                                    Text(
-                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['serviceID']}'),
+                                    Text(ServiceName),
                                     SizedBox(width: 5.w),
                                   ],
                                 ),

@@ -17,6 +17,10 @@ import 'bakaatSeyanaa.dart';
 import '/views/navpages/HomePage.dart';
 import '/views/navpages/Mypage.dart';
 
+int Currindx = 0;
+int get getCurrindx => Currindx;
+void Function() changeremoteindex = () {};
+
 class mainpage extends StatefulWidget {
   final bool? is_login;
   final int? navigationIndexfromRouting;
@@ -58,8 +62,6 @@ class _mainpageState extends State<mainpage> {
     SettingsPageNavigatorKey,
     bakaatSeyanaaNavigatorKey,
   ];
-  int Currindx = 0;
-
   List<Widget> pages = [
     // BlocProvider<HomePageCubit>(
     //   create: (context) => HomePageCubit(),
@@ -81,16 +83,13 @@ class _mainpageState extends State<mainpage> {
     SettingsPage(),
     bakaatSeyanaa()
   ];
-
-  void Function(int)? ontap(indx) {
-    setState(() {
-      Currindx = indx;
-    });
-    return null;
+  void changeremoteindexhelper() {
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    changeremoteindex = changeremoteindexhelper;
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
     return WillPopScope(
       onWillPop: _systemBackButtonPressed,

@@ -15,6 +15,7 @@ import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/model/userModel.dart';
+import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/widgets/category_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -70,43 +71,43 @@ class searchbar extends StatelessWidget {
   }
 }
 
-class leftappbar extends StatefulWidget {
-  leftappbar({super.key});
+// class leftappbar extends StatefulWidget {
+//   leftappbar({super.key});
 
-  @override
-  State<leftappbar> createState() => _leftappbarState();
-}
+//   @override
+//   State<leftappbar> createState() => _leftappbarState();
+// }
 
-class _leftappbarState extends State<leftappbar> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: const Icon(
-              Icons.menu,
-              // color: ColorsManager.Color10Light,
-            )),
-        IconButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(
-                "لايوجد اشعارات الان ",
-                style: TextStyle(fontSize: 32),
-              )));
-            },
-            icon: Icon(
-              Icons.notifications,
-              color: Theme.of(context).iconTheme.color,
-              // color: ColorsManager.Color10Light
-            )),
-      ]),
-    );
-  }
-}
+// class _leftappbarState extends State<leftappbar> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+//         IconButton(
+//             onPressed: () {
+//               Scaffold.of(context).openDrawer();
+//             },
+//             icon: const Icon(
+//               Icons.menu,
+//               // color: ColorsManager.Color10Light,
+//             )),
+//         IconButton(
+//             onPressed: () {
+//               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+//                   content: Text(
+//                 S.of(context).No_notifications_now,
+//                 style: TextStyle(fontSize: 32),
+//               )));
+//             },
+//             icon: Icon(
+//               Icons.notifications,
+//               color: Theme.of(context).iconTheme.color,
+//               // color: ColorsManager.Color10Light
+//             )),
+//       ]),
+//     );
+//   }
+// }
 
 class messageText extends StatelessWidget {
   bool isVisible;
@@ -146,7 +147,12 @@ class messageText extends StatelessWidget {
 }
 
 ////////////////////////
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends StatefulWidget {
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     AuthCubit authCubit = context.read<AuthCubit>();
@@ -198,7 +204,8 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   title: Text(S.of(context).Settings, style: TextStyle()),
                   onTap: () {
-                    Navigator.pop(context);
+                    Currindx = 2;
+                    changeremoteindex();
                   },
                 ),
                 ListTile(
@@ -207,19 +214,21 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   title: Text(S.of(context).My_Order, style: TextStyle()),
                   onTap: () {
-                    print(
-                        '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BlocProvider(
-                                  create: (context) => OrderCubit()
-                                    ..GetMyOrders(
-                                        BlocProvider.of<AuthCubit>(context)
-                                            .user!
-                                            .userID!),
-                                  child: MyOrdersScreen(),
-                                )));
+                    Currindx = 1;
+                    changeremoteindex();
+                    // print(
+                    //     '${BlocProvider.of<AuthCubit>(context).user!.userID!} hna zorar');
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) => BlocProvider(
+                    //               create: (context) => OrderCubit()
+                    //                 ..GetMyOrders(
+                    //                     BlocProvider.of<AuthCubit>(context)
+                    //                         .user!
+                    //                         .userID!),
+                    //               child: MyOrdersScreen(),
+                    //             )));
                   },
                 ),
                 ListTile(

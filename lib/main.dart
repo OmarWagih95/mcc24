@@ -16,6 +16,7 @@ import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/theme/appThemes.dart';
 import 'package:MCC/views/navpages/HomePage.dart';
+import 'package:MCC/views/navpages/Mypage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -46,7 +47,7 @@ void main() async {
       BlocProvider<HomePageCubit>(
         create: (context) => HomePageCubit(),
         child: HomePage(),
-      )
+      ),
     ],
     child: BlocProvider(
       create: (context) => ServicesCubit(),

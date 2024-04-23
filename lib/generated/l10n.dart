@@ -627,6 +627,33 @@ class S {
       args: [],
     );
   }
+
+  String get Click_here_to_log_in {
+    return Intl.message(
+      'Click here to log in',
+      name: 'Click_here_to_log_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get log_in_first_to_request_the_service {
+    return Intl.message(
+      'log in first to request the service',
+      name: 'log_in_first_to_request_the_service',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get No_offers_now {
+    return Intl.message(
+      'No offers now',
+      name: 'No_offers_now',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

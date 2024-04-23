@@ -4,12 +4,11 @@ import 'package:MCC/routing/routes.dart';
 import 'package:MCC/widgets/MyButtonW.dart';
 import 'package:MCC/widgets/Mybutton.dart';
 import 'package:MCC/widgets/OurPropertiesListItem.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:MCC/widgets/customAppbar.dart';
+import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../constants/colors.dart';
 import '../model/service.dart';
 import '../widgets/OrderingServiceDialog.dart';
@@ -24,6 +23,7 @@ class ServiceDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: CustomDrawer(),
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Stack(children: [
@@ -63,22 +63,34 @@ class ServiceDetailsScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                service.AR['serviceName'],
+                                (Localizations.localeOf(context).languageCode ==
+                                        'ar')
+                                    ? service.AR['serviceName']
+                                    : service.EN['serviceName'],
                                 style: TextStyle(
                                     fontSize: 25.w,
                                     fontWeight: FontWeight.bold),
+                                overflow: TextOverflow.ellipsis,
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(vertical: 10.h),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Text(
-                                      service.AR['serviceDesc'],
-                                      style: TextStyle(
-                                          fontSize: 14.w,
-                                          fontWeight: FontWeight.w600),
-                                    )
+                                    Wrap(children: [
+                                      Text(
+                                          (Localizations.localeOf(context)
+                                                      .languageCode ==
+                                                  'ar')
+                                              ? service.AR['serviceDesc']
+                                              : service.EN['serviceDesc'],
+                                          style: TextStyle(
+                                              fontSize: 14.w,
+                                              fontWeight: FontWeight.w600),
+                                          // softWrap: true,
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 3),
+                                    ])
                                   ],
                                 ),
                               ),
@@ -132,7 +144,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                                   content: Column(
                                     children: [
                                       Text(
-                                        'يجب تسجيل الدخول اولا لطلب الخدمة ',
+                                        S.of(context).Click_here_to_log_in,
                                         style: Theme.of(context)
                                             .textTheme
                                             .displaySmall,
@@ -144,7 +156,9 @@ class ServiceDetailsScreen extends StatelessWidget {
                                                   Routes.LoginScreen);
                                         },
                                         child: Text(
-                                          ' اضغط هنا لتسجيل الدخول  ',
+                                          S
+                                              .of(context)
+                                              .log_in_first_to_request_the_service,
                                           style: Theme.of(context)
                                               .textTheme
                                               .displaySmall,
@@ -162,7 +176,8 @@ class ServiceDetailsScreen extends StatelessWidget {
                       // buttonColor: Theme.of(context).primaryColor),
                 )
               ],
-            )
+            ),
+            customAppbar(title: S.of(context).service_request),
           ]),
         ),
       ),

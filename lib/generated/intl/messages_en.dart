@@ -128,5 +128,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "Active": MessageLookupByLibrary.simpleMessage("Active"),
         "Please_write_the_description": MessageLookupByLibrary.simpleMessage(
             "Please write the description."),
+        "Click_here_to_log_in":
+            MessageLookupByLibrary.simpleMessage("Click here to log in."),
+        "log_in_first_to_request_the_service":
+            MessageLookupByLibrary.simpleMessage(
+                "log in first to request the service."),
+        "No_offers_now": MessageLookupByLibrary.simpleMessage("No offers now"),
       };
 }
