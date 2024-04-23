@@ -124,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "ثم احصل علي افضل عروض الأسعار من مزودينا")
+                "ثم احصل علي افضل عروض الأسعار من مزودينا"),
+        "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
       };
 }

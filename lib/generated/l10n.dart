@@ -184,7 +184,7 @@ class S {
   String get Welcome_Back {
     return Intl.message(
       'Welcome',
-      name: 'Welcome',
+      name: 'Welcome_Back',
       desc: '',
       args: [],
     );
@@ -193,9 +193,8 @@ class S {
   /// `We're excited to have you back, can't wait \nto see what you've been up to since you last \nlogged in`
   String get We_are_excited_to_have_you_back {
     return Intl.message(
-      // 'We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in',
       'Register now and enjoy our immediate services',
-      name: 'Register now and enjoy our immediate services',
+      name: 'We_are_excited_to_have_you_back',
       desc: '',
       args: [],
     );
@@ -682,10 +681,19 @@ class S {
       desc: '',
       args: [],
     );
-  }String get You_are_already_logged_in {
+  }
+  
+  String get You_are_already_logged_in {
     return Intl.message(
       'You \'re already logged in',
       name: 'You_are_already_logged_in',
+      desc: '',
+      args: [],
+    );
+  }String get username {
+    return Intl.message(
+      'username',
+      name: 'username',
       desc: '',
       args: [],
     );

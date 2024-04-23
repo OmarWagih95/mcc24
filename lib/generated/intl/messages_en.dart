@@ -126,6 +126,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "then get best prices from our suppliers")
+                "then get best prices from our suppliers"),        "username": MessageLookupByLibrary.simpleMessage("username"),
+
+                
+
       };
 }
