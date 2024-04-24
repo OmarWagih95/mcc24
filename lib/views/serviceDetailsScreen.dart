@@ -177,7 +177,7 @@ class ServiceDetailsScreen extends StatelessWidget {
                 )
               ],
             ),
-            customAppbar(title: S.of(context).service_request),
+            // customAppbar(title: S.of(context).service_request),
           ]),
         ),
       ),
