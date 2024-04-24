@@ -184,7 +184,7 @@ class S {
   String get Welcome_Back {
     return Intl.message(
       'Welcome',
-      name: 'Welcome',
+      name: 'Welcome_Back',
       desc: '',
       args: [],
     );
@@ -193,9 +193,8 @@ class S {
   /// `We're excited to have you back, can't wait \nto see what you've been up to since you last \nlogged in`
   String get We_are_excited_to_have_you_back {
     return Intl.message(
-      // 'We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in',
       'Register now and enjoy our immediate services',
-      name: 'Register now and enjoy our immediate services',
+      name: 'We_are_excited_to_have_you_back',
       desc: '',
       args: [],
     );
@@ -295,7 +294,7 @@ class S {
   String get Language_Exchange {
     return Intl.message(
       'Change language',
-      name: 'Change language',
+      name: 'Language_Exchange',
       desc: '',
       args: [],
     );
@@ -305,7 +304,7 @@ class S {
   String get Text_Us {
     return Intl.message(
       'Contact Us',
-      name: 'Contact',
+      name: 'Text_Us',
       desc: '',
       args: [],
     );
@@ -315,7 +314,7 @@ class S {
   String get Share_Application {
     return Intl.message(
       'Share',
-      name: 'Share',
+      name: 'Share_Application',
       desc: '',
       args: [],
     );
@@ -325,7 +324,7 @@ class S {
   String get Who_Are {
     return Intl.message(
       'About',
-      name: 'About',
+      name: 'Who_Are',
       desc: '',
       args: [],
     );
@@ -375,7 +374,7 @@ class S {
   String get My_Order {
     return Intl.message(
       'My Orders',
-      name: 'My_Orders',
+      name: 'My_Order',
       desc: '',
       args: [],
     );
@@ -433,7 +432,7 @@ class S {
   String get Brightness_change {
     return Intl.message(
       'Dark mode',
-      name: 'Dark mode',
+      name: 'Brightness_change',
       desc: '',
       args: [],
     );
@@ -505,7 +504,7 @@ class S {
   String get service_request {
     return Intl.message(
       'Request service',
-      name: 'Request service',
+      name: 'service_request',
       desc: '',
       args: [],
     );
@@ -595,7 +594,7 @@ class S {
   String get What_We_Offer_You {
     return Intl.message(
       'What we offer for you',
-      name: 'What_we_offer_for_you',
+      name: 'What_We_Offer_You',
       desc: '',
       args: [],
     );
@@ -650,6 +649,51 @@ class S {
     return Intl.message(
       'No offers now',
       name: 'No_offers_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+
+
+  String get address {
+    return Intl.message(
+      'address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get description {
+    return Intl.message(
+      'description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get ServiceName {
+    return Intl.message(
+      'ServiceName',
+      name: 'ServiceName',
+      desc: '',
+      args: [],
+    );
+  }
+  
+  String get You_are_already_logged_in {
+    return Intl.message(
+      'You \'re already logged in',
+      name: 'You_are_already_logged_in',
+      desc: '',
+      args: [],
+    );
+  }String get username {
+    return Intl.message(
+      'username',
+      name: 'username',
       desc: '',
       args: [],
     );

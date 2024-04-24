@@ -20,9 +20,6 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
         if(state is GettingMyOrdersFailureState){
           Fluttertoast.showToast(msg: 'there was an error while retreiving data',backgroundColor: ColorsManager.mainColor);
         };
-        if(state is GettingMyOrdersSuccessState){
-          Fluttertoast.showToast(msg: 'aldata tmaam',backgroundColor: ColorsManager.mainColor);
-        };
       },
       builder: (context, state) {
         return Scaffold(

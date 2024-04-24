@@ -8,7 +8,6 @@ import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -123,10 +122,15 @@ class finishedOreders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 5.w),
-                    Text('adress:'),
+                    Text(S.of(context).address),
                     Spacer(),
-                    Text(
-                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
+                    Expanded(
+                      child: Text(
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}',
+                        maxLines: 2,
+                        // overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                     SizedBox(width: 5.w),
                   ],
                 ),
@@ -135,10 +139,15 @@ class finishedOreders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 5.w),
-                    Text('description'),
+                    Text(S.of(context).description),
                     Spacer(),
-                    Text(
-                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),
+                    Expanded(
+                      child: Text(
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}',
+                        maxLines: 2,
+                        // overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                     SizedBox(width: 5.w),
                   ],
                 ),
@@ -147,7 +156,7 @@ class finishedOreders extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: 5.w),
-                    Text('ServiceName is'),
+                    Text(S.of(context).ServiceName),
                     Spacer(),
                     Text(ServiceName),
                     SizedBox(width: 5.w),
@@ -221,41 +230,50 @@ class activeOrders extends StatelessWidget {
                                 .ordersQueryDocsList![index]['serviceID'],
                             context);
                         return Container(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 20.h),
                           child: Card(
                             child: Column(
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  // mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(width: 5.w),
-                                    Text('adress :'),
+                                    Text(S.of(context).address),
                                     Spacer(),
-                                    Text(
-                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}'),
+                                    Expanded(
+                                      child: Text(
+                                          '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}',
+                                          maxLines: 2),
+                                    ),
                                     SizedBox(width: 5.w),
                                   ],
                                 ),
                                 SizedBox(height: 10.h),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  // mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(width: 5.w),
-                                    Text('description'),
+                                    Text(S.of(context).description),
                                     Spacer(),
-                                    Text(
-                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}'),
+                                    Expanded(
+                                      child: Text(
+                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}',
+                                        maxLines: 2,
+                                      ),
+                                    ),
                                     SizedBox(width: 5.w),
                                   ],
                                 ),
                                 SizedBox(height: 10.h),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  // mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(width: 5.w),
-                                    Text('ServiceName is'),
+                                    Text(S.of(context).ServiceName),
                                     Spacer(),
-                                    Text(ServiceName),
+                                    Expanded(
+                                        child: Text(ServiceName, maxLines: 2)),
                                     SizedBox(width: 5.w),
                                   ],
                                 ),

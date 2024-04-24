@@ -24,7 +24,6 @@ ThemeData getDarkTheme() => ThemeData(
     hoverColor: FxColors.primary,
     cardColor: FxColors.secondary,
     hintColor: FxColors.secondary,
-
     shadowColor: FxColors.secondary_Dark,
     focusColor: FxColors.primary,
     // shadowColor: FxColors.background_Dark,
@@ -119,17 +118,24 @@ ThemeData getDarkTheme() => ThemeData(
         fontWeight: FontWeight.w300,
         color: Colors.grey,
       ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: Colors.grey,
+          width: 2,
+        ),
+      ) ,
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide: BorderSide(
-          // color: FxColors.third,
+          color: Colors.grey,
           width: 2,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(
-          color: FxColors.secondary,
+          color: FxColors.primary,
           width: 2,
         ),
       ),
@@ -337,7 +343,6 @@ ThemeData getlightTheme() => ThemeData(
     focusColor: Colors.black,
     hoverColor: FxColors.primary,
 
-
     ///dividerTheme
     // dividerColor: Colors.grey.withOpacity(0.5),
     // dividerTheme: DividerThemeData(
@@ -429,17 +434,24 @@ ThemeData getlightTheme() => ThemeData(
         fontWeight: FontWeight.w300,
         color: Colors.black,
       ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(
+          color: Colors.grey,
+          width: 2,
+        ),
+      ) ,
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide: BorderSide(
-          // color: FxColors.third,
+          color: Colors.grey,
           width: 2,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(
-          color: FxColors.secondary,
+          color: FxColors.primary,
           width: 2,
         ),
       ),
