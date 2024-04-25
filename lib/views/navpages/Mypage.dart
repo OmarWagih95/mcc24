@@ -27,22 +27,22 @@ GlobalKey<NavigatorState> MypageNavigatorKey = GlobalKey<NavigatorState>();
 class _MypageState extends State<Mypage> {
   @override
   void initState() {
-    void getFinishedOrders() async {
-      FinishedOrders = await BlocProvider.of<OrderCubit>(context)
-          .GetMyFinishedOrders(
-              BlocProvider.of<AuthCubit>(context).user!.userID!);
-    }
-
-    getFinishedOrders();
+    // void getFinishedOrders() async {
+    //   FinishedOrders = await BlocProvider.of<OrderCubit>(context)
+    //       .GetMyFinishedOrders(
+    //           BlocProvider.of<AuthCubit>(context).user!.userID!);
+    // }
+    //
+    // getFinishedOrders();
 ///////////////////////////////
-    void getServices() async {
-      await BlocProvider.of<ServicesCubit>(context).getServicesData;
-    }
+//     void getServices() async {
+//       await BlocProvider.of<ServicesCubit>(context).getServicesData;
+//     }
 
-    getServices();
+    // getServices();
 ///////////////////////////
     BlocProvider.of<OrderCubit>(context)
-        .GetMyOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
+        .GetMyActiveOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
   }
 
   @override
@@ -112,8 +112,7 @@ class finishedOreders extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             /////////////////////new/////////
             String ServiceName = showServiceName(
-                BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]
-                    ['serviceID'],
+                BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].serviceID,
                 context);
             log(ServiceName);
             return Column(
@@ -126,7 +125,7 @@ class finishedOreders extends StatelessWidget {
                     Spacer(),
                     Expanded(
                       child: Text(
-                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}',
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].address}',
                         maxLines: 2,
                         // overflow: TextOverflow.ellipsis,
                       ),
@@ -143,7 +142,7 @@ class finishedOreders extends StatelessWidget {
                     Spacer(),
                     Expanded(
                       child: Text(
-                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}',
+                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].description}',
                         maxLines: 2,
                         // overflow: TextOverflow.ellipsis,
                       ),
@@ -225,10 +224,10 @@ class activeOrders extends StatelessWidget {
                           1,
                       itemBuilder: (BuildContext context, int index) {
                         ///////////new////////////////
-                        String ServiceName = showServiceName(
-                            BlocProvider.of<OrderCubit>(context)
-                                .ordersQueryDocsList![index]['serviceID'],
-                            context);
+                        // String ServiceName = showServiceName(
+                        //     BlocProvider.of<OrderCubit>(context)
+                        //         .ordersQueryDocsList![index].serviceID,
+                        //     context);
                         return Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 20.h),
@@ -243,7 +242,7 @@ class activeOrders extends StatelessWidget {
                                     Spacer(),
                                     Expanded(
                                       child: Text(
-                                          '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['address']}',
+                                          '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].address}',
                                           maxLines: 2),
                                     ),
                                     SizedBox(width: 5.w),
@@ -258,7 +257,7 @@ class activeOrders extends StatelessWidget {
                                     Spacer(),
                                     Expanded(
                                       child: Text(
-                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index]['description']}',
+                                        '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].description}',
                                         maxLines: 2,
                                       ),
                                     ),
@@ -273,7 +272,7 @@ class activeOrders extends StatelessWidget {
                                     Text(S.of(context).ServiceName),
                                     Spacer(),
                                     Expanded(
-                                        child: Text(ServiceName, maxLines: 2)),
+                                        child: Text(BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].service.AR['serviceName'], maxLines: 2)),
                                     SizedBox(width: 5.w),
                                   ],
                                 ),

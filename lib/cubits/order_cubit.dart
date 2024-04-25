@@ -13,7 +13,7 @@ class OrderCubit extends Cubit<OrderState> {
   String phoneNumber = '';
   String address = '';
   bool active = true;
-  List? ordersQueryDocsList;
+  List ordersQueryDocsList=[];
   GlobalKey<FormState> orderFormKey = GlobalKey();
 
   OrderCubit() : super(OrderInitial());
@@ -28,24 +28,28 @@ class OrderCubit extends Cubit<OrderState> {
     }
   }
 
-  GetMyOrders(String userID) async {
+   Future<List>GetMyActiveOrders(String userID) async {
     emit(GettingMyOrdersLoadingState());
     try {
-      ordersQueryDocsList = await OrderServices().getOrdersByID(userID);
+      print('sh8ala asln 1');
+      ordersQueryDocsList = await OrderServices().getActiveOrdersByID(userID);
+      print('hna fe alorders ${ordersQueryDocsList.length}');
+      print('sh8ala asln 2');
       emit(GettingMyOrdersSuccessState());
     } catch (e) {
       emit(GettingMyOrdersFailureState());
     }
+    return ordersQueryDocsList;
   }
 
   Future<List<dynamic>> GetMyFinishedOrders(String userID) async {
     var FinishedOrders = [];
     try {
-      return FinishedOrders =
+       FinishedOrders =
           await OrderServices().getFinishedOrdersByID(userID);
     } catch (e) {
       log(e.toString());
-      return FinishedOrders;
     }
+      return FinishedOrders;
   }
 }

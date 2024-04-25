@@ -157,7 +157,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                               index]
                                                           .EN['serviceName'],
                                                   style: TextStyle(
-                                                    fontSize: 25.w,
+                                                    fontSize: 20.w,
                                                   ),
                                                 ),
                                                 Icon(
