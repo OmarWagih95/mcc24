@@ -15,7 +15,7 @@ class ServicesNetwork {
         await _services.where('categoryID', isEqualTo: categoryID).get();
     servicesDataQueryList.addAll(querySnapshot.docs);
     for (int i = 0; i < servicesDataQueryList.length; i++) {
-      var URL = await getServicesImg(servicesDataQueryList[i]['image']);
+      var URL = servicesDataQueryList[i]['image'];
       print(URL);
       servicesDataList.add(Service(
               servicesDataQueryList[i].id,
