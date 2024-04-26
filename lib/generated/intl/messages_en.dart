@@ -126,9 +126,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "then get best prices from our suppliers"),        "username": MessageLookupByLibrary.simpleMessage("username"),
-
-                
-
+                "then get best prices from our suppliers"),
+        "username": MessageLookupByLibrary.simpleMessage("username"),
+        "ServiceName": MessageLookupByLibrary.simpleMessage("ServiceName"),
+        "address": MessageLookupByLibrary.simpleMessage("address"),
+        "description": MessageLookupByLibrary.simpleMessage("description"),
       };
 }

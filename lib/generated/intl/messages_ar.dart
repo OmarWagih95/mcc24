@@ -126,5 +126,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "ثم احصل علي افضل عروض الأسعار من مزودينا"),
         "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
+        "ServiceName": MessageLookupByLibrary.simpleMessage("اسم الخدمة"),
+        "address": MessageLookupByLibrary.simpleMessage(" العنوان"),
+        "description": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
       };
 }
+
+

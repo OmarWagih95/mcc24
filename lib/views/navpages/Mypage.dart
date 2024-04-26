@@ -8,6 +8,7 @@ import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -25,24 +26,18 @@ class Mypage extends StatefulWidget {
 GlobalKey<NavigatorState> MypageNavigatorKey = GlobalKey<NavigatorState>();
 
 class _MypageState extends State<Mypage> {
-  @override
   void initState() {
-    // void getFinishedOrders() async {
-    //   FinishedOrders = await BlocProvider.of<OrderCubit>(context)
-    //       .GetMyFinishedOrders(
-    //           BlocProvider.of<AuthCubit>(context).user!.userID!);
-    // }
-    //
-    // getFinishedOrders();
-///////////////////////////////
-//     void getServices() async {
-//       await BlocProvider.of<ServicesCubit>(context).getServicesData;
-//     }
-
-    // getServices();
-///////////////////////////
+    /////////////////////////
     BlocProvider.of<OrderCubit>(context)
         .GetMyActiveOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
+    /////////////////////
+    void getFinishedOrders() async {
+      FinishedOrders = await BlocProvider.of<OrderCubit>(context)
+          .GetMyFinishedOrders(
+              BlocProvider.of<AuthCubit>(context).user!.userID!);
+    }
+
+    getFinishedOrders();
   }
 
   @override
@@ -103,6 +98,7 @@ class finishedOreders extends StatelessWidget {
   });
 
   @override
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
@@ -110,11 +106,10 @@ class finishedOreders extends StatelessWidget {
         child: ListView.builder(
           itemCount: FinishedOrders.length,
           itemBuilder: (BuildContext context, int index) {
-            /////////////////////new/////////
-            String ServiceName = showServiceName(
-                BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].serviceID,
-                context);
-            log(ServiceName);
+            String serviceName =
+                (Localizations.localeOf(context).languageCode == 'ar')
+                    ? FinishedOrders[index].service.AR['serviceName']
+                    : FinishedOrders[index].service.EN['serviceName'];
             return Column(
               children: [
                 Row(
@@ -157,7 +152,12 @@ class finishedOreders extends StatelessWidget {
                     SizedBox(width: 5.w),
                     Text(S.of(context).ServiceName),
                     Spacer(),
-                    Text(ServiceName),
+                    Expanded(
+                      child: Text(
+                        FinishedOrders[index].service.AR['serviceName'],
+                        maxLines: 4,
+                      ),
+                    ),
                     SizedBox(width: 5.w),
                   ],
                 ),
@@ -170,30 +170,10 @@ class finishedOreders extends StatelessWidget {
   }
 }
 
-/////////////////////new/////////
-// الدالة الي هترجع اسم الخدمة
-String showServiceName(String id, BuildContext context) {
-  String temp = '';
-  BlocProvider.of<ServicesCubit>(context).servicesDataList.forEach((element) {
-    print('${element.id} && ${id}');
-    if (element.id == id &&
-        (Localizations.localeOf(context).languageCode == 'en')) {
-      temp = element.EN['categoryName'];
-    } else {
-      temp = element.AR['categoryName'];
-    }
-  });
-
-  log('service name is  ' + temp);
-
-  return temp;
-}
-
 class activeOrders extends StatelessWidget {
   const activeOrders({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OrderCubit, OrderState>(
@@ -223,11 +203,17 @@ class activeOrders extends StatelessWidget {
                               .length -
                           1,
                       itemBuilder: (BuildContext context, int index) {
-                        ///////////new////////////////
-                        // String ServiceName = showServiceName(
-                        //     BlocProvider.of<OrderCubit>(context)
-                        //         .ordersQueryDocsList![index].serviceID,
-                        //     context);
+                        String serviceName =
+                            (Localizations.localeOf(context).languageCode ==
+                                    'ar')
+                                ? BlocProvider.of<OrderCubit>(context)
+                                    .ordersQueryDocsList[index]
+                                    .service
+                                    .AR['serviceName']
+                                : BlocProvider.of<OrderCubit>(context)
+                                    .ordersQueryDocsList[index]
+                                    .service
+                                    .EN['serviceName'];
                         return Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 20.h),
@@ -272,7 +258,12 @@ class activeOrders extends StatelessWidget {
                                     Text(S.of(context).ServiceName),
                                     Spacer(),
                                     Expanded(
-                                        child: Text(BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].service.AR['serviceName'], maxLines: 2)),
+                                        child: Text(
+                                            BlocProvider.of<OrderCubit>(context)
+                                                .ordersQueryDocsList![index]
+                                                .service
+                                                .AR['serviceName'],
+                                            maxLines: 2)),
                                     SizedBox(width: 5.w),
                                   ],
                                 ),
