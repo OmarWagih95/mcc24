@@ -2,10 +2,8 @@
 
 import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
-import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
-import 'package:MCC/services/Network_data_services.dart';
 import 'package:MCC/views/loginScreen.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';

@@ -15,11 +15,9 @@ class Dark_lightModeCubit extends Cubit<Dark_lightModeState> {
   String mode = '';
   void darkAndlightMode(String onpressMode) {
     if (onpressMode == 'light') {
-      log('light from cubit');
       mode = 'light';
       emit(LightModeState());
     } else {
-      log('dark from cubit');
       mode = 'dark';
       emit(DarkModeState());
     }

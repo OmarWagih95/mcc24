@@ -17,6 +17,7 @@ class bakaatSeyanaa extends StatelessWidget {
       body: Column(children: [
         SafeArea(
             child: customAppbar(
+          arrow: false,
           title: S.of(context).Maintainance_Packages,
         )),
         Spacer(),
@@ -25,6 +26,9 @@ class bakaatSeyanaa extends StatelessWidget {
             Container(
                 height: 200.h,
                 child: Card(
+                    borderOnForeground: false,
+                    shadowColor: Colors.transparent,
+                    color: Theme.of(context).primaryColorLight,
                     elevation: 5,
                     child: Center(
                       child: Text(

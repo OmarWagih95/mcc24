@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 
 import '../service.dart';
 
@@ -16,17 +17,15 @@ class ServicesNetwork {
     servicesDataQueryList.addAll(querySnapshot.docs);
     for (int i = 0; i < servicesDataQueryList.length; i++) {
       var URL = servicesDataQueryList[i]['image'];
-      print(URL);
+      debugPrint('$URL');
       servicesDataList.add(Service(
-              servicesDataQueryList[i].id,
-              servicesDataQueryList[i]['EN'],
-              servicesDataQueryList[i]['AR'],
-              URL!)
-          // Categoryy(id: element.id, title: element['EN']['categoryName'],element['AR'])
-          );
+          servicesDataQueryList[i].id,
+          servicesDataQueryList[i]['EN'],
+          servicesDataQueryList[i]['AR'],
+          URL!));
     }
-    print('hna flcubit');
-    print('${servicesDataList.length} here');
+    debugPrint('hna flcubit');
+    debugPrint('${servicesDataList.length} here');
     return servicesDataList;
   }
 
@@ -37,15 +36,10 @@ class ServicesNetwork {
           .child('servicesImages')
           .child(img);
       var imgUrl = await urlRef.getDownloadURL();
-      print(imgUrl);
+      debugPrint(imgUrl);
       return imgUrl;
     } catch (e) {
-      print(e);
+      debugPrint('$e');
     }
-
-    // if (urlRef != null){
-    //
-    // return storageImg;
-    // }
   }
 }

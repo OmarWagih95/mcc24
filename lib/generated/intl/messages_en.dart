@@ -23,13 +23,17 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Active": MessageLookupByLibrary.simpleMessage("Active"),
+        "Home_title1":
+            MessageLookupByLibrary.simpleMessage("dedicated to perfiction"),
+        "Home_title2":
+            MessageLookupByLibrary.simpleMessage("every single time"),
         "Adress": MessageLookupByLibrary.simpleMessage("Adress"),
         "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "Brightness_change":
             MessageLookupByLibrary.simpleMessage("Brightness change"),
         "Choose_Language_Of_The_Interface":
             MessageLookupByLibrary.simpleMessage(
-                "Choose Language Of The Interface"),
+                "Choose your favourite language"),
         "Choose_your_service_easily":
             MessageLookupByLibrary.simpleMessage("Choose your service easily"),
         "Click_here_to_log_in":
@@ -54,7 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("General contracting"),
         "General_interior_design_and_finishes":
             MessageLookupByLibrary.simpleMessage(
-                "General interior design \nand finishes"),
+                "General interior design and finishes"),
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage(
                 "General maintenance and renovation"),

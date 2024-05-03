@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:MCC/model/order.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import './../model/service.dart';
 import './../model/order.dart';
 
@@ -35,7 +36,7 @@ class OrderServices {
 
     for (int i = 0; i < OrdersQueryDocsList.length; i++) {
       service = await getServiceDataByID(OrdersQueryDocsList[i]['serviceID']);
-      print(service.AR['serviceName']);
+      debugPrint('${service.AR['serviceName']}');
       OrderDetails order = OrderDetails(
           OrdersQueryDocsList[i]['active'],
           OrdersQueryDocsList[i]['address'],
@@ -45,15 +46,15 @@ class OrderServices {
           OrdersQueryDocsList[i]['serviceID'],
           service);
       ordersData.add(order);
-      print(ordersData.length);
+      debugPrint('$ordersData.length');
       try {
-        print(ordersData[i]);
-        print(ordersData[i].active);
+        debugPrint(ordersData[i]);
+        debugPrint(ordersData[i].active);
       } catch (e) {
-        print(e);
+        debugPrint('$e');
       }
     }
-    print('${ordersData.length} abl alreturn');
+    debugPrint('${ordersData.length} abl alreturn');
     return ordersData;
   }
 

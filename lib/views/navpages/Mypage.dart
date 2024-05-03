@@ -8,7 +8,6 @@ import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -117,7 +116,7 @@ class finishedOreders extends StatelessWidget {
                   children: [
                     SizedBox(width: 5.w),
                     Text(S.of(context).address),
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: Text(
                         '${BlocProvider.of<OrderCubit>(context).ordersQueryDocsList![index].address}',
@@ -183,10 +182,10 @@ class activeOrders extends StatelessWidget {
               msg: 'there was an error while retreiving data',
               backgroundColor: ColorsManager.mainColor);
         }
-        if (state is GettingMyOrdersSuccessState) {
-          Fluttertoast.showToast(
-              msg: 'aldata tmaam', backgroundColor: ColorsManager.mainColor);
-        }
+        // if (state is GettingMyOrdersSuccessState) {
+        //   Fluttertoast.showToast(
+        //       msg: '', backgroundColor: ColorsManager.mainColor);
+        // }
       },
       builder: (context, state) {
         return Scaffold(

@@ -7,11 +7,11 @@ import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../cubits/home_page_cubit.dart';
 import '/widgets/category_item.dart';
-import '/model/dummyData.dart';
 
 var categoryDataList_ = [];
 
@@ -28,11 +28,10 @@ class _categoriesScreenState extends State<categoriesScreen> {
 
   @override
   Widget build(context) {
-    List<Category> DUMMY_CATEGORIES = DUMMY_CATEGORIES_(context);
     return BlocConsumer<HomePageCubit, HomePageState>(
       listener: (context, state) {
         if (state is HomePageGetDataFailure) {
-          print('there\'s an error retreiving your data');
+          debugPrint('there\'s an error retreiving your data');
           Fluttertoast.showToast(msg: state.errorMsg);
         }
       },
@@ -42,7 +41,7 @@ class _categoriesScreenState extends State<categoriesScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 400,
+                    height: 400.h,
                     child: Center(
                       child: SpinKitCircle(
                         color: Colors.black54,
@@ -57,9 +56,9 @@ class _categoriesScreenState extends State<categoriesScreen> {
                     categoryDataList_ =
                         (context).read<HomePageCubit>().categoryDataList;
                     return Container(
-                        margin: const EdgeInsets.only(top: 10),
+                        margin: EdgeInsets.only(top: 10.h),
                         padding: const EdgeInsets.all(0),
-                        height: 500,
+                        height: 500.h,
                         child: GridView.builder(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(

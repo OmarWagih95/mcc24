@@ -1,6 +1,7 @@
 import 'package:MCC/model/Network_data_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 
 class Externaldata {
   final CollectionReference _categories =
@@ -22,7 +23,7 @@ class Externaldata {
       }
       return categoryDataList!;
     } catch (e) {
-      print(e);
+      debugPrint('$e');
       return [];
     }
   }
@@ -31,10 +32,10 @@ class Externaldata {
     try {
       var urlRef = firebaseStorage.child('images').child(img);
       var imgUrl = await urlRef.getDownloadURL();
-      print(imgUrl);
+      debugPrint(imgUrl);
       return imgUrl;
     } catch (e) {
-      print(e);
+      debugPrint('$e');
     }
     return null;
   }

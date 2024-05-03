@@ -1,19 +1,15 @@
-import 'package:MCC/constants/colors.dart';
-import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
+import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
-import 'package:MCC/model/service.dart';
-import 'package:MCC/views/Service_detail_screen.dart';
 import 'package:MCC/views/serviceDetailsScreen.dart';
+import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-import '../cubits/login_cubit.dart';
 import '../widgets/leftappbarUpdate.dart';
 
 class ServicesScreen extends StatefulWidget {
@@ -36,7 +32,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    // print('why ${BlocProvider.of<AuthCubit>(context).user!.phoneNumber}');
+    // debugPrint('why ${BlocProvider.of<AuthCubit>(context).user!.phoneNumber}');
 
     ServicesCubit servicesCubit = context.read<ServicesCubit>();
     return Scaffold(
@@ -45,34 +41,31 @@ class _ServicesScreenState extends State<ServicesScreen> {
         child: Column(
           children: [
             Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black54,
-                      blurRadius: 3,
-                      blurStyle: BlurStyle.outer,
-                    )
-                  ]),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                child: LeftAppBarUpdate(),
+              child: customAppbar(
+                title: S.of(context).service_request,
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 30.h),
               child: Column(
                 children: [
-                  Text(
-                    (Localizations.localeOf(context).languageCode == 'ar')
-                        ? widget.categoryy.AR['categoryName']
-                        : widget.categoryy.EN['categoryName'],
-                    maxLines: 2,
-                    style: TextStyle(
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        border:
+                            Border.all(color: Theme.of(context).primaryColor),
+                        color: Theme.of(context).primaryColorLight,
+                        borderRadius: BorderRadius.circular(10.h)),
+                    child: Text(
+                      (Localizations.localeOf(context).languageCode == 'ar')
+                          ? widget.categoryy.AR['categoryName']
+                          : widget.categoryy.EN['categoryName'],
+                      maxLines: 2,
+                      style: TextStyle(
                         fontSize: 25.w,
                         fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline),
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: 30.h,
@@ -91,7 +84,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                   itemBuilder: (context, index) =>
                                       GestureDetector(
                                         onTap: () {
-                                          print('clicked');
+                                          debugPrint('clicked');
                                           Navigator.push(
                                               context,
                                               MaterialPageRoute(
@@ -111,31 +104,21 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                       )));
                                         },
                                         child: Container(
+                                          margin: EdgeInsets.symmetric(
+                                              vertical: 10.h),
                                           decoration: BoxDecoration(
                                               border: Border.all(
                                                   color: Theme.of(context)
                                                       .primaryColor),
                                               color: Theme.of(context)
                                                   .primaryColorLight,
-                                              // boxShadow: [
-                                              //   // BoxShadow(
-                                              //   //   color: Colors.grey.shade400,
-                                              //   //   spreadRadius: 1,
-                                              //   //   blurRadius: 15,
-                                              //   //   blurStyle: BlurStyle.outer,
-                                              //   //   // offset:Offset(0, -5)
-                                              //   // )
-                                              // ]
-                                              // color: ColorsManager.,
-                                              // gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomLeft,colors: [Colors.black12,Colors.purple.shade200]),
-                                              // ,
                                               borderRadius:
                                                   BorderRadius.circular(10.h)),
                                           width: double.infinity,
                                           height: 70.h,
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: 15),
+                                                horizontal: 15.w),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -170,7 +153,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                           .arrow_circle_right,
                                                   color: Theme.of(context)
                                                       .hoverColor,
-                                                  size: 40.h,
+                                                  size: 40.r,
                                                 ),
                                               ],
                                             ),
@@ -179,7 +162,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                       )),
                             )
                           : SpinKitCircle(
-                              color: Colors.black45,
+                              color: Theme.of(context).iconTheme.color,
                             );
                     },
                   )

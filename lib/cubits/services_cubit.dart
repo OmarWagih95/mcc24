@@ -1,8 +1,8 @@
 import 'package:MCC/model/network/servicesNetwork.dart';
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../model/service.dart';
 
@@ -10,20 +10,17 @@ part 'services_state.dart';
 
 class ServicesCubit extends Cubit<ServicesState> {
   ServicesCubit() : super(ServicesPageLoading());
-  final CollectionReference _services =FirebaseFirestore.instance.collection('services');
   Reference get firebaseStorage => FirebaseStorage.instance.ref();
-  List<Service> servicesDataList=[];
-  getServicesData(String categoryID)async{
+  List<Service> servicesDataList = [];
+  getServicesData(String categoryID) async {
     emit(ServicesPageLoading());
-    try{
-      servicesDataList=await  ServicesNetwork().getServicesData(categoryID, servicesDataList);
-      print(servicesDataList.length );
+    try {
+      servicesDataList =
+          await ServicesNetwork().getServicesData(categoryID, servicesDataList);
+      debugPrint('$servicesDataList.length' );
       emit(ServicesPageSuccess(servicesDataList));
-    }
-    catch(e){
+    } catch (e) {
       emit(ServicesPagaeFailure(e.toString()));
     }
   }
-
-
 }

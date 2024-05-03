@@ -263,7 +263,7 @@ class S {
   /// `Choose Language Of The Interface`
   String get Choose_Language_Of_The_Interface {
     return Intl.message(
-      'Choose Language Of The Interface',
+      'Choose your favourite language',
       name: 'Choose_Language_Of_The_Interface',
       desc: '',
       args: [],
@@ -697,7 +697,23 @@ class S {
       desc: '',
       args: [],
     );
+  }String get Home_title1 {
+    return Intl.message(
+      'dedicated to perfiction',
+      name: 'Home_title1',
+      desc: '',
+      args: [],
+    );
+  }String get Home_title2 {
+    return Intl.message(
+      'every single time"',
+      name: 'Home_title2',
+      desc: '',
+      args: [],
+    );
   }
+
+
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

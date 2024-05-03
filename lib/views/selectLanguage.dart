@@ -11,7 +11,7 @@ class chooseLanguages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(onBoard);
+    debugPrint('$onBoard');
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[50],
@@ -37,8 +37,8 @@ class chooseLanguages extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
+                          backgroundColor: MaterialStateProperty.all(
+                              Theme.of(context).primaryColor),
                           minimumSize:
                               MaterialStateProperty.all(Size(150.w, 40.h))),
                       onPressed: () {
@@ -49,9 +49,9 @@ class chooseLanguages extends StatelessWidget {
                                 context, Routes.onboargingScreen)
                             : Navigator.pop(context);
                       },
-                      child: Text(
-                        S.of(context).Arabic,
-                        style: TextStyle(color: Colors.blueGrey),
+                      child: const Text(
+                        "العربية",
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                     ElevatedButton(
@@ -66,11 +66,11 @@ class chooseLanguages extends StatelessWidget {
                         style: ButtonStyle(
                             minimumSize:
                                 MaterialStateProperty.all(Size(150.w, 40.h)),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.white)),
+                            backgroundColor: MaterialStateProperty.all(
+                                Theme.of(context).primaryColor)),
                         child: Text(
                           S.of(context).English,
-                          style: const TextStyle(color: Colors.blueGrey),
+                          style: const TextStyle(color: Colors.black),
                         )),
                   ],
                 )
@@ -82,7 +82,3 @@ class chooseLanguages extends StatelessWidget {
     );
   }
 }
-
-// bool isArabic() {
-//   return Intl.getCurrentLocale() == "ar";
-// }

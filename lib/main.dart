@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:MCC/bloc/blocobserver.dart';
 import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
@@ -16,8 +15,8 @@ import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/theme/appThemes.dart';
 import 'package:MCC/views/navpages/HomePage.dart';
-import 'package:MCC/views/navpages/Mypage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -81,7 +80,7 @@ class MyApp extends StatelessWidget {
         return BlocBuilder<Dark_lightModeCubit, Dark_lightModeState>(
           builder: (context, mode) {
             return ScreenUtilInit(
-              designSize: Size(380, 812), // used for
+              designSize: const Size(380, 812), // used for
               minTextAdapt: true, // used for
               child: MaterialApp(
                 locale: Locale(state.language),

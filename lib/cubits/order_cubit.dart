@@ -1,9 +1,8 @@
 import 'dart:developer';
 
 import 'package:MCC/services/OrderServices.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 
 part 'order_state.dart';
 
@@ -13,7 +12,7 @@ class OrderCubit extends Cubit<OrderState> {
   String phoneNumber = '';
   String address = '';
   bool active = true;
-  List ordersQueryDocsList=[];
+  List ordersQueryDocsList = [];
   GlobalKey<FormState> orderFormKey = GlobalKey();
 
   OrderCubit() : super(OrderInitial());
@@ -28,13 +27,13 @@ class OrderCubit extends Cubit<OrderState> {
     }
   }
 
-   Future<List>GetMyActiveOrders(String userID) async {
+  Future<List> GetMyActiveOrders(String userID) async {
     emit(GettingMyOrdersLoadingState());
     try {
-      print('sh8ala asln 1');
+      debugPrint('sh8ala asln 1');
       ordersQueryDocsList = await OrderServices().getActiveOrdersByID(userID);
-      print('hna fe alorders ${ordersQueryDocsList.length}');
-      print('sh8ala asln 2');
+      debugPrint('hna fe alorders ${ordersQueryDocsList.length}');
+      debugPrint('sh8ala asln 2');
       emit(GettingMyOrdersSuccessState());
     } catch (e) {
       emit(GettingMyOrdersFailureState());
@@ -45,11 +44,10 @@ class OrderCubit extends Cubit<OrderState> {
   Future<List<dynamic>> GetMyFinishedOrders(String userID) async {
     var FinishedOrders = [];
     try {
-       FinishedOrders =
-          await OrderServices().getFinishedOrdersByID(userID);
+      FinishedOrders = await OrderServices().getFinishedOrdersByID(userID);
     } catch (e) {
-      log(e.toString());
+      debugPrint(e.toString());
     }
-      return FinishedOrders;
+    return FinishedOrders;
   }
 }

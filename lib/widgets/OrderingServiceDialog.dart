@@ -118,23 +118,22 @@ class OrderingServiceDialog extends StatelessWidget {
                                         minLines: 4,
                                         maxLines: 6,
                                         decoration: InputDecoration(
-                                            fillColor:
-                                                ColorsManager.lighterGray,
-                                            filled: true,
-                                            hintText: S
-                                                .of(context)
-                                                .detailed_description_prompt,
-                                            // hintTextDirection: TextDirection.rtl,
-                                            contentPadding:
-                                                EdgeInsets.symmetric(
-                                                    horizontal: 20.h,
-                                                    vertical: 18.h),
-                                            enabledBorder: Theme.of(context)
-                                                .inputDecorationTheme
-                                                .enabledBorder,
-                                            focusedBorder: Theme.of(context)
-                                                .inputDecorationTheme
-                                                .focusedBorder,),
+                                          fillColor: Theme.of(context)
+                                              .scaffoldBackgroundColor,
+                                          filled: true,
+                                          hintText: S
+                                              .of(context)
+                                              .detailed_description_prompt,
+                                          // hintTextDirection: TextDirection.rtl,
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 20.h, vertical: 18.h),
+                                          enabledBorder: Theme.of(context)
+                                              .inputDecorationTheme
+                                              .enabledBorder,
+                                          focusedBorder: Theme.of(context)
+                                              .inputDecorationTheme
+                                              .focusedBorder,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
@@ -167,7 +166,8 @@ class OrderingServiceDialog extends StatelessWidget {
                                         // minLines: 3,
                                         maxLines: 3,
                                         decoration: InputDecoration(
-                                          fillColor: ColorsManager.lighterGray,
+                                          fillColor: Theme.of(context)
+                                              .scaffoldBackgroundColor,
                                           filled: true,
                                           // hintText: BlocProvider.of<AuthCubit>(
                                           //         context)
@@ -178,11 +178,11 @@ class OrderingServiceDialog extends StatelessWidget {
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 20.h, vertical: 18.h),
                                           enabledBorder: Theme.of(context)
-                                                .inputDecorationTheme
-                                                .enabledBorder,
-                                            focusedBorder: Theme.of(context)
-                                                .inputDecorationTheme
-                                                .focusedBorder,
+                                              .inputDecorationTheme
+                                              .enabledBorder,
+                                          focusedBorder: Theme.of(context)
+                                              .inputDecorationTheme
+                                              .focusedBorder,
                                         ),
                                       ),
                                     ),
@@ -213,7 +213,8 @@ class OrderingServiceDialog extends StatelessWidget {
                                         minLines: 1,
                                         maxLines: 1,
                                         decoration: InputDecoration(
-                                          fillColor: ColorsManager.lighterGray,
+                                          fillColor: Theme.of(context)
+                                              .scaffoldBackgroundColor,
                                           filled: true,
                                           // hintText: BlocProvider.of<AuthCubit>(
                                           //         context)
@@ -223,12 +224,12 @@ class OrderingServiceDialog extends StatelessWidget {
                                           // hintTextDirection: TextDirection.rtl,
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 20.h, vertical: 18.h),
-                                        enabledBorder: Theme.of(context)
-                                                .inputDecorationTheme
-                                                .enabledBorder,
-                                            focusedBorder: Theme.of(context)
-                                                .inputDecorationTheme
-                                                .focusedBorder,
+                                          enabledBorder: Theme.of(context)
+                                              .inputDecorationTheme
+                                              .enabledBorder,
+                                          focusedBorder: Theme.of(context)
+                                              .inputDecorationTheme
+                                              .focusedBorder,
                                         ),
                                       ),
                                     ),
@@ -246,7 +247,7 @@ class OrderingServiceDialog extends StatelessWidget {
                                         .user!
                                         .userID!,
                                     service.id);
-                                print('tmaaaaam');
+                                // debugPrint('tmaaaaam');
                               }
                             },
                             textColor: Theme.of(context).hintColor,

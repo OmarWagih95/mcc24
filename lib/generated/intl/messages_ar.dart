@@ -23,25 +23,26 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Active": MessageLookupByLibrary.simpleMessage("نشط"),
+        "Home_title1": MessageLookupByLibrary.simpleMessage("مخصص للخيال"),
+        "Home_title2": MessageLookupByLibrary.simpleMessage("بكل مرة"),
         "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "Brightness_change":
             MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي"),
         "Choose_Language_Of_The_Interface":
-            MessageLookupByLibrary.simpleMessage("اختار لغة واجهة التطبيق "),
+            MessageLookupByLibrary.simpleMessage("اختار لغتك المفضلة "),
         "Choose_your_service_easily":
-            MessageLookupByLibrary.simpleMessage("اختار الخدمة بسهولة"),
+            MessageLookupByLibrary.simpleMessage("نتشرف  بطلبك خدماتنا"),
         "Click_here_to_log_in":
             MessageLookupByLibrary.simpleMessage("اضغط هنا لتسجيل الدخول"),
         "Complete_the_service_and_rate_the_service_provider":
-            MessageLookupByLibrary.simpleMessage(
-                "انهي الخدمة وقيم مزود الخدمة"),
+            MessageLookupByLibrary.simpleMessage("انهي الخدمة وشاركنا تجربتك"),
         "Contact_Information":
             MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
         "Contact_Number": MessageLookupByLibrary.simpleMessage("رقم الاتصال:"),
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
-            MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
+            MessageLookupByLibrary.simpleMessage(" يمكنك وصف طلبك كما تشاء "),
         "Dont_have_an_account_yet":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب بعد ؟ "),
         "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
@@ -73,8 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),
-        "Select_the_best_offer_for_you": MessageLookupByLibrary.simpleMessage(
-            "اختر العرض الأفضل بالنسبة لك"),
+        "Select_the_best_offer_for_you":
+            MessageLookupByLibrary.simpleMessage("اختر خدماتنا ونحن في خدمتك"),
         "Settings": MessageLookupByLibrary.simpleMessage("الأعدادات"),
         "Share_Application":
             MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
@@ -131,5 +132,3 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
       };
 }
-
-

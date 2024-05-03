@@ -60,8 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
+              padding: EdgeInsets.symmetric(horizontal: 10.0.w, vertical: 30.h),
               child: Align(
                 alignment: AlignmentDirectional.topStart,
                 child: Text(
@@ -82,10 +81,11 @@ class _SettingsPageState extends State<SettingsPage> {
             }),
             SettingsListItem(Icons.share, S.of(context).Share_Application,
                 () async {
-              Share.share('check out our website soon at https://example.com',
+              Share.share(
+                  'check out our instagram at https://www.instagram.com/memar_corner_mcc?igsh=bGp2Z3g0YWk0NWRv&utm_source=qr',
                   subject: 'welcome to MCC ');
             }),
-            SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
+            // SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
             SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
               // here condition if login or not
               (Islogin == true)
@@ -125,43 +125,38 @@ class _SettingsPageState extends State<SettingsPage> {
                 //   links: true,
                 // ),
                 SizedBox(
-                  height: 10,
+                  height: 10.h,
                 ),
-                Container(
-                  // decoration: BoxDecoration(
-                  //     border:
-                  //         Border(bottom: BorderSide(color: Colors.black54))),
-                  child: Card(
-                    elevation: .5,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        buildsocialButton(
-                          // color: Colors.yellowAccent.shade400,
-                          onclick: () async {
-                            setState(() async {
-                              _launched = share(SocialMedia.snapShat);
-                            });
-                          },
-                          icon: FontAwesomeIcons.snapchat,
-                        ),
-                        buildsocialButton(
-                          color: Colors.white,
-                          onclick: () => share(SocialMedia.instgram),
-                          icon: FontAwesomeIcons.instagram,
-                        ),
-                        buildsocialButton(
-                          color: Colors.green,
-                          onclick: () => share(SocialMedia.whatsapp),
-                          icon: FontAwesomeIcons.whatsapp,
-                        ),
-                        buildsocialButton(
-                          color: Colors.blueGrey,
-                          onclick: () => share(SocialMedia.email),
-                          icon: Icons.email,
-                        )
-                      ],
-                    ),
+                Card(
+                  elevation: .5,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      buildsocialButton(
+                        // color: Colors.yellowAccent.shade400,
+                        onclick: () async {
+                          setState(() async {
+                            _launched = share(SocialMedia.snapShat);
+                          });
+                        },
+                        icon: FontAwesomeIcons.snapchat,
+                      ),
+                      buildsocialButton(
+                        color: Colors.white,
+                        onclick: () => share(SocialMedia.instgram),
+                        icon: FontAwesomeIcons.instagram,
+                      ),
+                      buildsocialButton(
+                        color: Colors.green,
+                        onclick: () => share(SocialMedia.whatsapp),
+                        icon: FontAwesomeIcons.whatsapp,
+                      ),
+                      buildsocialButton(
+                        color: Colors.blueGrey,
+                        onclick: () => share(SocialMedia.email),
+                        icon: Icons.email,
+                      )
+                    ],
                   ),
                 ),
               ],
@@ -206,8 +201,8 @@ Widget buildsocialButton(
                           Colors.white.withOpacity(.5),
                           Colors.white,
                         ])),
-      width: 48,
-      height: 48,
+      width: 48.w,
+      height: 48.h,
       child: Center(
         child: FaIcon(
           icon,

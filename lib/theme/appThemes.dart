@@ -124,7 +124,7 @@ ThemeData getDarkTheme() => ThemeData(
           color: Colors.grey,
           width: 2,
         ),
-      ) ,
+      ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide: BorderSide(
@@ -440,7 +440,7 @@ ThemeData getlightTheme() => ThemeData(
           color: Colors.grey,
           width: 2,
         ),
-      ) ,
+      ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide: BorderSide(

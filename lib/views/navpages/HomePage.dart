@@ -1,16 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names
 
-import 'package:MCC/constants/colors.dart';
-import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/SearchCupitStates.dart';
-import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
-import 'package:MCC/model/category.dart';
-import 'package:MCC/model/dummyData.dart';
 import 'package:MCC/model/userModel.dart';
-import 'package:MCC/services/Network_data_services.dart';
 import 'package:MCC/widgets/leftappbarUpdate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +15,6 @@ import '../categories_screan.dart';
 import '/cubits/visibilityCubit.dart';
 import '/widgets/homePageHelperWidgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../cubits/visibilityCubitStates.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({
@@ -38,22 +31,22 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     late userModel? user = BlocProvider.of<AuthCubit>(context).user;
     // TODO: implement initState
-    // print(BlocProvider.of<AuthCubit>(context).user!.userID!);
+    // debugPrint(BlocProvider.of<AuthCubit>(context).user!.userID!);
     getUserDate() async {
-      print('hna1');
+      debugPrint('hna1');
       try {
         user = await BlocProvider.of<AuthCubit>(context).getUserData();
-        print('${user!.userID!} test main user');
+        debugPrint('${user!.userID!} test main user');
       } catch (e) {
-        print(e);
+        debugPrint('$e');
       }
     }
 
     try {
       getUserDate();
-      print('userData tmaaam');
+      debugPrint('userData tmaaam');
     } catch (e) {
-      print(e);
+      debugPrint('$e');
     }
     BlocProvider.of<HomePageCubit>(context).getCategoriesData();
   }
@@ -105,26 +98,24 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 10.h,
                             ),
-                            Text('Dedicated to perfection,',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge!
-                                    .merge(
-                                      GoogleFonts.aBeeZee(
-                                          // ,fontSize: 20.h
-                                          ),
-                                    )),
-                            Text(
-                              'every single time',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .merge(GoogleFonts.aBeeZee()),
-                              // GoogleFonts.aboreto(
-                              //     color:,
-                              //     fontWeight: FontWeight.bold
-                              //     ,fontSize: 20.h
-                              // ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(S.of(context).Home_title1,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .merge(
+                                          GoogleFonts.aBeeZee(),
+                                        )),
+                                Text(S.of(context).Home_title2,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .merge(
+                                          GoogleFonts.aBeeZee(),
+                                        )),
+                              ],
                             ),
                             BlocBuilder<SearchCubit, searchState>(
                                 builder: (context, state) {
@@ -137,13 +128,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-
-                    // BlocBuilder<VisibilityCubit, VisibilityState>(
-                    //   builder: (context, state) {
-                    //     return messageText(
-                    //       isVisible: state.isVisible,
-                    //     );
-                    //   }),
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 15.h, vertical: 10.h),
@@ -160,20 +144,9 @@ class _HomePageState extends State<HomePage> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge!
-                                    .merge(GoogleFonts.aBeeZee(fontSize: 17.h))
-                                // TextStyle(
-                                //     fontSize: 20, fontWeight: FontWeight.w700,color: ColorsManager.Color60Light),
-                                ),
+                                    .merge(
+                                        GoogleFonts.aBeeZee(fontSize: 17.h))),
                           ),
-                          // Align(
-                          //     alignment:
-                          //     Localizations.localeOf(context).languageCode ==
-                          //         'ar'
-                          //         ? Alignment.centerRight
-                          //         : Alignment.centerLeft,
-                          //     child: Text(S
-                          //         .of(context)
-                          //         .then_get_best_prices_from_our_suppliers)),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.max,

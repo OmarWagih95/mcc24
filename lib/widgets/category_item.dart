@@ -17,28 +17,11 @@ class categoryItem extends StatelessWidget {
     this.color,
   );
 
-  // categoryItem(this.title, this.color, this.id, this.logoImg,)
-  // void selectCategory(BuildContext context) {
-  //   Navigator.of(context).push(MaterialPageRoute(
-  //       builder: ((context) {
-  //         return CategoryserviceScreen(
-  //           available_Services: [],
-  //           l: [],
-  //         );
-  //       }),
-  //       settings: RouteSettings(
-  //         arguments: <String, String>{
-  //           'id': id,
-  //           'title': title,
-  //         },
-  //       )));
-  // }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('clicked');
+        debugPrint('clicked');
         try {
           Navigator.push(
               context,
@@ -49,7 +32,7 @@ class categoryItem extends StatelessWidget {
                         child: ServicesScreen(categoryy),
                       )));
         } catch (e) {
-          print(e);
+          debugPrint('$e');
         }
       },
       child: Container(

@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
 
-class Category {
-  final String id;
-  final String title;
-
-  final String? LogoimgURL;
-  final Color color;
-  const Category({
-    required this.id,
-    required this.title,
-    this.color = Colors.blue,
-    this.LogoimgURL,
-  });
-}
 
 class Categoryy {
   final String id;
