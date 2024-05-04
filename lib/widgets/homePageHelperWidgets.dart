@@ -184,9 +184,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     title: Text(S.of(context).Brightness_change,
                         style: TextStyle()),
                     activeColor: Theme.of(context).primaryColor,
-                    hoverColor: Theme.of(context).primaryColor,
+                    hoverColor: Theme.of(context).scaffoldBackgroundColor,
                     inactiveThumbColor: Colors.black,
-                    inactiveTrackColor: Colors.black12,
+                    inactiveTrackColor: Colors.black12, 
                   );
                 },
               ),

@@ -3,15 +3,14 @@ import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/spacing.dart';
-import 'package:MCC/routing/routes.dart';
-import 'package:MCC/styles/Styles.dart';
-import 'package:MCC/views/navpages/HomePage.dart';
-
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/views/signeupScreen.dart';
 import 'package:MCC/widgets/MyTextFormField.dart';
+import 'package:MCC/widgets/customAppbar.dart';
+import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -38,7 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
           Fluttertoast.showToast(msg: state.errorMessage);
         }
         if (state is LoginSuccessState) {
-          Fluttertoast.showToast(msg: 'you have been logged in successfully');
+          Fluttertoast.showToast(
+              msg: S.of(context).you_have_been_logged_in_successfully);
 // لسا هغير اللغة
           Navigator.pushReplacement(
               context,
@@ -52,15 +52,25 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          body: Center(
-            child: SingleChildScrollView(
-                child: SafeArea(
-              child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 30.0.w, vertical: 15.h),
+          drawer: CustomDrawer(),
+          body: SingleChildScrollView(
+              child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SafeArea(
+                child: customAppbar(
+                  arrow: false,
+                  title: S.of(context).My_Order,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(
+                      height: 40.h,
+                    ),
                     Text(S.of(context).Welcome_Back,
                         style: Theme.of(context).textTheme.displayLarge!),
                     verticalSpace(8),
@@ -78,7 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               validation: (value) {
                                 if (value!.isEmpty ||
                                     !loginCubit.regExp.hasMatch(value)) {
-                                  return 'please write your email in a good way';
+                                  return S
+                                      .of(context)
+                                      .please_write_your_email_in_a_good_way;
                                   //لسا هغير اللغة هنا
                                 } else {
                                   loginCubit.email = value;
@@ -90,7 +102,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               hintText: S.of(context).password,
                               validation: (value) {
                                 if (value!.isEmpty || value.length < 8) {
-                                  return 'password must be 8 char at least';
+                                  return S
+                                      .of(context)
+                                      .password_must_be_8_char_at_least;
                                   //لسا هغير اللغة هنا
                                 } else {
                                   loginCubit.passWord = value;
@@ -110,19 +124,20 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             verticalSpace(16),
-                            Row(children: [
-                              Text(S.of(context).Remember_me,
-                                  style:
-                                      Theme.of(context).textTheme.bodyMedium),
-                              horizontallSpace(70),
-                              Text(S.of(context).Forgot_Password,
-                                  style:
-                                      Theme.of(context).textTheme.bodyMedium),
-                            ]),
+                            // محتاج اعمل اعادة الباسورد في الفايربيز
+                            // Row(children: [
+                            //   Text(S.of(context).Remember_me,
+                            //       style:
+                            //           Theme.of(context).textTheme.bodyMedium),
+                            //   horizontallSpace(70),
+                            //   Text(S.of(context).Forgot_Password,
+                            //       style:
+                            //           Theme.of(context).textTheme.bodyMedium),
+                            // ]),
                             verticalSpace(20),
                             state is LoginLoadingState
                                 ? SpinKitCircle(
-                                    color: Colors.black54,
+                                    color: Theme.of(context).primaryColor,
                                   )
                                 : TextButton(
                                     onPressed: () async {
@@ -144,12 +159,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     BorderRadius.circular(16))),
                                         backgroundColor:
                                             MaterialStateProperty.all(
-                                                Theme.of(context)
-                                                    .primaryColor)),
+                                                FxColors.primary)),
                                     child: Text(S.of(context).Login,
                                         style: Theme.of(context)
                                             .textTheme
-                                            .displaySmall),
+                                            .displaySmall!
+                                            .copyWith(color: Colors.black)),
                                   ),
                             verticalSpace(50.h),
                             RichText(
@@ -159,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         S.of(context).Dont_have_an_account_yet,
                                     style:
                                         Theme.of(context).textTheme.bodySmall!),
-                                TextSpan(
+                                const TextSpan(
                                   text: '   ',
                                 ),
                                 TextSpan(
@@ -176,7 +191,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     text: S.of(context).Sign_Up,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .bodyMedium!),
+                                        .bodyMedium!
+                                        .copyWith(
+                                            color:
+                                                Theme.of(context).shadowColor)),
                               ]),
                               textAlign: TextAlign.center,
                             )
@@ -185,8 +203,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-            )),
-          ),
+            ],
+          )),
         );
       },
     );

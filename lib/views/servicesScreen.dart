@@ -1,3 +1,4 @@
+import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
@@ -5,7 +6,6 @@ import 'package:MCC/model/category.dart';
 import 'package:MCC/views/serviceDetailsScreen.dart';
 import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,10 +50,22 @@ class _ServicesScreenState extends State<ServicesScreen> {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.all(8.r),
                     decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Theme.of(context).primaryColor),
+                        border: BorderDirectional(
+                          top: BorderSide(
+                              color: FxColors.primary,
+                              width: 5.w),
+                          bottom: BorderSide(
+                              color: FxColors.primary,
+                              width: 1.w),
+                          start: BorderSide(
+                              color: FxColors.primary,
+                              width: 1.w),
+                          end: BorderSide(
+                              color: FxColors.primary,
+                              width: 1.w),
+                        ),
                         color: Theme.of(context).primaryColorLight,
                         borderRadius: BorderRadius.circular(10.h)),
                     child: Text(
@@ -107,9 +119,20 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                           margin: EdgeInsets.symmetric(
                                               vertical: 10.h),
                                           decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Theme.of(context)
-                                                      .primaryColor),
+                                              border: BorderDirectional(
+                                                bottom: BorderSide(
+                                                    color: FxColors.primary,
+                                                    width: 5.w),
+                                                top: BorderSide(
+                                                    color: FxColors.primary,
+                                                    width: 1.w),
+                                                start: BorderSide(
+                                                    color: FxColors.primary,
+                                                    width: 1.w),
+                                                end: BorderSide(
+                                                    color: FxColors.primary,
+                                                    width: 1.w),
+                                              ),
                                               color: Theme.of(context)
                                                   .primaryColorLight,
                                               borderRadius:

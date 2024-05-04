@@ -25,7 +25,9 @@ class Mypage extends StatefulWidget {
 GlobalKey<NavigatorState> MypageNavigatorKey = GlobalKey<NavigatorState>();
 
 class _MypageState extends State<Mypage> {
+  @override
   void initState() {
+    super.initState();
     /////////////////////////
     BlocProvider.of<OrderCubit>(context)
         .GetMyActiveOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
@@ -47,7 +49,7 @@ class _MypageState extends State<Mypage> {
         drawer: CustomDrawer(),
         appBar: AppBar(
           title: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.r),
             child: Text(
               S.of(context).My_Order,
               style: Theme.of(context).textTheme.titleMedium,
@@ -55,10 +57,10 @@ class _MypageState extends State<Mypage> {
           ),
           centerTitle: true,
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(40),
+            preferredSize:  Size.fromHeight(40.r),
             child: Container(
-              height: 40,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
+              height: 40.h,
+              margin: EdgeInsets.symmetric(horizontal: 20.w),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 color: Theme.of(context).primaryColor.withOpacity(0.4),
@@ -68,10 +70,11 @@ class _MypageState extends State<Mypage> {
                 dividerColor: Colors.transparent,
                 indicator: BoxDecoration(
                   color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
                 ),
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.black54,
+                labelColor: Theme.of(context).iconTheme.color,
+                unselectedLabelColor:
+                    Theme.of(context).iconTheme.color!.withOpacity(.1),
                 tabs: [
                   TabItem(title: S.of(context).Active),
                   TabItem(title: S.of(context).Finished),
@@ -100,7 +103,7 @@ class finishedOreders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(10.r),
       child: Card(
         child: ListView.builder(
           itemCount: FinishedOrders.length,
@@ -305,10 +308,10 @@ class _TabItemState extends State<TabItem> {
             widget.title,
             overflow: TextOverflow.ellipsis,
           ),
-          widget.count! > 0
+          widget.count > 0
               ? Container(
-                  margin: const EdgeInsetsDirectional.only(start: 5),
-                  padding: const EdgeInsets.all(3),
+                  margin: EdgeInsetsDirectional.only(start: 5.w),
+                  padding:  EdgeInsets.all(3.r),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     shape: BoxShape.circle,
@@ -316,9 +319,9 @@ class _TabItemState extends State<TabItem> {
                   child: Center(
                     child: Text(
                       widget.count! > 9 ? "9+" : widget.count.toString(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.black54,
-                        fontSize: 10,
+                        fontSize: 10.sp,
                       ),
                     ),
                   ),

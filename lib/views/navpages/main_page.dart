@@ -28,6 +28,10 @@ class mainpage extends StatefulWidget {
 
 class _mainpageState extends State<mainpage> {
   @override
+  void changeremoteindexhelper() {
+    setState(() {});
+  }
+
   void initState() {
     // TODO: implement initState
 
@@ -59,35 +63,19 @@ class _mainpageState extends State<mainpage> {
     bakaatSeyanaaNavigatorKey,
   ];
   List<Widget> pages = [
-    // BlocProvider<HomePageCubit>(
-    //   create: (context) => HomePageCubit(),
-    //   child: HomePage(),
-    // )
     HomePage(),
     LoginScreen(),
     SettingsPage(),
     bakaatSeyanaa()
   ];
 
-  List<Widget> pages2 = [
-    // BlocProvider<HomePageCubit>(
-    //   create: (context) => HomePageCubit(),
-    //   child: HomePage(),
-    // ),
-    HomePage(),
-    Mypage(),
-    SettingsPage(),
-    bakaatSeyanaa()
-  ];
-  void changeremoteindexhelper() {
-    setState(() {});
-  }
+  List<Widget> pages2 = [HomePage(), Mypage(), SettingsPage(), bakaatSeyanaa()];
 
   @override
   Widget build(BuildContext context) {
     changeremoteindex = changeremoteindexhelper;
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
-    return WillPopScope (
+    return WillPopScope(
       onWillPop: _systemBackButtonPressed,
       child: Scaffold(
         bottomNavigationBar: NavigationBar(

@@ -10,13 +10,14 @@ class MyTextFormfield extends StatelessWidget {
   final bool isSecured;
   final String hintText;
   String? Function(String?)? validation;
-   MyTextFormfield({
+  MyTextFormfield({
     this.validation,
     super.key,
     this.isSecured = false,
     this.controller,
     required this.hintText,
-    this.suffexicon, this.prifixicon,
+    this.suffexicon,
+    this.prifixicon,
   });
 
   @override
@@ -25,25 +26,19 @@ class MyTextFormfield extends StatelessWidget {
       validator: validation,
       controller: controller,
       decoration: InputDecoration(
-          filled: true,
-          fillColor: ColorsManager.lighterGray,
-          suffixIcon: suffexicon,
-          prefix: prifixicon,
-          // prefixIconColor: Colors.amberAccent,
-          // prefixIconConstraints:BoxConstraints() ,
-          // prefixStyle: Textstyles.font12grayregular,
-          hintText: hintText,
-          hintStyle: Textstyles.font14darkgraymedium,
-          contentPadding:
-              EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),
-          enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide:
-                  BorderSide(color: ColorsManager.lightGray, width: 1.3)),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide:
-                  BorderSide(color: ColorsManager.mainBlue, width: 1.3))),
+        filled: true,
+        fillColor: ColorsManager.lighterGray,
+        suffixIcon: suffexicon,
+        prefix: prifixicon,
+        hintText: hintText,
+        hintStyle: Theme.of(context)
+            .textTheme
+            .headlineMedium!
+            .copyWith(color: Colors.black54),
+        contentPadding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 18.h),
+        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+      ),
       style: Textstyles.font14darkbluemedium,
       obscureText: isSecured,
     );

@@ -9,7 +9,7 @@ class OurProvidingListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 7.5),
         child: Row(
           children: [
             Icon(

@@ -29,6 +29,7 @@ class bakaatSeyanaa extends StatelessWidget {
                     borderOnForeground: false,
                     shadowColor: Colors.transparent,
                     color: Theme.of(context).primaryColorLight,
+                    surfaceTintColor: Colors.transparent,
                     elevation: 5,
                     child: Center(
                       child: Text(

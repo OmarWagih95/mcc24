@@ -1,3 +1,4 @@
+import 'package:MCC/constants/colors.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,11 @@ class customAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).primaryColor),
-        color: Theme.of(context).primaryColorLight,
+        border: BorderDirectional(
+          bottom: BorderSide(color: FxColors.primary, width: 1.w),
+          top: BorderSide(color: FxColors.primary, width: 1.w),
+        ),
+        color: Theme.of(context).primaryColor,
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),

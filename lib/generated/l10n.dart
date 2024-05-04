@@ -654,8 +654,6 @@ class S {
     );
   }
 
-
-
   String get address {
     return Intl.message(
       'address',
@@ -682,7 +680,7 @@ class S {
       args: [],
     );
   }
-  
+
   String get You_are_already_logged_in {
     return Intl.message(
       'You \'re already logged in',
@@ -690,21 +688,27 @@ class S {
       desc: '',
       args: [],
     );
-  }String get username {
+  }
+
+  String get username {
     return Intl.message(
       'username',
       name: 'username',
       desc: '',
       args: [],
     );
-  }String get Home_title1 {
+  }
+
+  String get Home_title1 {
     return Intl.message(
       'dedicated to perfiction',
       name: 'Home_title1',
       desc: '',
       args: [],
     );
-  }String get Home_title2 {
+  }
+
+  String get Home_title2 {
     return Intl.message(
       'every single time"',
       name: 'Home_title2',
@@ -713,7 +717,59 @@ class S {
     );
   }
 
+  String get you_have_been_logged_in_successfully {
+    return Intl.message(
+      'you have been logged in successfully',
+      name: 'you_have_been_logged_in_successfully',
+      desc: '',
+      args: [],
+    );
+  }
 
+  String get please_write_your_email_in_a_good_way {
+    return Intl.message(
+      'please write your email in a good way',
+      name: 'please_write_your_email_in_a_good_way',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_must_be_8_char_at_least {
+    return Intl.message(
+      'epassword must be 8 char at least',
+      name: 'password_must_be_8_char_at_least',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get please_write_your_username {
+    return Intl.message(
+      'please write your username',
+      name: 'please_write_your_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get phone_number_must_be_11_char {
+    return Intl.message(
+      'phone number must be 11 char',
+      name: 'phone_number_must_be_11_char',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get please_write_your_address {
+    return Intl.message(
+      'please write your address',
+      name: 'please_write_your_address',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

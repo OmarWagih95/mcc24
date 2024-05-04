@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
 
@@ -9,9 +8,9 @@ ThemeData getDarkTheme() => ThemeData(
     cardTheme: CardTheme(color: FxColors.primarySecondary_Dark),
     navigationBarTheme: NavigationBarThemeData(
       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-      indicatorColor: FxColors.primary,
-      backgroundColor: FxColors.secondary_Dark,
-      iconTheme: null,
+      indicatorColor: Colors.transparent,
+      backgroundColor: Colors.transparent,
+      iconTheme: MaterialStateProperty.all(IconThemeData(color: Colors.white)),
       surfaceTintColor: Colors.transparent,
       labelTextStyle: MaterialStateProperty.all(TextStyle()),
     ),
@@ -20,7 +19,7 @@ ThemeData getDarkTheme() => ThemeData(
     scaffoldBackgroundColor: FxColors.background_Dark, //customScaffoldColor,
     splashColor: FxColors.primarySecondary_Dark, //customBackGroundBody
     primaryColor: FxColors.primary_Dark, //custom main
-    primaryColorLight: FxColors.secondary_Dark,
+    primaryColorLight: const Color.fromARGB(255, 43, 43, 43),
     hoverColor: FxColors.primary,
     cardColor: FxColors.secondary,
     hintColor: FxColors.secondary,
@@ -37,9 +36,11 @@ ThemeData getDarkTheme() => ThemeData(
       color: Colors.grey.withOpacity(0.5),
     ),
     useMaterial3: true,
-    drawerTheme: DrawerThemeData(
+    drawerTheme: const DrawerThemeData(
+      surfaceTintColor: Colors.transparent,
+      shadowColor: Colors.transparent,
       width: 250,
-      backgroundColor: FxColors.secondary_Dark,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
     ),
 
     ///AppBarTheme
@@ -128,7 +129,7 @@ ThemeData getDarkTheme() => ThemeData(
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide: BorderSide(
-          color: Colors.grey,
+          color: Colors.white,
           width: 2,
         ),
       ),
@@ -321,11 +322,14 @@ ThemeData getDarkTheme() => ThemeData(
       type: BottomNavigationBarType.shifting,
     ));
 ThemeData getlightTheme() => ThemeData(
-    cardTheme: CardTheme(color: Colors.white),
+    cardTheme: CardTheme(
+      color: Colors.white,
+    ),
     navigationBarTheme: NavigationBarThemeData(
       labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-      indicatorColor: FxColors.primary,
-      backgroundColor: Colors.black12,
+      indicatorColor: Colors.transparent,
+      backgroundColor: Color.fromARGB(255, 248, 231, 168),
+      // backgroundColor: FxColors.primary.withOpacity(0.3),
       iconTheme: null,
       surfaceTintColor: Colors.transparent,
       labelTextStyle:
@@ -336,7 +340,8 @@ ThemeData getlightTheme() => ThemeData(
     //
     scaffoldBackgroundColor: FxColors.background, //customScaffoldColor,
     primaryColor: FxColors.primary, //custom main
-    primaryColorLight: FxColors.primary.withOpacity(0.3),
+    primaryColorLight: Color.fromARGB(255, 255, 240, 187),
+    primaryColorDark: Color.fromARGB(114, 255, 218, 84),
     shadowColor: FxColors.secondary,
     brightness: Brightness.light,
     splashColor: Colors.transparent, //customBackGroundBody
@@ -435,17 +440,17 @@ ThemeData getlightTheme() => ThemeData(
         color: Colors.black,
       ),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(
-          color: Colors.grey,
+          color: FxColors.primary,
           width: 2,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
         borderSide: BorderSide(
-          color: Colors.grey,
-          width: 2,
+          color: Colors.black54,
+          width: 1,
         ),
       ),
       focusedBorder: OutlineInputBorder(

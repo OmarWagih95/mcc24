@@ -23,12 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Active": MessageLookupByLibrary.simpleMessage("نشط"),
-        "Home_title1": MessageLookupByLibrary.simpleMessage("مخصص للخيال"),
-        "Home_title2": MessageLookupByLibrary.simpleMessage("بكل مرة"),
+        "Home_title1": MessageLookupByLibrary.simpleMessage("متاحون لخدمتكم"),
+        "Home_title2": MessageLookupByLibrary.simpleMessage("في اي وقت"),
         "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "Brightness_change":
-            MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي"),
+            MessageLookupByLibrary.simpleMessage("تغيير الأضاءة"),
         "Choose_Language_Of_The_Interface":
             MessageLookupByLibrary.simpleMessage("اختار لغتك المفضلة "),
         "Choose_your_service_easily":
@@ -130,5 +130,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "ServiceName": MessageLookupByLibrary.simpleMessage("اسم الخدمة"),
         "address": MessageLookupByLibrary.simpleMessage(" العنوان"),
         "description": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
+        "you_have_been_logged_in_successfully":
+            MessageLookupByLibrary.simpleMessage("م تسجيل دخولك بنجاح"),
+        "please_write_your_email_in_a_good_way":
+            MessageLookupByLibrary.simpleMessage(
+                "من فضلك، اكتب بريدك الإلكتروني بشكل صحيح"),
+        "password_must_be_8_char_at_least":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
+        "please_write_your_username": MessageLookupByLibrary.simpleMessage(
+            "من فضلك، اكتب اسم المستخدم الخاص بك"),
+        "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage(
+            "يجب أن يكون رقم الهاتف 11 رقمًا"),
+        "please_write_your_address":
+            MessageLookupByLibrary.simpleMessage("من فضلك، اكتب عنوانك"),
+        "you_have_been_logged_in_successfully":
+            MessageLookupByLibrary.simpleMessage(
+                "تم تسجيل الدخول بنجاح"),
       };
 }
