@@ -38,7 +38,7 @@ void main() async {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
-        create: (context) => LanguagesCubit()..changeLanguages('en'),
+        create: (context) => LanguagesCubit()..changeLanguages('ar'),
       ),
       BlocProvider(
         create: (context) => Dark_lightModeCubit()..darkAndlightMode('light'),

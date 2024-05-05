@@ -45,7 +45,7 @@ class chooseLanguages extends StatelessWidget {
                         BlocProvider.of<LanguagesCubit>(context)
                             .changeLanguages('ar');
                         onBoard
-                            ? Navigator.pushNamed(
+                            ? Navigator.pushReplacementNamed(
                                 context, Routes.onboargingScreen)
                             : Navigator.pop(context);
                       },
@@ -59,7 +59,7 @@ class chooseLanguages extends StatelessWidget {
                           BlocProvider.of<LanguagesCubit>(context)
                               .changeLanguages('en');
                           onBoard
-                              ? Navigator.pushNamed(
+                              ? Navigator.pushReplacementNamed(
                                   context, Routes.onboargingScreen)
                               : Navigator.pop(context);
                         },

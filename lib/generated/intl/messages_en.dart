@@ -86,7 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Sign_IN": MessageLookupByLibrary.simpleMessage("Sign in "),
         "Sign_Up": MessageLookupByLibrary.simpleMessage("Sign up "),
         "Sign_out": MessageLookupByLibrary.simpleMessage("Sign out"),
-        "Text_Us": MessageLookupByLibrary.simpleMessage("Text Us"),
+        "Text_Us": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
                 "Text us for any help or question"),

@@ -7,6 +7,7 @@ import 'package:MCC/cubits/darkModeCubit.dart';
 import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/category.dart';
+import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:flutter/material.dart';
@@ -85,13 +86,23 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 padding: EdgeInsets.zero,
                 decoration: BoxDecoration(),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: EdgeInsets.zero,
-                      child: Image.asset(
-                        'img/mmcassits/logo_12.png',
-                        fit: BoxFit.cover,
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.elliptical(50, 50),
+                          bottomLeft: Radius.elliptical(50, 50)),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(150)
+                            ),
+                        padding: EdgeInsets.zero,
+                        child: Image.asset(
+                          width: 130,
+                          height: 130,
+                          'img/mmcassits/logo.png',
+                          fit: BoxFit.fitWidth,
+                        ),
                       ),
                     ),
                   ],
@@ -103,11 +114,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 title: Text(S.of(context).Home, style: TextStyle()),
                 onTap: () {
-                  if (ModalRoute.of(context)!.settings.name ==
-                      Routes.mainPage) {
+                  if (curRoute == Routes.mainPage && Currindx != 0) {
+                    Currindx = 0;
+                    changeremoteindex();
                     Navigator.pop(context);
                   } else {
-                    Navigator.of(context).pushReplacementNamed(Routes.mainPage);
+                    Navigator.pop(context);
                   }
                 },
               ),
@@ -186,7 +198,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     activeColor: Theme.of(context).primaryColor,
                     hoverColor: Theme.of(context).scaffoldBackgroundColor,
                     inactiveThumbColor: Colors.black,
-                    inactiveTrackColor: Colors.black12, 
+                    inactiveTrackColor: Colors.black12,
                   );
                 },
               ),

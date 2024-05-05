@@ -123,7 +123,7 @@ class _welcomState extends State<onboardingPage> {
                                                     .primaryColor)),
                                     onPressed: () {
                                       setOnboardingFinished();
-                                      Navigator.pushNamed(
+                                      Navigator.pushReplacementNamed(
                                           context, Routes.mainPage);
                                     },
                                     child: onbordingInputButton()),

@@ -43,16 +43,37 @@ class _mainpageState extends State<mainpage> {
     getUserDate();
   }
 
-  Future<bool> _systemBackButtonPressed() async {
-    if (_navigatorKeys[Currindx].currentState?.canPop() == true) {
-      _navigatorKeys[Currindx]
-          .currentState
-          ?.pop(_navigatorKeys[Currindx].currentContext);
-      return false;
-    } else {
-      SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
-      return true; // Indicate that the back action is handled
-    }
+  Future<bool> _systemBackButtonPressed(BuildContext context) async {
+    // if (_navigatorKeys[Currindx].currentState?.canPop() == true) {
+    //   _navigatorKeys[Currindx]
+    //       .currentState
+    //       ?.pop(_navigatorKeys[Currindx].currentContext);
+    //   return false;
+    // } else {
+    // SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
+    bool? exit = await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('الخروج'),
+        content: Text('هل تريد الخروج  من التطبيق '),
+        actions: [
+          TextButton(
+              onPressed: () {
+                // exit = true;
+                Navigator.of(context).pop(true);
+              },
+              child: Text('نعم')),
+          TextButton(
+              onPressed: () {
+                // exit = false;
+                Navigator.of(context).pop(false);
+              },
+              child: Text('لأ'))
+        ],
+      ),
+    );
+    return exit ?? false; // Indicate that the back action is handled
+    // }
   }
 
   final List<GlobalKey<NavigatorState>> _navigatorKeys = [
@@ -76,7 +97,7 @@ class _mainpageState extends State<mainpage> {
     changeremoteindex = changeremoteindexhelper;
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
     return WillPopScope(
-      onWillPop: _systemBackButtonPressed,
+      onWillPop: () => _systemBackButtonPressed(context),
       child: Scaffold(
         bottomNavigationBar: NavigationBar(
           indicatorShape: StadiumBorder(),

@@ -9,51 +9,58 @@ import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/views/selectLanguage.dart';
 import 'package:flutter/material.dart';
 
+String curRoute = '';
+
 class Approuter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.selectLanguagePage:
+        curRoute = Routes.selectLanguagePage;
         return MaterialPageRoute(
           builder: (_) => chooseLanguages(true),
         );
       case Routes.onboargingScreen:
+        curRoute = Routes.onboargingScreen;
+
         return MaterialPageRoute(
           builder: (_) => onboardingPage(),
         );
       case Routes.homePage:
+        curRoute = Routes.homePage;
+
         return MaterialPageRoute(
           builder: (_) => HomePage(),
         );
       case Routes.mainPage:
+        curRoute = Routes.mainPage;
+
         return MaterialPageRoute(
-          builder: (_) =>  mainpage(),
+          builder: (_) => mainpage(),
         );
       case Routes.categoriesScreen:
+        curRoute = Routes.categoriesScreen;
+
         return MaterialPageRoute(
           builder: (_) => categoriesScreen(),
         );
-      // case Routes.ServiceDetailScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ServiceDetailScreen(),
-      //   );
       case Routes.settingsPage:
+        curRoute = Routes.settingsPage;
+
         return MaterialPageRoute(
           builder: (_) => SettingsPage(),
         );
       case Routes.LoginScreen:
+        curRoute = Routes.LoginScreen;
+
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
-        ); case Routes.signeupScreen:
+        );
+      case Routes.signeupScreen:
+        curRoute = Routes.signeupScreen;
+
         return MaterialPageRoute(
           builder: (_) => SigneUpScreen(),
         );
-      // case Routes.CategoryserviceScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => CategoryserviceScreen(
-      //       available_Services: [],
-      //       l: [],
-      //     ),
-      //   );
 
       default:
         return MaterialPageRoute(

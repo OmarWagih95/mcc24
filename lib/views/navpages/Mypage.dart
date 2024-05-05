@@ -6,6 +6,7 @@ import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/model/userModel.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,7 +58,7 @@ class _MypageState extends State<Mypage> {
           ),
           centerTitle: true,
           bottom: PreferredSize(
-            preferredSize:  Size.fromHeight(40.r),
+            preferredSize: Size.fromHeight(40.r),
             child: Container(
               height: 40.h,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
@@ -311,7 +312,7 @@ class _TabItemState extends State<TabItem> {
           widget.count > 0
               ? Container(
                   margin: EdgeInsetsDirectional.only(start: 5.w),
-                  padding:  EdgeInsets.all(3.r),
+                  padding: EdgeInsets.all(3.r),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     shape: BoxShape.circle,
