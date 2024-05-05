@@ -194,15 +194,19 @@ class OrderingServiceDialog extends StatelessWidget {
                                     Container(
                                       width: double.infinity,
                                       child: TextFormField(
+                                        keyboardType: TextInputType.number,
                                         initialValue:
                                             BlocProvider.of<AuthCubit>(context)
                                                 .user!
                                                 .phoneNumber!,
                                         validator: (value) {
+                                          if (double.tryParse(value!) == null) {
+                                            return 'Please enter a valid number';
+                                          }
                                           if (value!.isNotEmpty) {
                                             orderCubit.phoneNumber = value;
                                           } else if (value.isEmpty) {
-                                            orderCubit.address =
+                                            orderCubit.phoneNumber =
                                                 BlocProvider.of<AuthCubit>(
                                                         context)
                                                     .user!

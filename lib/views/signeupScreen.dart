@@ -130,7 +130,11 @@ class _LoginScreenState extends State<SigneUpScreen> {
                             ),
                             verticalSpace(16),
                             MyTextFormfield(
+                              keyboardType: TextInputType.phone,
                               validation: (value) {
+                                if (double.tryParse(value!) == null) {
+                                  return 'Please enter a valid number';
+                                }
                                 if (value!.isEmpty || value.length < 11) {
                                   return S
                                       .of(context)

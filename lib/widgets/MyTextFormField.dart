@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyTextFormfield extends StatelessWidget {
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
   final Widget? suffexicon;
   final Widget? prifixicon;
   final bool isSecured;
@@ -17,13 +18,14 @@ class MyTextFormfield extends StatelessWidget {
     this.controller,
     required this.hintText,
     this.suffexicon,
-    this.prifixicon,
+    this.prifixicon, this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validation,
+      keyboardType: keyboardType,
       controller: controller,
       decoration: InputDecoration(
         filled: true,
