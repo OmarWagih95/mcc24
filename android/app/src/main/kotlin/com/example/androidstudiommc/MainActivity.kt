@@ -1,4 +1,4 @@
-package com.example.androidstudiommc
+package com.group.MCC
 
 import io.flutter.embedding.android.FlutterActivity
 
