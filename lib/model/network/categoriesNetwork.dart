@@ -43,4 +43,15 @@ class CategoriesNetwork {
     // return storageImg;
     // }
   }
+
+  Future<String?> getCategorisvidoe(String video) async {
+    try {
+      var urlRef = await firebaseStorage.child('images').child(video);
+      var imgUrl = await urlRef.getDownloadURL();
+      return imgUrl;
+    } catch (e) {
+      debugPrint('$e');
+    }
+
+  }
 }

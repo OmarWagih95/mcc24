@@ -1,4 +1,5 @@
 import 'package:MCC/routing/routes.dart';
+import 'package:MCC/videos/categoryVideo.dart';
 import 'package:MCC/views/OnbordingPage.dart';
 import 'package:MCC/views/categories_screan.dart';
 import 'package:MCC/views/signeupScreen.dart';
@@ -60,6 +61,13 @@ class Approuter {
 
         return MaterialPageRoute(
           builder: (_) => SigneUpScreen(),
+        );
+
+      case Routes.Categoryvideo:
+        curRoute = Routes.Categoryvideo;
+
+        return MaterialPageRoute(
+          builder: (_) => Categoryvideo(),
         );
 
       default:

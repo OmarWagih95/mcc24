@@ -67,9 +67,17 @@ android {
            storePassword keystoreProperties['storePassword']
         }
     }
-
+    gradle.taskGraph.whenReady {
+    tasks.each { task ->
+        if (task.name.contains("uploadCrashlyticsMappingFileRelease")) {
+            task.enabled = false
+        }
+    }
+    }
     buildTypes {
         release {
+            shrinkResources true
+            minifyEnabled true
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             // signingConfig signingConfigs.debug
