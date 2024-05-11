@@ -79,6 +79,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Column(
                   children: [
+                    //appbar
                     Container(
                       decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
@@ -128,6 +129,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    //body
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 15.h, vertical: 10.h),
@@ -147,12 +149,11 @@ class _HomePageState extends State<HomePage> {
                                     .merge(
                                         GoogleFonts.aBeeZee(fontSize: 17.h))),
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              categoriesScreen(),
-                            ],
+                          categoriesScreen(),
+                          Container(
+                            height: 200.h,
+                            decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor),
                           )
                         ],
                       ),

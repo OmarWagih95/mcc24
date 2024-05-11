@@ -58,14 +58,14 @@ class _categoriesScreenState extends State<categoriesScreen> {
                     return Container(
                         margin: EdgeInsets.only(top: 10.h),
                         padding: const EdgeInsets.all(0),
-                        height: 500.h,
+                        height: 400.h,
                         child: GridView.builder(
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                              SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   childAspectRatio: 2.8 / 2,
-                                  crossAxisSpacing: 10,
-                                  mainAxisSpacing: 10),
+                                  crossAxisSpacing: 10.w,
+                                  mainAxisSpacing: 10.h),
                           itemBuilder: (context, index) {
                             return categoryItem(state.filteredData[index],
                                 Theme.of(context).primaryColorLight);

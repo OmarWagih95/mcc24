@@ -48,7 +48,7 @@ class OrderServices {
       ordersData.add(order);
       debugPrint('$ordersData.length');
       try {
-        debugPrint(ordersData[i]);
+        debugPrint('${ordersData[i]}');
         debugPrint(ordersData[i].active);
       } catch (e) {
         debugPrint('$e');

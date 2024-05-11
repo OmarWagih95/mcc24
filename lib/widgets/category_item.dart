@@ -46,7 +46,7 @@ class categoryItem extends StatelessWidget {
             //     colors: [color.withOpacity(0.7), color],
             //     begin: Alignment.topLeft,
             //     end: Alignment.bottomRight),
-            borderRadius: BorderRadius.circular(15)),
+            borderRadius: BorderRadius.circular(15.r)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -57,7 +57,7 @@ class categoryItem extends StatelessWidget {
             ),
             Flexible(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12),
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
                 child: Localizations.localeOf(context).languageCode == 'en'
                     ? Text(categoryy.EN['categoryName'],
                         style: Theme.of(context)
