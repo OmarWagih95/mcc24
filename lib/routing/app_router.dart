@@ -63,12 +63,12 @@ class Approuter {
           builder: (_) => SigneUpScreen(),
         );
 
-      case Routes.Categoryvideo:
-        curRoute = Routes.Categoryvideo;
+      // case Routes.Categoryvideo:
+      //   curRoute = Routes.Categoryvideo;
 
-        return MaterialPageRoute(
-          builder: (_) => Categoryvideo(),
-        );
+        // return MaterialPageRoute(
+        //   builder: (_) => Categoryvideo(),
+        // );
 
       default:
         return MaterialPageRoute(
