@@ -6,6 +6,8 @@ import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/model/userModel.dart';
 import 'package:MCC/widgets/leftappbarUpdate.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +55,14 @@ class _HomePageState extends State<HomePage> {
 
   var SearchCubitDUMMY_CATEGORIES;
   final search_controller = TextEditingController();
+  String img = 'img/mmcassits/';
 
+  List<String> Images = [
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png',
+  ];
   @override
   Widget build(BuildContext context) {
     SearchCubitDUMMY_CATEGORIES =
@@ -149,12 +158,30 @@ class _HomePageState extends State<HomePage> {
                                     .merge(
                                         GoogleFonts.aBeeZee(fontSize: 17.h))),
                           ),
+                          /////////////////////////
                           categoriesScreen(),
+                          ///////////////////////////
                           Container(
-                            height: 200.h,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).primaryColor),
-                          )
+                              height: 150.h,
+                              decoration: BoxDecoration(
+                                  color: Theme.of(context).primaryColor),
+                              child: CarouselSlider(
+                                options: CarouselOptions(
+                                  autoPlayInterval:
+                                      Duration(milliseconds: 4500),
+                                  autoPlayAnimationDuration:
+                                      Duration(milliseconds: 1500),
+                                  height: 300.0,
+                                  autoPlay: true,
+                                ),
+                                items: Images.map((i) {
+                                  return Builder(
+                                    builder: (BuildContext context) {
+                                      return Image.asset(img + i);
+                                    },
+                                  );
+                                }).toList(),
+                              ))
                         ],
                       ),
                     )

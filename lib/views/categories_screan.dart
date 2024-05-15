@@ -41,10 +41,10 @@ class _categoriesScreenState extends State<categoriesScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 400.h,
+                    height: 250.h,
                     child: Center(
                       child: SpinKitCircle(
-                        color: Colors.black54,
+                        color: Theme.of(context).primaryColor,
                       ),
                     ),
                   ),
@@ -56,9 +56,11 @@ class _categoriesScreenState extends State<categoriesScreen> {
                     categoryDataList_ =
                         (context).read<HomePageCubit>().categoryDataList;
                     return Container(
+                        color: Colors.red,
                         margin: EdgeInsets.only(top: 10.h),
-                        padding: const EdgeInsets.all(0),
-                        height: 400.h,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 2.w, vertical: 4.h),
+                        height: 300.h,
                         child: GridView.builder(
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
@@ -74,7 +76,8 @@ class _categoriesScreenState extends State<categoriesScreen> {
                               .length, // itemCount: BlocProvider.of<HomePageCubit>(context).categoryDataList.length,
                         ));
                   } else {
-                    return Center(child: Text('some thing wrong with search'));
+                    return const Center(
+                        child: Text('some thing wrong with search'));
                   }
                 },
               );

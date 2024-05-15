@@ -141,7 +141,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_write_your_username": MessageLookupByLibrary.simpleMessage("please write your username"),
         "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage("phone number must be 11 char"),
         "please_write_your_address": MessageLookupByLibrary.simpleMessage("please write your address"),
-        "you_have_been_logged_in_successfully": MessageLookupByLibrary.simpleMessage("you have been logged in successfully"),
       };
 }
 

@@ -143,7 +143,7 @@ class S {
   /// `General interior design \nand finishes`
   String get General_interior_design_and_finishes {
     return Intl.message(
-      'General interior design \nand finishes',
+      'General interior design and finishes',
       name: 'General_interior_design_and_finishes',
       desc: '',
       args: [],

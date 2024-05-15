@@ -60,15 +60,19 @@ class categoryItem extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 12.w),
                 child: Localizations.localeOf(context).languageCode == 'en'
                     ? Text(categoryy.EN['categoryName'],
+                        maxLines: 4,
                         style: Theme.of(context)
                             .textTheme!
                             .titleSmall!
-                            .merge(GoogleFonts.aBeeZee()))
+                            .merge(GoogleFonts.aBeeZee())
+                            .copyWith(overflow: TextOverflow.ellipsis))
                     : Text(categoryy.AR['categoryName'],
+                        maxLines: 4,
                         style: Theme.of(context)
                             .textTheme!
                             .titleSmall!
-                            .merge(GoogleFonts.aBeeZee())),
+                            .merge(GoogleFonts.aBeeZee())
+                            .copyWith(overflow: TextOverflow.ellipsis)),
               ),
             ),
           ],
