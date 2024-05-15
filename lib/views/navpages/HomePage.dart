@@ -72,9 +72,6 @@ class _HomePageState extends State<HomePage> {
         BlocProvider<SearchCubit>(create: (BuildContext context) {
           return SearchCubit(SearchCubitDUMMY_CATEGORIES, context);
         }),
-        BlocProvider<VisibilityCubit>(
-          create: (BuildContext context) => VisibilityCubit(),
-        ),
         BlocProvider<ServicesCubit>(
           create: (BuildContext context) => ServicesCubit(),
         ),
@@ -98,8 +95,8 @@ class _HomePageState extends State<HomePage> {
                       // height: 160.h,
                       width: double.infinity,
                       child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 15.w, vertical: 10.h),
                         child: Column(
                           children: [
                             Container(
@@ -127,13 +124,10 @@ class _HomePageState extends State<HomePage> {
                                         )),
                               ],
                             ),
-                            BlocBuilder<SearchCubit, searchState>(
-                                builder: (context, state) {
-                              return searchbar(
-                                DUMMY_CATEGORIES: SearchCubitDUMMY_CATEGORIES,
-                                search_controller: search_controller,
-                              );
-                            }),
+                            searchbar(
+                              DUMMY_CATEGORIES: SearchCubitDUMMY_CATEGORIES,
+                              search_controller: search_controller,
+                            )
                           ],
                         ),
                       ),
@@ -161,27 +155,27 @@ class _HomePageState extends State<HomePage> {
                           /////////////////////////
                           categoriesScreen(),
                           ///////////////////////////
-                          Container(
-                              height: 150.h,
-                              decoration: BoxDecoration(
-                                  color: Theme.of(context).primaryColor),
-                              child: CarouselSlider(
-                                options: CarouselOptions(
-                                  autoPlayInterval:
-                                      Duration(milliseconds: 4500),
-                                  autoPlayAnimationDuration:
-                                      Duration(milliseconds: 1500),
-                                  height: 300.0,
-                                  autoPlay: true,
-                                ),
-                                items: Images.map((i) {
-                                  return Builder(
-                                    builder: (BuildContext context) {
-                                      return Image.asset(img + i);
-                                    },
-                                  );
-                                }).toList(),
-                              ))
+                          // Container(
+                          //     height: 150.h,
+                          //     decoration: BoxDecoration(
+                          //         color: Theme.of(context).primaryColor),
+                          //     child: CarouselSlider(
+                          //       options: CarouselOptions(
+                          //         autoPlayInterval:
+                          //             Duration(milliseconds: 4500),
+                          //         autoPlayAnimationDuration:
+                          //             Duration(milliseconds: 1500),
+                          //         height: 300.0,
+                          //         autoPlay: true,
+                          //       ),
+                          //       items: Images.map((i) {
+                          //         return Builder(
+                          //           builder: (BuildContext context) {
+                          //             return Image.asset(img + i);
+                          //           },
+                          //         );
+                          //       }).toList(),
+                          //     ))
                         ],
                       ),
                     )
