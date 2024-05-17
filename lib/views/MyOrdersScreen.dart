@@ -26,6 +26,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
           body:state is GettingMyOrdersLoadingState? Center(child:
             SpinKitCircle(color: Colors.black45,),) :Container()
         );
+        
       },
     );
   }
