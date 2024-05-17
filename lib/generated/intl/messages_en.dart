@@ -23,17 +23,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Active": MessageLookupByLibrary.simpleMessage("Active"),
-        "Home_title1":
-            MessageLookupByLibrary.simpleMessage("ready for servicing"),
-        "Home_title2":
-            MessageLookupByLibrary.simpleMessage("any time"),
         "Adress": MessageLookupByLibrary.simpleMessage("Adress"),
         "Arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "Brightness_change":
             MessageLookupByLibrary.simpleMessage("Brightness change"),
         "Choose_Language_Of_The_Interface":
             MessageLookupByLibrary.simpleMessage(
-                "Choose your favourite language"),
+                "Choose Language Of The Interface"),
         "Choose_your_service_easily":
             MessageLookupByLibrary.simpleMessage("Choose your service easily"),
         "Click_here_to_log_in":
@@ -58,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("General contracting"),
         "General_interior_design_and_finishes":
             MessageLookupByLibrary.simpleMessage(
-                "General interior design and finishes"),
+                "General interior design \nand finishes"),
         "General_maintenance_and_renovation":
             MessageLookupByLibrary.simpleMessage(
                 "General maintenance and renovation"),
@@ -86,7 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Sign_IN": MessageLookupByLibrary.simpleMessage("Sign in "),
         "Sign_Up": MessageLookupByLibrary.simpleMessage("Sign up "),
         "Sign_out": MessageLookupByLibrary.simpleMessage("Sign out"),
-        "Text_Us": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "Text_Us": MessageLookupByLibrary.simpleMessage("Text Us"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
                 "Text us for any help or question"),
@@ -130,17 +126,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "then get best prices from our suppliers"),
-        "username": MessageLookupByLibrary.simpleMessage("username"),
-        "ServiceName": MessageLookupByLibrary.simpleMessage("ServiceName"),
-        "address": MessageLookupByLibrary.simpleMessage("address"),
-        "description": MessageLookupByLibrary.simpleMessage("description"),
-        "you_have_been_logged_in_successfully": MessageLookupByLibrary.simpleMessage("you have been logged in successfully"),
-        "please_write_your_email_in_a_good_way": MessageLookupByLibrary.simpleMessage("please write your email in a good way"),
-        "password_must_be_8_char_at_least": MessageLookupByLibrary.simpleMessage("password must be 8 char at least"),
-        "please_write_your_username": MessageLookupByLibrary.simpleMessage("please write your username"),
-        "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage("phone number must be 11 char"),
-        "please_write_your_address": MessageLookupByLibrary.simpleMessage("please write your address"),
+                "then get best prices from our suppliers")
       };
 }
-

@@ -143,7 +143,7 @@ class S {
   /// `General interior design \nand finishes`
   String get General_interior_design_and_finishes {
     return Intl.message(
-      'General interior design and finishes',
+      'General interior design \nand finishes',
       name: 'General_interior_design_and_finishes',
       desc: '',
       args: [],
@@ -183,7 +183,7 @@ class S {
   /// `Welcome Back`
   String get Welcome_Back {
     return Intl.message(
-      'Welcome',
+      'Welcome Back',
       name: 'Welcome_Back',
       desc: '',
       args: [],
@@ -193,7 +193,7 @@ class S {
   /// `We're excited to have you back, can't wait \nto see what you've been up to since you last \nlogged in`
   String get We_are_excited_to_have_you_back {
     return Intl.message(
-      'Register now and enjoy our immediate services',
+      'We\'re excited to have you back, can\'t wait \nto see what you\'ve been up to since you last \nlogged in',
       name: 'We_are_excited_to_have_you_back',
       desc: '',
       args: [],
@@ -263,7 +263,7 @@ class S {
   /// `Choose Language Of The Interface`
   String get Choose_Language_Of_The_Interface {
     return Intl.message(
-      'Choose your favourite language',
+      'Choose Language Of The Interface',
       name: 'Choose_Language_Of_The_Interface',
       desc: '',
       args: [],
@@ -293,7 +293,7 @@ class S {
   /// `Language Exchange`
   String get Language_Exchange {
     return Intl.message(
-      'Change language',
+      'Language Exchange',
       name: 'Language_Exchange',
       desc: '',
       args: [],
@@ -303,14 +303,14 @@ class S {
   /// `Text Us`
   String get Text_Us {
     return Intl.message(
-      'Contact Us',
+      'Text Us',
       name: 'Text_Us',
       desc: '',
       args: [],
     );
   }
 
-  /// `Share Application`
+  /// `Share`
   String get Share_Application {
     return Intl.message(
       'Share',
@@ -320,7 +320,7 @@ class S {
     );
   }
 
-  /// `Who Are`
+  /// `About`
   String get Who_Are {
     return Intl.message(
       'About',
@@ -373,14 +373,14 @@ class S {
   /// `My Order`
   String get My_Order {
     return Intl.message(
-      'My Orders',
+      'My Order',
       name: 'My_Order',
       desc: '',
       args: [],
     );
   }
 
-  /// `Maintainance Packages`
+  /// `Offers`
   String get Maintainance_Packages {
     return Intl.message(
       'Offers',
@@ -420,6 +420,7 @@ class S {
     );
   }
 
+  /// `Sign out`
   String get Sign_out {
     return Intl.message(
       'Sign out',
@@ -429,33 +430,37 @@ class S {
     );
   }
 
+  /// `Brightness change`
   String get Brightness_change {
     return Intl.message(
-      'Dark mode',
+      'Brightness change',
       name: 'Brightness_change',
       desc: '',
       args: [],
     );
   }
 
+  /// `No Maintainance offers now`
   String get No_Maintainance_offers_now {
     return Intl.message(
-      'No Maintenance Offers Now',
+      'No Maintainance offers now',
       name: 'No_Maintainance_offers_now',
       desc: '',
       args: [],
     );
   }
 
+  /// `No notifications now`
   String get No_notifications_now {
     return Intl.message(
-      'No Notifications Now',
+      'No notifications now',
       name: 'No_notifications_now',
       desc: '',
       args: [],
     );
   }
 
+  /// `Expert Technicians`
   String get expert_technicians {
     return Intl.message(
       'Expert Technicians',
@@ -465,6 +470,7 @@ class S {
     );
   }
 
+  /// `Service Guarantee`
   String get service_guarantee {
     return Intl.message(
       'Service Guarantee',
@@ -474,15 +480,17 @@ class S {
     );
   }
 
+  /// `Customer Satisfaction and Happiness`
   String get customer_satisfaction {
     return Intl.message(
-      'Customer Satisfaction',
+      'Customer Satisfaction and Happiness',
       name: 'customer_satisfaction',
       desc: '',
       args: [],
     );
   }
 
+  /// `Best Prices`
   String get best_prices {
     return Intl.message(
       'Best Prices',
@@ -492,6 +500,7 @@ class S {
     );
   }
 
+  /// `Money-Back Guarantee`
   String get money_back_guarantee {
     return Intl.message(
       'Money-Back Guarantee',
@@ -501,42 +510,47 @@ class S {
     );
   }
 
+  /// `Service Request`
   String get service_request {
     return Intl.message(
-      'Request service',
+      'Service Request',
       name: 'service_request',
       desc: '',
       args: [],
     );
   }
 
+  /// `Service requested successfully`
   String get service_request_success {
     return Intl.message(
-      'Service Request Successful',
+      'Service requested successfully',
       name: 'service_request_success',
       desc: '',
       args: [],
     );
   }
 
+  /// `Service request confirmation`
   String get service_confirmation {
     return Intl.message(
-      'Service Confirmation',
+      'Service request confirmation',
       name: 'service_confirmation',
       desc: '',
       args: [],
     );
   }
 
+  /// `Service`
   String get service_description {
     return Intl.message(
-      'Service Description',
+      'Service',
       name: 'service_description',
       desc: '',
       args: [],
     );
   }
 
+  /// `Please provide a detailed description`
   String get detailed_description_prompt {
     return Intl.message(
       'Please provide a detailed description',
@@ -546,6 +560,7 @@ class S {
     );
   }
 
+  /// `Add a contact number (optional)`
   String get contact_number_prompt {
     return Intl.message(
       'Add a contact number (optional)',
@@ -555,6 +570,7 @@ class S {
     );
   }
 
+  /// `Detailed address description (optional)`
   String get address_description_prompt {
     return Intl.message(
       'Detailed address description (optional)',
@@ -564,15 +580,17 @@ class S {
     );
   }
 
+  /// `Confirm`
   String get confirmation {
     return Intl.message(
       'Confirm',
-      name: 'confirm',
+      name: 'confirmation',
       desc: '',
       args: [],
     );
   }
 
+  /// `Contact Information`
   String get Contact_Information {
     return Intl.message(
       'Contact Information',
@@ -582,24 +600,27 @@ class S {
     );
   }
 
+  /// `Contact_Number`
   String get Contact_Number {
     return Intl.message(
-      'Contact Number',
+      'Contact_Number',
       name: 'Contact_Number',
       desc: '',
       args: [],
     );
   }
 
+  /// `What We Offer You`
   String get What_We_Offer_You {
     return Intl.message(
-      'What we offer for you',
+      'What We Offer You',
       name: 'What_We_Offer_You',
       desc: '',
       args: [],
     );
   }
 
+  /// `Finished`
   String get Finished {
     return Intl.message(
       'Finished',
@@ -609,6 +630,7 @@ class S {
     );
   }
 
+  /// `Active`
   String get Active {
     return Intl.message(
       'Active',
@@ -618,6 +640,7 @@ class S {
     );
   }
 
+  /// `Please write the description`
   String get Please_write_the_description {
     return Intl.message(
       'Please write the description',
@@ -627,6 +650,7 @@ class S {
     );
   }
 
+  /// `Click here to log in`
   String get Click_here_to_log_in {
     return Intl.message(
       'Click here to log in',
@@ -636,6 +660,7 @@ class S {
     );
   }
 
+  /// `log in first to request the service`
   String get log_in_first_to_request_the_service {
     return Intl.message(
       'log in first to request the service',
@@ -645,127 +670,11 @@ class S {
     );
   }
 
+  /// `No offers now`
   String get No_offers_now {
     return Intl.message(
       'No offers now',
       name: 'No_offers_now',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get address {
-    return Intl.message(
-      'address',
-      name: 'address',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get description {
-    return Intl.message(
-      'description',
-      name: 'description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get ServiceName {
-    return Intl.message(
-      'ServiceName',
-      name: 'ServiceName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get You_are_already_logged_in {
-    return Intl.message(
-      'You \'re already logged in',
-      name: 'You_are_already_logged_in',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get username {
-    return Intl.message(
-      'username',
-      name: 'username',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get Home_title1 {
-    return Intl.message(
-      'dedicated to perfiction',
-      name: 'Home_title1',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get Home_title2 {
-    return Intl.message(
-      'every single time"',
-      name: 'Home_title2',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get you_have_been_logged_in_successfully {
-    return Intl.message(
-      'you have been logged in successfully',
-      name: 'you_have_been_logged_in_successfully',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get please_write_your_email_in_a_good_way {
-    return Intl.message(
-      'please write your email in a good way',
-      name: 'please_write_your_email_in_a_good_way',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get password_must_be_8_char_at_least {
-    return Intl.message(
-      'epassword must be 8 char at least',
-      name: 'password_must_be_8_char_at_least',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get please_write_your_username {
-    return Intl.message(
-      'please write your username',
-      name: 'please_write_your_username',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get phone_number_must_be_11_char {
-    return Intl.message(
-      'phone number must be 11 char',
-      name: 'phone_number_must_be_11_char',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get please_write_your_address {
-    return Intl.message(
-      'please write your address',
-      name: 'please_write_your_address',
       desc: '',
       args: [],
     );

@@ -23,26 +23,25 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Active": MessageLookupByLibrary.simpleMessage("نشط"),
-        "Home_title1": MessageLookupByLibrary.simpleMessage("متاحون لخدمتكم"),
-        "Home_title2": MessageLookupByLibrary.simpleMessage("في اي وقت"),
         "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "Brightness_change":
-            MessageLookupByLibrary.simpleMessage("تغيير الأضاءة"),
+            MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي"),
         "Choose_Language_Of_The_Interface":
-            MessageLookupByLibrary.simpleMessage("اختار لغتك المفضلة "),
+            MessageLookupByLibrary.simpleMessage("اختار لغة واجهة التطبيق "),
         "Choose_your_service_easily":
-            MessageLookupByLibrary.simpleMessage("نتشرف  بطلبك خدماتنا"),
+            MessageLookupByLibrary.simpleMessage("اختار الخدمة بسهولة"),
         "Click_here_to_log_in":
             MessageLookupByLibrary.simpleMessage("اضغط هنا لتسجيل الدخول"),
         "Complete_the_service_and_rate_the_service_provider":
-            MessageLookupByLibrary.simpleMessage("انهي الخدمة وشاركنا تجربتك"),
+            MessageLookupByLibrary.simpleMessage(
+                "انهي الخدمة وقيم مزود الخدمة"),
         "Contact_Information":
             MessageLookupByLibrary.simpleMessage("معلومات الاتصال"),
         "Contact_Number": MessageLookupByLibrary.simpleMessage("رقم الاتصال:"),
         "Continue": MessageLookupByLibrary.simpleMessage("استمرار"),
         "Describe_your_request":
-            MessageLookupByLibrary.simpleMessage(" يمكنك وصف طلبك كما تشاء "),
+            MessageLookupByLibrary.simpleMessage("اكتب وصفا لطلبك"),
         "Dont_have_an_account_yet":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب بعد ؟ "),
         "English": MessageLookupByLibrary.simpleMessage("الأنجليزية"),
@@ -74,8 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),
-        "Select_the_best_offer_for_you":
-            MessageLookupByLibrary.simpleMessage("اختر خدماتنا ونحن في خدمتك"),
+        "Select_the_best_offer_for_you": MessageLookupByLibrary.simpleMessage(
+            "اختر العرض الأفضل بالنسبة لك"),
         "Settings": MessageLookupByLibrary.simpleMessage("الأعدادات"),
         "Share_Application":
             MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
@@ -125,27 +124,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "ثم احصل علي افضل عروض الأسعار من مزودينا"),
-        "username": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
-        "ServiceName": MessageLookupByLibrary.simpleMessage("اسم الخدمة"),
-        "address": MessageLookupByLibrary.simpleMessage(" العنوان"),
-        "description": MessageLookupByLibrary.simpleMessage("تفاصيل الخدمة"),
-        "you_have_been_logged_in_successfully":
-            MessageLookupByLibrary.simpleMessage("م تسجيل دخولك بنجاح"),
-        "please_write_your_email_in_a_good_way":
-            MessageLookupByLibrary.simpleMessage(
-                "من فضلك، اكتب بريدك الإلكتروني بشكل صحيح"),
-        "password_must_be_8_char_at_least":
-            MessageLookupByLibrary.simpleMessage(
-                "يجب أن تكون كلمة المرور على الأقل 8 أحرف"),
-        "please_write_your_username": MessageLookupByLibrary.simpleMessage(
-            "من فضلك، اكتب اسم المستخدم الخاص بك"),
-        "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage(
-            "يجب أن يكون رقم الهاتف 11 رقمًا"),
-        "please_write_your_address":
-            MessageLookupByLibrary.simpleMessage("من فضلك، اكتب عنوانك"),
-        "you_have_been_logged_in_successfully":
-            MessageLookupByLibrary.simpleMessage(
-                "تم تسجيل الدخول بنجاح"),
+                "ثم احصل علي افضل عروض الأسعار من مزودينا")
       };
 }
