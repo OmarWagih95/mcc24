@@ -124,6 +124,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
         "then_get_best_prices_from_our_suppliers":
             MessageLookupByLibrary.simpleMessage(
-                "ثم احصل علي افضل عروض الأسعار من مزودينا")
+                "ثم احصل علي افضل عروض الأسعار من مزودينا"),
+        "username": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "ServiceName": MessageLookupByLibrary.simpleMessage("الخدمة"),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+        "description": MessageLookupByLibrary.simpleMessage("التفاصيل"),
+        "you_have_been_logged_in_successfully":
+            MessageLookupByLibrary.simpleMessage(
+                "تم تسجيل الدخول بنجاح"),
+        "please_write_your_email_in_a_good_way":
+            MessageLookupByLibrary.simpleMessage(
+                "اكتب الايميل بالصيغة الصحيحة"),
+        "password_must_be_8_char_at_least":
+            MessageLookupByLibrary.simpleMessage(
+                "كلمة المرور لا تقل عن 8 ارقام"),
+        "please_write_your_username":
+            MessageLookupByLibrary.simpleMessage("من فضلك ادخل الاسم"),
+        "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage(
+            "رقم التليفون لا يقل عن 11 رقم"),
+        "please_write_your_address":
+            MessageLookupByLibrary.simpleMessage("من فضلك ادخل العنوان"),
+      
       };
 }
