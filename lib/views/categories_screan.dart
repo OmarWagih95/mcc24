@@ -7,7 +7,10 @@ import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/cubits/services_cubit.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/views/servicesScreen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -27,7 +30,9 @@ class categoriesScreen extends StatefulWidget {
 
 class _categoriesScreenState extends State<categoriesScreen> {
   @override
-  void initState() {}
+  void initState() {
+    // categoryDataList_ = (context).read<HomePageCubit>().categoryDataList;
+  }
 
   @override
   Widget build(context) {
@@ -39,50 +44,57 @@ class _categoriesScreenState extends State<categoriesScreen> {
         }
       },
       builder: (context, state) {
-        return
-            // state is HomePageGetDataLoading
-            //     ? Column(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: [
-            //           Container(
-            //             height: 250.h,
-            //             child: Center(
-            //               child: SpinKitCircle(
-            //                 color: Theme.of(context).primaryColor,
-            //               ),
-            //             ),
-            //           ),
-            //         ],
-            //       )
-            //     :
-            BlocBuilder<SearchCubit, searchState>(
-          builder: (context, state) {
-            if (state is searchinitialState) {
-              categoryDataList_ =
-                  (context).read<HomePageCubit>().categoryDataList;
-              return Container(
-                  // color: Colors.red,
-                  margin: EdgeInsets.only(top: 10.h),
-                  padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 4.h),
-                  height: 300.h,
-                  child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 2.8 / 2,
-                        crossAxisSpacing: 10.w,
-                        mainAxisSpacing: 10.h),
-                    itemBuilder: (context, index) {
-                      return categoryItem(state.filteredData[index],
-                          Theme.of(context).primaryColorLight);
-                    },
-                    itemCount: state.filteredData
-                        .length, // itemCount: BlocProvider.of<HomePageCubit>(context).categoryDataList.length,
-                  ));
-            } else {
-              return const Center(child: Text('some thing wrong with search'));
-            }
-          },
-        );
+        if (state is HomePageGetDataSuccessed) {
+          return BlocBuilder<SearchCubit, searchState>(
+            builder: (context, state) {
+              if (state is searchinitialState) {
+                // categoryDataList_ =
+                //     (context).read<HomePageCubit>().categoryDataList;
+                return Container(
+                    // color: Colors.red,
+                    margin: EdgeInsets.only(top: 10.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 2.w, vertical: 4.h),
+                    height: 300.h,
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 2.8 / 2,
+                          crossAxisSpacing: 10.w,
+                          mainAxisSpacing: 10.h),
+                      itemBuilder: (context, index) {
+                        return categoryItem(state.filteredData[index],
+                            Theme.of(context).primaryColorLight);
+                      },
+                      itemCount: state.filteredData
+                          .length, // itemCount: BlocProvider.of<HomePageCubit>(context).categoryDataList.length,
+                    ));
+              } else {
+                return const Center(
+                    child: Text('some thing wrong with search'));
+              }
+            },
+          );
+        } else if (state is HomePageGetDataFailure) {
+          return const Center(child: Text('some thing wrong with search'));
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
+        // state is HomePageGetDataLoading
+        //     ? Column(
+        //         mainAxisAlignment: MainAxisAlignment.center,
+        //         children: [
+        //           Container(
+        //             height: 250.h,
+        //             child: Center(
+        //               child: SpinKitCircle(
+        //                 color: Theme.of(context).primaryColor,
+        //               ),
+        //             ),
+        //           ),
+        //         ],
+        //       )
+        //     :
       },
     );
   }
@@ -130,68 +142,126 @@ class categoryItem extends StatelessWidget {
               border:
                   Border.all(color: Theme.of(context).primaryColor, width: 2),
               color: color,
-              // gradient: LinearGradient(
-              //     colors: [color.withOpacity(0.7), color],
-              //     begin: Alignment.topLeft,
-              //     end: Alignment.bottomRight),
               borderRadius: BorderRadius.circular(15.r)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              state is HomePageGetDataLoading
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 250.h,
-                          child: Center(
-                            child: SpinKitCircle(
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  : Image.network(
-                      categoryy.logoImgURL!,
-                      height: 80.h,
-                    ),
-              Flexible(
-                child: state is HomePageGetDataLoading
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 250.h,
-                            child: Center(
-                              child: SpinKitCircle(
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    : Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12.w),
-                        child: Localizations.localeOf(context).languageCode ==
-                                'en'
-                            ? Text(categoryy.EN['categoryName'],
-                                maxLines: 4,
-                                style: Theme.of(context)
-                                    .textTheme!
-                                    .titleSmall!
-                                    .merge(GoogleFonts.aBeeZee())
-                                    .copyWith(overflow: TextOverflow.ellipsis))
-                            : Text(categoryy.AR['categoryName'],
-                                maxLines: 4,
-                                style: Theme.of(context)
-                                    .textTheme!
-                                    .titleSmall!
-                                    .merge(GoogleFonts.aBeeZee())
-                                    .copyWith(overflow: TextOverflow.ellipsis)),
+              CachedNetworkImage(
+                imageUrl: categoryy.logoImgURL!,
+                height: 80.h,
+                placeholder: (context, url) =>
+                    Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+                imageBuilder: (context, imageProvider) {
+                  return Column(
+                    children: [
+                      Image(
+                        image: imageProvider,
+                        height: 60.h,
+                        fit: BoxFit.cover,
                       ),
-              ),
+                      // SizedBox(height: 10.h),
+                      Flexible(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.w),
+                          child: Localizations.localeOf(context).languageCode ==
+                                  'en'
+                              ? Text(
+                                  categoryy.EN['categoryName'] ?? '',
+                                  maxLines: 4,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .merge(GoogleFonts.aBeeZee())
+                                      .copyWith(
+                                          overflow: TextOverflow.ellipsis),
+                                )
+                              : Text(
+                                  categoryy.AR['categoryName'] ?? '',
+                                  maxLines: 4,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .merge(GoogleFonts.aBeeZee())
+                                      .copyWith(
+                                          overflow: TextOverflow.ellipsis),
+                                ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              )
+              // Image.network(
+              //   categoryy.logoImgURL!,
+              //   height: 80.h,
+              //   loadingBuilder: (BuildContext context, Widget child,
+              //       ImageChunkEvent? loadingProgress) {
+              //     if (loadingProgress == null) {
+              //       return Expanded(
+              //         child: Column(
+              //           children: [
+              //             child,
+              //             SizedBox(height: 10),
+              //             Flexible(
+              //               child: Padding(
+              //                 padding: EdgeInsets.symmetric(horizontal: 12.w),
+              //                 child: Localizations.localeOf(context)
+              //                             .languageCode ==
+              //                         'en'
+              //                     ? Text(categoryy.EN['categoryName'],
+              //                         maxLines: 4,
+              //                         style: Theme.of(context)
+              //                             .textTheme!
+              //                             .titleSmall!
+              //                             .merge(GoogleFonts.aBeeZee())
+              //                             .copyWith(
+              //                                 overflow: TextOverflow.ellipsis))
+              //                     : Text(categoryy.AR['categoryName'],
+              //                         maxLines: 4,
+              //                         style: Theme.of(context)
+              //                             .textTheme!
+              //                             .titleSmall!
+              //                             .merge(GoogleFonts.aBeeZee())
+              //                             .copyWith(
+              //                                 overflow: TextOverflow.ellipsis)),
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       );
+              //     } else {
+              //       return Center(
+              //           child: CircularProgressIndicator(
+              //         value: loadingProgress.expectedTotalBytes != null
+              //             ? loadingProgress.cumulativeBytesLoaded /
+              //                 (loadingProgress.expectedTotalBytes ?? 1)
+              //             : null,
+              //       ));
+              //     }
+              //   },
+              // ),
+
+              // Flexible(
+              //   child: Padding(
+              //     padding: EdgeInsets.symmetric(horizontal: 12.w),
+              //     child: Localizations.localeOf(context).languageCode == 'en'
+              //         ? Text(categoryy.EN['categoryName'],
+              //             maxLines: 4,
+              //             style: Theme.of(context)
+              //                 .textTheme!
+              //                 .titleSmall!
+              //                 .merge(GoogleFonts.aBeeZee())
+              //                 .copyWith(overflow: TextOverflow.ellipsis))
+              //         : Text(categoryy.AR['categoryName'],
+              //             maxLines: 4,
+              //             style: Theme.of(context)
+              //                 .textTheme!
+              //                 .titleSmall!
+              //                 .merge(GoogleFonts.aBeeZee())
+              //                 .copyWith(overflow: TextOverflow.ellipsis)),
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -199,3 +269,64 @@ class categoryItem extends StatelessWidget {
     });
   }
 }
+// Container(
+//             foregroundDecoration: BoxDecoration(),
+//             padding: EdgeInsets.all(2),
+//             decoration: BoxDecoration(
+//                 border:
+//                     Border.all(color: Theme.of(context).primaryColor, width: 2),
+//                 color: color,
+//                 borderRadius: BorderRadius.circular(15.r)),
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.spaceAround,
+//               children: [
+//                 Image.network(
+//                   loadingBuilder: (BuildContext context, Widget child,
+//                       ImageChunkEvent? loadingProgress) {
+//                     if (loadingProgress == null) {
+//                       return Column(
+//                         children: [
+//                           child,
+//                           SizedBox(height: 10),
+//                           Flexible(
+//                             child: Padding(
+//                               padding: EdgeInsets.symmetric(horizontal: 12.w),
+//                               child: Localizations.localeOf(context)
+//                                           .languageCode ==
+//                                       'en'
+//                                   ? Text(categoryy.EN['categoryName'],
+//                                       maxLines: 4,
+//                                       style: Theme.of(context)
+//                                           .textTheme!
+//                                           .titleSmall!
+//                                           .merge(GoogleFonts.aBeeZee())
+//                                           .copyWith(
+//                                               overflow: TextOverflow.ellipsis))
+//                                   : Text(categoryy.AR['categoryName'],
+//                                       maxLines: 4,
+//                                       style: Theme.of(context)
+//                                           .textTheme!
+//                                           .titleSmall!
+//                                           .merge(GoogleFonts.aBeeZee())
+//                                           .copyWith(
+//                                               overflow: TextOverflow.ellipsis)),
+//                             ),
+//                           ),
+//                         ],
+//                       );
+//                     } else {
+//                       return Center(
+//                           child: CircularProgressIndicator(
+//                         value: loadingProgress.expectedTotalBytes != null
+//                             ? loadingProgress.cumulativeBytesLoaded /
+//                                 (loadingProgress.expectedTotalBytes ?? 1)
+//                             : null,
+//                       ));
+//                     }
+//                   },
+//                   categoryy.logoImgURL!,
+//                   height: 80.h,
+//                 ),
+//               ],
+//             ),
+//           ),

@@ -44,7 +44,7 @@ void main() async {
         create: (context) => Dark_lightModeCubit()..darkAndlightMode('light'),
       ),
       BlocProvider<HomePageCubit>(
-        create: (context) => HomePageCubit(),
+        create: (context) => HomePageCubit()..getCategoriesData(),
         child: HomePage(),
       ),
     ],

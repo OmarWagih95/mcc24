@@ -10,7 +10,7 @@ class HomePageCubit extends Cubit<HomePageState> {
   HomePageCubit() : super(HomePageInitial());
   List<Categoryy> categoryDataList = [];
   getCategoriesData() async {
-    emit(HomePageGetDataLoading());
+    // emit(HomePageGetDataLoading());
     try {
       categoryDataList.clear();
       categoryDataList =
