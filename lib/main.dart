@@ -47,7 +47,7 @@ void main() async {
         create: (context) => HomePageCubit()..getCategoriesData(),
         child: HomePage(),
       ),
-    ],
+    ], 
     child: BlocProvider(
       create: (context) => ServicesCubit(),
       child: BlocProvider(

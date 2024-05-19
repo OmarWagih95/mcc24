@@ -150,8 +150,8 @@ class categoryItem extends StatelessWidget {
                 imageUrl: categoryy.logoImgURL!,
                 height: 80.h,
                 placeholder: (context, url) =>
-                    Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+                    const Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
                 imageBuilder: (context, imageProvider) {
                   return Column(
                     children: [
@@ -160,7 +160,6 @@ class categoryItem extends StatelessWidget {
                         height: 60.h,
                         fit: BoxFit.cover,
                       ),
-                      // SizedBox(height: 10.h),
                       Flexible(
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 12.w),
