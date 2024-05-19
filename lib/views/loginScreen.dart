@@ -136,8 +136,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             // ]),
                             verticalSpace(20),
                             state is LoginLoadingState
-                                ? SpinKitCircle(
-                                    color: Theme.of(context).primaryColor,
+                                ? const SpinKitCircle(
+                                    color: FxColors.primary,
                                   )
                                 : TextButton(
                                     onPressed: () async {

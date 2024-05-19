@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:MCC/cash/shared_pref.dart';
+import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
@@ -69,7 +70,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthCubitSignOutSuccess) {
-          BlocProvider.of<AuthCubit>(context).user = null;
+          // BlocProvider.of<AuthCubit>(context).user = null;
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
@@ -180,28 +181,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           : 'en');
                 },
               ),
-              BlocBuilder<HomePageCubit, HomePageState>(
-                builder: (context, state) {
-                  return SwitchListTile(
-                    value: BlocProvider.of<HomePageCubit>(context).darkMode,
-                    onChanged: (value) {
-                      BlocProvider.of<HomePageCubit>(context)
-                          .changeSwitch(value);
-                      final mode =
-                          BlocProvider.of<Dark_lightModeCubit>(context).mode;
-                      log(' from onPressed1 mode is $mode');
-                      BlocProvider.of<Dark_lightModeCubit>(context)
-                          .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
-                    },
-                    title: Text(S.of(context).Brightness_change,
-                        style: TextStyle()),
-                    activeColor: Theme.of(context).primaryColor,
-                    hoverColor: Theme.of(context).scaffoldBackgroundColor,
-                    inactiveThumbColor: Colors.black,
-                    inactiveTrackColor: Colors.black12,
-                  );
+              SwitchListTile(
+                value: BlocProvider.of<Dark_lightModeCubit>(context).mode ==
+                        'light'
+                    ? true
+                    : false,
+                onChanged: (value) {
+                  BlocProvider.of<Dark_lightModeCubit>(context)
+                      .darkAndlightMode(value == false ? 'dark' : 'light');
                 },
-              ),
+                title:
+                    Text(S.of(context).Brightness_change, style: TextStyle()),
+                activeColor: Colors.black12,
+                hoverColor: Theme.of(context).scaffoldBackgroundColor,
+                inactiveThumbColor: Colors.white,
+                inactiveTrackColor: FxColors.primary,
+              )
             ],
           ),
         );

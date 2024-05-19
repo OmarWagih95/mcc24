@@ -10,6 +10,8 @@ class DarkModeState extends Dark_lightModeState {}
 
 class LightModeState extends Dark_lightModeState {}
 
+class changingSwitchState extends Dark_lightModeState {}
+
 class Dark_lightModeCubit extends Cubit<Dark_lightModeState> {
   Dark_lightModeCubit() : super(initialtModeState());
   String mode = '';
@@ -22,4 +24,10 @@ class Dark_lightModeCubit extends Cubit<Dark_lightModeState> {
       emit(DarkModeState());
     }
   }
+
+  // bool darkMode = (mode == '') ? false : true;
+  // changeSwitch(bool x) {
+  //   darkMode = x;
+  //   emit(changingSwitchState());
+  // }
 }

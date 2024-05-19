@@ -87,7 +87,7 @@ return false;
   Future<userModel>getUserData()async{
     // await _auth.userChanges();
     // await _auth.currentUser!.reload();
-    String? userID= await _auth.currentUser!.uid;
+    // String? userID= await _auth.currentUser!.uid;
     debugPrint('${userID} currentUser');
     var userData = await FirebaseFirestore.instance.collection('users').doc(userID).get();
     debugPrint('${userID} get user ahu');
