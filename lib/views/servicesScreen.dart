@@ -53,18 +53,12 @@ class _ServicesScreenState extends State<ServicesScreen> {
                     padding: EdgeInsets.all(8.r),
                     decoration: BoxDecoration(
                         border: BorderDirectional(
-                          top: BorderSide(
-                              color: FxColors.primary,
-                              width: 5.w),
-                          bottom: BorderSide(
-                              color: FxColors.primary,
-                              width: 1.w),
-                          start: BorderSide(
-                              color: FxColors.primary,
-                              width: 1.w),
-                          end: BorderSide(
-                              color: FxColors.primary,
-                              width: 1.w),
+                          top: BorderSide(color: FxColors.primary, width: 5.w),
+                          bottom:
+                              BorderSide(color: FxColors.primary, width: 1.w),
+                          start:
+                              BorderSide(color: FxColors.primary, width: 1.w),
+                          end: BorderSide(color: FxColors.primary, width: 1.w),
                         ),
                         color: Theme.of(context).primaryColorLight,
                         borderRadius: BorderRadius.circular(10.h)),
@@ -98,22 +92,18 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                         onTap: () {
                                           debugPrint('clicked');
                                           Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      BlocProvider(
-                                                        create: (context) =>
-                                                            OrderCubit(),
-                                                        child: ServiceDetailsScreen(
-                                                            state.servicesDataList[
-                                                                index]
-                                                            //     Service(context.read<ServicesCubit>().servicesDataList[index].id,
-                                                            //   context.read<ServicesCubit>().servicesDataList[index].AR,
-                                                            //   context.read<ServicesCubit>().servicesDataList[index].EN,
-                                                            //   context.read<ServicesCubit>().servicesDataList[index].logoImgURL,
-                                                            // )
-                                                            ),
-                                                      )));
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  BlocProvider(
+                                                create: (context) =>
+                                                    OrderCubit(),
+                                                child: ServiceDetailsScreen(
+                                                    state.servicesDataList[
+                                                        index]),
+                                              ),
+                                            ),
+                                          );
                                         },
                                         child: Container(
                                           margin: EdgeInsets.symmetric(
