@@ -20,6 +20,9 @@ import '../cubits/home_page_cubit.dart';
 import '/widgets/category_item.dart';
 
 var categoryDataList_ = [];
+void _deleteCachedImage() {
+  CachedNetworkImage.evictFromCache('imageUrl');
+}
 
 class categoriesScreen extends StatefulWidget {
   categoriesScreen({super.key});
@@ -148,7 +151,7 @@ class categoryItem extends StatelessWidget {
             children: [
               CachedNetworkImage(
                 imageUrl: categoryy.logoImgURL!,
-                height: 80.h,
+                height: 100.h,
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -156,6 +159,7 @@ class categoryItem extends StatelessWidget {
                   return Column(
                     children: [
                       Image(
+                        width: 80.w,
                         image: imageProvider,
                         height: 60.h,
                         fit: BoxFit.cover,

@@ -6,19 +6,24 @@ import 'package:MCC/widgets/OurPropertiesListItem.dart';
 import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flick_video_player/flick_video_player.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:video_player/video_player.dart';
 import '../model/service.dart';
 import '../widgets/OrderingServiceDialog.dart';
 
+String VideoUrl =
+    "https://firebasestorage.googleapis.com/v0/b/mmctest-18030.appspot.com/o/videos%2Fvideo2.mp4?alt=media&token=857e4ce0-0ec3-4644-b6d1-28b51b3f52ea";
+late bool playvideo;
+bool playslider = true;
+
 class ServiceDetailsScreen extends StatefulWidget {
   Service service;
-
+  String url = "url";
   ServiceDetailsScreen(this.service);
 
   @override
@@ -27,21 +32,86 @@ class ServiceDetailsScreen extends StatefulWidget {
 
 class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
   late FlickManager flickManager;
+  //player controller
+  VideoPlayerController? _controller;
   @override
   void initState() {
     super.initState();
+    //initialize player
+    // initializePlayer(widget.url);
     flickManager = FlickManager(
-        videoPlayerController: VideoPlayerController.networkUrl(
-      Uri.parse(
-          "https://firebasestorage.googleapis.com/v0/b/mmctest-18030.appspot.com/o/videos%2Fvideo2.mp4?alt=media&token=857e4ce0-0ec3-4644-b6d1-28b51b3f52ea"),
-    ));
+      videoPlayerController: VideoPlayerController.networkUrl(
+        Uri.parse(VideoUrl),
+        videoPlayerOptions: VideoPlayerOptions(),
+      ),
+    );
+
+    flickManager.flickVideoManager!.addListener(() {
+      if (flickManager
+          .flickVideoManager!.videoPlayerController!.value.isPlaying) {
+        setState(() {
+          playslider = false;
+        });
+      } else {
+        setState(() {
+          playslider = true;
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
     flickManager.dispose();
+    if (_controller != null) {
+      _controller!.dispose();
+    }
     super.dispose();
   }
+
+// //Initialize Video Player
+//   void initializePlayer(String url) async {
+//     final fileInfo = await checkCacheFor(url);
+//     if (fileInfo == null) {
+//       _controller = VideoPlayerController.network(url);
+//       _controller!.initialize().then((value) {
+//         cachedForUrl(url);
+//         setState(() {
+//           _controller!.play();
+//         });
+//       });
+//     } else {
+//       final file = fileInfo.file;
+//       _controller = VideoPlayerController.file(file);
+//       _controller!.initialize().then((value) {
+//         setState(() {
+//           _controller!.play();
+//         });
+//       });
+//     }
+//   }
+
+// //: check for cache
+//   Future<FileInfo?> checkCacheFor(String url) async {
+//     final FileInfo? value = await DefaultCacheManager().getFileFromCache(url);
+//     return value;
+//   }
+
+// //:cached Url Data
+//   void cachedForUrl(String url) async {
+//     await DefaultCacheManager().getSingleFile(url).then((value) {
+//       print('downloaded successfully done for $url');
+//     });
+//   }
+
+// //:Dispose
+//   @override
+//   void dispose() {
+//     if (_controller != null) {
+//       _controller!.dispose();
+//     }
+//     super.dispose();
+//   }
 
 //   Service service;
   @override
@@ -71,6 +141,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                     width: double.infinity,
                     /////////////////slider////////////
                     child: CarouselSlider(
+                      carouselController: CarouselController(),
                       items: [
                         Container(
                           width: double.infinity,
@@ -78,10 +149,31 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                               fit: BoxFit.cover),
                         ),
                         Container(
-                          child: FlickVideoPlayer(flickManager: flickManager),
+                          width: double.infinity,
+                          child: Image.asset('img/1024.png', fit: BoxFit.cover),
                         ),
+                        // Container(
+                        //   child: FlickVideoPlayer(flickManager: flickManager),
+                        // ),
                       ],
                       options: CarouselOptions(
+                        // onScrolled: (value) {
+                        //   if (value == 2) {
+                        //     setState(() {
+                        //       play = false;
+                        //     });
+                        //   }
+                        // },
+                        // onPageChanged: (index, reason) {
+                        //   setState(() {
+                        //     play = false;
+                        //   });
+                        // },
+                        // scrollDirection: Axis.vertical,
+                        // scrollPhysics: BouncingScrollPhysics(),
+                        autoPlay: /* (true) ? play : play */ playslider,
+                        autoPlayInterval: Duration(seconds: 5),
+                        autoPlayAnimationDuration: Duration(milliseconds: 1200),
                         viewportFraction: 1,
                         aspectRatio: 16 / 9,
                       ),

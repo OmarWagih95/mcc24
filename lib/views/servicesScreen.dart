@@ -6,6 +6,7 @@ import 'package:MCC/model/category.dart';
 import 'package:MCC/views/serviceDetailsScreen.dart';
 import 'package:MCC/widgets/customAppbar.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -137,23 +138,29 @@ class _ServicesScreenState extends State<ServicesScreen> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text(
-                                                  (Localizations.localeOf(
-                                                                  context)
-                                                              .languageCode ==
-                                                          'ar')
-                                                      ? context
-                                                          .read<ServicesCubit>()
-                                                          .servicesDataList[
-                                                              index]
-                                                          .AR['serviceName']
-                                                      : context
-                                                          .read<ServicesCubit>()
-                                                          .servicesDataList[
-                                                              index]
-                                                          .EN['serviceName'],
-                                                  style: TextStyle(
-                                                    fontSize: 20.w,
+                                                Expanded(
+                                                  child: Text(
+                                                    (Localizations.localeOf(
+                                                                    context)
+                                                                .languageCode ==
+                                                            'ar')
+                                                        ? context
+                                                            .read<
+                                                                ServicesCubit>()
+                                                            .servicesDataList[
+                                                                index]
+                                                            .AR['serviceName']
+                                                        : context
+                                                            .read<
+                                                                ServicesCubit>()
+                                                            .servicesDataList[
+                                                                index]
+                                                            .EN['serviceName'],
+                                                    maxLines: 2,
+                                                    style: TextStyle(
+                                                        fontSize: 20.w,
+                                                        overflow: TextOverflow
+                                                            .ellipsis),
                                                   ),
                                                 ),
                                                 Icon(
