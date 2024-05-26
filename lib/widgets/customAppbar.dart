@@ -1,6 +1,7 @@
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/widgets/homePageHelperWidgets.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,15 +44,19 @@ class customAppbar extends StatelessWidget {
                     icon: const Icon(
                       Icons.arrow_back,
                     )),
-            Spacer(),
-            Spacer(),
-            Text(
-              title,
-              style: TextStyle(fontSize: 24.sp),
+            // Spacer(),
+            // Spacer(),
+            Expanded(
+              child: Text(
+                title,
+                maxLines: 2,
+                style:
+                    TextStyle(fontSize: 24.sp, overflow: TextOverflow.ellipsis),
+              ),
             ),
-            Spacer(),
-            Spacer(),
-            Spacer(),
+            // Spacer(),
+            // Spacer(),
+            // Spacer(),
           ],
         ),
       ),
