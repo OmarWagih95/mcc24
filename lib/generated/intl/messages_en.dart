@@ -131,12 +131,31 @@ class MessageLookup extends MessageLookupByLibrary {
         "ServiceName": MessageLookupByLibrary.simpleMessage("ServiceName"),
         "address": MessageLookupByLibrary.simpleMessage("address"),
         "description": MessageLookupByLibrary.simpleMessage("description"),
-        "you_have_been_logged_in_successfully": MessageLookupByLibrary.simpleMessage("you have been logged in successfully"),
-        "please_write_your_email_in_a_good_way": MessageLookupByLibrary.simpleMessage("please write your email in a good way"),
-        "password_must_be_8_char_at_least": MessageLookupByLibrary.simpleMessage("password must be 8 char at least"),
-        "please_write_your_username": MessageLookupByLibrary.simpleMessage("please write your username"),
-        "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage("phone number must be 11 char"),
-        "please_write_your_address": MessageLookupByLibrary.simpleMessage("please write your address"),
-        "you_have_been_logged_in_successfully": MessageLookupByLibrary.simpleMessage("you have been logged in successfully"),
+        "you_have_been_logged_in_successfully":
+            MessageLookupByLibrary.simpleMessage(
+                "you have been logged in successfully"),
+        "please_write_your_email_in_a_good_way":
+            MessageLookupByLibrary.simpleMessage(
+                "please write your email in a good way"),
+        "password_must_be_8_char_at_least":
+            MessageLookupByLibrary.simpleMessage(
+                "password must be 8 char at least"),
+        "please_write_your_username":
+            MessageLookupByLibrary.simpleMessage("please write your username"),
+        "phone_number_must_be_11_char": MessageLookupByLibrary.simpleMessage(
+            "phone number must be 11 char"),
+        "please_write_your_address":
+            MessageLookupByLibrary.simpleMessage("please write your address"),
+        "you_have_been_logged_in_successfully":
+            MessageLookupByLibrary.simpleMessage(
+                "you have been logged in successfully"),
+        "Home_title1":
+            MessageLookupByLibrary.simpleMessage("Available for servicing"),
+        "Home_title2":
+            MessageLookupByLibrary.simpleMessage("every single time"),
+        "exit":
+            MessageLookupByLibrary.simpleMessage("exit"),
+        "exit_mess":
+            MessageLookupByLibrary.simpleMessage("do you want to exit ?"),
       };
 }

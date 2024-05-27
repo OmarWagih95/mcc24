@@ -51,11 +51,13 @@ class _mainpageState extends State<mainpage> {
     //   return false;
     // } else {
     // SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
+    String mess1=S.of(context).exit;
+    String mess2=S.of(context).exit_mess;
     bool? exit = await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('الخروج'),
-        content: Text('هل تريد الخروج  من التطبيق '),
+        title: Text(mess1),
+        content: Text(mess2),
         actions: [
           TextButton(
               onPressed: () {

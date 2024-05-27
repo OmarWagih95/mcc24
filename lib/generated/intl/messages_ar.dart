@@ -130,8 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "description": MessageLookupByLibrary.simpleMessage("التفاصيل"),
         "you_have_been_logged_in_successfully":
-            MessageLookupByLibrary.simpleMessage(
-                "تم تسجيل الدخول بنجاح"),
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول بنجاح"),
         "please_write_your_email_in_a_good_way":
             MessageLookupByLibrary.simpleMessage(
                 "اكتب الايميل بالصيغة الصحيحة"),
@@ -144,6 +143,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "رقم التليفون لا يقل عن 11 رقم"),
         "please_write_your_address":
             MessageLookupByLibrary.simpleMessage("من فضلك ادخل العنوان"),
-      
+        "Home_title1": MessageLookupByLibrary.simpleMessage("متاحون لخدمتكم"),
+        "Home_title2": MessageLookupByLibrary.simpleMessage("في اي وقت"),
+        "exit": MessageLookupByLibrary.simpleMessage("الخروج"),
+        "exit_mess": MessageLookupByLibrary.simpleMessage("هل انت متأكد من الخروج"),
       };
 }

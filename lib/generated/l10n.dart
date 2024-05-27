@@ -669,7 +669,7 @@ class S {
   }
   String get Home_title1 {
     return Intl.message(
-      'dedicated to perfiction',
+      'Available for servicing',
       name: 'Home_title1',
       desc: '',
       args: [],
@@ -677,7 +677,7 @@ class S {
   }
   String get Home_title2 {
     return Intl.message(
-      'every single time"',
+      'every single time',
       name: 'Home_title2',
       desc: '',
       args: [],
@@ -769,6 +769,20 @@ class S {
     return Intl.message(
       'log in first to request the service',
       name: 'log_in_first_to_request_the_service',
+      desc: '',
+      args: [],
+    );
+  }String get exit {
+    return Intl.message(
+      'exit',
+      name: 'exit',
+      desc: '',
+      args: [],
+    );
+  }String get exit_mess {
+    return Intl.message(
+      'you want to exit ?',
+      name: 'exit_mess',
       desc: '',
       args: [],
     );
