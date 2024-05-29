@@ -34,36 +34,40 @@ void main() async {
   await CashHelper.init();
   IsOnboardingFinished =
       CashHelper.getBool(key: 'IsOnboardingFinished') ?? false;
-
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (context) => LanguagesCubit()..changeLanguages('ar'),
-      ),
-      BlocProvider(
-        create: (context) => Dark_lightModeCubit()..darkAndlightMode('light'),
-      ),
-      BlocProvider<HomePageCubit>(
-        create: (context) => HomePageCubit()..getCategoriesData(),
-        child: HomePage(),
-      ),
-    ], 
-    child: BlocProvider(
-      create: (context) => ServicesCubit(),
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LanguagesCubit()..changeLanguages('ar'),
+        ),
+        BlocProvider(
+          create: (context) => Dark_lightModeCubit()..darkAndlightMode('light'),
+        ),
+        BlocProvider<HomePageCubit>(
+          create: (context) => HomePageCubit()..getCategoriesData(),
+          child: HomePage(),
+        ),
+      ],
       child: BlocProvider(
-        create: (context) => LoginCubit(),
+        create: (context) => ServicesCubit(),
         child: BlocProvider(
-          create: (context) => AuthCubit(),
+          create: (context) => LoginCubit(),
           child: BlocProvider(
-            create: (context) => OrderCubit(),
-            child: MyApp(
-              approuter: Approuter(),
+            create: (context) => AuthCubit() /* ..getUserData() */,
+            child: BlocProvider(
+              create: (context) => OrderCubit(),
+              child: MyApp(
+                approuter: Approuter(),
+              ),
             ),
           ),
         ),
       ),
-    ),
-  ));
+    ));
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -75,6 +79,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LanguagesCubit, LanguagesState>(
         builder: (context, state) {
+      //////////
+      getUserDate() async {
+        BlocProvider.of<AuthCubit>(context).user =
+            await BlocProvider.of<AuthCubit>(context).getUserData();
+      }
+
+      getUserDate();
+      ////////////
       if (state is LanguagesSuccessState) {
         log(state.language);
         return BlocBuilder<Dark_lightModeCubit, Dark_lightModeState>(

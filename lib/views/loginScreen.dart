@@ -1,7 +1,11 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/login_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/helpers/spacing.dart';
 import 'package:MCC/views/navpages/main_page.dart';
 import 'package:MCC/views/signeupScreen.dart';
@@ -40,14 +44,6 @@ class _LoginScreenState extends State<LoginScreen> {
           Fluttertoast.showToast(
               msg: S.of(context).you_have_been_logged_in_successfully);
 // لسا هغير اللغة
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (_) => mainpage(
-                  is_login: true,
-                  navigationIndexfromRouting: 2,
-                ),
-              ));
         }
       },
       builder: (context, state) {
@@ -139,33 +135,59 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ? const SpinKitCircle(
                                     color: FxColors.primary,
                                   )
-                                : TextButton(
-                                    onPressed: () async {
-                                      if (loginCubit.formKey.currentState!
-                                          .validate()) {
-                                        loginCubit.login();
-                                        await CashHelper.setData(
-                                          key: 'Islogin',
-                                          value: true,
-                                        );
-                                      }
-                                    },
-                                    style: ButtonStyle(
-                                        minimumSize: MaterialStateProperty.all(
-                                            const Size(double.infinity, 50)),
-                                        shape: MaterialStateProperty.all(
-                                            RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16))),
-                                        backgroundColor:
-                                            MaterialStateProperty.all(
-                                                FxColors.primary)),
-                                    child: Text(S.of(context).Login,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .displaySmall!
-                                            .copyWith(color: Colors.black)),
-                                  ),
+                                : (state is LoginSuccessState &&
+                                        BlocProvider.of<AuthCubit>(context)
+                                                .user ==
+                                            null)
+                                    ? const SpinKitCircle(
+                                        color: FxColors.primary,
+                                      )
+                                    : TextButton(
+                                        onPressed: () async {
+                                          if (loginCubit.formKey.currentState!
+                                              .validate()) {
+                                            await loginCubit.login();
+
+                                            await CashHelper.setData(
+                                              key: 'Islogin',
+                                              value: true,
+                                            );
+                                            Currindx = 0;
+                                            // changeremoteindex();
+                                            Timer(const Duration(seconds: 2),
+                                                () {
+                                              Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (_) => mainpage(
+                                                      is_login: true,
+                                                      // navigationIndexfromRouting: 2,
+                                                      ),
+                                                ),
+                                              );
+                                            });
+                                            log('نفذ تغيير الاندكس');
+                                          }
+                                        },
+                                        style: ButtonStyle(
+                                            minimumSize:
+                                                MaterialStateProperty.all(
+                                                    const Size(
+                                                        double.infinity, 50)),
+                                            shape: MaterialStateProperty.all(
+                                                RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16))),
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                    FxColors.primary)),
+                                        child: Text(S.of(context).Login,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall!
+                                                .copyWith(color: Colors.black)),
+                                      ),
                             verticalSpace(50.h),
                             RichText(
                               text: TextSpan(children: [

@@ -70,7 +70,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthCubitSignOutSuccess) {
-          // BlocProvider.of<AuthCubit>(context).user = null;
+          BlocProvider.of<AuthCubit>(context).user = null;
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(

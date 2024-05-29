@@ -11,10 +11,15 @@ part 'auth_state.dart';
 
 final CollectionReference usersCollection =
     FirebaseFirestore.instance.collection('users');
+userModel? user_;
+init() async {
+  user_ = await FirebaseUserServices().getUserData();
+  // debugPrint('${user.userID} fe alfunction tmaam');
+}
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
-  userModel? user;
+  userModel? user = user_;
   String? userID;
   String? userName;
   String? email;
@@ -81,10 +86,10 @@ class AuthCubit extends Cubit<AuthState> {
             'address': address
           }).then(
               (value) => debugPrint('success wldata tmaam wmsr btslm 3laik'));
-            debugPrint(email);
-            debugPrint(userName);
-            debugPrint(phoneNumber);
-            debugPrint(address);
+          debugPrint(email);
+          debugPrint(userName);
+          debugPrint(phoneNumber);
+          debugPrint(address);
           // await FirebaseUserServices().userInfo( email!, userName!, phoneNumber!, address!);
         } catch (e) {
           debugPrint('$e');
@@ -110,7 +115,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<userModel?> getUserData() async {
-    userModel? user = await FirebaseUserServices().getUserData();
+    user = await FirebaseUserServices().getUserData();
     // debugPrint('${user.userID} fe alfunction tmaam');
     return user;
   }

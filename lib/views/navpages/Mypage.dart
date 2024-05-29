@@ -29,6 +29,7 @@ class _MypageState extends State<Mypage> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<AuthCubit>(context).getUserData();
     /////////////////////////
     BlocProvider.of<OrderCubit>(context)
         .GetMyActiveOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);

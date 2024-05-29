@@ -19,20 +19,25 @@ void Function() changeremoteindex = () {};
 
 class mainpage extends StatefulWidget {
   final bool? is_login;
-  final int? navigationIndexfromRouting;
-  mainpage({super.key, this.is_login, this.navigationIndexfromRouting});
+  // final int? navigationIndexfromRouting;
+  mainpage({
+    super.key,
+    this.is_login,
+    /* this.navigationIndexfromRouting */
+  });
 
   @override
   State<mainpage> createState() => _mainpageState();
 }
 
 class _mainpageState extends State<mainpage> {
-  @override
   void changeremoteindexhelper() {
     setState(() {});
   }
 
+  @override
   void initState() {
+    super.initState();
     // TODO: implement initState
 
     getUserDate() async {
@@ -51,8 +56,8 @@ class _mainpageState extends State<mainpage> {
     //   return false;
     // } else {
     // SystemChannels.platform.invokeMethod<void>('SystemNavigator.pop');
-    String mess1=S.of(context).exit;
-    String mess2=S.of(context).exit_mess;
+    String mess1 = S.of(context).exit;
+    String mess2 = S.of(context).exit_mess;
     bool? exit = await showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -98,6 +103,7 @@ class _mainpageState extends State<mainpage> {
   Widget build(BuildContext context) {
     changeremoteindex = changeremoteindexhelper;
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
+
     return WillPopScope(
       onWillPop: () => _systemBackButtonPressed(context),
       child: Scaffold(
