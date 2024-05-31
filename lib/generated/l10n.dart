@@ -651,6 +651,132 @@ class S {
   }
 
   /// `Click here to log in`
+  String get You_are_already_logged_in {
+    return Intl.message(
+      'You \'re already logged in',
+      name: 'You_are_already_logged_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get username {
+    return Intl.message(
+      'username',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Home_title1 {
+    return Intl.message(
+      'dedicated to perfiction',
+      name: 'Home_title1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get Home_title2 {
+    return Intl.message(
+      'every single time"',
+      name: 'Home_title2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get you_have_been_logged_in_successfully {
+    return Intl.message(
+      'you have been logged in successfully',
+      name: 'you_have_been_logged_in_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get please_write_your_email_in_a_good_way {
+    return Intl.message(
+      'please write your email in a good way',
+      name: 'please_write_your_email_in_a_good_way',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get password_must_be_8_char_at_least {
+    return Intl.message(
+      'epassword must be 8 char at least',
+      name: 'password_must_be_8_char_at_least',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get please_write_your_username {
+    return Intl.message(
+      'please write your username',
+      name: 'please_write_your_username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get phone_number_must_be_11_char {
+    return Intl.message(
+      'phone number must be 11 char',
+      name: 'phone_number_must_be_11_char',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get please_write_your_address {
+    return Intl.message(
+      'please write your address',
+      name: 'please_write_your_address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get description {
+    return Intl.message(
+      'description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get ServiceName {
+    return Intl.message(
+      'ServiceName',
+      name: 'ServiceName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get address {
+    return Intl.message(
+      'address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get No_offers_now {
+    return Intl.message(
+      'No offers now',
+      name: 'No_offers_now',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get Click_here_to_log_in {
     return Intl.message(
       'Click here to log in',
@@ -660,7 +786,6 @@ class S {
     );
   }
 
-  /// `log in first to request the service`
   String get log_in_first_to_request_the_service {
     return Intl.message(
       'log in first to request the service',
@@ -670,11 +795,28 @@ class S {
     );
   }
 
-  /// `No offers now`
-  String get No_offers_now {
+  String get Click_here_to_log_in_toshowyourOrders {
     return Intl.message(
-      'No offers now',
-      name: 'No_offers_now',
+      'Click here to log in to show your orders',
+      name: 'Click_here_to_log_in_toshowyourOrders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get exit {
+    return Intl.message(
+      'exit',
+      name: 'exit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get exit_mess {
+    return Intl.message(
+      'exit_mess',
+      name: 'exit_mess',
       desc: '',
       args: [],
     );
