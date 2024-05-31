@@ -5,13 +5,14 @@ import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
 import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/views/loginScreen.dart';
+import 'package:MCC/views/navpages/MyOrderBeforelogin.dart';
 import 'package:MCC/views/navpages/SettingsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bakaatSeyanaa.dart';
 import '/views/navpages/HomePage.dart';
-import '/views/navpages/Mypage.dart';
+import '/views/navpages/MyOrder.dart';
 
 int Currindx = 0;
 int get getCurrindx => Currindx;
@@ -86,13 +87,14 @@ class _mainpageState extends State<mainpage> {
   final List<GlobalKey<NavigatorState>> _navigatorKeys = [
     HomePageNavigatorKey,
     LoginScreenNavigatorKey,
+    MyOrderBeforeloginKey,
     MypageNavigatorKey,
     SettingsPageNavigatorKey,
     bakaatSeyanaaNavigatorKey,
   ];
   List<Widget> pages = [
     HomePage(),
-    LoginScreen(),
+    MyOrderBeforelogin(),
     SettingsPage(),
     bakaatSeyanaa()
   ];
@@ -101,9 +103,8 @@ class _mainpageState extends State<mainpage> {
 
   @override
   Widget build(BuildContext context) {
-    changeremoteindex = changeremoteindexhelper;
     Islogin = CashHelper.getBool(key: 'Islogin') ?? false;
-
+    changeremoteindex = changeremoteindexhelper;
     return WillPopScope(
       onWillPop: () => _systemBackButtonPressed(context),
       child: Scaffold(

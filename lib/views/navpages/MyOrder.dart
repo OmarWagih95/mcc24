@@ -14,6 +14,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+late void Function() MyorderRestart;
+
 List FinishedOrders = [];
 
 class Mypage extends StatefulWidget {
@@ -26,10 +28,22 @@ class Mypage extends StatefulWidget {
 GlobalKey<NavigatorState> MypageNavigatorKey = GlobalKey<NavigatorState>();
 
 class _MypageState extends State<Mypage> {
+  void changeremoteindexhelper() {
+    BlocProvider.of<OrderCubit>(context)
+        .GetMyActiveOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
+    /////////////////////
+    void getFinishedOrders() async {
+      FinishedOrders = await BlocProvider.of<OrderCubit>(context)
+          .GetMyFinishedOrders(
+              BlocProvider.of<AuthCubit>(context).user!.userID!);
+    }
+
+    getFinishedOrders();
+  }
+
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<AuthCubit>(context).getUserData();
     /////////////////////////
     BlocProvider.of<OrderCubit>(context)
         .GetMyActiveOrders(BlocProvider.of<AuthCubit>(context).user!.userID!);
@@ -45,6 +59,7 @@ class _MypageState extends State<Mypage> {
 
   @override
   Widget build(BuildContext context) {
+    MyorderRestart = changeremoteindexhelper;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -207,17 +222,6 @@ class activeOrders extends StatelessWidget {
                               .length -
                           1,
                       itemBuilder: (BuildContext context, int index) {
-                        String serviceName =
-                            (Localizations.localeOf(context).languageCode ==
-                                    'ar')
-                                ? BlocProvider.of<OrderCubit>(context)
-                                    .ordersQueryDocsList[index]
-                                    .service
-                                    .AR['serviceName']
-                                : BlocProvider.of<OrderCubit>(context)
-                                    .ordersQueryDocsList[index]
-                                    .service
-                                    .EN['serviceName'];
                         return Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 10.w, vertical: 20.h),

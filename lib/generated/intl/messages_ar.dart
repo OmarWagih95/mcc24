@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Adress": MessageLookupByLibrary.simpleMessage("العنوان"),
         "Arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "Brightness_change":
-            MessageLookupByLibrary.simpleMessage("تفعيل الوضع الليلي"),
+            MessageLookupByLibrary.simpleMessage("تغيير الاضاءة"),
         "Choose_Language_Of_The_Interface":
             MessageLookupByLibrary.simpleMessage("اختار لغة واجهة التطبيق "),
         "Choose_your_service_easily":
@@ -69,7 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لاتوجد باقات صيانة الأن"),
         "Phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
         "Please_write_the_description":
-            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف."),
+            MessageLookupByLibrary.simpleMessage("يرجى كتابة الوصف"),
         "Remember_me": MessageLookupByLibrary.simpleMessage(" تذكرني"),
         "Search_for_service_or_product":
             MessageLookupByLibrary.simpleMessage("ابحث عن خدمة او منتج"),
@@ -81,7 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Sign_IN": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "Sign_Up": MessageLookupByLibrary.simpleMessage("قم بأنشاء حساب "),
         "Sign_out": MessageLookupByLibrary.simpleMessage("تسجيل خروج"),
-        "Text_Us": MessageLookupByLibrary.simpleMessage("راسلنا"),
+        "Text_Us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
                 "دردش معنا مباشرة لأي مساعدة او استفسار"),
@@ -146,6 +146,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "Home_title1": MessageLookupByLibrary.simpleMessage("متاحون لخدمتكم"),
         "Home_title2": MessageLookupByLibrary.simpleMessage("في اي وقت"),
         "exit": MessageLookupByLibrary.simpleMessage("الخروج"),
-        "exit_mess": MessageLookupByLibrary.simpleMessage("هل انت متأكد من الخروج"),
+        "exit_mess":
+            MessageLookupByLibrary.simpleMessage("هل انت متأكد من الخروج"),
+        "Click_here_to_log_in_toshowyourOrders":
+            MessageLookupByLibrary.simpleMessage(
+                "اضغط هنا لتسجيل الدخول و مشاهدة طلباتك"),
+        "You_are_already_logged_in":
+            MessageLookupByLibrary.simpleMessage("انت مسجل دخول بالفعل"),
       };
 }

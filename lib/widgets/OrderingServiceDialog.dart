@@ -1,6 +1,7 @@
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/order_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/views/navpages/MyOrder.dart';
 import 'package:MCC/widgets/MyButtonW.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -250,6 +251,7 @@ class OrderingServiceDialog extends StatelessWidget {
                                         .user!
                                         .userID!,
                                     service.id);
+                                MyorderRestart();
                                 // debugPrint('tmaaaaam');
                               }
                             },

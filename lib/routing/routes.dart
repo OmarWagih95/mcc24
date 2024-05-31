@@ -9,5 +9,6 @@ class Routes {
   static const String CategoryserviceScreen = 'CategoryserviceScreen';
   static const String settingsPage = 'settingsPage';
   static const String LoginScreen = 'LoginScreen';
+  static const String MyOrderBeforeloginKey = 'MyOrderBeforeloginKey';
   static const String Categoryvideo = 'Categoryvideo';
 }

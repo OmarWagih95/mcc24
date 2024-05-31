@@ -32,8 +32,14 @@ void main() async {
 
   Bloc.observer = MyBlocObserver();
   await CashHelper.init();
+
   IsOnboardingFinished =
       CashHelper.getBool(key: 'IsOnboardingFinished') ?? false;
+
+  language = CashHelper.getString(key: 'language');
+
+  brightness = CashHelper.getString(key: 'brightness');
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -95,7 +101,9 @@ class MyApp extends StatelessWidget {
               designSize: const Size(380, 812), // used for
               minTextAdapt: true, // used for
               child: MaterialApp(
-                locale: Locale(state.language),
+                locale: (language == null)
+                    ? Locale(state.language)
+                    : Locale(language!),
                 localizationsDelegates: const [
                   S.delegate,
                   GlobalMaterialLocalizations.delegate,
@@ -104,9 +112,15 @@ class MyApp extends StatelessWidget {
                 ],
                 supportedLocales: S.delegate.supportedLocales,
                 debugShowCheckedModeBanner: false,
-                theme:
-                    (mode is LightModeState) ? getlightTheme() : getDarkTheme(),
-                initialRoute: (!IsOnboardingFinished)
+                // check if first time to run app (no cash) take the initial value of the state
+                theme: (brightness == null)
+                    ? (mode is LightModeState)
+                        ? getlightTheme()
+                        : getDarkTheme()
+                    : (brightness == 'light')
+                        ? getlightTheme()
+                        : getDarkTheme(),
+                initialRoute: (!IsOnboardingFinished!)
                     ? Routes.selectLanguagePage
                     : Routes.mainPage,
                 onGenerateRoute: approuter.generateRoute,

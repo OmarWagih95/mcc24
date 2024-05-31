@@ -765,6 +765,13 @@ class S {
       desc: '',
       args: [],
     );
+  }String get Click_here_to_log_in_toshowyourOrders {
+    return Intl.message(
+      'Click here to log in to show your orders',
+      name: 'Click_here_to_log_in_toshowyourOrders',
+      desc: '',
+      args: [],
+    );
   }String get log_in_first_to_request_the_service {
     return Intl.message(
       'log in first to request the service',

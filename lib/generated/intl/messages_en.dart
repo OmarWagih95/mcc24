@@ -82,7 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Sign_IN": MessageLookupByLibrary.simpleMessage("Sign in "),
         "Sign_Up": MessageLookupByLibrary.simpleMessage("Sign up "),
         "Sign_out": MessageLookupByLibrary.simpleMessage("Sign out"),
-        "Text_Us": MessageLookupByLibrary.simpleMessage("Text Us"),
+        "Text_Us": MessageLookupByLibrary.simpleMessage("contact Us"),
         "Text_us_for_any_help_or_question":
             MessageLookupByLibrary.simpleMessage(
                 "Text us for any help or question"),
@@ -153,9 +153,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Available for servicing"),
         "Home_title2":
             MessageLookupByLibrary.simpleMessage("every single time"),
-        "exit":
-            MessageLookupByLibrary.simpleMessage("exit"),
+        "exit": MessageLookupByLibrary.simpleMessage("exit"),
         "exit_mess":
             MessageLookupByLibrary.simpleMessage("do you want to exit ?"),
+        "Click_here_to_log_in_toshowyourOrders":
+            MessageLookupByLibrary.simpleMessage("Click here to log in to show your orders"),
+             "You_are_already_logged_in":
+            MessageLookupByLibrary.simpleMessage("You are already logged in"),
       };
 }
+            

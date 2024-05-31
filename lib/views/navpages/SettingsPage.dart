@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:MCC/cash/shared_pref.dart';
 import 'package:MCC/constants/colors.dart';
 import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/darkModeCubit.dart';
@@ -16,6 +17,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+void cashlanguage(String lan) async {
+  // to do
+  language = lan;
+  await CashHelper.setData(
+    key: 'language',
+    value: language,
+  );
+}
+
+void cashbrightness(String mod) async {
+  // to do
+  brightness = mod;
+  await CashHelper.setData(
+    key: 'brightness',
+    value: brightness,
+  );
+}
 
 enum SocialMedia { snapShat, instgram, whatsapp, email }
 
@@ -78,6 +97,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ((Localizations.localeOf(context).languageCode) == 'en')
                       ? 'ar'
                       : 'en');
+              cashlanguage(Localizations.localeOf(context).languageCode);
             }),
             SettingsListItem(Icons.share, S.of(context).Share_Application,
                 () async {
@@ -85,7 +105,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   'check out our instagram at https://www.instagram.com/memar_corner_mcc?igsh=bGp2Z3g0YWk0NWRv&utm_source=qr',
                   subject: 'welcome to MCC ');
             }),
-            // SettingsListItem(Icons.info, S.of(context).Who_Are, () {}),
             SettingsListItem(Icons.person, S.of(context).Sign_IN, () {
               // here condition if login or not
               (Islogin == true)
@@ -102,6 +121,9 @@ class _SettingsPageState extends State<SettingsPage> {
               log(' from onPressed1 mode is $mode');
               BlocProvider.of<Dark_lightModeCubit>(context)
                   .darkAndlightMode(mode == 'light' ? 'dark' : 'light');
+
+              cashbrightness(
+                  BlocProvider.of<Dark_lightModeCubit>(context).mode);
             }),
             SizedBox(
               height: 30.h,
@@ -128,7 +150,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   height: 10.h,
                 ),
                 Card(
-                  elevation: .5,
+                  elevation: .5.w,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

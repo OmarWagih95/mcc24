@@ -5,8 +5,8 @@ import 'package:MCC/cubits/LanguagesCupit.dart';
 import 'package:MCC/cubits/SearchCupit.dart';
 import 'package:MCC/cubits/auth_cubit.dart';
 import 'package:MCC/cubits/darkModeCubit.dart';
-import 'package:MCC/cubits/home_page_cubit.dart';
 import 'package:MCC/generated/l10n.dart';
+import 'package:MCC/helpers/constants.dart';
 import 'package:MCC/model/category.dart';
 import 'package:MCC/routing/app_router.dart';
 import 'package:MCC/routing/routes.dart';
@@ -14,8 +14,24 @@ import 'package:MCC/views/navpages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../views/MyOrdersScreen.dart';
-import '../views/loginScreen.dart';
+
+void cashlanguage(String lan) async {
+  // to do
+  language = lan;
+  await CashHelper.setData(
+    key: 'language',
+    value: language,
+  );
+}
+
+void cashbrightness(String mod) async {
+  // to do
+  brightness = mod;
+  await CashHelper.setData(
+    key: 'brightness',
+    value: brightness,
+  );
+}
 
 class searchbar extends StatelessWidget {
   final List<Categoryy> DUMMY_CATEGORIES;
@@ -91,16 +107,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.only(
-                          topRight: Radius.elliptical(50, 50),
-                          bottomLeft: Radius.elliptical(50, 50)),
+                          topRight: Radius.elliptical(50.w, 50.h),
+                          bottomLeft: Radius.elliptical(50.w, 50.h)),
                       child: Container(
                         decoration: BoxDecoration(
                             // borderRadius: BorderRadius.circular(150)
                             ),
                         padding: EdgeInsets.zero,
                         child: Image.asset(
-                          width: 130,
-                          height: 130,
+                          width: 130.w,
+                          height: 130.h,
                           'img/mmcassits/logo.png',
                           fit: BoxFit.fitWidth,
                         ),
@@ -179,6 +195,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       ((Localizations.localeOf(context).languageCode) == 'en')
                           ? 'ar'
                           : 'en');
+                  cashlanguage(Localizations.localeOf(context).languageCode);
                 },
               ),
               SwitchListTile(
@@ -189,6 +206,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onChanged: (value) {
                   BlocProvider.of<Dark_lightModeCubit>(context)
                       .darkAndlightMode(value == false ? 'dark' : 'light');
+                  cashbrightness(
+                      BlocProvider.of<Dark_lightModeCubit>(context).mode);
+                  // CashHelper.setData(
+                  //     key: 'brigtness',
+                  //     value:
+                  //         (BlocProvider.of<Dark_lightModeCubit>(context).mode));
                 },
                 title:
                     Text(S.of(context).Brightness_change, style: TextStyle()),

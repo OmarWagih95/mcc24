@@ -8,6 +8,7 @@ import 'package:MCC/widgets/homePageHelperWidgets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flick_video_player/flick_video_player.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -312,19 +313,21 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                                             .textTheme
                                             .displaySmall,
                                       ),
-                                      ElevatedButton(
-                                        onPressed: () {
+                                      GestureDetector(
+                                        onTap: () {
                                           Navigator.of(context)
                                               .pushReplacementNamed(
                                                   Routes.LoginScreen);
                                         },
-                                        child: Text(
-                                          S
+                                        child: MyButton(
+                                          text: S
                                               .of(context)
                                               .log_in_first_to_request_the_service,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .displaySmall,
+                                          onClick: null,
+                                          textColor:
+                                              Theme.of(context).primaryColor,
+                                          buttonColor: Theme.of(context)
+                                              .scaffoldBackgroundColor,
                                         ),
                                       ),
                                     ],

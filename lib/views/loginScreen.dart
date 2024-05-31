@@ -48,34 +48,34 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          drawer: CustomDrawer(),
           body: SingleChildScrollView(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SafeArea(
-                child: customAppbar(
-                  arrow: false,
-                  title: S.of(context).My_Order,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SafeArea(
+                  child: customAppbar(
+                    arrow: true,
+                    title: S.of(context).Login,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 40.h,
-                    ),
-                    Text(S.of(context).Welcome_Back,
-                        style: Theme.of(context).textTheme.displayLarge!),
-                    verticalSpace(8),
-                    Text(
-                      S.of(context).We_are_excited_to_have_you_back,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    verticalSpace(32),
-                    Form(
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 40.h,
+                      ),
+                      Text(S.of(context).Welcome_Back,
+                          style: Theme.of(context).textTheme.displayLarge!),
+                      verticalSpace(8),
+                      Text(
+                        S.of(context).We_are_excited_to_have_you_back,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      verticalSpace(32),
+                      Form(
                         key: loginCubit.formKey,
                         child: Column(
                           children: [
@@ -131,63 +131,62 @@ class _LoginScreenState extends State<LoginScreen> {
                             //           Theme.of(context).textTheme.bodyMedium),
                             // ]),
                             verticalSpace(20),
-                            state is LoginLoadingState
+                            (state is LoginLoadingState) ||
+                                    ((state is LoginSuccessState &&
+                                        BlocProvider.of<AuthCubit>(context)
+                                                .user ==
+                                            null))
                                 ? const SpinKitCircle(
                                     color: FxColors.primary,
                                   )
-                                : (state is LoginSuccessState &&
-                                        BlocProvider.of<AuthCubit>(context)
-                                                .user ==
-                                            null)
-                                    ? const SpinKitCircle(
-                                        color: FxColors.primary,
-                                      )
-                                    : TextButton(
-                                        onPressed: () async {
-                                          if (loginCubit.formKey.currentState!
-                                              .validate()) {
-                                            await loginCubit.login();
+                                : TextButton(
+                                    onPressed: () async {
+                                      if (loginCubit.formKey.currentState!
+                                          .validate()) {
+                                        await loginCubit.login();
 
-                                            await CashHelper.setData(
-                                              key: 'Islogin',
-                                              value: true,
-                                            );
-                                            Currindx = 0;
-                                            // changeremoteindex();
-                                            Timer(const Duration(seconds: 2),
-                                                () {
-                                              Navigator.pushReplacement(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (_) => mainpage(
-                                                      is_login: true,
-                                                      // navigationIndexfromRouting: 2,
-                                                      ),
-                                                ),
-                                              );
-                                            });
-                                            log('نفذ تغيير الاندكس');
-                                          }
-                                        },
-                                        style: ButtonStyle(
-                                            minimumSize:
-                                                MaterialStateProperty.all(
-                                                    const Size(
-                                                        double.infinity, 50)),
-                                            shape: MaterialStateProperty.all(
-                                                RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            16))),
-                                            backgroundColor:
-                                                MaterialStateProperty.all(
-                                                    FxColors.primary)),
-                                        child: Text(S.of(context).Login,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .displaySmall!
-                                                .copyWith(color: Colors.black)),
+                                        await CashHelper.setData(
+                                          key: 'Islogin',
+                                          value: true,
+                                        );
+                                        Currindx = 0;
+                                        // changeremoteindex();
+                                        Timer(const Duration(seconds: 1), () {
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (_) => mainpage(
+                                                is_login: true,
+                                                // navigationIndexfromRouting: 2,
+                                              ),
+                                            ),
+                                          );
+                                        });
+                                        log('نفذ تغيير الاندكس');
+                                      }
+                                    },
+                                    style: ButtonStyle(
+                                      minimumSize: MaterialStateProperty.all(
+                                        const Size(double.infinity, 50),
                                       ),
+                                      shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                        ),
+                                      ),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              FxColors.primary),
+                                    ),
+                                    child: Text(
+                                      S.of(context).Login,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(color: Colors.black),
+                                    ),
+                                  ),
                             verticalSpace(50.h),
                             RichText(
                               text: TextSpan(children: [
@@ -202,13 +201,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TextSpan(
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-                                        Navigator.of(context)
-                                            .push(MaterialPageRoute(
-                                          builder: (context) => BlocProvider(
-                                            create: (context) => AuthCubit(),
-                                            child: SigneUpScreen(),
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) => BlocProvider(
+                                              create: (context) => AuthCubit(),
+                                              child: SigneUpScreen(),
+                                            ),
                                           ),
-                                        ));
+                                        );
                                       },
                                     text: S.of(context).Sign_Up,
                                     style: Theme.of(context)
@@ -221,12 +221,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               textAlign: TextAlign.center,
                             )
                           ],
-                        ))
-                  ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          )),
+              ],
+            ),
+          ),
         );
       },
     );
